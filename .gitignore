@@ -1,0 +1,11 @@
+.DS_STORE
+node_modules
+*~
+dist/
+.module-cache
+*.log*
+.idea
+*.iml
+.vscode
+*.swp
+*.swo
