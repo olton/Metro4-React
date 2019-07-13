@@ -29,6 +29,7 @@ export default class Accordion extends React.Component{
 
     render(){
         const accordionClassName = `accordion ${this.props.dataClsAccordion} ${this.props.dataMarker ? 'marker-on' : ''}`;
+
         return (
             <div className={accordionClassName}>
                 {this.props.children}
