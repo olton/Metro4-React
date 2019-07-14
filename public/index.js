@@ -1,16 +1,19 @@
 import React from "react";
 import ReactDom from "react-dom";
 
-import "../src/common/metro-common.css";
-import "../src/colors/metro-colors.css";
+import "../src/common/metro-common.less";
+import "../src/colors/metro-colors.less";
 
-import {Grid, Row, Cell} from "../src/components/grid/grid"
+import {Grid, Row, Cell} from "../src/components/grid/grid.jsx"
 
-import Activity from "../src/components/activity/activity";
-import "../src/components/activity/activity.css";
+import Activity from "../src/components/activity/activity.jsx";
+
+import Accordion from "../src/components/accordion/accordion.jsx";
+import AccordionFrame from "../src/components/accordion/frame.jsx";
 
 ReactDom.render(
     <Grid>
+        <h1>Activities</h1>
         <Row>
             <Cell dataCls="cell-md-4 bg-darkGray p-2">
                 <Activity dataType="ring" dataStyle="light" dataCls="mx-auto"/>
@@ -70,6 +73,29 @@ ReactDom.render(
                 <Activity dataType="simple" dataStyle="color" dataCls="mx-auto"/>
             </Cell>
         </Row>
+
+        <h1>Accordion</h1>
+        <Row>
+            <Cell dataCls="w-100">
+                <Accordion>
+                    <AccordionFrame dataTitle="Head 1">
+                        Season eight tablespoons of blueberries in four pounds of fish sauce.
+                        Season eight tablespoons of blueberries in four pounds of fish sauce.
+                        Season eight tablespoons of blueberries in four pounds of fish sauce.
+                    </AccordionFrame>
+                    <AccordionFrame dataTitle="Head 2">
+                        Dogma is the only samadhi, the only guarantee of fear.
+                        Dogma is the only samadhi, the only guarantee of fear.
+                        Dogma is the only samadhi, the only guarantee of fear.
+                    </AccordionFrame>
+                    <AccordionFrame dataTitle="Head 3">
+                        None of these coordinates will be lost in voyages like devastations in mysteries
+                        None of these coordinates will be lost in voyages like devastations in mysteries
+                        None of these coordinates will be lost in voyages like devastations in mysteries
+                    </AccordionFrame>
+                </Accordion>
+            </Cell>
+        </Row>
     </Grid>
-    , document.getElementById("activities")
+    , document.getElementById("mount")
 );

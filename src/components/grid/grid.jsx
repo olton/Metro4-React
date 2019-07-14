@@ -1,5 +1,5 @@
 import React from "react";
-import "./grid.css";
+import "./grid.less";
 
 export class Cell extends React.Component {
 

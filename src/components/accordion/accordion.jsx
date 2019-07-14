@@ -1,6 +1,6 @@
 import React from "react";
-import "./accordion.css"
-import "./accordion-rtl.css"
+import "./accordion.less";
+import "./accordion-rtl.less";
 
 export default class Accordion extends React.Component{
     static defaultProps = {
@@ -27,6 +27,10 @@ export default class Accordion extends React.Component{
         dataOnAccordionCreate: () => {}
     };
 
+    hideFrames(){
+
+    }
+
     render(){
         const accordionClassName = `accordion ${this.props.dataClsAccordion} ${this.props.dataMarker ? 'marker-on' : ''}`;
 
@@ -34,6 +38,6 @@ export default class Accordion extends React.Component{
             <div className={accordionClassName}>
                 {this.props.children}
             </div>
-        );
+        )
     }
 }

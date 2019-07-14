@@ -1,9 +1,11 @@
 import React from "react";
-import Ring from "./ring";
-import Metro from "./metro";
-import Square from "./square";
-import Cycle from "./cycle";
-import Simple from "./simple";
+import Ring from "./ring.jsx";
+import Metro from "./metro.jsx";
+import Square from "./square.jsx";
+import Cycle from "./cycle.jsx";
+import Simple from "./simple.jsx";
+
+import "./activity.less";
 
 export default class Activity extends React.Component {
 
