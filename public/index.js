@@ -4,9 +4,7 @@ import ReactDom from "react-dom";
 import "../src/common/metro-common.css";
 import "../src/colors/metro-colors.css";
 
-import Grid from "../src/components/grid/grid"
-import Row from "../src/components/grid/row"
-import Cell from "../src/components/grid/cell"
+import {Grid, Row, Cell} from "../src/components/grid/grid"
 
 import Activity from "../src/components/activity/activity";
 import "../src/components/activity/activity.css";

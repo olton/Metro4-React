@@ -1,14 +1,25 @@
 {
-  "name": "react-scratch",
-  "version": "1.0.0",
-  "description": "Template for React project",
+  "name": "metro4-react",
+  "version": "0.0.1",
+  "description": "Metro 4 for React",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/olton/Metro4-React.git"
+  },
+  "bugs": {
+    "url": "https://github.com/olton/Metro4-React/issues"
+  },
+  "homepage": "https://github.com/olton/Metro4-React.git",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack",
     "dev": "webpack-dev-server --open"
   },
   "author": "Sergey Pimenov <sergey@pimenov.com.ua>",
   "license": "MIT",
+  "keywords": [
+
+  ],
   "devDependencies": {
     "@babel/core": "^7.5.4",
     "@babel/plugin-proposal-class-properties": "^7.5.0",
@@ -26,6 +37,7 @@
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss-loader": "^3.0.0",
     "style-loader": "^0.23.1",
+    "terser-webpack-plugin": "^1.3.0",
     "webpack": "^4.35.3",
     "webpack-cli": "^3.3.5",
     "webpack-dev-server": "^3.7.2"

@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require( 'html-webpack-plugin' );
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const TerserJSPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
@@ -17,17 +18,20 @@ const webpackConfig = {
     },
     optimization: {
         minimize: isProduction,
-        minimizer: [new OptimizeCssAssetsPlugin({
-            assetNameRegExp: /\.min\.css$/g,
-            cssProcessor: require('cssnano'),
-            cssProcessorPluginOptions: {
-                preset: ['default', { discardComments: { removeAll: true } }],
-            },
-            canPrint: true
-        })],
+        minimizer: [
+            new TerserJSPlugin({}),
+            new OptimizeCssAssetsPlugin({})],
         splitChunks: {
             chunks: "all",
-            name: true
+            name: true,
+            cacheGroups: {
+                styles: {
+                    name: 'styles',
+                    test: /\.css$/,
+                    chunks: 'all',
+                    enforce: true,
+                },
+            },
         }
     },
     module: {
