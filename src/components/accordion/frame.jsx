@@ -2,6 +2,7 @@ import React from "react";
 
 export default class AccordionFrame extends React.Component {
     static defaultProps = {
+        dataFrame: null,
         open: false,
         dataTitle: "",
         dataClsFrame: "",
@@ -20,13 +21,14 @@ export default class AccordionFrame extends React.Component {
 
     render(){
         const {open} = this.props;
+        const props = this.props;
 
         return (
-            <div className={'frame ' + this.props.dataClsFrame}>
-                <div className={'heading ' + this.props.dataClsFrameHeading} onClick={this.onHeadingClick}>{this.props.dataTitle}</div>
+            <div className={'frame ' + props.dataClsFrame}>
+                <div className={'heading ' + props.dataClsFrameHeading} onClick={this.onHeadingClick}>{props.dataTitle}</div>
                 {open && (
-                    <div className={'content ' + this.props.dataClsFrameContent}>
-                        {this.props.children}
+                    <div className={'content ' + props.dataClsFrameContent}>
+                        {props.children}
                     </div>
                 )}
             </div>
