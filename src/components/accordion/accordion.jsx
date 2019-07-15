@@ -10,6 +10,9 @@ export default class Accordion extends React.Component{
         dataOneFrame: true,
 
         dataClsAccordion: "",
+        dataClsFrame: "",
+        dataClsFrameHeading: "",
+        dataClsFrameContent: "",
 
         dataOnFrameOpen: () => {},
         dataOnFrameBeforeOpen: () => true,
@@ -68,9 +71,9 @@ export default class Accordion extends React.Component{
                     children.map( (frame, index) => (
                         <AccordionFrame key={index}
                                         dataTitle={frame.props.dataTitle}
-                                        dataClsFrame={frame.props.dataClsFrame}
-                                        dataClsFrameHeading={frame.props.dataClsFrameHeading}
-                                        dataClsFrameContent={frame.props.dataClsFrameContent}
+                                        dataClsFrame={this.props.dataClsFrame+ ' ' + frame.props.dataClsFrame}
+                                        dataClsFrameHeading={this.props.dataClsFrameHeading+ ' ' + frame.props.dataClsFrameHeading}
+                                        dataClsFrameContent={this.props.dataClsFrameContent+ ' ' + frame.props.dataClsFrameContent}
                                         open={!!this.state.openFrames[index]}
                                         onHeadingClick={this.clickFrameHeading}
                                         dataFrame={index}>
