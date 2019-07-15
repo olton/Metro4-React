@@ -77,18 +77,18 @@ ReactDom.render(
         <h1>Accordion</h1>
         <Row>
             <Cell dataCls="w-100">
-                <Accordion>
-                    <AccordionFrame dataTitle="Head 1">
+                <Accordion dataMaterial={false} dataOneFrame={false}>
+                    <AccordionFrame dataTitle="Head 1" >
                         Season eight tablespoons of blueberries in four pounds of fish sauce.
                         Season eight tablespoons of blueberries in four pounds of fish sauce.
                         Season eight tablespoons of blueberries in four pounds of fish sauce.
                     </AccordionFrame>
-                    <AccordionFrame dataTitle="Head 2">
+                    <AccordionFrame dataTitle="Head 2" open>
                         Dogma is the only samadhi, the only guarantee of fear.
                         Dogma is the only samadhi, the only guarantee of fear.
                         Dogma is the only samadhi, the only guarantee of fear.
                     </AccordionFrame>
-                    <AccordionFrame dataTitle="Head 3">
+                    <AccordionFrame dataTitle="Head 3" open dataClsFrameHeading="bg-red fg-white" dataClsFrameContent="bg-light p-4">
                         None of these coordinates will be lost in voyages like devastations in mysteries
                         None of these coordinates will be lost in voyages like devastations in mysteries
                         None of these coordinates will be lost in voyages like devastations in mysteries

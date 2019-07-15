@@ -2,33 +2,33 @@ import React from "react";
 
 export default class AccordionFrame extends React.Component {
     static defaultProps = {
+        open: false,
         dataTitle: "",
         dataClsFrame: "",
         dataClsFrameHeading: "",
-        dataClsFrameContent: "",
+        dataClsFrameContent: ""
     };
 
     constructor(props){
         super(props);
-        this.state = {
-            open: false
-        };
         this.onHeadingClick = this.onHeadingClick.bind(this);
     }
 
     onHeadingClick(){
-        this.setState(prevState => ({
-            open: !prevState.open
-        }))
+        this.props.onHeadingClick(this.props.dataFrame);
     }
 
     render(){
+        const {open} = this.props;
+
         return (
-            <div className="frame">
-                <div className="heading" onClick={this.onHeadingClick}>{this.props.dataTitle}</div>
-                <div className="content" hidden={this.state.open}>
-                    {this.props.children}
-                </div>
+            <div className={'frame ' + this.props.dataClsFrame}>
+                <div className={'heading ' + this.props.dataClsFrameHeading} onClick={this.onHeadingClick}>{this.props.dataTitle}</div>
+                {open && (
+                    <div className={'content ' + this.props.dataClsFrameContent}>
+                        {this.props.children}
+                    </div>
+                )}
             </div>
         )
     }
