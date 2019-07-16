@@ -17,7 +17,7 @@ import Switch from "../src/components/switch/switch.jsx";
 
 ReactDom.render(
     <Grid>
-        <h1>Activities</h1>
+        <h2 className="text-light">Activities</h2>
         <Row>
             <Cell dataCls="cell-md-4 bg-darkGray p-2">
                 <Activity dataType="ring" dataStyle="light" dataCls="mx-auto"/>
@@ -78,7 +78,7 @@ ReactDom.render(
             </Cell>
         </Row>
 
-        <h1>Accordion</h1>
+        <h2 className="text-light">Accordion</h2>
         <Row>
             <Cell dataCls="w-100">
                 <Accordion dataMaterial={false} dataOneFrame={false} dataClsFrameContent="p-4">
@@ -97,7 +97,7 @@ ReactDom.render(
                         None of these coordinates will be lost in voyages like devastations in mysteries
                         None of these coordinates will be lost in voyages like devastations in mysteries
 
-                        <h3>Nested accordion</h3>
+                        <h2>Nested accordion</h2>
                         <Accordion dataMaterial={true} dataOneFrame={true} dataClsFrameContent="p-4" dataClsAccordion="border bd-default" dataClsFrameHeading="bg-light">
                             <AccordionFrame dataTitle="Head 1" open>
                                 Season eight tablespoons of blueberries in four pounds of fish sauce.
@@ -121,7 +121,7 @@ ReactDom.render(
             </Cell>
         </Row>
 
-        <h1>Checkbox, radio, switch</h1>
+        <h2 className="text-light">Checkbox, radio, switch</h2>
         <Row>
             <Cell dataCls="cell-md-4">
                 <div>
