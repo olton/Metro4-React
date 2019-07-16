@@ -14,7 +14,9 @@ export default class Radio extends React.Component {
         dataClsCheck: "",
         dataClsCaption: "",
 
-        onRadioChange: ()=>{}
+        onChange: ()=>{},
+        onCheck: ()=>{},
+        onUnCheck: ()=>{}
     };
 
     constructor(props){
@@ -31,7 +33,8 @@ export default class Radio extends React.Component {
         this.setState({
             checked: state
         });
-        this.props.onChange(e.target, state)
+        this.props.onChange(e.target, state);
+        this.props[state ? 'onCheck' : 'onUnCheck'](e.target, state);
     }
 
     render(){

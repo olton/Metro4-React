@@ -14,13 +14,15 @@ export default class Checkbox extends React.Component {
         dataClsCheck: "",
         dataClsCaption: "",
 
-        onCheckboxChange: ()=>{}
+        onChange: ()=>{},
+        onCheck: ()=>{},
+        onUnCheck: ()=>{}
     };
 
     constructor(props){
         super(props);
         this.state = {
-            checked: this.props.checked
+            checked: false
         };
 
         this.onChangeHandler = this.onChangeHandler.bind(this);
@@ -31,7 +33,8 @@ export default class Checkbox extends React.Component {
         this.setState({
             checked: state
         });
-        this.props.onChange(e.target, state)
+        this.props.onChange(e.target, state);
+        this.props[state ? 'onCheck' : 'onUnCheck'](e.target, state);
     }
 
     render(){
@@ -44,11 +47,9 @@ export default class Checkbox extends React.Component {
             dataClsCheckbox
         } = this.props;
 
-        const checked = this.state.checked;
-
         return (
             <label className={'checkbox' + dataClsCheckbox + ' style' + dataStyle + ' transition-on'}>
-                <input type="checkbox" name={name} checked={checked} onChange={this.onChangeHandler} disabled={disabled} value={value} readOnly={false}/>
+                <input type="checkbox" name={name} defaultChecked={this.props.checked} onChange={this.onChangeHandler} disabled={disabled} value={value} readOnly={false}/>
                 <span className="check"/>
                 <span className="caption">{dataCaption}</span>
             </label>
