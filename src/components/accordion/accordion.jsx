@@ -27,7 +27,7 @@ export default class Accordion extends React.Component{
 
         const openFrames = {};
 
-        this.props.children.forEach( (child, index) => {
+        React.Children.forEach(this.props.children, (child, index) => {
             if (child.props.open) {
                 openFrames[index] = true;
             }
@@ -64,12 +64,11 @@ export default class Accordion extends React.Component{
 
     render(){
         const className = `accordion ${this.props.dataMaterial ? 'material' : ''} ${this.props.dataClsAccordion} ${this.props.dataMarker ? 'marker-on' : ''}`;
-        const children = !Array.isArray(this.props.children) ? [this.props.children] : this.props.children;
 
         return (
             <div className={className}>
                 {
-                    children.map( (frame, index) => (
+                    React.Children.map(this.props.children, (frame, index) => (
                         <AccordionFrame key={index}
                                         dataAnimationDuration={this.props.dataAnimationDuration}
                                         dataTitle={frame.props.dataTitle}
