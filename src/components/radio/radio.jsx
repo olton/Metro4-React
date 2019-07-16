@@ -20,7 +20,7 @@ export default class Radio extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            checked: this.props.checked
+            checked: false
         };
 
         this.onChangeHandler = this.onChangeHandler.bind(this);
@@ -44,11 +44,9 @@ export default class Radio extends React.Component {
             dataClsCheckbox
         } = this.props;
 
-        const checked = this.state.checked;
-
         return (
             <label className={'radio' + dataClsCheckbox + ' style' + dataStyle + ' transition-on'}>
-                <input type="radio" name={name} checked={checked} onChange={this.onChangeHandler} disabled={disabled} value={value} readOnly={false}/>
+                <input type="radio" name={name} defaultChecked={this.props.checked} onChange={this.onChangeHandler} disabled={disabled} value={value} readOnly={false}/>
                 <span className="check"/>
                 <span className="caption">{dataCaption}</span>
             </label>

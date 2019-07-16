@@ -141,15 +141,15 @@ ReactDom.render(
             </Cell>
             <Cell dataCls="cell-md-4">
                 <div>
-                    <Radio name="radio1_1"/>
-                    <Radio name="radio1_1" checked/>
+                    <Radio name="radio1_1" value={1}/>
+                    <Radio name="radio1_1" value={2} checked/>
                     <Radio name="radio1_2" disabled/>
                     <Radio name="radio1_3" checked disabled/>
                     <Radio name="radio1_4" dataCaption="my radio"/>
                 </div>
                 <div>
-                    <Radio name="radio2_1" dataStyle={2}/>
                     <Radio name="radio2_1" checked dataStyle={2}/>
+                    <Radio name="radio2_1" dataStyle={2}/>
                     <Radio name="radio2_2" disabled dataStyle={2}/>
                     <Radio name="radio2_3" checked disabled dataStyle={2}/>
                     <Radio name="radio2_4" dataCaption="my radio" dataStyle={2}/>
