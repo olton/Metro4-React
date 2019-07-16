@@ -31,7 +31,7 @@ export default class Radio extends React.Component {
         this.setState({
             checked: state
         });
-        this.props.onRadioChange(e.target, state)
+        this.props.onChange(e.target, state)
     }
 
     render(){

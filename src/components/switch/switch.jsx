@@ -31,7 +31,7 @@ export default class Switch extends React.Component {
         this.setState({
             checked: state
         });
-        this.props.onSwitchChange(e.target, state)
+        this.props.onChange(e.target, state)
     }
 
     render(){
