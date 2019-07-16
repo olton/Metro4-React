@@ -1,4 +1,5 @@
 import React from "react";
+import Collapse from "@kunukn/react-collapse/dist/Collapse.umd";
 
 export default class AccordionFrame extends React.Component {
     static defaultProps = {
@@ -26,11 +27,11 @@ export default class AccordionFrame extends React.Component {
         return (
             <div className={'frame ' + props.dataClsFrame}>
                 <div className={'heading ' + props.dataClsFrameHeading} onClick={this.onHeadingClick}>{props.dataTitle}</div>
-                {open && (
+                <Collapse isOpen={open} transition="height 100ms cubic-bezier(.4, 0, .2, 1)">
                     <div className={'content ' + props.dataClsFrameContent}>
                         {props.children}
                     </div>
-                )}
+                </Collapse>
             </div>
         )
     }
