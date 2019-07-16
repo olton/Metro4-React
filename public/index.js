@@ -11,6 +11,8 @@ import Activity from "../src/components/activity/activity.jsx";
 import Accordion from "../src/components/accordion/accordion.jsx";
 import AccordionFrame from "../src/components/accordion/frame.jsx";
 
+import Checkbox from "../src/components/checkbox/checkbox.jsx";
+
 ReactDom.render(
     <Grid>
         <h1>Activities</h1>
@@ -92,8 +94,39 @@ ReactDom.render(
                         None of these coordinates will be lost in voyages like devastations in mysteries
                         None of these coordinates will be lost in voyages like devastations in mysteries
                         None of these coordinates will be lost in voyages like devastations in mysteries
+
+                        <h3>Nested accordion</h3>
+                        <Accordion dataMaterial={true} dataOneFrame={true} dataClsFrameContent="p-4" dataClsAccordion="border bd-default" dataClsFrameHeading="bg-light">
+                            <AccordionFrame dataTitle="Head 1" open>
+                                Season eight tablespoons of blueberries in four pounds of fish sauce.
+                                Season eight tablespoons of blueberries in four pounds of fish sauce.
+                                Season eight tablespoons of blueberries in four pounds of fish sauce.
+                            </AccordionFrame>
+                            <AccordionFrame dataTitle="Head 2">
+                                Dogma is the only samadhi, the only guarantee of fear.
+                                Dogma is the only samadhi, the only guarantee of fear.
+                                Dogma is the only samadhi, the only guarantee of fear.
+                            </AccordionFrame>
+                            <AccordionFrame dataTitle="Head 3">
+                                None of these coordinates will be lost in voyages like devastations in mysteries
+                                None of these coordinates will be lost in voyages like devastations in mysteries
+                                None of these coordinates will be lost in voyages like devastations in mysteries
+                            </AccordionFrame>
+                        </Accordion>
+
                     </AccordionFrame>
                 </Accordion>
+            </Cell>
+        </Row>
+
+        <h1>Checkbox, radio, switch</h1>
+        <Row>
+            <Cell dataCls="cell-md-4">
+                <Checkbox name="check1"/>
+                <Checkbox name="check2" checked/>
+                <Checkbox name="check3" disabled/>
+                <Checkbox name="check4" checked disabled/>
+                <Checkbox name="check5" caption="my checkbox"/>
             </Cell>
         </Row>
     </Grid>
