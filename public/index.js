@@ -12,6 +12,8 @@ import Accordion from "../src/components/accordion/accordion.jsx";
 import AccordionFrame from "../src/components/accordion/frame.jsx";
 
 import Checkbox from "../src/components/checkbox/checkbox.jsx";
+import Radio from "../src/components/radio/radio.jsx";
+import Switch from "../src/components/switch/switch.jsx";
 
 ReactDom.render(
     <Grid>
@@ -122,11 +124,50 @@ ReactDom.render(
         <h1>Checkbox, radio, switch</h1>
         <Row>
             <Cell dataCls="cell-md-4">
-                <Checkbox name="check1"/>
-                <Checkbox name="check2" checked/>
-                <Checkbox name="check3" disabled/>
-                <Checkbox name="check4" checked disabled/>
-                <Checkbox name="check5" caption="my checkbox"/>
+                <div>
+                    <Checkbox name="check1"/>
+                    <Checkbox name="check2" checked/>
+                    <Checkbox name="check3" disabled/>
+                    <Checkbox name="check4" checked disabled/>
+                    <Checkbox name="check5" dataCaption="my checkbox"/>
+                </div>
+                <div>
+                    <Checkbox name="check1" dataStyle={2}/>
+                    <Checkbox name="check2" checked dataStyle={2}/>
+                    <Checkbox name="check3" disabled dataStyle={2}/>
+                    <Checkbox name="check4" checked disabled dataStyle={2}/>
+                    <Checkbox name="check5" dataCaption="my checkbox" dataStyle={2}/>
+                </div>
+            </Cell>
+            <Cell dataCls="cell-md-4">
+                <div>
+                    <Radio name="radio1_1"/>
+                    <Radio name="radio1_1" checked/>
+                    <Radio name="radio1_2" disabled/>
+                    <Radio name="radio1_3" checked disabled/>
+                    <Radio name="radio1_4" dataCaption="my radio"/>
+                </div>
+                <div>
+                    <Radio name="radio2_1" dataStyle={2}/>
+                    <Radio name="radio2_1" checked dataStyle={2}/>
+                    <Radio name="radio2_2" disabled dataStyle={2}/>
+                    <Radio name="radio2_3" checked disabled dataStyle={2}/>
+                    <Radio name="radio2_4" dataCaption="my radio" dataStyle={2}/>
+                </div>
+            </Cell>
+            <Cell dataCls="cell-md-4">
+                <div>
+                    <Switch name="switch1"/>
+                    <Switch name="switch2" checked/>
+                    <Switch name="switch3" disabled/>
+                    <Switch name="switch4" checked disabled/>
+                </div>
+                <div>
+                    <Switch name="switch1" dataMaterial={true}/>
+                    <Switch name="switch2" checked dataMaterial={true}/>
+                    <Switch name="switch3" disabled dataMaterial={true}/>
+                    <Switch name="switch4" checked disabled dataMaterial={true}/>
+                </div>
             </Cell>
         </Row>
     </Grid>

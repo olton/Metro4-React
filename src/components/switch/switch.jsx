@@ -1,11 +1,11 @@
 import React from "react";
-import "./checkbox.less";
+import "./switch.less";
 
-export default class Checkbox extends React.Component {
+export default class Switch extends React.Component {
     static defaultProps = {
         name: "",
         dataCaption: "",
-        dataStyle: "",
+        dataMaterial: false,
         checked: false,
         disabled: false,
         value: "",
@@ -14,7 +14,7 @@ export default class Checkbox extends React.Component {
         dataClsCheck: "",
         dataClsCaption: "",
 
-        onCheckboxChange: ()=>{}
+        onSwitchChange: ()=>{}
     };
 
     constructor(props){
@@ -31,7 +31,7 @@ export default class Checkbox extends React.Component {
         this.setState({
             checked: state
         });
-        this.props.onCheckboxChange(e.target, state)
+        this.props.onSwitchChange(e.target, state)
     }
 
     render(){
@@ -39,7 +39,7 @@ export default class Checkbox extends React.Component {
             name,
             value,
             dataCaption,
-            dataStyle,
+            dataMaterial,
             disabled,
             dataClsCheckbox
         } = this.props;
@@ -47,7 +47,7 @@ export default class Checkbox extends React.Component {
         const checked = this.state.checked;
 
         return (
-            <label className={'checkbox' + dataClsCheckbox + ' style' + dataStyle + ' transition-on'}>
+            <label className={'switch' + (dataMaterial ? '-material' : '') + ' ' +  dataClsCheckbox + ' transition-on'}>
                 <input type="checkbox" name={name} checked={checked} onChange={this.onChangeHandler} disabled={disabled} value={value} readOnly={false}/>
                 <span className="check"/>
                 <span className="caption">{dataCaption}</span>

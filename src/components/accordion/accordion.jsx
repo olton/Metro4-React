@@ -8,6 +8,7 @@ export default class Accordion extends React.Component{
         dataMarker: true,
         dataMaterial: false,
         dataOneFrame: true,
+        dataAnimationDuration: 300,
 
         dataClsAccordion: "",
         dataClsFrame: "",
@@ -70,6 +71,7 @@ export default class Accordion extends React.Component{
                 {
                     children.map( (frame, index) => (
                         <AccordionFrame key={index}
+                                        dataAnimationDuration={this.props.dataAnimationDuration}
                                         dataTitle={frame.props.dataTitle}
                                         dataClsFrame={this.props.dataClsFrame+ ' ' + frame.props.dataClsFrame}
                                         dataClsFrameHeading={this.props.dataClsFrameHeading+ ' ' + frame.props.dataClsFrameHeading}

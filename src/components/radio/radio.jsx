@@ -1,7 +1,7 @@
 import React from "react";
-import "./checkbox.less";
+import "./radio.less";
 
-export default class Checkbox extends React.Component {
+export default class Radio extends React.Component {
     static defaultProps = {
         name: "",
         dataCaption: "",
@@ -14,7 +14,7 @@ export default class Checkbox extends React.Component {
         dataClsCheck: "",
         dataClsCaption: "",
 
-        onCheckboxChange: ()=>{}
+        onRadioChange: ()=>{}
     };
 
     constructor(props){
@@ -31,7 +31,7 @@ export default class Checkbox extends React.Component {
         this.setState({
             checked: state
         });
-        this.props.onCheckboxChange(e.target, state)
+        this.props.onRadioChange(e.target, state)
     }
 
     render(){
@@ -47,8 +47,8 @@ export default class Checkbox extends React.Component {
         const checked = this.state.checked;
 
         return (
-            <label className={'checkbox' + dataClsCheckbox + ' style' + dataStyle + ' transition-on'}>
-                <input type="checkbox" name={name} checked={checked} onChange={this.onChangeHandler} disabled={disabled} value={value} readOnly={false}/>
+            <label className={'radio' + dataClsCheckbox + ' style' + dataStyle + ' transition-on'}>
+                <input type="radio" name={name} checked={checked} onChange={this.onChangeHandler} disabled={disabled} value={value} readOnly={false}/>
                 <span className="check"/>
                 <span className="caption">{dataCaption}</span>
             </label>
