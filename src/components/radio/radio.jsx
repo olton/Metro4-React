@@ -4,15 +4,15 @@ import "./radio.less";
 export default class Radio extends React.Component {
     static defaultProps = {
         name: "",
-        dataCaption: "",
-        dataStyle: "",
+        caption: "",
+        style2: false,
         checked: false,
         disabled: false,
         value: "",
 
-        dataClsCheckbox: "",
-        dataClsCheck: "",
-        dataClsCaption: "",
+        clsCheckbox: "",
+        clsCheck: "",
+        clsCaption: "",
 
         onChange: ()=>{},
         onCheck: ()=>{},
@@ -41,17 +41,17 @@ export default class Radio extends React.Component {
         const {
             name,
             value,
-            dataCaption,
-            dataStyle,
+            caption,
+            style2,
             disabled,
-            dataClsCheckbox
+            clsCheckbox
         } = this.props;
 
         return (
-            <label className={'radio' + dataClsCheckbox + ' style' + dataStyle + ' transition-on'}>
+            <label className={'radio' + clsCheckbox + ' ' + (style2 ? 'style2' : '') + ' transition-on'}>
                 <input type="radio" name={name} defaultChecked={this.props.checked} onChange={this.onChangeHandler} disabled={disabled} value={value} readOnly={false}/>
                 <span className="check"/>
-                <span className="caption">{dataCaption}</span>
+                <span className="caption">{caption}</span>
             </label>
         )
     }

@@ -1,25 +1,26 @@
 import React from "react";
+
 import "./accordion.less";
 import "./accordion-rtl.less";
 import AccordionFrame from "./frame.jsx";
 
 export default class Accordion extends React.Component{
     static defaultProps = {
-        dataMarker: true,
-        dataMaterial: false,
-        dataOneFrame: true,
-        dataAnimationDuration: 300,
+        marker: true,
+        material: false,
+        oneFrame: true,
+        animationDuration: 300,
 
-        dataClsAccordion: "",
-        dataClsFrame: "",
-        dataClsFrameHeading: "",
-        dataClsFrameContent: "",
+        clsAccordion: "",
+        clsFrame: "",
+        clsFrameHeading: "",
+        clsFrameContent: "",
 
-        dataOnFrameOpen: () => {},
-        dataOnFrameBeforeOpen: () => true,
-        dataOnFrameClose: () => {},
-        dataOnFrameBeforeClose: () => true,
-        dataOnAccordionCreate: () => {}
+        onFrameOpen: () => {},
+        onFrameBeforeOpen: () => true,
+        onFrameClose: () => {},
+        onFrameBeforeClose: () => true,
+        onAccordionCreate: () => {}
     };
 
     constructor(props){
@@ -34,50 +35,55 @@ export default class Accordion extends React.Component{
         });
 
         this.state = {
-            single: this.props.dataOneFrame,
+            single: this.props.oneFrame,
             openFrames: openFrames
         };
 
         this.clickFrameHeading = this.clickFrameHeading.bind(this);
     }
 
-    clickFrameHeading(frame){
+    clickFrameHeading(index){
         const {openFrames} = this.state;
-        const isOpen = !!openFrames[frame];
-        const allowMultipleOpen = this.props.dataOneFrame === false;
+        const isOpen = !!openFrames[index];
+        const allowMultipleOpen = this.props.oneFrame === false;
+        const frame = React.Children.toArray(this.props.children)[index];
 
         if (allowMultipleOpen) {
             this.setState({
                 openFrames: {
                     ...openFrames,
-                    [frame]: !isOpen
+                    [index]: !isOpen
                 }
             });
         } else {
             this.setState({
                 openFrames: {
-                    [frame]: !isOpen
+                    [index]: !isOpen
                 }
             });
         }
+
+        this.props[isOpen ? 'onFrameOpen' : 'onFrameClose'](frame, index);
     }
 
     render(){
-        const className = `accordion ${this.props.dataMaterial ? 'material' : ''} ${this.props.dataClsAccordion} ${this.props.dataMarker ? 'marker-on' : ''}`;
+        const { material, marker, clsAccordion, clsFrame, clsFrameHeading, clsFrameContent, animationDuration } = this.props;
+        const { openFrames } = this.state;
+        const className = `accordion ${material ? 'material' : ''} ${marker ? 'marker-on' : ''} ${clsAccordion}`;
 
         return (
             <div className={className}>
                 {
                     React.Children.map(this.props.children, (frame, index) => (
                         <AccordionFrame key={index}
-                                        dataAnimationDuration={this.props.dataAnimationDuration}
-                                        dataTitle={frame.props.dataTitle}
-                                        dataClsFrame={this.props.dataClsFrame+ ' ' + frame.props.dataClsFrame}
-                                        dataClsFrameHeading={this.props.dataClsFrameHeading+ ' ' + frame.props.dataClsFrameHeading}
-                                        dataClsFrameContent={this.props.dataClsFrameContent+ ' ' + frame.props.dataClsFrameContent}
-                                        open={!!this.state.openFrames[index]}
+                                        animationDuration={animationDuration}
+                                        title={frame.props.title}
+                                        clsFrame={clsFrame+ ' ' + frame.props.clsFrame}
+                                        clsFrameHeading={clsFrameHeading+ ' ' + frame.props.clsFrameHeading}
+                                        clsFrameContent={clsFrameContent+ ' ' + frame.props.clsFrameContent}
+                                        open={!!openFrames[index]}
                                         onHeadingClick={this.clickFrameHeading}
-                                        dataFrame={index}>
+                                        frame={index}>
                             {frame.props.children}
                         </AccordionFrame>
                     ))

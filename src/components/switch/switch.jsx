@@ -4,15 +4,15 @@ import "./switch.less";
 export default class Switch extends React.Component {
     static defaultProps = {
         name: "",
-        dataCaption: "",
-        dataMaterial: false,
+        caption: "",
+        material: false,
         checked: false,
         disabled: false,
         value: "",
 
-        dataClsCheckbox: "",
-        dataClsCheck: "",
-        dataClsCaption: "",
+        clsCheckbox: "",
+        clsCheck: "",
+        clsCaption: "",
 
         onChange: ()=>{},
         onCheck: ()=>{},
@@ -41,17 +41,17 @@ export default class Switch extends React.Component {
         const {
             name,
             value,
-            dataCaption,
-            dataMaterial,
+            caption,
+            material,
             disabled,
-            dataClsCheckbox
+            clsCheckbox
         } = this.props;
 
         return (
-            <label className={'switch' + (dataMaterial ? '-material' : '') + ' ' +  dataClsCheckbox + ' transition-on'}>
+            <label className={'switch' + (material ? '-material' : '') + ' ' +  clsCheckbox + ' transition-on'}>
                 <input type="checkbox" name={name} defaultChecked={this.props.checked} onChange={this.onChangeHandler} disabled={disabled} value={value} readOnly={false}/>
                 <span className="check"/>
-                <span className="caption">{dataCaption}</span>
+                <span className="caption">{caption}</span>
             </label>
         )
     }

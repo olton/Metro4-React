@@ -3,13 +3,13 @@ import Collapse from "@kunukn/react-collapse/dist/Collapse.umd";
 
 export default class AccordionFrame extends React.Component {
     static defaultProps = {
-        dataFrame: null,
+        frame: null,
         open: false,
-        dataAnimationDuration: 300,
-        dataTitle: "",
-        dataClsFrame: "",
-        dataClsFrameHeading: "",
-        dataClsFrameContent: ""
+        animationDuration: 300,
+        title: "",
+        clsFrame: "",
+        clsFrameHeading: "",
+        clsFrameContent: ""
     };
 
     constructor(props){
@@ -18,19 +18,19 @@ export default class AccordionFrame extends React.Component {
     }
 
     onHeadingClick(){
-        this.props.onHeadingClick(this.props.dataFrame);
+        this.props.onHeadingClick(this.props.frame);
     }
 
     render(){
-        const {open} = this.props;
+        const {open, animationDuration, title, clsFrame, clsFrameHeading, clsFrameContent} = this.props;
         const props = this.props;
-        const transition = `height ${this.props.dataAnimationDuration}ms cubic-bezier(.4, 0, .2, 1)`;
+        const transition = `height ${animationDuration}ms cubic-bezier(.4, 0, .2, 1)`;
 
         return (
-            <div className={'frame ' + props.dataClsFrame}>
-                <div className={'heading ' + props.dataClsFrameHeading} onClick={this.onHeadingClick}>{props.dataTitle}</div>
+            <div className={'frame ' + (open ? 'active' : '') + ' ' + clsFrame}>
+                <div className={'heading ' + clsFrameHeading} onClick={this.onHeadingClick}>{title}</div>
                 <Collapse isOpen={open} transition={transition}>
-                    <div className={'content ' + props.dataClsFrameContent}>
+                    <div className={'content ' + clsFrameContent}>
                         {props.children}
                     </div>
                 </Collapse>

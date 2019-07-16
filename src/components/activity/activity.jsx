@@ -10,26 +10,28 @@ import "./activity.less";
 export default class Activity extends React.Component {
 
     static defaultProps = {
-        dataType: 'ring',
-        dataStyle: 'light',
-        dataSize: 64,
-        dataRadius: 20,
-        dataCls: ""
+        type: 'ring',
+        style: 'light',
+        size: 64,
+        radius: 20,
+        cls: ""
     };
 
     render() {
         let activityType;
         let activityClassName;
 
-        switch (this.props.dataType) {
+        const {type, style, size, radius, cls} = this.props;
+
+        switch (type) {
             case 'metro': activityType = <Metro/>; break;
             case 'square': activityType = <Square/>; break;
             case 'cycle': activityType = <Cycle/>; break;
-            case 'simple': activityType = <Simple size={this.props.dataSize} radius={this.props.dataRadius}/>; break;
+            case 'simple': activityType = <Simple size={size} radius={radius}/>; break;
             default: activityType = <Ring/>;
         }
 
-        activityClassName = `activity-${this.props.dataType} ${this.props.dataStyle}-style ${this.props.dataCls}`;
+        activityClassName = `activity-${type} ${style}-style ${cls}`;
 
         return (
             <div className={activityClassName}>

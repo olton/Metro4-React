@@ -3,13 +3,13 @@ import "./badges.less";
 
 export default class Badge extends React.Component {
     static defaultProps = {
-        dataInside: false,
-        dataInline: false
+        inside: false,
+        inline: false
     };
 
     render(){
-        const {dataInside, dataInline} = this.props;
-        const className = `badge ${dataInline ? 'inline' : ''} ${dataInside ? 'inside' : ''}`;
+        const {inside, inline} = this.props;
+        const className = `badge ${inline ? 'inline' : ''} ${inside ? 'inside' : ''}`;
 
         return (
             <span className={className}>{this.props.children}</span>
