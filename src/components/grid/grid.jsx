@@ -4,12 +4,13 @@ import "./grid.less";
 export class Cell extends React.Component {
 
     static defaultProps = {
+        style: {},
         cls: ""
     };
 
     render() {
         return (
-            <div className={this.props.cls}>
+            <div className={this.props.cls} style={this.props.style}>
                 {this.props.children}
             </div>
         );

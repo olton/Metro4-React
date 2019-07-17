@@ -4,6 +4,7 @@ import ReactDom from "react-dom";
 import "../src/common/metro-common.less";
 import "../src/colors/metro-colors.less";
 
+import Icon from "../src/icons/mif.jsx";
 import {Grid, Row, Cell} from "../src/components/grid/grid.jsx"
 
 import Activity from "../src/components/activity/activity.jsx";
@@ -14,6 +15,8 @@ import AccordionFrame from "../src/components/accordion/frame.jsx";
 import Checkbox from "../src/components/checkbox/checkbox.jsx";
 import Radio from "../src/components/radio/radio.jsx";
 import Switch from "../src/components/switch/switch.jsx";
+import {BottomNav, BottomNavItem} from "../src/components/bottom-nav/bottom-nav.jsx";
+import {Button} from "../src/components/button/button.jsx";
 
 ReactDom.render(
     <Grid>
@@ -170,6 +173,33 @@ ReactDom.render(
                 </div>
             </Cell>
         </Row>
+
+        <h2 className="text-light">BottomNav</h2>
+        <Row>
+            <Cell cls="cell-md-4 bg-light" style={{height: 300}}>
+                <BottomNav cls="pos-absolute">
+                    <BottomNavItem label="Button1" icon="rocket"/>
+                    <BottomNavItem label="Button2" icon="apps"/>
+                    <BottomNavItem label="Button3" icon="windows"/>
+                </BottomNav>
+            </Cell>
+            <Cell cls="cell-md-4"/>
+            <Cell cls="cell-md-4"/>
+        </Row>
+
+        <h2 className="text-light">Buttons</h2>
+        <h4>Push button</h4>
+        <Row>
+            <Cell>
+                <Button>Button</Button>
+                <Button cls="alert">Button</Button>
+                <Button cls="warning">Button</Button>
+                <Button cls="success">Button</Button>
+                <Button cls="info">Button</Button>
+            </Cell>
+        </Row>
+
+
     </Grid>
     , document.getElementById("mount")
 );

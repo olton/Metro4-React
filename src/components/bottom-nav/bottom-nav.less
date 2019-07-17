@@ -1,0 +1,56 @@
+@import (once) "../../include/less/vars";
+@import (once) "../../include/less/mixins";
+
+.bottom-nav {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    height: 56px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0px -4px 4px 0px rgba(0,0,0,0.16);
+    z-index: @zindex-fixed;
+    background-color: @white;
+}
+
+.bottom-nav {
+    .button {
+        width: auto;
+        height: 100%;
+        flex-grow: 1;
+        flex-basis: 0;
+        text-align: center;
+        text-transform: capitalize;
+        margin: 0;
+        border-radius: 0;
+        line-height: normal;
+
+        .icon {
+            .square(24, px);
+            font-size: 22px;
+            line-height: 24px;
+            text-align: center;
+
+            & > img {
+                .square(22, px);
+            }
+        }
+
+        .label {
+            display: block;
+        }
+
+        &.focus, &:focus {
+            box-shadow: none;
+        }
+        &:hover {
+            background-color: @hoverBackground;
+        }
+
+    }
+}
+
