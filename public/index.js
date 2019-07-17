@@ -16,7 +16,9 @@ import Checkbox from "../src/components/checkbox/checkbox.jsx";
 import Radio from "../src/components/radio/radio.jsx";
 import Switch from "../src/components/switch/switch.jsx";
 import {BottomNav, BottomNavItem} from "../src/components/bottom-nav/bottom-nav.jsx";
-import {Button} from "../src/components/button/button.jsx";
+import Button from "../src/components/button/button.jsx";
+import FlatButton from "../src/components/button/flat-button.jsx";
+
 
 ReactDom.render(
     <Grid>
@@ -196,6 +198,17 @@ ReactDom.render(
                 <Button cls="warning">Button</Button>
                 <Button cls="success">Button</Button>
                 <Button cls="info">Button</Button>
+            </Cell>
+        </Row>
+
+        <h4>Flat button</h4>
+        <Row>
+            <Cell>
+                <FlatButton>Button</FlatButton>
+                <FlatButton cls="alert">Button</FlatButton>
+                <FlatButton cls="warning">Button</FlatButton>
+                <FlatButton cls="success">Button</FlatButton>
+                <FlatButton cls="info">Button</FlatButton>
             </Cell>
         </Row>
 

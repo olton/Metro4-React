@@ -1,5 +1,5 @@
 import React from "react";
-import Collapse from "@kunukn/react-collapse/dist/Collapse.umd";
+import Collapse from "../collapse/collapse.jsx";
 
 export default class AccordionFrame extends React.Component {
     static defaultProps = {

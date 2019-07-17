@@ -1,14 +1,13 @@
 import React from "react";
 import "./button.less";
 
-export default class Button extends React.Component{
+export default class FlatButton extends React.Component{
     static defaultProps = {
-        cls: "",
-        type: "button"
+        cls: ""
     };
 
     render(){
-        const className = `button ${this.props.cls}`;
+        const className = `button flat-button ${this.props.cls}`;
 
         return (
             <button className={className} type={this.props.type}>
@@ -17,3 +16,4 @@ export default class Button extends React.Component{
         )
     }
 }
+
