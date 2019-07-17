@@ -81,7 +81,7 @@ ReactDom.render(
         <h2 className="text-light">Accordion</h2>
         <Row>
             <Cell cls="w-100">
-                <Accordion material={false} oneFrame={false} clsFrameContent="p-4">
+                <Accordion material={false} oneFrame={true} oneFrameOpen={false} clsFrameContent="p-4" onFrameBeforeClose={()=>true}>
                     <AccordionFrame title="Head 1" open>
                         Season eight tablespoons of blueberries in four pounds of fish sauce.
                         Season eight tablespoons of blueberries in four pounds of fish sauce.

@@ -9,6 +9,7 @@ export default class Accordion extends React.Component{
         marker: true,
         material: false,
         oneFrame: true,
+        oneFrameOpen: true,
         animationDuration: 300,
 
         clsAccordion: "",
@@ -19,8 +20,7 @@ export default class Accordion extends React.Component{
         onFrameOpen: () => {},
         onFrameBeforeOpen: () => true,
         onFrameClose: () => {},
-        onFrameBeforeClose: () => true,
-        onAccordionCreate: () => {}
+        onFrameBeforeClose: () => true
     };
 
     constructor(props){
@@ -46,7 +46,11 @@ export default class Accordion extends React.Component{
         const {openFrames} = this.state;
         const isOpen = !!openFrames[index];
         const allowMultipleOpen = this.props.oneFrame === false;
+        const {oneFrameOpen} = this.props;
         const frame = React.Children.toArray(this.props.children)[index];
+
+        if (!isOpen && !this.props.onFrameBeforeOpen(frame, index)) return;
+        if (isOpen && !this.props.onFrameBeforeClose(frame, index)) return;
 
         if (allowMultipleOpen) {
             this.setState({
@@ -56,6 +60,7 @@ export default class Accordion extends React.Component{
                 }
             });
         } else {
+            if (oneFrameOpen && isOpen) return;
             this.setState({
                 openFrames: {
                     [index]: !isOpen
