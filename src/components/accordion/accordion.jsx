@@ -97,3 +97,5 @@ export default class Accordion extends React.Component{
         )
     }
 }
+
+export { AccordionFrame };

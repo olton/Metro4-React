@@ -4,21 +4,19 @@ import ReactDom from "react-dom";
 import "../src/common/metro-common.less";
 import "../src/colors/metro-colors.less";
 
-import Icon from "../src/icons/mif.jsx";
-import {Grid, Row, Cell} from "../src/components/grid/grid.jsx"
-
-import Activity from "../src/components/activity/activity.jsx";
-
-import Accordion from "../src/components/accordion/accordion.jsx";
-import AccordionFrame from "../src/components/accordion/frame.jsx";
-
-import Checkbox from "../src/components/checkbox/checkbox.jsx";
-import Radio from "../src/components/radio/radio.jsx";
-import Switch from "../src/components/switch/switch.jsx";
-import {BottomNav, BottomNavItem} from "../src/components/bottom-nav/bottom-nav.jsx";
-import Button from "../src/components/button/button.jsx";
-import FlatButton from "../src/components/button/flat-button.jsx";
-
+import {
+    Icon,
+    Grid, Row, Cell,
+    Activity,
+    Accordion,
+    AccordionFrame,
+    Checkbox,
+    Radio,
+    Switch,
+    BottomNav, BottomNavItem,
+    Button,
+    FaltButton
+} from "../src/index";
 
 ReactDom.render(
     <Grid>
@@ -190,7 +188,7 @@ ReactDom.render(
         </Row>
 
         <h2 className="text-light">Buttons</h2>
-        <h4>Push button</h4>
+        <h4 className="mt-0">Push button</h4>
         <Row>
             <Cell>
                 <Button>Button</Button>
@@ -198,17 +196,6 @@ ReactDom.render(
                 <Button cls="warning">Button</Button>
                 <Button cls="success">Button</Button>
                 <Button cls="info">Button</Button>
-            </Cell>
-        </Row>
-
-        <h4>Flat button</h4>
-        <Row>
-            <Cell>
-                <FlatButton>Button</FlatButton>
-                <FlatButton cls="alert">Button</FlatButton>
-                <FlatButton cls="warning">Button</FlatButton>
-                <FlatButton cls="success">Button</FlatButton>
-                <FlatButton cls="info">Button</FlatButton>
             </Cell>
         </Row>
 

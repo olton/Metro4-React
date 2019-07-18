@@ -41,7 +41,7 @@ export class BottomNavItem extends React.Component {
     }
 }
 
-export class BottomNav extends React.Component {
+export default class BottomNav extends React.Component {
     static defaultProps = {
         cls: ""
     };
