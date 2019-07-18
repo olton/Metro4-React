@@ -3,7 +3,8 @@ import Activity from "./components/activity/activity.jsx";
 import Badge from "./components/badge/badge.jsx";
 import BottomNav, {BottomNavItem} from "./components/bottom-nav/bottom-nav.jsx";
 import Button from "./components/button/button.jsx";
-import FlatButton from "./components/bottom-nav/bottom-nav.jsx";
+import FlatButton from "./components/button/flat-button.jsx";
+import CommandButton from "./components/button/command-button.jsx";
 import Checkbox from "./components/checkbox/checkbox.jsx";
 import Collapse from "./components/collapse/collapse.jsx";
 import {Grid, Row, Cell} from "./components/grid/grid.jsx";
@@ -20,6 +21,7 @@ export {
     BottomNavItem,
     Button,
     FlatButton,
+    CommandButton,
     Checkbox,
     Collapse,
     Grid,

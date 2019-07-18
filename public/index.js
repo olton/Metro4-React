@@ -15,7 +15,8 @@ import {
     Switch,
     BottomNav, BottomNavItem,
     Button,
-    FaltButton
+    FaltButton,
+    CommandButton,
 } from "../src/index";
 
 ReactDom.render(
@@ -192,10 +193,18 @@ ReactDom.render(
         <Row>
             <Cell>
                 <Button>Button</Button>
-                <Button cls="alert">Button</Button>
-                <Button cls="warning">Button</Button>
-                <Button cls="success">Button</Button>
-                <Button cls="info">Button</Button>
+                &nbsp;<Button cls="alert">Button</Button>
+                &nbsp;<Button cls="warning">Button</Button>
+                &nbsp;<Button cls="success">Button</Button>
+                &nbsp;<Button cls="info">Button</Button>
+            </Cell>
+        </Row>
+
+        <h4>Command button</h4>
+        <Row>
+            <Cell>
+                <CommandButton icon="share" title="Yes, share and connect" subtitle="Use this option for home or work"/>
+                &nbsp;<CommandButton icon="share" title="Yes, share and connect" subtitle="Use this option for home or work" cls="alert"/>
             </Cell>
         </Row>
 
