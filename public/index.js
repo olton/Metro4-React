@@ -17,6 +17,7 @@ import {
     Button,
     FaltButton,
     CommandButton,
+    ImageButton,
 } from "../src/index";
 
 ReactDom.render(
@@ -204,7 +205,15 @@ ReactDom.render(
         <Row>
             <Cell>
                 <CommandButton icon="share" title="Yes, share and connect" subtitle="Use this option for home or work"/>
-                &nbsp;<CommandButton icon="share" title="Yes, share and connect" subtitle="Use this option for home or work" cls="alert"/>
+                &nbsp;<CommandButton icon="share" title="Yes, share and connect" subtitle="Use this option for home or work" cls="icon-right info"/>
+            </Cell>
+        </Row>
+
+        <h4>Image button</h4>
+        <Row>
+            <Cell>
+                <ImageButton icon="share" title="Share your connect"/>
+                &nbsp;<ImageButton icon="share" title="Share your connect" cls="icon-right info"/>
             </Cell>
         </Row>
 

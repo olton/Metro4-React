@@ -5,6 +5,7 @@ import BottomNav, {BottomNavItem} from "./components/bottom-nav/bottom-nav.jsx";
 import Button from "./components/button/button.jsx";
 import FlatButton from "./components/button/flat-button.jsx";
 import CommandButton from "./components/button/command-button.jsx";
+import ImageButton from "./components/button/image-button.jsx";
 import Checkbox from "./components/checkbox/checkbox.jsx";
 import Collapse from "./components/collapse/collapse.jsx";
 import {Grid, Row, Cell} from "./components/grid/grid.jsx";
@@ -22,6 +23,7 @@ export {
     Button,
     FlatButton,
     CommandButton,
+    ImageButton,
     Checkbox,
     Collapse,
     Grid,
