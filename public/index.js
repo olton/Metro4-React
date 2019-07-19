@@ -193,11 +193,10 @@ ReactDom.render(
         <h4 className="mt-0">Push button</h4>
         <Row>
             <Cell>
-                <Button>Button</Button>
-                &nbsp;<Button cls="alert">Button</Button>
-                &nbsp;<Button cls="warning">Button</Button>
-                &nbsp;<Button cls="success">Button</Button>
-                &nbsp;<Button cls="info">Button</Button>
+                <Button title='Button'/>
+                &nbsp;<Button cls="alert" title='Button'/>
+                &nbsp;<Button cls="info" title='Button' icon="rocket"/>
+                &nbsp;<Button cls="warning" icon="bell"/>
             </Cell>
         </Row>
 
