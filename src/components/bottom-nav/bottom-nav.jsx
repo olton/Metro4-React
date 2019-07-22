@@ -4,6 +4,7 @@ import "./bottom-nav.less";
 
 export class BottomNavItem extends React.Component {
     static defaultProps = {
+        as: "button",
         label: "",
         icon: false,
         image: false,
@@ -22,8 +23,10 @@ export class BottomNavItem extends React.Component {
             clsButtonLabel
         } = this.props;
 
+        const Element = this.props.as;
+
         return (
-            <button className={'button ' + clsButton}>
+            <Element className={'button ' + clsButton}>
                 <span className={'icon ' + clsButtonIcon}>
                     {icon && (
                         <span className={"mif-"+icon}/>
@@ -36,7 +39,7 @@ export class BottomNavItem extends React.Component {
                 <span className={'label ' + clsButtonLabel}>
                     {label}
                 </span>
-            </button>
+            </Element>
         )
     }
 }

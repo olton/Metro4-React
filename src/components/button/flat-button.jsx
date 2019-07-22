@@ -3,16 +3,18 @@ import "./button.less";
 
 export default class FlatButton extends React.Component{
     static defaultProps = {
+        as: "button",
         cls: ""
     };
 
     render(){
+        const Element = this.props.as;
         const className = `button flat-button ${this.props.cls}`;
 
         return (
-            <button className={className} type={this.props.type}>
+            <Element className={className} type={this.props.type}>
                 {this.props.children}
-            </button>
+            </Element>
         )
     }
 }

@@ -35,14 +35,18 @@ export class Row extends React.Component {
 export class Grid extends React.Component {
 
     static defaultProps = {
+        as: "div",
         cls: ""
     };
 
     render() {
+
+        const Element = this.props.as;
+
         return (
-            <div className={'grid ' + this.props.cls}>
+            <Element className={'grid ' + this.props.cls}>
                 {this.props.children}
-            </div>
+            </Element>
         );
     }
 }

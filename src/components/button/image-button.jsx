@@ -3,6 +3,7 @@ import "./button.less";
 
 export default class ImageButton extends React.Component{
     static defaultProps = {
+        as: "button",
         title: "",
         icon: false,
         image: false,
@@ -18,10 +19,12 @@ export default class ImageButton extends React.Component{
             cls,
             type
         } = this.props;
+
+        const Element = this.props.as;
         const className = `image-button ${cls}`;
 
         return (
-            <button className={className} type={type}>
+            <Element className={className} type={type}>
                 {icon && (
                     <span className={'icon mif-' + icon}/>
                 )}
@@ -32,7 +35,7 @@ export default class ImageButton extends React.Component{
                 <span className={'caption '}>
                     {title}
                 </span>
-            </button>
+            </Element>
         )
     }
 }

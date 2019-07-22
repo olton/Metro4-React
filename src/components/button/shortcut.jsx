@@ -1,11 +1,11 @@
 import React from "react";
 import "./button.less";
 
-export default class CommandButton extends React.Component{
+export default class Shortcut extends React.Component{
     static defaultProps = {
         as: "button",
         title: "",
-        subtitle: "",
+        tag: "",
         icon: false,
         image: false,
         cls: "",
@@ -17,13 +17,13 @@ export default class CommandButton extends React.Component{
             icon,
             image,
             title,
-            subtitle,
+            tag,
             cls,
             type
         } = this.props;
 
         const Element = this.props.as;
-        const className = `command-button ${cls}`;
+        const className = `shortcut ${cls}`;
 
         return (
             <Element className={className} type={type}>
@@ -34,10 +34,18 @@ export default class CommandButton extends React.Component{
                 {image && (
                     <img className={'icon '} src={image} alt=""/>
                 )}
-                <span className={'caption '}>
+
+                {title && (
+                    <span className={'caption '}>
                     {title}
-                    <small>{subtitle}</small>
                 </span>
+                )}
+
+                {tag && (
+                    <span className={'tag '}>
+                    {tag}
+                </span>
+                )}
             </Element>
         )
     }
