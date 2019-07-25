@@ -47,10 +47,15 @@ export default class Breadcrumbs extends React.Component {
                 {
                     React.Children.map(this.props.children, function(item, index){
                         const props = item.props;
-                        const classItem = `page-item ${clsPageItem} ${props.clsPageItem} ${props.cls}`;
+                        const classItem = `page-item ${clsPageItem} ${props.clsPageItem}`;
                         const classLink = `page-link ${clsPageLink} ${props.clsPageLink}`;
+                        const itemProps = {
+                            ...props,
+                            clsPageItem: classItem,
+                            clsPageLink: classLink
+                        };
                         return (
-                            <BreadcrumbsItem clsPageItem={classItem} clsPageLink={classLink} href={props.href}>
+                            <BreadcrumbsItem {...itemProps}>
                                 {props.children}
                             </BreadcrumbsItem>
                         )
