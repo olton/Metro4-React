@@ -20,6 +20,7 @@ import {
     CommandButton,
     ImageButton,
     Shortcut,
+    Breadcrumbs, BreadcrumbsItem
 } from "../src/index";
 
 ReactDom.render(
@@ -241,6 +242,18 @@ ReactDom.render(
                     &nbsp;<Shortcut icon="share" title="Share" cls="info"/>
                     &nbsp;<Shortcut icon="share" cls="warning no-caption"/>
                     &nbsp;<Shortcut icon="windows" cls="alert" title="Windows" tag={10}/>
+                </Cell>
+            </Row>
+
+            <h4>Breadcrumbs</h4>
+            <Row>
+                <Cell>
+                    <Breadcrumbs cls="mt-0">
+                        <BreadcrumbsItem>Home</BreadcrumbsItem>
+                        <BreadcrumbsItem>Products</BreadcrumbsItem>
+                        <BreadcrumbsItem>Download</BreadcrumbsItem>
+                        <BreadcrumbsItem cls="fg-red">Windows 10</BreadcrumbsItem>
+                    </Breadcrumbs>
                 </Cell>
             </Row>
 
