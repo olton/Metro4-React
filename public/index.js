@@ -25,6 +25,17 @@ import {
 ReactDom.render(
     <Container>
         <Grid>
+            <h2 className="text-light">Icon</h2>
+            <Row>
+                <Cell>
+                    <Icon name="rocket"/>
+                    <Icon name="rocket" cls="fg-red" size="2x"/>
+                    <Icon name="rocket" cls="fg-green" size="3x"/>
+                    <Icon name="rocket" cls="fg-blue" size="4x"/>
+                    <Icon name="rocket" cls="fg-orange" size="5x"/>
+                </Cell>
+            </Row>
+
             <h2 className="text-light">Activities</h2>
             <Row>
                 <Cell cls="cell-md-4 bg-darkGray p-2">

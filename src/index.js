@@ -13,7 +13,7 @@ import {Grid, Row, Cell} from "./components/grid/grid.jsx";
 import Radio from "./components/radio/radio.jsx";
 import Switch from "./components/switch/switch.jsx";
 
-import Icon  from "./icons/mif.jsx";
+import Icon  from "./icons/icon.jsx";
 
 export {
     Container,

@@ -4,7 +4,7 @@ import "./mif.less"
 export default class Icon extends React.Component {
     static defaultProps = {
         name: "",
-        size: "1x",
+        size: false,
         cls: ""
     };
 
@@ -15,7 +15,7 @@ export default class Icon extends React.Component {
             cls
         } = this.props;
 
-        const className = `mif-${name} ${size} ${cls}`;
+        const className = `mif-${name} ${size ? 'mif-' + size : ''} ${cls}`;
 
         return (
             <span className={className} />
