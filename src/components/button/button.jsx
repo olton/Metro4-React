@@ -5,26 +5,45 @@ export default class Button extends React.Component{
     static defaultProps = {
         as: "button",
         title: "",
+        tag: false,
         icon: false,
         image: false,
         cls: "",
-        type: "button"
+        type: "button",
+        href: "",
+        isFlat: false
     };
+
+    constructor(props){
+        super(props);
+        this.button = null;
+    }
 
     render(){
         const {
+            as,
             icon,
             image,
             title,
             cls,
-            type
+            type,
+            href,
+            isFlat,
+            tag
         } = this.props;
 
         const Element = this.props.as;
-        const className = `button ${cls}`;
+        const className = `button ${cls} ${isFlat ? 'flat-button' : ''}`;
+        const buttonProps = {};
+
+        if (as === 'a') {
+            buttonProps.href = href;
+        } else {
+            buttonProps.type = type;
+        }
 
         return (
-            <Element className={className} type={type}>
+            <Element className={className} {...buttonProps} ref={btn => this.button = btn}>
                 {icon && (
                     <span className={'icon mif-' + icon}/>
                 )}
@@ -34,8 +53,12 @@ export default class Button extends React.Component{
                 )}
 
                 {title && (
-                    <span className={'caption '}>
-                    {title}
+                    <span className={'caption '}>{title}</span>
+                )}
+
+                {tag && (
+                    <span className={'tag '}>
+                    {tag}
                 </span>
                 )}
 

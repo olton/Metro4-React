@@ -10,7 +10,7 @@ export default class Container extends React.Component {
 
     render(){
         const Element = this.props.as;
-        const className = `${this.props.fluid ? 'container-fluid' : 'container'} ${this.props.cls}`;
+        const className = `container${this.props.fluid ? '-fluid' : ''} ${this.props.cls}`;
 
         return (
             <Element className={className}>

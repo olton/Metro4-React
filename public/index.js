@@ -7,6 +7,7 @@ import "../src/colors/metro-colors.less";
 import {
     Container,
     Icon,
+    Badge,
     Grid, Row, Cell,
     Activity,
     Accordion,
@@ -16,7 +17,6 @@ import {
     Switch,
     BottomNav, BottomNavItem,
     Button,
-    FaltButton,
     CommandButton,
     ImageButton,
     Shortcut,
@@ -197,10 +197,13 @@ ReactDom.render(
             <Row>
                 <Cell>
                     <Button title='Button'/>
-                    &nbsp;<Button as={'a'} title='Button'/>
                     &nbsp;<Button cls="alert" title='Button'/>
                     &nbsp;<Button cls="info" title='Button' icon="rocket"/>
                     &nbsp;<Button cls="warning" icon="bell"/>
+                    &nbsp;<Button as="a" cls="secondary" title="Link as Button" href="#"/>
+                    &nbsp;<Button as="span" cls="primary" title="Span as Button"/>
+                    &nbsp;<Button title="Flat Button" isFlat={true}/>
+                    &nbsp;<Button icon="envelop"><Badge cls="alert" value={10}/></Button>
                 </Cell>
             </Row>
 

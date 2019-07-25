@@ -156,6 +156,10 @@
     position: relative;
     font-weight: 500;
 
+    &:hover {
+        background-color: @hoverBackground;
+    }
+
     &:active, &.focus, &:focus {
         .focus-show(@lightGray);
     }
@@ -249,6 +253,10 @@
     align-items: center;
     justify-content: space-between;
     outline: none;
+
+    &:hover {
+        background-color: @hoverBackground;
+    }
 
     &:active, &.focus, &:focus {
         .focus-show(@lightGray);
