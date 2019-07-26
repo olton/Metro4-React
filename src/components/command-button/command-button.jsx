@@ -1,15 +1,16 @@
 import React from "react";
-import "./button.less";
+import "./command-button.less";
 
-export default class ImageButton extends React.Component{
+export default class CommandButton extends React.Component{
     static defaultProps = {
         as: "button",
         title: "",
+        subtitle: "",
         icon: false,
         image: false,
         cls: "",
         type: "button",
-        href: ""
+        href: "#"
     };
 
     constructor(props){
@@ -23,14 +24,14 @@ export default class ImageButton extends React.Component{
             icon,
             image,
             title,
+            subtitle,
             cls,
             type,
             href
         } = this.props;
 
-        const Element = this.props.as;
-        const className = `image-button ${cls}`;
-
+        const Element = as;
+        const className = `command-button ${cls}`;
         const buttonProps = {};
 
         if (as === 'a') {
@@ -50,6 +51,7 @@ export default class ImageButton extends React.Component{
                 )}
                 <span className={'caption '}>
                     {title}
+                    <small>{subtitle}</small>
                 </span>
             </Element>
         )

@@ -225,6 +225,7 @@ ReactDom.render(
                 <Cell>
                     <CommandButton icon="share" title="Yes, share and connect" subtitle="Use this option for home or work"/>
                     &nbsp;<CommandButton icon="share" title="Yes, share and connect" subtitle="Use this option for home or work" cls="icon-right info"/>
+                    &nbsp;<CommandButton as="a" icon="share" title="Yes, share and connect" subtitle="Use this option for home or work" cls="icon-right info"/>
                 </Cell>
             </Row>
 
@@ -233,6 +234,8 @@ ReactDom.render(
                 <Cell>
                     <ImageButton icon="share" title="Share your connect"/>
                     &nbsp;<ImageButton icon="share" title="Share your connect" cls="icon-right info"/>
+                    &nbsp;<ImageButton as="a" icon="share" title="Share your connect" />
+                    &nbsp;<ImageButton as="a" icon="share" title="Share your connect" cls="icon-right"/>
                 </Cell>
             </Row>
 

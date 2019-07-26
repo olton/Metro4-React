@@ -140,100 +140,6 @@
     }
 }
 
-.command-button, .image-button {
-    padding: .5rem;
-    display: inline-flex;
-    font-size: 1.5rem;
-    transition: @transition-short;
-    background-color: darken(@light, 5%);
-    color: @dark;
-    cursor: pointer;
-    white-space: nowrap;
-    vertical-align: middle;
-    user-select: none;
-    border: 1px solid transparent;
-    outline: none;
-    position: relative;
-    font-weight: 500;
-
-    &:hover {
-        background-color: @hoverBackground;
-    }
-
-    &:active, &.focus, &:focus {
-        .focus-show(@lightGray);
-    }
-
-    .icon {
-        .px2rem(width, 43px);
-        .px2rem(height, 43px);
-        .px2rem(line-height, 43px);
-        font-size: 2rem;
-        color: inherit;
-        order: 1;
-    }
-    .caption {
-        margin-left: .5rem;
-        text-align: left;
-        color: inherit;
-        order: 2;
-        font-weight: 400;
-        line-height: 1.2;
-
-        small {
-            display: block;
-            font-size: .8rem;
-        }
-    }
-
-    &.icon-right {
-        .icon {
-            order: 2;
-        }
-        .caption {
-            order: 1;
-            margin-left: 0;
-            margin-right: .5rem;
-        }
-    }
-}
-
-.image-button {
-    font-size: 14px;
-    padding: 0 .5rem 0 0;
-    align-items: center;
-    height: 36px;
-    line-height: 30px;
-    font-weight: 400;
-
-    .icon {
-        width: 34px;
-        height: 34px;
-        line-height: 34px;
-        font-size: 1rem;
-        background-color: rgba(red(@grayMouse), green(@grayMouse), blue(@grayMouse), .55);
-        color: @white;
-        order: 1;
-    }
-
-    .caption {
-        order: 2;
-        color: inherit;
-    }
-
-    &.icon-right {
-        padding: 0 0 0 .5rem;
-
-        .icon {
-            order: 2;
-        }
-
-        .caption {
-            order: 1;
-        }
-    }
-}
-
 .shortcut {
     width: 6rem;
     height: 6rem;
@@ -455,7 +361,7 @@
     }
 }
 
-.button, .command-button, .image-button, .shortcut, .tool-button, .split-button .split {
+.button, .shortcut, .tool-button, .split-button .split {
     &:focus, &:hover {
         text-decoration: none;
     }
@@ -470,7 +376,7 @@
     }
 }
 
-.button, .command-button, .image-button, .shortcut, .tool-button, .split-button .split {
+.button, .shortcut, .tool-button, .split-button .split {
     &.outline {
         background: transparent none;
         border-width: 1px;
@@ -478,7 +384,7 @@
     }
 }
 
-.button, .command-button, .image-button, .shortcut, .tool-button, .split-button .split {
+.button, .shortcut, .tool-button, .split-button .split {
     &:active {
         box-shadow: none;
     }
@@ -767,8 +673,6 @@ a {
     &.button,
     &.flat-button,
     &.action-button,
-    &.command-button,
-    &.image-button,
     &.shortcut,
     &.tool-button,
     &.split-button,
