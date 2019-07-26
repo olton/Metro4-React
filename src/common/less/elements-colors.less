@@ -73,6 +73,19 @@ tbody tr, tbody td,
 }
 
 
+.info-button {
+    each(@accentColors, {
+        @color: "@{value}Color";
+
+        &.@{value} {
+            .info {
+                color: @@color;
+            }
+            border-color: @@color;
+        }
+    })
+}
+
 .action-button {
     each(@accentColors, {
         @color: "@{value}Color";

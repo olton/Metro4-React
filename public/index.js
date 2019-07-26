@@ -20,7 +20,8 @@ import {
     CommandButton,
     ImageButton,
     Shortcut,
-    Breadcrumbs, BreadcrumbsItem
+    Breadcrumbs, BreadcrumbsItem,
+    InfoButton
 } from "../src/index";
 
 ReactDom.render(
@@ -254,6 +255,15 @@ ReactDom.render(
                         <BreadcrumbsItem>Download</BreadcrumbsItem>
                         <BreadcrumbsItem cls="fg-red">Windows 10</BreadcrumbsItem>
                     </Breadcrumbs>
+                </Cell>
+            </Row>
+
+            <h4>Info button</h4>
+            <Row>
+                <Cell>
+                    <InfoButton title="Star" subtitle="6,208" icon="star-full" />
+                    &nbsp;<InfoButton title="Star" subtitle="6,208" icon="star-full" cls="alert" />
+                    &nbsp;<InfoButton title="Star" subtitle="6,208" icon="star-full" cls="info rounded" />
                 </Cell>
             </Row>
 
