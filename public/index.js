@@ -290,25 +290,37 @@ ReactDom.render(
             <h4>&lt;Input/&gt;</h4>
             <Row>
                 <Cell cls="cell-md-4">
-                    <Input value='Input value'/>
+                    <Input placeholder='Input value' value={123}/>
                 </Cell>
                 <Cell cls="cell-md-4">
-                    <Input value='Enter a password' type='password'/>
+                    <Input placeholder='Enter a password' type='password'/>
+                </Cell>
+                <Cell cls="cell-md-4">
+                    <Input placeholder='Search...' search={true} onSearch={ val => console.log(val) } />
                 </Cell>
             </Row>
+            <br/>
             <Row>
                 <Cell cls="cell-md-4">
+                    <Input placeholder='Input value' history={true}/>
+                </Cell>
+                <Cell cls="cell-md-4">
+                </Cell>
+                <Cell cls="cell-md-4">
+                </Cell>
+            </Row>
+            <br/>
+            <Row>
+                <Cell cls="cell-md-3">
                     <Input value='Input value' prepend='Prepend:'/>
                 </Cell>
-                <Cell cls="cell-md-4">
+                <Cell cls="cell-md-3">
                     <Input value='Input value' prepend={<Icon name='rocket'/>}/>
                 </Cell>
-            </Row>
-            <Row>
-                <Cell cls="cell-md-4">
+                <Cell cls="cell-md-3">
                     <Input value='Input value' append='%'/>
                 </Cell>
-                <Cell cls="cell-md-4">
+                <Cell cls="cell-md-3">
                     <Input value='Input value' append={<Icon name='rocket'/>}/>
                 </Cell>
             </Row>
