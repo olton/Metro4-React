@@ -4,6 +4,7 @@ import Button from "../button/button.jsx";
 
 export default class Input extends React.Component {
     static defaultProps = {
+        name: "",
         placeholder: "",
         value: "",
         type: 'text',
@@ -15,7 +16,7 @@ export default class Input extends React.Component {
         searchType: 'custom',
         history: false,
         preventSubmit: true,
-        autocomplete: false,
+        autocomplete: "",
         autocompleteDivider: ",",
         autocompleteHeight: 200,
         onSearch: () => {},
@@ -123,9 +124,12 @@ export default class Input extends React.Component {
     }
 
     render() {
-        const {placeholder, append, prepend, clear, reveal, search, type: inputType} = this.props;
+        const {name, placeholder, append, prepend, clear, reveal, search, type: inputType} = this.props;
         const {value, type} = this.state;
         const buttons = clear || reveal || search;
+        const inputProps = {
+            name, type, placeholder, value
+        };
 
         return (
             <div className='input'>
@@ -134,7 +138,7 @@ export default class Input extends React.Component {
                     <span className='prepend'>{prepend}</span>
                 )}
 
-                <input type={type} value={value} placeholder={placeholder} onChange={this.onChange} ref={ref => this.input = ref} onKeyUp={this.onKeyUp}/>
+                <input {...inputProps} onChange={this.onChange} ref={ref => this.input = ref} onKeyUp={this.onKeyUp}/>
 
                 {buttons && (
                     <div className='button-group'>

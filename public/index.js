@@ -290,37 +290,49 @@ ReactDom.render(
             <h4>&lt;Input/&gt;</h4>
             <Row>
                 <Cell cls="cell-md-4">
+                    <h6>default</h6>
                     <Input placeholder='Input value' value={123}/>
                 </Cell>
                 <Cell cls="cell-md-4">
+                    <h6>password</h6>
                     <Input placeholder='Enter a password' type='password'/>
                 </Cell>
                 <Cell cls="cell-md-4">
+                    <h6>search</h6>
                     <Input placeholder='Search...' search={true} onSearch={ val => console.log(val) } />
                 </Cell>
             </Row>
-            <br/>
+
             <Row>
                 <Cell cls="cell-md-4">
-                    <Input placeholder='Input value' history={true}/>
+                    <h6>history</h6>
+                    <Input history={true}/>
                 </Cell>
                 <Cell cls="cell-md-4">
+                    <h6>autocomplete</h6>
+                    <Input autocomplete="Ukraine, USA, Canada, Marokko, Singapur" />
                 </Cell>
                 <Cell cls="cell-md-4">
+                    <h5>custom buttons</h5>
+                    <Input />
                 </Cell>
             </Row>
-            <br/>
+
             <Row>
                 <Cell cls="cell-md-3">
+                    <h6>prepend</h6>
                     <Input value='Input value' prepend='Prepend:'/>
                 </Cell>
                 <Cell cls="cell-md-3">
+                    <h6>prepend icon</h6>
                     <Input value='Input value' prepend={<Icon name='rocket'/>}/>
                 </Cell>
                 <Cell cls="cell-md-3">
+                    <h6>append</h6>
                     <Input value='Input value' append='%'/>
                 </Cell>
                 <Cell cls="cell-md-3">
+                    <h6>append icon</h6>
                     <Input value='Input value' append={<Icon name='rocket'/>}/>
                 </Cell>
             </Row>
