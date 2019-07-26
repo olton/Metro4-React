@@ -1,8 +1,44 @@
 import React from "react";
-
+import Collapse from "../collapse/collapse.jsx";
 import "./accordion.less";
-import "./accordion-rtl.less";
-import AccordionFrame from "./frame.jsx";
+
+export class AccordionFrame extends React.Component {
+    static defaultProps = {
+        frame: null,
+        open: false,
+        animationDuration: 300,
+        title: "",
+        clsFrame: "",
+        clsFrameHeading: "",
+        clsFrameContent: ""
+    };
+
+    constructor(props){
+        super(props);
+        this.onHeadingClick = this.onHeadingClick.bind(this);
+    }
+
+    onHeadingClick(){
+        this.props.onHeadingClick(this.props.frame);
+    }
+
+    render(){
+        const {open, animationDuration, title, clsFrame, clsFrameHeading, clsFrameContent} = this.props;
+        const props = this.props;
+        const transition = `height ${animationDuration}ms cubic-bezier(.4, 0, .2, 1)`;
+
+        return (
+            <div className={'frame ' + (open ? 'active' : '') + ' ' + clsFrame}>
+                <div className={'heading ' + clsFrameHeading} onClick={this.onHeadingClick}>{title}</div>
+                <Collapse isOpen={open} transition={transition}>
+                    <div className={'content ' + clsFrameContent}>
+                        {props.children}
+                    </div>
+                </Collapse>
+            </div>
+        )
+    }
+}
 
 export default class Accordion extends React.Component{
     static defaultProps = {
@@ -79,23 +115,28 @@ export default class Accordion extends React.Component{
         return (
             <div className={className}>
                 {
-                    React.Children.map(this.props.children, (frame, index) => (
-                        <AccordionFrame key={index}
-                                        animationDuration={animationDuration}
-                                        title={frame.props.title}
-                                        clsFrame={clsFrame+ ' ' + frame.props.clsFrame}
-                                        clsFrameHeading={clsFrameHeading+ ' ' + frame.props.clsFrameHeading}
-                                        clsFrameContent={clsFrameContent+ ' ' + frame.props.clsFrameContent}
-                                        open={!!openFrames[index]}
-                                        onHeadingClick={this.clickFrameHeading}
-                                        frame={index}>
-                            {frame.props.children}
-                        </AccordionFrame>
-                    ))
+                    React.Children.map(this.props.children, (frame, index) => {
+                        const props = frame.props;
+                        const frameProps = {
+                            animationDuration,
+                            title: props.title,
+                            clsFrame: clsFrame + ' ' + props.clsFrame,
+                            clsFrameHeading: clsFrameHeading+ ' ' + props.clsFrameHeading,
+                            clsFrameContent: clsFrameContent+ ' ' + props.clsFrameContent
+                        };
+
+                        return (
+                            <AccordionFrame key={index}
+                                            {...frameProps}
+                                            open={!!openFrames[index]}
+                                            onHeadingClick={this.clickFrameHeading}
+                                            frame={index}>
+                                {props.children}
+                            </AccordionFrame>
+                        )
+                    })
                 }
             </div>
         )
     }
 }
-
-export { AccordionFrame };

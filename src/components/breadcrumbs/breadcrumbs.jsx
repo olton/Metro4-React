@@ -45,7 +45,7 @@ export default class Breadcrumbs extends React.Component {
         return (
             <Breadcrumbs className={className}>
                 {
-                    React.Children.map(this.props.children, function(item, index){
+                    React.Children.map(this.props.children, (item, index) => {
                         const props = item.props;
                         const classItem = `page-item ${clsPageItem} ${props.clsPageItem}`;
                         const classLink = `page-link ${clsPageLink} ${props.clsPageLink}`;
@@ -55,7 +55,7 @@ export default class Breadcrumbs extends React.Component {
                             clsPageLink: classLink
                         };
                         return (
-                            <BreadcrumbsItem {...itemProps}>
+                            <BreadcrumbsItem {...itemProps} key={index}>
                                 {props.children}
                             </BreadcrumbsItem>
                         )
