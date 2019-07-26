@@ -1,5 +1,5 @@
 import React from "react";
-import Icon from "../../icons/icon.jsx";
+import Icon from "../icon/icon.jsx";
 import "./info-button.less";
 
 export default class InfoButton extends React.Component {
@@ -43,7 +43,7 @@ export default class InfoButton extends React.Component {
         }
 
         return (
-            <Element className={className} {...elemProps}>
+            <Element className={className} {...elemProps} onClick={this.props.onClick}>
                 <SubElement {...buttonProps} className={'button ' + clsTitle}>
                     {icon && (
                         <Icon name={icon} cls="icon"/>

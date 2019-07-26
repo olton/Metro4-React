@@ -3,6 +3,9 @@ import ReactDom from "react-dom";
 
 import "../src/common/metro-common.less";
 import "../src/colors/metro-colors.less";
+import "../src/icons/mif.less";
+
+import "@fortawesome/fontawesome-free/css/all.css";
 
 import {
     Container,
@@ -21,24 +24,35 @@ import {
     ImageButton,
     Shortcut,
     Breadcrumbs, BreadcrumbsItem,
-    InfoButton
+    InfoButton,
+    Select,
+    Input
 } from "../src/index";
 
 ReactDom.render(
     <Container>
         <Grid>
-            <h2 className="text-light">Icon</h2>
+            <h2 className="text-light">&lt;Icon /&gt;</h2>
             <Row>
-                <Cell>
+                <Cell cls="cell-md-6">
+                    <h5>Use Metro Icons Font</h5>
                     <Icon name="rocket"/>
                     <Icon name="rocket" cls="fg-red" size="2x"/>
                     <Icon name="rocket" cls="fg-green" size="3x"/>
                     <Icon name="rocket" cls="fg-blue" size="4x"/>
                     <Icon name="rocket" cls="fg-orange" size="5x"/>
                 </Cell>
+                <Cell cls="cell-md-6">
+                    <h5>Use Font Awesome</h5>
+                    <Icon name="rocket" prefix="fas fa-"/>
+                    <Icon name="rocket" prefix="fas fa-" cls="fg-red" size="2x"/>
+                    <Icon name="rocket" prefix="fas fa-" cls="fg-green" size="3x"/>
+                    <Icon name="rocket" prefix="fas fa-" cls="fg-blue" size="4x"/>
+                    <Icon name="rocket" prefix="fas fa-" cls="fg-orange" size="5x"/>
+                </Cell>
             </Row>
 
-            <h2 className="text-light">Activities</h2>
+            <h2 className="text-light">&lt;Activity /&gt;</h2>
             <Row>
                 <Cell cls="cell-md-4 bg-darkGray p-2">
                     <Activity type="ring" style="light" cls="mx-auto"/>
@@ -99,7 +113,7 @@ ReactDom.render(
                 </Cell>
             </Row>
 
-            <h2 className="text-light">Accordion</h2>
+            <h2 className="text-light">&lt;Accordion /&gt;</h2>
             <Row>
                 <Cell cls="w-100">
                     <Accordion material={false} oneFrame={true} oneFrameOpen={false} clsFrameContent="p-4" onFrameBeforeClose={()=>true}>
@@ -142,7 +156,7 @@ ReactDom.render(
                 </Cell>
             </Row>
 
-            <h2 className="text-light">Checkbox, radio, switch</h2>
+            <h2 className="text-light">&lt;Checkbox/&gt;, &lt;Radio/&gt;, &lt;Switch/&gt;</h2>
             <Row>
                 <Cell cls="cell-md-4">
                     <div>
@@ -192,7 +206,7 @@ ReactDom.render(
                 </Cell>
             </Row>
 
-            <h2 className="text-light">BottomNav</h2>
+            <h2 className="text-light">&lt;BottomNav /&gt;</h2>
             <Row>
                 <Cell cls="cell-md-4 bg-light" style={{height: 300}}>
                     <BottomNav cls="pos-absolute">
@@ -206,7 +220,7 @@ ReactDom.render(
             </Row>
 
             <h2 className="text-light">Buttons</h2>
-            <h4 className="mt-0">Push button</h4>
+            <h4 className="mt-0">&lt;Button/&gt;</h4>
             <Row>
                 <Cell>
                     <Button title='Button'/>
@@ -220,7 +234,7 @@ ReactDom.render(
                 </Cell>
             </Row>
 
-            <h4>Command button</h4>
+            <h4>&lt;CommandButton/&gt;</h4>
             <Row>
                 <Cell>
                     <CommandButton icon="share" title="Yes, share and connect" subtitle="Use this option for home or work"/>
@@ -229,7 +243,7 @@ ReactDom.render(
                 </Cell>
             </Row>
 
-            <h4>Image button</h4>
+            <h4>&lt;ImageButton/&gt;</h4>
             <Row>
                 <Cell>
                     <ImageButton icon="share" title="Share your connect"/>
@@ -239,7 +253,7 @@ ReactDom.render(
                 </Cell>
             </Row>
 
-            <h4>Shortcut</h4>
+            <h4>&lt;Shortcut/&gt;</h4>
             <Row>
                 <Cell>
                     <Shortcut icon="rocket" title="Rocket"/>
@@ -250,7 +264,7 @@ ReactDom.render(
                 </Cell>
             </Row>
 
-            <h4>Breadcrumbs</h4>
+            <h4>&lt;Breadcrumbs/&gt;</h4>
             <Row>
                 <Cell>
                     <Breadcrumbs cls="mt-0">
@@ -262,13 +276,53 @@ ReactDom.render(
                 </Cell>
             </Row>
 
-            <h4>Info button</h4>
+            <h4>&lt;InfoButton/&gt;</h4>
             <Row>
                 <Cell>
                     <InfoButton title="Star" subtitle="6,208" icon="star-full" />
                     &nbsp;<InfoButton title="Star" subtitle="6,208" icon="star-full" cls="alert" />
                     &nbsp;<InfoButton title="Star" subtitle="6,208" icon="star-full" cls="info rounded" />
                     &nbsp;<InfoButton as="a" title="This is a link" subtitle="6,208" icon="star-full" cls="warning rounded" href="https://metroui.org.ua"/>
+                </Cell>
+            </Row>
+
+
+            <h4>&lt;Input/&gt;</h4>
+            <Row>
+                <Cell cls="cell-md-4">
+                    <Input value='Input value'/>
+                </Cell>
+                <Cell cls="cell-md-4">
+                    <Input value='Enter a password' type='password'/>
+                </Cell>
+            </Row>
+            <Row>
+                <Cell cls="cell-md-4">
+                    <Input value='Input value' prepend='Prepend:'/>
+                </Cell>
+                <Cell cls="cell-md-4">
+                    <Input value='Input value' prepend={<Icon name='rocket'/>}/>
+                </Cell>
+            </Row>
+            <Row>
+                <Cell cls="cell-md-4">
+                    <Input value='Input value' append='%'/>
+                </Cell>
+                <Cell cls="cell-md-4">
+                    <Input value='Input value' append={<Icon name='rocket'/>}/>
+                </Cell>
+            </Row>
+
+            <h4>&lt;Select/&gt;</h4>
+            <Row>
+                <Cell cls="cell-md-6">
+                    <Select>
+                        <option value={1}>Value 1</option>
+                        <option value={2}>Value 2</option>
+                        <option value={3}>Value 3</option>
+                    </Select>
+                </Cell>
+                <Cell cls="cell-md-6">
                 </Cell>
             </Row>
 

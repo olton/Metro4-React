@@ -43,7 +43,7 @@ export default class Button extends React.Component{
         }
 
         return (
-            <Element className={className} {...buttonProps} ref={btn => this.button = btn}>
+            <Element className={className} {...buttonProps} ref={btn => this.button = btn} tabIndex={this.props.tabIndex} onClick={this.props.onClick}>
                 {icon && (
                     <span className={'icon mif-' + icon}/>
                 )}

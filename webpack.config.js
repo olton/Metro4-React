@@ -47,6 +47,10 @@ const webpackConfig = {
                 use: 'babel-loader'
             },
             {
+                test: /\.css$/i,
+                use: ['style-loader', 'css-loader'],
+            },
+            {
                 test: /\.(less)$/,
                 exclude: /node_modules/,
                 use: [

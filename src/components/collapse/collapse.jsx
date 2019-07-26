@@ -8,6 +8,7 @@ const EXPANDED = "expanded";
 
 export default class Collapse extends React.Component {
     static defaultProps = {
+        className: "collapse-css-transition",
         style: {}
     };
     state = {

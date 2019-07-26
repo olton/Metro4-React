@@ -14,8 +14,10 @@ import Radio from "./components/radio/radio.jsx";
 import Switch from "./components/switch/switch.jsx";
 import Breadcrumbs, {BreadcrumbsItem} from "./components/breadcrumbs/breadcrumbs.jsx";
 import InfoButton from "./components/info-button/info-button.jsx";
+import Select from "./components/select/select.jsx"; //TODO
+import Input from "./components/input/input.jsx"; //TODO
 
-import Icon  from "./icons/icon.jsx";
+import Icon  from "./components/icon/icon.jsx";
 
 export {
     Container,
@@ -37,6 +39,8 @@ export {
     Switch,
     Breadcrumbs, BreadcrumbsItem,
     InfoButton,
+    Select,
+    Input,
 
     Icon
 };
