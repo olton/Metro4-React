@@ -140,75 +140,6 @@
     }
 }
 
-.shortcut {
-    width: 6rem;
-    height: 6rem;
-    padding: .5rem;
-    display: inline-flex;
-    flex-direction: column;
-    font-size: .9rem;
-    transition: @transition-short;
-    background-color: darken(@light, 5%);
-    color: @dark;
-    cursor: pointer;
-    white-space: nowrap;
-    vertical-align: middle;
-    user-select: none;
-    border: 1px solid transparent;
-    position: relative;
-    align-items: center;
-    justify-content: space-between;
-    outline: none;
-
-    &:hover {
-        background-color: @hoverBackground;
-    }
-
-    &:active, &.focus, &:focus {
-        .focus-show(@lightGray);
-    }
-
-    .icon, .caption {
-        display: block;
-    }
-
-    .icon {
-        display: block;
-        vertical-align: middle;
-        width: 1.7rem;
-        height: 1.7rem;
-        font-size: 1.7rem;
-        margin-top: 1rem;
-        order: 1;
-    }
-
-    .caption {
-        color: inherit;
-        height: 1.2rem;
-        order: 2;
-    }
-
-    .icon ~ .caption {
-        margin-top: .875rem;
-    }
-
-    .tag {
-        position: absolute;
-        .px2rem(font-size, 11px);
-        top: .25rem;
-        right: .25rem;
-        color: inherit;
-    }
-
-    &.no-caption {
-        .icon {
-            width: 2rem;
-            height: 2rem;
-            font-size: 2rem;
-            margin-top: 1.5rem;
-        }
-    }
-}
 
 .tool-button {
     width: 2rem;
@@ -361,7 +292,7 @@
     }
 }
 
-.button, .shortcut, .tool-button, .split-button .split {
+.button, .tool-button, .split-button .split {
     &:focus, &:hover {
         text-decoration: none;
     }
@@ -376,7 +307,7 @@
     }
 }
 
-.button, .shortcut, .tool-button, .split-button .split {
+.button, .tool-button, .split-button .split {
     &.outline {
         background: transparent none;
         border-width: 1px;
@@ -384,7 +315,7 @@
     }
 }
 
-.button, .shortcut, .tool-button, .split-button .split {
+.button, .tool-button, .split-button .split {
     &:active {
         box-shadow: none;
     }
@@ -673,7 +604,6 @@ a {
     &.button,
     &.flat-button,
     &.action-button,
-    &.shortcut,
     &.tool-button,
     &.split-button,
     &.split {

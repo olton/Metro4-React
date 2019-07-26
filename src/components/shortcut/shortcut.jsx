@@ -1,5 +1,5 @@
 import React from "react";
-import "./button.less";
+import "./shortcut.less";
 
 export default class Shortcut extends React.Component{
     static defaultProps = {

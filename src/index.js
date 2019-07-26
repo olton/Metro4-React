@@ -6,7 +6,7 @@ import BottomNav, {BottomNavItem} from "./components/bottom-nav/bottom-nav.jsx";
 import Button from "./components/button/button.jsx";
 import CommandButton from "./components/command-button/command-button.jsx";
 import ImageButton from "./components/image-button/image-button.jsx";
-import Shortcut from "./components/button/shortcut.jsx";
+import Shortcut from "./components/shortcut/shortcut.jsx";
 import Checkbox from "./components/checkbox/checkbox.jsx";
 import Collapse from "./components/collapse/collapse.jsx";
 import {Grid, Row, Cell} from "./components/grid/grid.jsx";

@@ -246,6 +246,7 @@ ReactDom.render(
                     &nbsp;<Shortcut icon="share" title="Share" cls="info"/>
                     &nbsp;<Shortcut icon="share" cls="warning no-caption"/>
                     &nbsp;<Shortcut icon="windows" cls="alert" title="Windows" tag={10}/>
+                    &nbsp;<Shortcut as="a" href="#" icon="windows" cls="success" title="Anchor" tag={10}/>
                 </Cell>
             </Row>
 
