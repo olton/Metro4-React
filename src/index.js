@@ -13,7 +13,7 @@ import {Grid, Row, Cell} from "./components/grid/grid.jsx";
 import Radio from "./components/radio/radio.jsx";
 import Switch from "./components/switch/switch.jsx";
 import Breadcrumbs, {BreadcrumbsItem} from "./components/breadcrumbs/breadcrumbs.jsx";
-import InfoButton from "./components/button/info-button.jsx";
+import InfoButton from "./components/info-button/info-button.jsx";
 
 import Icon  from "./icons/icon.jsx";
 

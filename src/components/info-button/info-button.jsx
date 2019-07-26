@@ -1,13 +1,15 @@
 import React from "react";
-import "./button.less";
 import Icon from "../../icons/icon.jsx";
+import "./info-button.less";
 
 export default class InfoButton extends React.Component {
     static defaultProps = {
+        as: "div",
         title: "",
         subtitle: "",
-        hrefA: "",
-        hrefB: "",
+        href: "",
+        hrefTitle: "",
+        hrefSubtitle: "",
         icon: false,
         image: false,
         cls: "",
@@ -21,16 +23,28 @@ export default class InfoButton extends React.Component {
     }
 
     render(){
+        const Element = this.props.as;
+        const SubElement = this.props.as === 'a' ? 'span' : 'a';
         const {
-            title, subtitle, hrefA, hrefB,
+            title, subtitle, href, hrefTitle, hrefSubtitle,
             icon, image,
             cls, clsTitle, clsSubtitle
         } = this.props;
         const className = `info-button ${cls}`;
+        const elemProps = {};
+        const buttonProps = {};
+        const infoProps = {};
+
+        if (this.props.as === 'a') {
+            elemProps.href = href;
+        } else {
+            buttonProps.href = hrefTitle;
+            infoProps.href = hrefSubtitle;
+        }
 
         return (
-            <div className={className}>
-                <a href={hrefA} className={'button ' + clsTitle}>
+            <Element className={className} {...elemProps}>
+                <SubElement {...buttonProps} className={'button ' + clsTitle}>
                     {icon && (
                         <Icon name={icon} cls="icon"/>
                     )}
@@ -40,12 +54,12 @@ export default class InfoButton extends React.Component {
                     )}
 
                     {title}
-                </a>
+                </SubElement>
 
-                <a href={hrefB} className={"info " + clsSubtitle}>
+                <SubElement {...infoProps} className={'info ' + clsSubtitle}>
                     <span>{subtitle}</span>
-                </a>
-            </div>
+                </SubElement>
+            </Element>
         )
     }
 }

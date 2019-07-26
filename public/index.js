@@ -268,6 +268,7 @@ ReactDom.render(
                     <InfoButton title="Star" subtitle="6,208" icon="star-full" />
                     &nbsp;<InfoButton title="Star" subtitle="6,208" icon="star-full" cls="alert" />
                     &nbsp;<InfoButton title="Star" subtitle="6,208" icon="star-full" cls="info rounded" />
+                    &nbsp;<InfoButton as="a" title="This is a link" subtitle="6,208" icon="star-full" cls="warning rounded" href="https://metroui.org.ua"/>
                 </Cell>
             </Row>
 

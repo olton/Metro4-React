@@ -212,7 +212,7 @@
     }
 }
 
-.dropdown-button, .split-button, .info-button {
+.dropdown-button, .split-button {
     display: inline-block;
     position: relative;
     width: auto;
@@ -246,51 +246,6 @@
     }
 }
 
-.info-button {
-    height: 36px;
-    display: inline-flex;
-    border: 1px solid @borderColor;
-    background-color: darken(@light, 5%);
-    overflow: hidden;
-    position: relative;
-    align-items: center;
-
-    .button, .info {
-        border-right: none;
-        height: 100%;
-        line-height: 32px;
-        position: relative;
-
-        &:active, &:focus {
-            box-shadow: none!important;
-        }
-    }
-
-    .button {
-        background-color: inherit;
-        color: inherit;
-        &:hover {
-            background-color: @hoverBackground;
-        }
-    }
-    .info {
-        font-size: 12px;
-        background-color: #FEFEFE;
-        color: @dark;
-        padding: 0 .625rem;
-        text-decoration: none;
-        font-weight: 600;
-        line-height: 34px;
-
-        &:hover {
-            color: @linkColorHover;
-        }
-    }
-
-    .button .icon {
-        margin-right: 4px;
-    }
-}
 
 .button, .tool-button, .split-button .split {
     &:focus, &:hover {
