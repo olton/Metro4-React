@@ -22,7 +22,9 @@ export default class Input extends React.Component {
         onSearch: () => {},
         onClear: () => {},
         onReveal: () => {},
-        onChange: () => {}
+        onChange: () => {},
+        onBlur: () => {},
+        onFocus: () => {}
     };
 
     constructor(props){
@@ -30,7 +32,8 @@ export default class Input extends React.Component {
 
         this.state = {
             value: props.value,
-            type: props.type
+            type: props.type,
+            focus: false
         };
 
         this.input = null;
@@ -46,6 +49,32 @@ export default class Input extends React.Component {
         this.changeInputType = this.changeInputType.bind(this);
         this.clearValue = this.clearValue.bind(this);
         this.searchValue = this.searchValue.bind(this);
+        this.onBlur = this.onBlur.bind(this);
+        this.onFocus = this.onFocus.bind(this);
+    }
+
+    componentDidMount(){
+        this.input.addEventListener("blur", this.onBlur)
+        this.input.addEventListener("focus", this.onFocus)
+    }
+
+    componentWillUnmount() {
+        this.input.removeEventListener("blur", this.onBlur);
+        this.input.removeEventListener("focus", this.onFocus);
+    }
+
+    onBlur(){
+        this.setState({
+            focus: false
+        });
+        this.props.onBlur(this.input);
+    }
+
+    onFocus(){
+        this.setState({
+            focus: true
+        });
+        this.props.onFocus(this.input);
     }
 
     onChange(e){
@@ -129,14 +158,14 @@ export default class Input extends React.Component {
 
     render() {
         const {name, placeholder, append, prepend, clear, reveal, search, type: inputType} = this.props;
-        const {value, type} = this.state;
+        const {value, type, focus} = this.state;
         const buttons = clear || reveal || search;
         const inputProps = {
             name, type, placeholder, value
         };
 
         return (
-            <div className='input'>
+            <div className={'input ' + (focus ? 'focused' : '')}>
 
                 {prepend !== "" && (
                     <span className='prepend'>{prepend}</span>
