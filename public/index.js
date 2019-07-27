@@ -29,6 +29,16 @@ import {
     Input
 } from "../src/index";
 
+const customButtons = [
+    {
+        name: 'Rocket',
+        icon: '<Icon name="rocket"/>',
+        image: '',
+        cls: 'alert',
+        onClick: () => {alert('halo!')}
+    }
+];
+
 ReactDom.render(
     <Container>
         <Grid>
@@ -314,7 +324,7 @@ ReactDom.render(
                 </Cell>
                 <Cell cls="cell-md-4">
                     <h5>custom buttons</h5>
-                    <Input />
+                    <Input customButtons={customButtons}/>
                 </Cell>
             </Row>
 

@@ -19,6 +19,7 @@ export default class Input extends React.Component {
         autocomplete: "",
         autocompleteDivider: ",",
         autocompleteHeight: 200,
+        customButtons: [],
         onSearch: () => {},
         onClear: () => {},
         onReveal: () => {},
@@ -54,8 +55,8 @@ export default class Input extends React.Component {
     }
 
     componentDidMount(){
-        this.input.addEventListener("blur", this.onBlur)
-        this.input.addEventListener("focus", this.onFocus)
+        this.input.addEventListener("blur", this.onBlur);
+        this.input.addEventListener("focus", this.onFocus);
     }
 
     componentWillUnmount() {
@@ -157,13 +158,14 @@ export default class Input extends React.Component {
     }
 
     render() {
-        const {name, placeholder, append, prepend, clear, reveal, search, type: inputType} = this.props;
+        const {name, placeholder, append, prepend, clear, reveal, search, type: inputType, customButtons} = this.props;
         const {value, type, focus} = this.state;
         const buttons = clear || reveal || search;
         const inputProps = {
             name, type, placeholder, value
         };
 
+        console.log(customButtons);
         return (
             <div className={'input ' + (focus ? 'focused' : '')}>
 
@@ -190,6 +192,12 @@ export default class Input extends React.Component {
                                 <span className='default-icon-search'/>
                             </Button>
                         )}
+
+                        {customButtons.map(function(btn, index){
+                            return (
+                                <Button key={index} cls={btn.cls} icon={btn.icon} image={btn.image} title={btn.name} onClick={btn.onClick}/>
+                            )
+                        })}
                     </div>
                 )}
 
@@ -207,7 +215,8 @@ export default class Input extends React.Component {
                                 return (
                                     <div className='item' key={index} hidden={value === '' || searchIndex === -1} dangerouslySetInnerHTML={{__html: itemValue}}/>
                                 )
-                            })}
+                            })
+                        }
                     </div>
                 )}
             </div>
