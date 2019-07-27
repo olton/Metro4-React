@@ -52,6 +52,7 @@ export default class Input extends React.Component {
         this.searchValue = this.searchValue.bind(this);
         this.onBlur = this.onBlur.bind(this);
         this.onFocus = this.onFocus.bind(this);
+        this.autocompleteItemClick = this.autocompleteItemClick.bind(this);
     }
 
     componentDidMount(){
@@ -157,6 +158,13 @@ export default class Input extends React.Component {
         }
     }
 
+    autocompleteItemClick(e){
+        const value = e.target.getAttribute('data-item');
+        this.setState({
+            value: value
+        });
+    }
+
     render() {
         const {name, placeholder, append, prepend, clear, reveal, search, type: inputType, customButtons} = this.props;
         const {value, type, focus} = this.state;
@@ -164,6 +172,8 @@ export default class Input extends React.Component {
         const inputProps = {
             name, type, placeholder, value
         };
+
+        const autocompleteItemClick = this.autocompleteItemClick;
 
         return (
             <div className={'input ' + (focus ? 'focused' : '')}>
@@ -212,7 +222,7 @@ export default class Input extends React.Component {
                                 const itemValue = `${item.substr(0, searchIndex)}<strong>${item.substr(searchIndex, value.length)}</strong>${item.substr(searchIndex + value.length)}`;
 
                                 return (
-                                    <div className='item' key={index} hidden={value === '' || searchIndex === -1} dangerouslySetInnerHTML={{__html: itemValue}}/>
+                                    <div data-item={item} className='item' key={index} hidden={item === value || value === '' || searchIndex === -1} dangerouslySetInnerHTML={{__html: itemValue}} onClick={autocompleteItemClick}/>
                                 )
                             })
                         }
