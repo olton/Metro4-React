@@ -380,9 +380,21 @@ ReactDom.render(
             <Row>
                 <Cell cls="cell-md-6">
                     <Select>
-                        <option value={1}>Value 1</option>
-                        <option value={2}>Value 2</option>
-                        <option value={3}>Value 3</option>
+                        <optgroup label="Physical servers">
+                            <option value="dedicated_corei3_hp">Core i3 (hp)</option>
+                            <option value="dedicated_pentium_hp">Pentium (hp)</option>
+                            <option value="dedicated_smart_corei3_hp">Smart Core i3 (hp)</option>
+                        </optgroup>
+                        <optgroup label="Virtual hosting">
+                            <option value="mini">Mini</option>
+                            <option value="site">Site</option>
+                            <option value="portal">Portal</option>
+                        </optgroup>
+                        <optgroup label="Virtual servers">
+                            <option value="evps0">eVPS-TEST (30 дней)</option>
+                            <option value="evps1">eVPS-1</option>
+                            <option value="evps2">eVPS-2</option>
+                        </optgroup>
                     </Select>
                 </Cell>
                 <Cell cls="cell-md-6">

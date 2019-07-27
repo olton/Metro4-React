@@ -1,5 +1,6 @@
 import React from "react";
 import "./collapse.less";
+import "./dropdown.less";
 
 const COLLAPSED = "collapsed";
 const COLLAPSING = "collapsing";
