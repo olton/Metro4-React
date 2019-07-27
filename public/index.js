@@ -31,8 +31,16 @@ import {
 
 const customButtons = [
     {
-        name: 'Rocket',
-        icon: '<Icon name="rocket"/>',
+        title: '',
+        icon: 'apple',
+        image: '',
+        cls: 'info',
+        onClick: () => {alert('info!')}
+    },
+    {
+        title: '',
+        icon: 'rocket',
+        iconPrefix: 'fa fa-',
         image: '',
         cls: 'alert',
         onClick: () => {alert('halo!')}

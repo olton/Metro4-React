@@ -195,7 +195,7 @@ export default class Input extends React.Component {
 
                         {customButtons.map(function(btn, index){
                             return (
-                                <Button key={index} cls={btn.cls} icon={btn.icon} image={btn.image} title={btn.name} onClick={btn.onClick}/>
+                                <Button key={index} {...btn}/>
                             )
                         })}
                     </div>

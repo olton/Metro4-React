@@ -1,4 +1,5 @@
 import React from "react";
+import Icon from "../icon/icon.jsx";
 import "./button.less";
 
 export default class Button extends React.Component{
@@ -7,6 +8,7 @@ export default class Button extends React.Component{
         title: "",
         tag: false,
         icon: false,
+        iconPrefix: "mif-",
         image: false,
         cls: "",
         type: "button",
@@ -23,6 +25,7 @@ export default class Button extends React.Component{
         const {
             as,
             icon,
+            iconPrefix,
             image,
             title,
             cls,
@@ -42,10 +45,12 @@ export default class Button extends React.Component{
             buttonProps.type = type;
         }
 
+        console.log(icon, iconPrefix);
+
         return (
             <Element className={className} {...buttonProps} ref={btn => this.button = btn} tabIndex={this.props.tabIndex} onClick={this.props.onClick}>
                 {icon && (
-                    <span className={'icon mif-' + icon}/>
+                    <Icon prefix={iconPrefix} name={icon} />
                 )}
 
                 {image && (
