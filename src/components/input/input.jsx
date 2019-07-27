@@ -165,7 +165,6 @@ export default class Input extends React.Component {
             name, type, placeholder, value
         };
 
-        console.log(customButtons);
         return (
             <div className={'input ' + (focus ? 'focused' : '')}>
 

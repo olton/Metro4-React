@@ -45,8 +45,6 @@ export default class Button extends React.Component{
             buttonProps.type = type;
         }
 
-        console.log(icon, iconPrefix);
-
         return (
             <Element className={className} {...buttonProps} ref={btn => this.button = btn} tabIndex={this.props.tabIndex} onClick={this.props.onClick}>
                 {icon && (

@@ -15,7 +15,9 @@ import Switch from "./components/switch/switch.jsx";
 import Breadcrumbs, {BreadcrumbsItem} from "./components/breadcrumbs/breadcrumbs.jsx";
 import InfoButton from "./components/info-button/info-button.jsx";
 import Select from "./components/select/select.jsx"; //TODO
-import Input from "./components/input/input.jsx"; //TODO
+import Input from "./components/input/input.jsx";
+import ActionButton from "./components/action-button/action-button.jsx";
+import MultiAction, {MultiActionItem} from "./components/action-button/multi-action.jsx";
 
 import Icon  from "./components/icon/icon.jsx";
 
@@ -41,6 +43,7 @@ export {
     InfoButton,
     Select,
     Input,
+    ActionButton, MultiAction, MultiActionItem,
 
     Icon
 };

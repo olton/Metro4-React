@@ -26,7 +26,8 @@ import {
     Breadcrumbs, BreadcrumbsItem,
     InfoButton,
     Select,
-    Input
+    Input,
+    ActionButton, MultiAction, MultiActionItem,
 } from "../src/index";
 
 const customButtons = [
@@ -301,6 +302,26 @@ ReactDom.render(
                     &nbsp;<InfoButton title="Star" subtitle="6,208" icon="star-full" cls="alert" />
                     &nbsp;<InfoButton title="Star" subtitle="6,208" icon="star-full" cls="info rounded" />
                     &nbsp;<InfoButton as="a" title="This is a link" subtitle="6,208" icon="star-full" cls="warning rounded" href="https://metroui.org.ua"/>
+                </Cell>
+            </Row>
+
+            <h4>&lt;ActionButton/&gt;</h4>
+            <Row>
+                <Cell>
+                    <ActionButton icon="star-full" />
+                    &nbsp;<ActionButton icon="star-full" cls="second" />
+                    &nbsp;<ActionButton icon="star-full" cls="info"/>
+                    &nbsp;<ActionButton icon="star-full" cls="warning second" />
+                    &nbsp;<ActionButton icon="star-full" cls="alert" />
+                </Cell>
+            </Row>
+
+            <h4>&lt;MultiAction/&gt;</h4>
+            <Row>
+                <Cell>
+                    <MultiAction icon="star-full" cls="alert" drop={'right'}>
+                        <MultiActionItem icon="rocket" onClick={() => alert('rocket')}/>
+                    </MultiAction>
                 </Cell>
             </Row>
 
