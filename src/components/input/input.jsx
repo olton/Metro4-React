@@ -36,6 +36,10 @@ export default class Input extends React.Component {
         this.input = null;
         this.history = [];
         this.historyIndex = -1;
+        this.autocomplete = this.props.autocomplete
+            .split(",")
+            .map(item => item.trim())
+            .filter(item => item !== '');
 
         this.onChange = this.onChange.bind(this);
         this.onKeyUp = this.onKeyUp.bind(this);
@@ -162,6 +166,20 @@ export default class Input extends React.Component {
 
                 {append !== "" && (
                     <span className='append'>{append}</span>
+                )}
+
+                {this.autocomplete.length > 0 && (
+                    <div className='autocomplete-list'>
+                        {
+                            this.autocomplete.map(function(item, index) {
+                                const searchIndex = item.indexOf(value);
+                                const itemValue = `${item.substr(0, searchIndex)}<strong>${item.substr(searchIndex, value.length)}</strong>${item.substr(searchIndex + value.length)}`;
+
+                                return (
+                                    <div className='item' key={index} hidden={value === '' || searchIndex === -1} dangerouslySetInnerHTML={{__html: itemValue}}/>
+                                )
+                            })}
+                    </div>
                 )}
             </div>
         )
