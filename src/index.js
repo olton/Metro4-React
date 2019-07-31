@@ -18,6 +18,7 @@ import Select from "./components/select/select.jsx"; //TODO
 import Input from "./components/input/input.jsx";
 import ActionButton from "./components/action-button/action-button.jsx";
 import MultiAction, {MultiActionItem} from "./components/action-button/multi-action.jsx";
+import Tag from "./components/tag/tag.jsx";
 
 import Icon  from "./components/icon/icon.jsx";
 
@@ -44,6 +45,7 @@ export {
     Select,
     Input,
     ActionButton, MultiAction, MultiActionItem,
+    Tag,
 
     Icon
 };

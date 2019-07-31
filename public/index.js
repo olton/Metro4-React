@@ -28,6 +28,7 @@ import {
     Select,
     Input,
     ActionButton, MultiAction, MultiActionItem,
+    Tag,
 } from "../src/index";
 
 const customButtons = [
@@ -51,6 +52,41 @@ const customButtons = [
 ReactDom.render(
     <Container>
         <Grid>
+            <h2 className="text-light">&lt;Select/&gt;</h2>
+            <Row>
+                <Cell cls="cell-md-6">
+                    <Select>
+                        <optgroup label="Physical servers">
+                            <option value="dedicated_corei3_hp">Core i3 (hp)</option>
+                            <option value="dedicated_pentium_hp">Pentium (hp)</option>
+                            <option value="dedicated_smart_corei3_hp">Smart Core i3 (hp)</option>
+                        </optgroup>
+                        <optgroup label="Virtual hosting">
+                            <option value="mini">Mini</option>
+                            <option value="site">Site</option>
+                            <option value="portal">Portal</option>
+                        </optgroup>
+                        <optgroup label="Virtual servers">
+                            <option value="evps0">eVPS-TEST (30 дней)</option>
+                            <option value="evps1">eVPS-1</option>
+                            <option value="evps2">eVPS-2</option>
+                        </optgroup>
+                    </Select>
+                </Cell>
+                <Cell cls="cell-md-6">
+                </Cell>
+            </Row>
+
+            <h2 className="text-light">&lt;Tag /&gt;</h2>
+            <Row>
+                <Cell>
+                    <Tag>metro4</Tag>
+                    <Tag>react</Tag>
+                    <Tag>css</Tag>
+                    <Tag>javascript</Tag>
+                </Cell>
+            </Row>
+
             <h2 className="text-light">&lt;Icon /&gt;</h2>
             <Row>
                 <Cell cls="cell-md-6">
@@ -279,7 +315,7 @@ ReactDom.render(
                     &nbsp;<Shortcut icon="share" title="Share" cls="info"/>
                     &nbsp;<Shortcut icon="share" cls="warning no-caption"/>
                     &nbsp;<Shortcut icon="windows" cls="alert" title="Windows" tag={10}/>
-                    &nbsp;<Shortcut as="a" href="#" icon="windows" cls="success" title="Anchor" tag={10}/>
+                    &nbsp;<Shortcut as="a" href="#" icon="windows" cls="success" title="Anchor" badge={10}/>
                 </Cell>
             </Row>
 
@@ -376,30 +412,6 @@ ReactDom.render(
                 </Cell>
             </Row>
 
-            <h4>&lt;Select/&gt;</h4>
-            <Row>
-                <Cell cls="cell-md-6">
-                    <Select>
-                        <optgroup label="Physical servers">
-                            <option value="dedicated_corei3_hp">Core i3 (hp)</option>
-                            <option value="dedicated_pentium_hp">Pentium (hp)</option>
-                            <option value="dedicated_smart_corei3_hp">Smart Core i3 (hp)</option>
-                        </optgroup>
-                        <optgroup label="Virtual hosting">
-                            <option value="mini">Mini</option>
-                            <option value="site">Site</option>
-                            <option value="portal">Portal</option>
-                        </optgroup>
-                        <optgroup label="Virtual servers">
-                            <option value="evps0">eVPS-TEST (30 дней)</option>
-                            <option value="evps1">eVPS-1</option>
-                            <option value="evps2">eVPS-2</option>
-                        </optgroup>
-                    </Select>
-                </Cell>
-                <Cell cls="cell-md-6">
-                </Cell>
-            </Row>
 
 
         </Grid>

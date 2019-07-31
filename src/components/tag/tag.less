@@ -1,0 +1,42 @@
+@import (once) "../../include/less/vars";
+@import (once) "../../include/less/mixins";
+
+.tag {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    margin: 0 .5em .5em 0;
+    padding: 0;
+    height: 24px;
+    line-height: 24px;
+    background-color: @light;
+    cursor: default;
+
+    .title {
+        display: block;
+        position: relative;
+        max-width: 120px;
+        font-size: 14px;
+        .text-ellipsis();
+        margin: 0;
+        padding: 0 8px;
+        height: 100%;
+    }
+
+    .remover {
+        display: block;
+        position: relative;
+        width: 24px;
+        height: 100%;
+        line-height: 24px;
+        text-align: center;
+        cursor: pointer;
+        background-color: @lightGray;
+        padding: 0;
+
+        &:hover {
+            background-color: @hoverBackground;
+        }
+    }
+}

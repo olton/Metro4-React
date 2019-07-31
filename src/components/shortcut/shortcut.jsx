@@ -5,7 +5,7 @@ export default class Shortcut extends React.Component{
     static defaultProps = {
         as: "button",
         title: "",
-        tag: false,
+        badge: false,
         icon: false,
         image: false,
         cls: "",
@@ -24,7 +24,7 @@ export default class Shortcut extends React.Component{
             icon,
             image,
             title,
-            tag,
+            badge,
             cls,
             type,
             href
@@ -56,9 +56,9 @@ export default class Shortcut extends React.Component{
                 </span>
                 )}
 
-                {tag && (
-                    <span className={'tag '}>
-                    {tag}
+                {badge && (
+                    <span className={'badge '}>
+                    {badge}
                 </span>
                 )}
             </Element>
