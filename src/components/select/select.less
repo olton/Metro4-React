@@ -11,6 +11,17 @@
     position: relative;
     margin: 0;
 
+    .dropdown-toggle {
+        width: 36px;
+        height: 36px;
+        display: block;
+        position: relative;
+
+        &::before {
+            margin-left: -1.1rem;
+        }
+    }
+
     .d-menu li a, .v-menu li a {
         min-width: auto;
         height: auto;
@@ -141,45 +152,16 @@
         left: 0;
     }
 
-    @selected-item-size: 26px;
-
-    .selected-item {
-        display: inline-flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        position: relative;
-        margin: 2px;
-        padding: 0;
-        height: @selected-item-size;
-        line-height: @selected-item-size;
-        background-color: @light;
-        cursor: default;
-
-        .title {
-            display: block;
-            position: relative;
-            max-width: 120px;
-            font-size: 14px;
-            .text-ellipsis();
-            margin: 0 4px;
-        }
-
-        .remover {
-            display: block;
-            position: relative;
-            width: @selected-item-size - 1;
-            height: @selected-item-size - 1;
-            line-height: @selected-item-size - 2;
-            text-align: center;
-            cursor: pointer;
-            background-color: @lightGray;
-        }
-    }
-
     &.multiple {
         flex-wrap: wrap;
         height: auto;
         min-height: 36px;
+
+        .dropdown-toggle {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
 
         .select-input {
             height: auto;
@@ -191,6 +173,12 @@
     .append {order: 3}
     .select-input {order: 2;}
     .button-group {order: 3;}
+
+    .dropdown-toggle {order: 4;}
+
+    .tag {
+        margin: 5px;
+    }
 }
 
 .select {
@@ -220,7 +208,7 @@
             margin-left: -1.3rem;
         }
 
-        .selected-item {
+        .tag {
             margin: 2px 2px;
             height: @input-lx - 14;
             line-height: @input-lx - 14;
@@ -264,7 +252,7 @@
             margin-left: -.9rem;
         }
 
-        .selected-item {
+        .tag {
             height: @input-sx - 10;
             line-height: @input-sx - 10;
 

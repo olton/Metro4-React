@@ -3,7 +3,17 @@ import "./select.less";
 import "../d-menu/d-menu.less";
 import Collapse from "../collapse/collapse.jsx";
 import Input from "../input/input.jsx";
-import Tag from "../tag/tag.jsx";
+import Tag from "../tag/tag.jsx"
+
+function addOptions(options, list){
+    React.Children.forEach(list, function(el, index){
+        if (el.type === 'optgroup') {
+            addOptions(options, el.props.children);
+        } else {
+            options[el.props.value] = el.props.children;
+        }
+    });
+}
 
 export default class Select extends React.Component {
     static defaultProps = {
@@ -14,53 +24,75 @@ export default class Select extends React.Component {
     constructor(props){
         super(props);
 
+        this.select = React.createRef();
+        this.selectInput = React.createRef();
+        this.input = React.createRef();
+        this.options = {};
+
+        addOptions(this.options, this.props.children);
+
         this.state = {
             open: false,
-            multiple: false,
-            filter: ""
+            filter: "",
+            value: this.props.value
         };
 
-        this.select = null;
-        this.selectInput = null;
-        this.input = null;
-        this.options = [];
-
         this.selectClick = this.selectClick.bind(this);
+        this.tagClick = this.tagClick.bind(this);
         this.listItemClick = this.listItemClick.bind(this);
         this.inputChange = this.inputChange.bind(this);
         this.selectChange = this.selectChange.bind(this);
     }
 
-    selectChange(){
-        if (this.state.multiple) {
+    selectChange(e){
 
-        } else {
-            this.selectInput.innerHTML = this.select.value;
+    }
+
+    tagClick(e){
+        const key = e.target.parentNode.getAttribute('data-value');
+        const {value} = this.state;
+        const index = value.indexOf(key);
+
+        if (index !== -1) {
+            value.splice(index, 1);
         }
+
+        this.setState({
+            value: value
+        });
+        e.stopPropagation();
     }
 
     selectClick(e){
         const isOpen = this.state.open;
+
         this.setState({
             open: !isOpen
         });
-        e.preventDefault();
+
+        if (!isOpen) {
+            // Need focus search input
+        }
     }
 
     listItemClick(e){
-        if (this.state.multiple) {
+        const {multiple} = this.props;
+        const {value} = this.state;
 
+        const key = e.target.parentNode.getAttribute("data-value");
+
+        if (multiple) {
+            if (value.indexOf(key) === -1) value.push(key);
+            this.setState({
+                filter: "",
+                value: value
+            })
         } else {
             this.setState({
                 open: false,
-                filter: ""
+                filter: "",
+                value: key
             });
-
-            const value = e.target.parentNode.getAttribute("data-value");
-            const title = e.target.parentNode.getAttribute("data-title");
-
-            this.select.value = value;
-            this.selectInput.innerHTML = title;
         }
 
         e.preventDefault();
@@ -73,19 +105,22 @@ export default class Select extends React.Component {
     }
 
     render() {
-        const {dropHeight, animationDuration} = this.props;
-        const {open, multiple, filter} = this.state;
+        const {multiple, dropHeight, animationDuration} = this.props;
+        const {open, filter, value} = this.state;
         const transition = `height ${animationDuration}ms cubic-bezier(.4, 0, .2, 1)`;
-        const options = [];
-        let optionIndex = -1;
+        const options = this.options;
+        const items = [];
         const listItemClick = this.listItemClick;
+        const tagClick = this.tagClick;
+
+        let optionIndex = -1;
 
         function addOption(el, isGroupTitle) {
             if (isGroupTitle) {
-                options.push(<li className={'group-title'} key={optionIndex++}>{el.props.label}</li>);
+                items.push(<li className={'group-title'} key={optionIndex++}>{el.props.label}</li>);
             } else {
-                options.push(
-                    <li hidden={filter !== "" && el.props.children.indexOf(filter) === -1}
+                items.push(
+                    <li hidden={(filter !== "" && el.props.children.toLowerCase().indexOf(filter.toLowerCase()) === -1) || ( !multiple ? value === el.props.value : value.indexOf(el.props.value) !== -1 )}
                         key={optionIndex++}
                         onClick={listItemClick}
                         data-value={el.props.value}
@@ -109,15 +144,33 @@ export default class Select extends React.Component {
         });
 
         return (
-            <label className={'select dropdown-toggle ' + (open ? 'focused active-toggle':'')} >
-                <select multiple={multiple} ref={ref => this.select = ref} onChange={this.selectChange} name={this.props.name}>{this.props.children}</select>
+            <label className={'select ' + (open ? ' focused ':'') + (multiple ? ' multiple ':'')}>
 
-                <div className={'select-input'} onClick={this.selectClick} ref={ref => this.selectInput = ref}/>
+                <span className={'dropdown-toggle ' + (open ? 'active-toggle':'')} onClick={this.selectClick}/>
+
+                <select value={value} multiple={multiple}
+                        ref={this.select}
+                        onChange={this.selectChange} name={this.props.name}
+                >
+                    {this.props.children}
+                </select>
+
+                <div className={'select-input'} ref={this.selectInput} onClick={this.selectClick}>
+                    {multiple && value.map( function(el, index){
+                        return (
+                            <Tag key={index} onClick={tagClick} data-value={el}>{options[el]}</Tag>
+                        )
+                    })}
+
+                    {!multiple && value !== "" && (
+                        <span>{options[value]}</span>
+                    )}
+                </div>
 
                 <Collapse isOpen={open} className={'drop-container'} transition={transition}>
-                    <Input onChange={this.inputChange} ref={ref => this.input = ref}/>
+                    <Input onChange={this.inputChange} ref={this.input} placeholder={'Search...'}/>
                     <ul className={'d-menu'} style={{maxHeight: dropHeight}}>
-                        {options}
+                        {items}
                     </ul>
                 </Collapse>
             </label>

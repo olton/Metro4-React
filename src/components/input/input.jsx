@@ -53,6 +53,7 @@ export default class Input extends React.Component {
         this.onBlur = this.onBlur.bind(this);
         this.onFocus = this.onFocus.bind(this);
         this.autocompleteItemClick = this.autocompleteItemClick.bind(this);
+        this.focus = this.focus.bind(this);
     }
 
     componentDidMount(){
@@ -163,6 +164,10 @@ export default class Input extends React.Component {
         this.setState({
             value: value
         });
+    }
+
+    focus(){
+        this.input.current.focus();
     }
 
     render() {

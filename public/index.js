@@ -55,7 +55,7 @@ ReactDom.render(
             <h2 className="text-light">&lt;Select/&gt;</h2>
             <Row>
                 <Cell cls="cell-md-6">
-                    <Select>
+                    <Select value={'mini'} multiple={false}>
                         <optgroup label="Physical servers">
                             <option value="dedicated_corei3_hp">Core i3 (hp)</option>
                             <option value="dedicated_pentium_hp">Pentium (hp)</option>
@@ -74,6 +74,23 @@ ReactDom.render(
                     </Select>
                 </Cell>
                 <Cell cls="cell-md-6">
+                    <Select value={['mini', 'dedicated_corei3_hp']} multiple={true}>
+                        <optgroup label="Physical servers">
+                            <option value="dedicated_corei3_hp">Core i3 (hp)</option>
+                            <option value="dedicated_pentium_hp">Pentium (hp)</option>
+                            <option value="dedicated_smart_corei3_hp">Smart Core i3 (hp)</option>
+                        </optgroup>
+                        <optgroup label="Virtual hosting">
+                            <option value="mini">Mini</option>
+                            <option value="site">Site</option>
+                            <option value="portal">Portal</option>
+                        </optgroup>
+                        <optgroup label="Virtual servers">
+                            <option value="evps0">eVPS-TEST (30 дней)</option>
+                            <option value="evps1">eVPS-1</option>
+                            <option value="evps2">eVPS-2</option>
+                        </optgroup>
+                    </Select>
                 </Cell>
             </Row>
 
