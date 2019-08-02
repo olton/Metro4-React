@@ -140,78 +140,6 @@
     }
 }
 
-
-.tool-button {
-    width: 2rem;
-    height: 2rem;
-    line-height: 2rem;
-    vertical-align: middle;
-    display: inline-block;
-    text-align: center;
-    background-color: darken(@light, 5%);
-    color: @dark;
-    user-select: none;
-    border: 1px solid transparent;
-    transition: @transition-short;
-    padding: 0;
-    cursor: pointer;
-    outline: none;
-    margin: 0 2px;
-    position: relative;
-
-    [class*=mif], .icon, img {
-        height: 1rem;
-        max-height: 1rem;
-        font-size: 1rem;
-    }
-
-    &.text-button {
-        width: auto;
-        padding-left: .5rem;
-        padding-right: .5rem;
-    }
-}
-
-.toolbar {
-    display: inline-flex;
-    position: relative;
-    padding: 0 0 0 .5725rem;
-    top: 2px;
-    flex-flow: row nowrap;
-
-    &.no-divider {
-        &::before {
-            display: none;
-        }
-    }
-
-    &::before {
-        position: absolute;
-        content: "";
-        width: .325rem;
-        height: 100%;
-        top: 0;
-        left: 0;
-        background-color: rgba(red(@grayMouse), green(@grayMouse), blue(@grayMouse), .20);
-        cursor: move;
-    }
-
-    &.vertical {
-        flex-flow: column nowrap;
-        padding: .5725rem 0 0 0;
-        width: 32px;
-
-        &::before {
-            width: 32px;
-            height: .325rem;
-        }
-
-        .tool-button {
-            margin: 2px 0;
-        }
-    }
-}
-
 .dropdown-button, .split-button {
     display: inline-block;
     position: relative;
@@ -247,7 +175,7 @@
 }
 
 
-.button, .tool-button, .split-button .split {
+.button, .split-button .split {
     &:focus, &:hover {
         text-decoration: none;
     }
@@ -262,7 +190,7 @@
     }
 }
 
-.button, .tool-button, .split-button .split {
+.button, .split-button .split {
     &.outline {
         background: transparent none;
         border-width: 1px;
@@ -270,7 +198,7 @@
     }
 }
 
-.button, .tool-button, .split-button .split {
+.button, .split-button .split {
     &:active {
         box-shadow: none;
     }
@@ -358,7 +286,7 @@ a {
     &.button,
     &.flat-button,
     &.action-button,
-    &.tool-button,
+    //&.tool-button,
     &.split-button,
     &.split {
         appearance: none;

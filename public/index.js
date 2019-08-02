@@ -29,8 +29,10 @@ import {
     Input,
     ActionButton, MultiAction, MultiActionItem,
     Tag,
+    ToolBar, ToolButton,
     ClickOutside
 } from "../src/index";
+
 
 const customButtons = [
     {
@@ -53,9 +55,55 @@ const customButtons = [
 ReactDom.render(
     <Container>
         <Grid>
+            <h2 className="text-light">&lt;Toolbar/&gt;</h2>
+            <Row>
+                <Cell>
+                    <ToolBar>
+                        <ToolButton><Icon name={'rocket'}/></ToolButton>
+                        <ToolButton cls={'text-button'}>Open</ToolButton>
+                        <ToolButton as={'a'} href={'#'}><Icon name={'printer'}/></ToolButton>
+                    </ToolBar>
+                    <ToolBar>
+                        <ToolButton cls={'primary'}><Icon name={'rocket'}/></ToolButton>
+                        <ToolButton cls={'info text-button'}>Open</ToolButton>
+                        <ToolButton cls={'alert'} as={'a'} href={'#'}><Icon name={'printer'}/></ToolButton>
+                    </ToolBar>
+                    <ToolBar>
+                        <ToolButton cls={'primary outline'}><Icon name={'rocket'}/></ToolButton>
+                        <ToolButton cls={'info text-button outline'}>Open</ToolButton>
+                        <ToolButton cls={'alert outline'} as={'a'} href={'#'}><Icon name={'printer'}/></ToolButton>
+                    </ToolBar>
+                    <ToolBar>
+                        <ToolButton cls={'primary rounded'}><Icon name={'rocket'}/></ToolButton>
+                        <ToolButton cls={'info text-button rounded'}>Open</ToolButton>
+                        <ToolButton cls={'alert rounded'} as={'a'} href={'#'}><Icon name={'printer'}/></ToolButton>
+                    </ToolBar>
+                </Cell>
+            </Row>
+
+
             <h2 className="text-light">&lt;Select/&gt;</h2>
             <Row>
-                <Cell cls="cell-md-6">
+                <Cell cls="cell-md-4">
+                    <Select>
+                        <optgroup label="Physical servers">
+                            <option value="dedicated_corei3_hp">Core i3 (hp)</option>
+                            <option value="dedicated_pentium_hp">Pentium (hp)</option>
+                            <option value="dedicated_smart_corei3_hp">Smart Core i3 (hp)</option>
+                        </optgroup>
+                        <optgroup label="Virtual hosting">
+                            <option value="mini">Mini</option>
+                            <option value="site">Site</option>
+                            <option value="portal">Portal</option>
+                        </optgroup>
+                        <optgroup label="Virtual servers">
+                            <option value="evps0">eVPS-TEST (30 дней)</option>
+                            <option value="evps1">eVPS-1</option>
+                            <option value="evps2">eVPS-2</option>
+                        </optgroup>
+                    </Select>
+                </Cell>
+                <Cell cls="cell-md-4">
                     <Select value={'mini'} multiple={false}>
                         <optgroup label="Physical servers">
                             <option value="dedicated_corei3_hp">Core i3 (hp)</option>
@@ -74,7 +122,7 @@ ReactDom.render(
                         </optgroup>
                     </Select>
                 </Cell>
-                <Cell cls="cell-md-6">
+                <Cell cls="cell-md-4">
                     <Select value={['mini', 'dedicated_corei3_hp']} multiple={true}>
                         <optgroup label="Physical servers">
                             <option value="dedicated_corei3_hp">Core i3 (hp)</option>
@@ -189,7 +237,7 @@ ReactDom.render(
             <h2 className="text-light">&lt;Accordion /&gt;</h2>
             <Row>
                 <Cell cls="w-100">
-                    <Accordion material={false} oneFrame={true} oneFrameOpen={false} clsFrameContent="p-4" onFrameBeforeClose={()=>true}>
+                    <Accordion oneFrame={true} oneFrameOpen={false} clsFrameContent="p-4" onFrameBeforeClose={()=>true}>
                         <AccordionFrame title="Head 1" open>
                             Season eight tablespoons of blueberries in four pounds of fish sauce.
                             Season eight tablespoons of blueberries in four pounds of fish sauce.
@@ -206,7 +254,7 @@ ReactDom.render(
                             None of these coordinates will be lost in voyages like devastations in mysteries
 
                             <h2>Nested accordion</h2>
-                            <Accordion material={true} oneFrame={true} clsFrameContent="p-4">
+                            <Accordion variant={2} oneFrame={true} clsFrameContent="p-4">
                                 <AccordionFrame title="Head 1" open>
                                     Season eight tablespoons of blueberries in four pounds of fish sauce.
                                     Season eight tablespoons of blueberries in four pounds of fish sauce.
@@ -240,11 +288,11 @@ ReactDom.render(
                         <Checkbox name="check5" caption="my checkbox"/>
                     </div>
                     <div>
-                        <Checkbox name="check1" style2={true}/>
-                        <Checkbox name="check2" checked style2={true}/>
-                        <Checkbox name="check3" disabled style2={true}/>
-                        <Checkbox name="check4" checked disabled style2={true}/>
-                        <Checkbox name="check5" caption="my checkbox" style2={true}/>
+                        <Checkbox name="check1" variant={2}/>
+                        <Checkbox name="check2" checked variant={2}/>
+                        <Checkbox name="check3" disabled variant={2}/>
+                        <Checkbox name="check4" checked disabled variant={2}/>
+                        <Checkbox name="check5" caption="my checkbox" variant={2}/>
                     </div>
                 </Cell>
                 <Cell cls="cell-md-4">
@@ -256,11 +304,11 @@ ReactDom.render(
                         <Radio name="radio1_4" caption="my radio"/>
                     </div>
                     <div>
-                        <Radio name="radio2_1" checked style2={true}/>
-                        <Radio name="radio2_1" style2={true}/>
-                        <Radio name="radio2_2" disabled style2={true}/>
-                        <Radio name="radio2_3" checked disabled style2={true}/>
-                        <Radio name="radio2_4" caption="my radio" style2={true}/>
+                        <Radio name="radio2_1" checked variant={2}/>
+                        <Radio name="radio2_1" variant={2}/>
+                        <Radio name="radio2_2" disabled variant={2}/>
+                        <Radio name="radio2_3" checked disabled variant={2}/>
+                        <Radio name="radio2_4" caption="my radio" variant={2}/>
                     </div>
                 </Cell>
                 <Cell cls="cell-md-4">
@@ -271,10 +319,10 @@ ReactDom.render(
                         <Switch name="switch4" checked disabled/>
                     </div>
                     <div>
-                        <Switch name="switch1" material={true}/>
-                        <Switch name="switch2" checked material={true}/>
-                        <Switch name="switch3" disabled material={true}/>
-                        <Switch name="switch4" checked disabled material={true}/>
+                        <Switch name="switch1" variant={2}/>
+                        <Switch name="switch2" checked variant={2}/>
+                        <Switch name="switch3" disabled variant={2}/>
+                        <Switch name="switch4" checked disabled variant={2}/>
                     </div>
                 </Cell>
             </Row>

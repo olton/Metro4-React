@@ -5,7 +5,7 @@ export default class Switch extends React.Component {
     static defaultProps = {
         name: "",
         caption: "",
-        material: false,
+        variant: 1,
         checked: false,
         disabled: false,
         value: "",
@@ -42,13 +42,13 @@ export default class Switch extends React.Component {
             name,
             value,
             caption,
-            material,
+            variant,
             disabled,
             clsCheckbox
         } = this.props;
 
         return (
-            <label className={'switch' + (material ? '-material' : '') + ' ' +  clsCheckbox + ' transition-on'}>
+            <label className={'switch' + (variant === 2 ? '-material' : '') + ' ' +  clsCheckbox + ' transition-on'}>
                 <input type="checkbox" name={name} defaultChecked={this.props.checked} onChange={this.onChangeHandler} disabled={disabled} value={value} readOnly={false}/>
                 <span className="check"/>
                 <span className="caption">{caption}</span>

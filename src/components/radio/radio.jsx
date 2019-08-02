@@ -5,7 +5,7 @@ export default class Radio extends React.Component {
     static defaultProps = {
         name: "",
         caption: "",
-        style2: false,
+        variant: 1,
         checked: false,
         disabled: false,
         value: "",
@@ -42,13 +42,13 @@ export default class Radio extends React.Component {
             name,
             value,
             caption,
-            style2,
+            variant,
             disabled,
             clsCheckbox
         } = this.props;
 
         return (
-            <label className={'radio' + clsCheckbox + ' ' + (style2 ? 'style2' : '') + ' transition-on'}>
+            <label className={'radio' + clsCheckbox + ' ' + (variant === 2 ? 'style2' : '') + ' transition-on'}>
                 <input type="radio" name={name} defaultChecked={this.props.checked} onChange={this.onChangeHandler} disabled={disabled} value={value} readOnly={false}/>
                 <span className="check"/>
                 <span className="caption">{caption}</span>

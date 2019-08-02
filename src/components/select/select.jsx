@@ -153,36 +153,36 @@ export default class Select extends React.Component {
 
         return (
             <ClickOutside onClickOutside={this.close}>
-            <label className={'select ' + (open ? ' focused ':'') + (multiple ? ' multiple ':'')}>
+                <label className={'select ' + (open ? ' focused ':'') + (multiple ? ' multiple ':'')}>
 
-                <span className={'dropdown-toggle ' + (open ? 'active-toggle':'')} onClick={this.selectClick}/>
+                    <span className={'dropdown-toggle ' + (open ? 'active-toggle':'')} onClick={this.selectClick}/>
 
-                <select value={value} multiple={multiple}
-                        ref={this.select}
-                        onChange={this.selectChange} name={this.props.name}
-                >
-                    {this.props.children}
-                </select>
+                    <select value={value} multiple={multiple}
+                            ref={this.select}
+                            onChange={this.selectChange} name={this.props.name}
+                    >
+                        {this.props.children}
+                    </select>
 
-                <div className={'select-input'} ref={this.selectInput} onClick={this.selectClick}>
-                    {multiple && value.map( function(el, index){
-                        return (
-                            <Tag key={index} onClick={tagClick} data-value={el}>{options[el]}</Tag>
-                        )
-                    })}
+                    <div className={'select-input'} ref={this.selectInput} onClick={this.selectClick}>
+                        {multiple && value.map( function(el, index){
+                            return (
+                                <Tag key={index} onClick={tagClick} data-value={el}>{options[el]}</Tag>
+                            )
+                        })}
 
-                    {!multiple && value !== "" && (
-                        <span>{options[value]}</span>
-                    )}
-                </div>
+                        {!multiple && value !== "" && (
+                            <span>{options[value]}</span>
+                        )}
+                    </div>
 
-                <Collapse isOpen={open} className={'drop-container'} transition={transition}>
-                    <Input onChange={this.inputChange} ref={this.input} placeholder={'Search...'}/>
-                    <ul className={'d-menu'} style={{maxHeight: dropHeight}}>
-                        {items}
-                    </ul>
-                </Collapse>
-            </label>
+                    <Collapse isOpen={open} className={'drop-container'} transition={transition}>
+                        <Input onChange={this.inputChange} ref={this.input} placeholder={'Search...'}/>
+                        <ul className={'d-menu'} style={{maxHeight: dropHeight}}>
+                            {items}
+                        </ul>
+                    </Collapse>
+                </label>
             </ClickOutside>
         )
     }

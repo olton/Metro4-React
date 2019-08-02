@@ -18,6 +18,7 @@ import Input from "./components/input/input.jsx";
 import ActionButton from "./components/action-button/action-button.jsx";
 import MultiAction, {MultiActionItem} from "./components/action-button/multi-action.jsx";
 import Tag from "./components/tag/tag.jsx";
+import ToolBar, {ToolButton} from "./components/toolbar/toolbar.jsx";
 
 import Icon  from "./components/icon/icon.jsx";
 import ClickOutside  from "./components/click-outside/click-outside.jsx";
@@ -46,6 +47,7 @@ export {
     Input,
     ActionButton, MultiAction, MultiActionItem,
     Tag,
+    ToolBar, ToolButton,
 
     Collapse,
     ClickOutside,

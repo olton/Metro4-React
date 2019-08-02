@@ -43,7 +43,7 @@ export class AccordionFrame extends React.Component {
 export default class Accordion extends React.Component{
     static defaultProps = {
         marker: true,
-        material: false,
+        variant: 1,
         oneFrame: true,
         oneFrameOpen: true,
         animationDuration: 300,
@@ -108,9 +108,9 @@ export default class Accordion extends React.Component{
     }
 
     render(){
-        const { material, marker, clsAccordion, clsFrame, clsFrameHeading, clsFrameContent, animationDuration } = this.props;
+        const { variant, marker, clsAccordion, clsFrame, clsFrameHeading, clsFrameContent, animationDuration } = this.props;
         const { openFrames } = this.state;
-        const className = `accordion ${material ? 'material' : ''} ${marker ? 'marker-on' : ''} ${clsAccordion}`;
+        const className = `accordion ${variant === 2 ? 'material' : ''} ${marker ? 'marker-on' : ''} ${clsAccordion}`;
 
         return (
             <div className={className}>

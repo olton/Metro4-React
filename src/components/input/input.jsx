@@ -4,6 +4,7 @@ import Button from "../button/button.jsx";
 
 export default class Input extends React.Component {
     static defaultProps = {
+        defaultValue: "",
         name: "",
         placeholder: "",
         value: "",
@@ -141,11 +142,11 @@ export default class Input extends React.Component {
         const {onClear, onChange} = this.props;
 
         this.setState({
-            value: ""
+            value: this.props.defaultValue
         });
 
         onClear(this.input);
-        onChange("", this.input);
+        onChange(this.props.defaultValue, this.input);
     }
 
     searchValue(){
@@ -160,7 +161,7 @@ export default class Input extends React.Component {
     }
 
     autocompleteItemClick(e){
-        const value = e.target.getAttribute('data-item');
+        const value = (""+e.target.getAttribute('data-item')).toLowerCase();
         this.setState({
             value: value
         });
@@ -223,11 +224,16 @@ export default class Input extends React.Component {
                     <div className='autocomplete-list'>
                         {
                             this.autocomplete.map(function(item, index) {
-                                const searchIndex = item.indexOf(value);
+                                const searchIndex = item.toLowerCase().indexOf(value);
                                 const itemValue = `${item.substr(0, searchIndex)}<strong>${item.substr(searchIndex, value.length)}</strong>${item.substr(searchIndex + value.length)}`;
 
                                 return (
-                                    <div data-item={item} className='item' key={index} hidden={item === value || value === '' || searchIndex === -1} dangerouslySetInnerHTML={{__html: itemValue}} onClick={autocompleteItemClick}/>
+                                    <div data-item={item}
+                                         className='item'
+                                         key={index}
+                                         hidden={item === value || value === '' || searchIndex === -1}
+                                         dangerouslySetInnerHTML={{__html: itemValue}}
+                                         onClick={autocompleteItemClick}/>
                                 )
                             })
                         }
