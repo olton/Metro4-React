@@ -1,25 +1,25 @@
-import React from "react";
+import React, {Children} from "react";
 import "./select.less";
 import "../d-menu/d-menu.less";
 import Collapse from "../collapse/collapse.jsx";
 import Input from "../input/input.jsx";
 import Tag from "../tag/tag.jsx"
 
-function addOptions(options, list){
-    React.Children.forEach(list, function(el, index){
-        if (el.type === 'optgroup') {
-            addOptions(options, el.props.children);
-        } else {
-            options[el.props.value] = el.props.children;
-        }
-    });
-}
-
 export default class Select extends React.Component {
     static defaultProps = {
         animationDuration: 100,
         dropHeight: 200
     };
+
+    static addOptions(options, list){
+        Children.forEach(list, function(el, index){
+            if (el.type === 'optgroup') {
+                Select.addOptions(options, el.props.children);
+            } else {
+                options[el.props.value] = el.props.children;
+            }
+        });
+    }
 
     constructor(props){
         super(props);
@@ -29,7 +29,7 @@ export default class Select extends React.Component {
         this.input = React.createRef();
         this.options = {};
 
-        addOptions(this.options, this.props.children);
+        Select.addOptions(this.options, this.props.children);
 
         this.state = {
             open: false,
@@ -115,6 +115,7 @@ export default class Select extends React.Component {
 
         let optionIndex = -1;
 
+        // TODO move to constructor
         function addOption(el, isGroupTitle) {
             if (isGroupTitle) {
                 items.push(<li className={'group-title'} key={optionIndex++}>{el.props.label}</li>);
@@ -132,16 +133,17 @@ export default class Select extends React.Component {
             }
         }
 
-        React.Children.map(this.props.children, function(el){
+        Children.forEach(this.props.children, function(el){
             if (el.type === 'option') {
                 addOption(el, false);
             } else if (el.type === 'optgroup') {
                 addOption(el, true);
-                React.Children.map(el.props.children, function(el, index){
+                Children.forEach(el.props.children, function(el, index){
                     addOption(el, false);
                 })
             }
         });
+        // end TODO move to constructor
 
         return (
             <label className={'select ' + (open ? ' focused ':'') + (multiple ? ' multiple ':'')}>
