@@ -4,6 +4,7 @@ import "../d-menu/d-menu.less";
 import Collapse from "../collapse/collapse.jsx";
 import Input from "../input/input.jsx";
 import Tag from "../tag/tag.jsx"
+import ClickOutside from "../click-outside/click-outside.jsx";
 
 export default class Select extends React.Component {
     static defaultProps = {
@@ -42,6 +43,7 @@ export default class Select extends React.Component {
         this.listItemClick = this.listItemClick.bind(this);
         this.inputChange = this.inputChange.bind(this);
         this.selectChange = this.selectChange.bind(this);
+        this.close = this.close.bind(this);
     }
 
     selectChange(e){
@@ -104,6 +106,12 @@ export default class Select extends React.Component {
         })
     }
 
+    close(){
+        this.setState({
+            open: false
+        })
+    }
+
     render() {
         const {multiple, dropHeight, animationDuration} = this.props;
         const {open, filter, value} = this.state;
@@ -115,7 +123,6 @@ export default class Select extends React.Component {
 
         let optionIndex = -1;
 
-        // TODO move to constructor
         function addOption(el, isGroupTitle) {
             if (isGroupTitle) {
                 items.push(<li className={'group-title'} key={optionIndex++}>{el.props.label}</li>);
@@ -138,14 +145,14 @@ export default class Select extends React.Component {
                 addOption(el, false);
             } else if (el.type === 'optgroup') {
                 addOption(el, true);
-                Children.forEach(el.props.children, function(el, index){
+                Children.forEach(el.props.children, function(el){
                     addOption(el, false);
                 })
             }
         });
-        // end TODO move to constructor
 
         return (
+            <ClickOutside onClickOutside={this.close}>
             <label className={'select ' + (open ? ' focused ':'') + (multiple ? ' multiple ':'')}>
 
                 <span className={'dropdown-toggle ' + (open ? 'active-toggle':'')} onClick={this.selectClick}/>
@@ -176,6 +183,7 @@ export default class Select extends React.Component {
                     </ul>
                 </Collapse>
             </label>
+            </ClickOutside>
         )
     }
 }

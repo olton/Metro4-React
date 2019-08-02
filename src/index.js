@@ -8,19 +8,20 @@ import CommandButton from "./components/command-button/command-button.jsx";
 import ImageButton from "./components/image-button/image-button.jsx";
 import Shortcut from "./components/shortcut/shortcut.jsx";
 import Checkbox from "./components/checkbox/checkbox.jsx";
-import Collapse from "./components/collapse/collapse.jsx";
 import {Grid, Row, Cell} from "./components/grid/grid.jsx";
 import Radio from "./components/radio/radio.jsx";
 import Switch from "./components/switch/switch.jsx";
 import Breadcrumbs, {BreadcrumbsItem} from "./components/breadcrumbs/breadcrumbs.jsx";
 import InfoButton from "./components/info-button/info-button.jsx";
-import Select from "./components/select/select.jsx"; //TODO
+import Select from "./components/select/select.jsx";
 import Input from "./components/input/input.jsx";
 import ActionButton from "./components/action-button/action-button.jsx";
 import MultiAction, {MultiActionItem} from "./components/action-button/multi-action.jsx";
 import Tag from "./components/tag/tag.jsx";
 
 import Icon  from "./components/icon/icon.jsx";
+import ClickOutside  from "./components/click-outside/click-outside.jsx";
+import Collapse from "./components/collapse/collapse.jsx";
 
 export {
     Container,
@@ -34,7 +35,6 @@ export {
     ImageButton,
     Shortcut,
     Checkbox,
-    Collapse,
     Grid,
     Row,
     Cell,
@@ -47,5 +47,7 @@ export {
     ActionButton, MultiAction, MultiActionItem,
     Tag,
 
+    Collapse,
+    ClickOutside,
     Icon
 };

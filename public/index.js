@@ -29,6 +29,7 @@ import {
     Input,
     ActionButton, MultiAction, MultiActionItem,
     Tag,
+    ClickOutside
 } from "../src/index";
 
 const customButtons = [
