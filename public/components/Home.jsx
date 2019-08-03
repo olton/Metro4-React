@@ -27,19 +27,21 @@ export default class Home extends React.Component {
                         built on HTML, CSS, JavaScript
                         </div>
                     </h5>
-                    <h1 className={'text-center fg-white'}>ver 0.0.1</h1>
+
+                    <h4 className={'text-center fg-white'}>&#123; 0.0.1 &#125;</h4>
+
                     <div className={'text-center mt-10'}>
                         <Button cls={'bg-react-text fg-white-hover'}>Get started</Button>
                         <Button cls={'fg-react link fg-white-hover no-decor'}>Get source <Icon name={'arrow-right'}/></Button>
                     </div>
                 </Hero>
 
-                <Container fluid={true} cls={'mt-20-md-minus d-none1'}>
+                <Container fluid={true} cls={'mt-20-md-minus d-none'}>
                     <Container>
                         <Row>
                             <Cell cls={'cell-md-4 pt-4'}>
                                 <InfoPanel cls={'win-shadow h-100'}>
-                                    <InfoPanelTitle cls={'bg-blue fg-white'}>OPEN SOURCE</InfoPanelTitle>
+                                    <InfoPanelTitle cls={'bg-react-text fg-white'}>OPEN SOURCE</InfoPanelTitle>
                                     <InfoPanelContent cls={'text-leader2'}>
                                         <div className={'mx-10 my-6'}>
                                             <Icon name={'file-code'} size={'8x'} cls={'fg-lightGray'}/>
@@ -53,7 +55,7 @@ export default class Home extends React.Component {
                             </Cell>
                             <Cell cls={'cell-md-4 pt-4'}>
                                 <InfoPanel cls={'win-shadow h-100'}>
-                                    <InfoPanelTitle cls={'bg-blue fg-white'}>EASY TO USE</InfoPanelTitle>
+                                    <InfoPanelTitle cls={'bg-react-text fg-white'}>EASY TO USE</InfoPanelTitle>
                                     <InfoPanelContent cls={'text-leader2'}>
                                         <div className={'mx-10 my-6'}>
                                             <Icon name={'rocket'} size={'8x'} cls={'fg-lightGray'}/>
@@ -67,7 +69,7 @@ export default class Home extends React.Component {
                             </Cell>
                             <Cell cls={'cell-md-4 pt-4'}>
                                 <InfoPanel cls={'win-shadow h-100'}>
-                                    <InfoPanelTitle cls={'bg-blue fg-white'}>FOR DEVELOPERS</InfoPanelTitle>
+                                    <InfoPanelTitle cls={'bg-react-text fg-white'}>FOR DEVELOPERS</InfoPanelTitle>
                                     <InfoPanelContent cls={'text-leader2'}>
                                         <div className={'mx-10 my-6'}>
                                             <Icon name={'github'} size={'8x'} cls={'fg-lightGray'}/>
@@ -83,7 +85,7 @@ export default class Home extends React.Component {
                     </Container>
                 </Container>
 
-                <Container fluid={true} cls={'mt-4 mt-10-md'}>
+                <Container fluid={true}>
                     <Container cls={'text-center p-6 p-20-md'}>
                         <h1>What is it?</h1>
                         <div className={'text-leader pl-20-md pr-20-md'}>

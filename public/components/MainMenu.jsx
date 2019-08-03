@@ -10,7 +10,7 @@ export default class MainMenu extends React.Component {
                     <AppBarBrand name={'Metro 4 for React'} cls={'fg-react'}/>
                     <AppBarMenu cls={'ml-auto'}>
                         <li><Link to="/guide">Guide</Link></li>
-                        <li><Link to="/support" className="text-bold fg-yellow"><span className="d-block ani-vertical-">Support Me</span></Link></li>
+                        <li><Link to="/support" className="text-bold fg-yellow"><span className="d-block ani-vertical-">Support Project</span></Link></li>
                         <li>
                             <Link to="https://github.com/olton/Metro4-React" target="_blank">
                                 <Icon name={'github'} size={'2x'} cls={'d-none d-block-md'}/>
