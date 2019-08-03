@@ -35,6 +35,9 @@ const webpackConfig = {
             },
         }
     },
+    resolve: {
+        extensions: ['.js', '.jsx']
+    },
     module: {
         rules: [
             {
@@ -44,7 +47,10 @@ const webpackConfig = {
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
-                use: 'babel-loader'
+                resolve: {
+                    extensions: ['.js', '.jsx']
+                },
+                use: 'babel-loader',
             },
             {
                 test: /\.css$/i,
