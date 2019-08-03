@@ -19,7 +19,6 @@ import ActionButton from "./components/action-button/action-button";
 import MultiAction, {MultiActionItem} from "./components/action-button/multi-action";
 import Tag from "./components/tag/tag";
 import ToolBar, {ToolButton} from "./components/toolbar/toolbar";
-
 import Icon  from "./components/icon/icon";
 import ClickOutside  from "./components/click-outside/click-outside";
 import Collapse from "./components/collapse/collapse";
