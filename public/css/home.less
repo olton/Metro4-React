@@ -1,4 +1,5 @@
 @import "vars";
+@import "../../src/include/less/vars";
 
 .hero {
     background: @reactBackgroundColor;
@@ -16,5 +17,28 @@
     background-repeat: no-repeat;
     background-position: 50%;
     background-size: 35% auto;
-    opacity: 0.01;
+    opacity: 0.02;
+}
+
+footer {
+    a {
+        color: @reactTextColor;
+        &:hover {
+            color: @white;
+        }
+    }
+}
+
+#social-menu {
+    li + li {
+        margin-left: 20px;
+    }
+}
+
+@media screen and (min-width: 568px) {
+    #footer-menu {
+        li + li {
+            margin-left: 20px;
+        }
+    }
 }
