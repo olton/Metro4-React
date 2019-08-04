@@ -26,6 +26,7 @@ import Hero from "./components/hero/hero";
 import AppBar, {AppBarBrand, AppBarMenu} from "./components/app-bar/app-bar";
 import Hamburger from "./components/hamburger/hamburger";
 import InfoPanel, {InfoPanelTitle, InfoPanelContent, InfoPanelFooter} from "./components/info-panel/info-panel";
+import Adsense from "./components/google/adsense/adsense";
 
 export {
     Container,
@@ -58,5 +59,6 @@ export {
     Hero,
     AppBar, AppBarBrand, AppBarMenu,
     Hamburger,
-    InfoPanel, InfoPanelTitle, InfoPanelContent, InfoPanelFooter
+    InfoPanel, InfoPanelTitle, InfoPanelContent, InfoPanelFooter,
+    Adsense
 };

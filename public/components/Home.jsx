@@ -2,6 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import MainMenu from "./MainMenu";
 import {
+    Adsense,
     Container,
     Hero,
     Row,
@@ -16,9 +17,9 @@ import "../css/home.less";
 export default class Home extends React.Component {
     render(){
         return (
-            <div>
+            <React.Fragment>
                 <MainMenu/>
-                <Hero>
+                <Hero cls={'add-neb'}>
                     <h1 className={'text-center fg-react'}><span className={'reduce-2 enlarge-3-md'}>Metro 4 for React</span></h1>
                     <h5 className="text-center fg-white text-upper text-light">
                         <div className={'reduce-2 enlarge-2-md'}>
@@ -36,57 +37,9 @@ export default class Home extends React.Component {
                     </div>
                 </Hero>
 
-                <Container fluid={true} cls={'mt-20-md-minus d-none'}>
-                    <Container>
-                        <Row>
-                            <Cell cls={'cell-md-4 pt-4'}>
-                                <InfoPanel cls={'win-shadow h-100'}>
-                                    <InfoPanelTitle cls={'bg-react-text fg-white'}>OPEN SOURCE</InfoPanelTitle>
-                                    <InfoPanelContent cls={'text-leader2'}>
-                                        <div className={'mx-10 my-6'}>
-                                            <Icon name={'file-code'} size={'8x'} cls={'fg-lightGray'}/>
-                                        </div>
-                                        Metro 4 for React is an open source project
-                                    </InfoPanelContent>
-                                    <InfoPanelFooter cls={'mt-auto'}>
-                                        <a href="https://github.com/olton/Metro4-React/releases" className="button large rounded info">Download</a>
-                                    </InfoPanelFooter>
-                                </InfoPanel>
-                            </Cell>
-                            <Cell cls={'cell-md-4 pt-4'}>
-                                <InfoPanel cls={'win-shadow h-100'}>
-                                    <InfoPanelTitle cls={'bg-react-text fg-white'}>EASY TO USE</InfoPanelTitle>
-                                    <InfoPanelContent cls={'text-leader2'}>
-                                        <div className={'mx-10 my-6'}>
-                                            <Icon name={'rocket'} size={'8x'} cls={'fg-lightGray'}/>
-                                        </div>
-                                        The Metro 4 for React component model is a very easy to use
-                                    </InfoPanelContent>
-                                    <InfoPanelFooter cls={'mt-auto'}>
-                                        <Link to="/download" className="button large rounded info">Get started</Link>
-                                    </InfoPanelFooter>
-                                </InfoPanel>
-                            </Cell>
-                            <Cell cls={'cell-md-4 pt-4'}>
-                                <InfoPanel cls={'win-shadow h-100'}>
-                                    <InfoPanelTitle cls={'bg-react-text fg-white'}>FOR DEVELOPERS</InfoPanelTitle>
-                                    <InfoPanelContent cls={'text-leader2'}>
-                                        <div className={'mx-10 my-6'}>
-                                            <Icon name={'github'} size={'8x'} cls={'fg-lightGray'}/>
-                                        </div>
-                                        Metro 4 for React is easily expandable to your own needs
-                                    </InfoPanelContent>
-                                    <InfoPanelFooter cls={'mt-auto'}>
-                                        <a href="https://github.com/olton/Metro4-React" className="button large rounded info">Get source</a>
-                                    </InfoPanelFooter>
-                                </InfoPanel>
-                            </Cell>
-                        </Row>
-                    </Container>
-                </Container>
-
                 <Container fluid={true}>
                     <Container cls={'text-center p-6 p-20-md'}>
+
                         <h1>What is it?</h1>
                         <div className={'text-leader pl-20-md pr-20-md'}>
                             Metro 4 for React is an open source toolkit for developing with HTML, CSS, and JS. Quickly prototype your ideas or build your entire app with responsive grid system, extensive prebuilt components, and powerful plugins.
@@ -122,6 +75,11 @@ export default class Home extends React.Component {
                                     </p>
                                 </Cell>
                             </Row>
+
+                            <br/>
+                            <Adsense client={'ca-pub-1632668592742327'} slot={'4639163605'} test={SITE_MODE_DEV}/>
+                            <br/>
+
                             <Row>
                                 <Cell cls={'cell-md-4'}>
                                     <Icon name={'bug'} size={'8x'} cls={'fg-darkGray'}/>
@@ -194,7 +152,7 @@ export default class Home extends React.Component {
 
                     </Container>
                 </Container>
-            </div>
+            </React.Fragment>
         )
     }
 }

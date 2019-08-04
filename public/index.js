@@ -11,6 +11,8 @@ import "../src/colors/metro-colors.less";
 import "../src/icons/mif.less";
 import "./css/index.less";
 
+window.SITE_MODE_DEV = 'on';
+
 render (
     <Router>
         <Switch>
