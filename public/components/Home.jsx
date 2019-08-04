@@ -33,7 +33,7 @@ export default class Home extends React.Component {
 
                     <div className={'text-center mt-10'}>
                         <Button cls={'bg-react-text fg-white-hover'}>Get started</Button>
-                        <Button cls={'fg-react link fg-white-hover no-decor'}>Get source <Icon name={'arrow-right'}/></Button>
+                        <Button as={'a'} href={'https://github.com/olton/Metro4-React'} cls={'fg-react link fg-white-hover no-decor'}>Get source <Icon name={'arrow-right'}/></Button>
                     </div>
                 </Hero>
 
@@ -42,7 +42,7 @@ export default class Home extends React.Component {
 
                         <h1>What is it?</h1>
                         <div className={'text-leader pl-20-md pr-20-md'}>
-                            Metro 4 for React is an open source toolkit for developing with HTML, CSS, and JS. Quickly prototype your ideas or build your entire app with responsive grid system, extensive prebuilt components, and powerful plugins.
+                            Metro 4 for React is an open source toolkit for developing with HTML, CSS, and JS. Quickly prototype your ideas or build your entire app with responsive grid system, extensive prebuilt components.
                         </div>
 
                         <br/>
