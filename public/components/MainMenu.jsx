@@ -13,10 +13,10 @@ export default class MainMenu extends React.Component {
                         <li><Link to="/demo">Demo</Link></li>
                         {/*<li><Link to="/support" className="text-bold fg-yellow"><span className="d-block ani-vertical-">Support Project</span></Link></li>*/}
                         <li>
-                            <Link to="https://github.com/olton/Metro4-React" target="_blank">
+                            <a href="https://github.com/olton/Metro4-React" target="_blank">
                                 <Icon name={'github'} size={'2x'} cls={'d-none d-block-md'}/>
                                 <span className="d-block d-none-md">Github</span>
-                            </Link>
+                            </a>
                         </li>
                     </AppBarMenu>
                 </AppBar>

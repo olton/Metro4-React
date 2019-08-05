@@ -9,7 +9,8 @@ import ClickOutside from "../click-outside/click-outside.jsx";
 export default class Select extends React.Component {
     static defaultProps = {
         animationDuration: 100,
-        dropHeight: 200
+        dropHeight: 200,
+        onChange: () => {}
     };
 
     static addOptions(options, list){
@@ -46,8 +47,9 @@ export default class Select extends React.Component {
         this.close = this.close.bind(this);
     }
 
-    selectChange(e){
-
+    selectChange(){
+        const event = new Event('change', { bubbles: true, composed: true });
+        this.select.current.dispatchEvent(event);
     }
 
     tagClick(e){
@@ -108,8 +110,14 @@ export default class Select extends React.Component {
         })
     }
 
+    componentDidUpdate(prevProps, prevState){
+        if (prevState.value !== this.state.value) {
+            this.selectChange();
+        }
+    }
+
     render() {
-        const {multiple, dropHeight, animationDuration} = this.props;
+        const {multiple, dropHeight, animationDuration, onChange} = this.props;
         const {open, filter, value} = this.state;
         const transition = `height ${animationDuration}ms cubic-bezier(.4, 0, .2, 1)`;
         const options = this.options;
@@ -153,7 +161,8 @@ export default class Select extends React.Component {
 
                     <select value={value} multiple={multiple}
                             ref={this.select}
-                            onChange={this.selectChange} name={this.props.name}
+                            onChange={onChange}
+                            name={this.props.name}
                     >
                         {this.props.children}
                     </select>
