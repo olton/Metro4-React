@@ -25,6 +25,7 @@ import {
     ToolBar, ToolButton,
     ClickOutside,
     Gravatar, Adsense,
+    Dialog, Body
 } from "../../src/index";
 
 import MainMenu from "./MainMenu";
@@ -49,6 +50,28 @@ const customButtons = [
 ];
 
 export default class Demo extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            dialogOpen: false
+        };
+        this.toggleDialog = this.toggleDialog.bind(this);
+        this.closeDialog = this.closeDialog.bind(this);
+    }
+
+    toggleDialog(){
+        const isOpen = this.state.dialogOpen;
+        this.setState({
+            dialogOpen: !isOpen
+        })
+    }
+
+    closeDialog(){
+        this.setState({
+            dialogOpen: false
+        })
+    }
+
     render(){
         return (
             <Container>
@@ -59,6 +82,20 @@ export default class Demo extends React.Component {
                 <br/>
 
                 <Grid>
+                    <h2 className="text-light">&lt;Dialog/&gt;</h2>
+                    <Row>
+                        <Cell>
+                            <div>
+                                <Button onClick={this.toggleDialog}>Open dialog</Button>
+                            </div>
+                            <Dialog open={this.state.dialogOpen} title={'This is a Metro 4 for React Dialog'} actions={customButtons} onClose={this.closeDialog}>
+                                <div>
+                                    Bassus abactors ducunt ad triticum. A fraternal form of manifestation is the bliss.
+                                </div>
+                            </Dialog>
+                        </Cell>
+                    </Row>
+
                     <h2 className="text-light">&lt;Gravatar/&gt;</h2>
                     <Row>
                         <Cell>

@@ -28,6 +28,7 @@ import Hamburger from "./components/hamburger/hamburger";
 import InfoPanel, {InfoPanelTitle, InfoPanelContent, InfoPanelFooter} from "./components/info-panel/info-panel";
 import Adsense from "./components/google/adsense/adsense";
 import Gravatar from "./components/gravatar/gravatar";
+import Dialog from "./components/dialog/dialog";
 
 export {
     Container,
@@ -63,4 +64,5 @@ export {
     InfoPanel, InfoPanelTitle, InfoPanelContent, InfoPanelFooter,
     Adsense,
     Gravatar,
+    Dialog,
 };

@@ -56,7 +56,7 @@ export default class Button extends React.Component{
                 )}
 
                 {title && (
-                    <span className={'caption '}>{title}</span>
+                    <span className={'caption '} dangerouslySetInnerHTML={{__html: title}}/>
                 )}
 
                 {tag && (
