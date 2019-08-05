@@ -1,5 +1,3 @@
-import "../extensions/string-ext";
-
 const Utils = {
     isUrl: function (val) {
         return /^(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@\-\/]))?/.test(val);

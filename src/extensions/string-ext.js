@@ -6,37 +6,33 @@ String.prototype.contains = function() {
     return !!~String.prototype.indexOf.apply(this, arguments);
 };
 
-String.prototype.toDate = function(format, locale, months) {
+String.prototype.toDate = function(format = "%y-%m-%d", options = {}) {
     let result;
     let normalized, normalizedFormat, formatItems, dateItems, checkValue;
     let monthIndex, dayIndex, yearIndex, hourIndex, minutesIndex, secondsIndex;
     let year, month, day, hour, minute, second;
     let parsedMonth;
 
-    locale = locale || "en-US";
-
     const defaultMonths = [
         "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December",
         "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
     ];
 
+    if (!options.months) {
+        options.months = defaultMonths;
+    }
+
     const monthNameToNumber = function(month, months){
-        let d, index, i;
+        let d, index;
 
         if (typeof month !== 'string') {
             return -1;
         }
 
-        month = month.substr(0, 3);
-
-        if (
-            locale !== undefined
-            && locale !== "en-US"
-            && months !== undefined
-        ) {
-            for(i = 12; i < months.length; i++) {
+        if (months !== undefined) {
+            for(let i = 12; i < months.length; i++) {
                 if (months[i].toLowerCase() === month.toLowerCase()) {
-                    index = i - 12;
+                    index = i;
                     break;
                 }
             }
@@ -100,7 +96,7 @@ String.prototype.toDate = function(format, locale, months) {
     return result;
 };
 
-String.prototype.toArray = function(delimiter, type, format){
+String.prototype.toArray = function(delimiter = ",", type = 'string', format = false){
     let a;
 
     type = type || "string";
@@ -133,11 +129,11 @@ String.prototype.dashedName = function(){
     return this.replace(/([A-Z])/g, function(u) { return "-" + u.toLowerCase(); });
 };
 
-String.prototype.isDate = function(format){
+String.prototype.isDate = function(format, options){
     let result = "";
 
     if (typeof format === 'string') {
-        result = this.toDate(format);
+        result = this.toDate(format, options);
     } else {
         result = String(new Date(this));
     }

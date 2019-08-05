@@ -1,5 +1,4 @@
 import React from "react";
-import {Link} from "react-router-dom";
 import MainMenu from "./MainMenu";
 import {
     Adsense,
@@ -7,8 +6,6 @@ import {
     Hero,
     Row,
     Cell,
-    InfoPanel,
-    InfoPanelTitle, InfoPanelContent, InfoPanelFooter,
     Icon, Button,
 } from "../../src/index";
 
@@ -32,7 +29,10 @@ export default class Home extends React.Component {
                     <h4 className={'text-center fg-white'}>&#123; 0.0.1 &#125;</h4>
 
                     <div className={'text-center mt-10'}>
-                        <Button cls={'bg-react-text fg-white-hover'}>Get started</Button>
+                        <Button as={'a'} href={'/demo'} cls={'bg-react-text fg-white-hover'}>Get started</Button>
+                        &nbsp;&nbsp;<a href="https://www.patreon.com/metro4_react">
+                            <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160"/>
+                        </a>
                         <Button as={'a'} href={'https://github.com/olton/Metro4-React'} cls={'fg-react link fg-white-hover no-decor'}>Get source <Icon name={'arrow-right'}/></Button>
                     </div>
                 </Hero>
@@ -42,7 +42,7 @@ export default class Home extends React.Component {
 
                         <h1>What is it?</h1>
                         <div className={'text-leader pl-20-md pr-20-md'}>
-                            Metro 4 for React is an open source toolkit for developing with HTML, CSS, and JS. Quickly prototype your ideas or build your entire app with responsive grid system, extensive prebuilt components.
+                            Metro 4 for React is an open source toolkit for developing with HTML, CSS, and JS. Quickly prototype your ideas or build your entire app with extensive prebuilt components.
                         </div>
 
                         <br/>

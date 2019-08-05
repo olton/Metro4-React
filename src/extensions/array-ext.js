@@ -30,23 +30,3 @@ Array.prototype.unique = function () {
     return a;
 };
 
-Array.from = function(val) {
-    const a = [];
-
-    if (val.length === undefined && typeof val === "object") {
-        return Object.values(val);
-    }
-
-    if (val.length !== undefined) {
-        for(let i = 0; i < val.length; i++) {
-            a.push(val[i]);
-        }
-        return a;
-    }
-
-    throw new Error("Value can not be converted to array");
-};
-
-Array.prototype.contains = function(val, from){
-    return this.indexOf(val, from) > -1;
-};

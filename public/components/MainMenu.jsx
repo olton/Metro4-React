@@ -7,11 +7,11 @@ export default class MainMenu extends React.Component {
         return (
             <Container fluid={true} cls={'pos-fixed fixed-top z-top bg-react'}>
                 <AppBar cls={'container app-bar-expand pos-relative'}>
-                    <AppBarBrand name={'Metro 4 for React'} cls={'fg-react'}/>
+                    <AppBarBrand as={'a'} href={'/'} name={'Metro 4 for React'} cls={'text-bold'}/>
                     <AppBarMenu cls={'ml-auto'}>
-                        <li><Link to="/guide">Guide</Link></li>
+                        {/*<li><Link to="/guide">Guide</Link></li>*/}
                         <li><Link to="/demo">Demo</Link></li>
-                        <li><Link to="/support" className="text-bold fg-yellow"><span className="d-block ani-vertical-">Support Project</span></Link></li>
+                        {/*<li><Link to="/support" className="text-bold fg-yellow"><span className="d-block ani-vertical-">Support Project</span></Link></li>*/}
                         <li>
                             <Link to="https://github.com/olton/Metro4-React" target="_blank">
                                 <Icon name={'github'} size={'2x'} cls={'d-none d-block-md'}/>

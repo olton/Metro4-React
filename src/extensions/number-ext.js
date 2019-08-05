@@ -6,7 +6,7 @@
  * @param  s: sections delimiter
  * @param  c: decimal delimiter
  */
-Number.prototype.format = function(n, x, s, c) {
+Number.prototype.format = function(n = 0, x = 3, s = ",", c = ".") {
     const re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\D' : '$') + ')',
         num = this.toFixed(Math.max(0, ~~n));
 

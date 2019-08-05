@@ -84,6 +84,9 @@ const webpackConfig = {
             }
         ]
     },
+    devServer: {
+        historyApiFallback: true,
+    },
     plugins: [
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
