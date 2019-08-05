@@ -24,7 +24,7 @@ import {
     Tag,
     ToolBar, ToolButton,
     ClickOutside,
-    Gravatar
+    Gravatar, Adsense,
 } from "../../src/index";
 
 import MainMenu from "./MainMenu";
@@ -53,6 +53,11 @@ export default class Demo extends React.Component {
         return (
             <Container>
                 <MainMenu/>
+
+                <br/>
+                <Adsense client={'ca-pub-1632668592742327'} slot={'4639163605'} test={SITE_MODE_DEV}/>
+                <br/>
+
                 <Grid>
                     <h2 className="text-light">&lt;Gravatar/&gt;</h2>
                     <Row>

@@ -77,11 +77,9 @@ export default class Select extends React.Component {
         }
     }
 
-    listItemClick(e){
+    listItemClick(key){
         const {multiple} = this.props;
         const {value} = this.state;
-
-        const key = e.target.parentNode.getAttribute("data-value");
 
         if (multiple) {
             if (value.indexOf(key) === -1) value.push(key);
@@ -96,8 +94,6 @@ export default class Select extends React.Component {
                 value: key
             });
         }
-
-        e.preventDefault();
     }
 
     inputChange(value, input){
@@ -130,9 +126,7 @@ export default class Select extends React.Component {
                 items.push(
                     <li hidden={(filter !== "" && el.props.children.toLowerCase().indexOf(filter.toLowerCase()) === -1) || ( !multiple ? value === el.props.value : value.indexOf(el.props.value) !== -1 )}
                         key={optionIndex++}
-                        onClick={listItemClick}
-                        data-value={el.props.value}
-                        data-title={el.props.children}
+                        onClick={listItemClick.bind(this, el.props.value)}
                     >
                         <a>{el.props.children}</a>
                     </li>

@@ -1,18 +1,19 @@
 import React from "react";
-import "./app-bar.less";
+import {Collapse} from "../../index";
 
-export default class AppBArMenu extends React.Component {
+export default class AppBarMenu extends React.Component {
     static defaultProps = {
-        cls: ""
+        cls: "",
+        collapsed: false
     };
 
     render(){
-        const {cls, ...props} = this.props;
+        const {cls, collapsed, ...props} = this.props;
 
         return (
-            <ul className={'app-bar-menu ' + cls} {...props}>
+            <Collapse isOpen={!collapsed} elementType={'ul'} className={'app-bar-menu ' + cls} {...props}>
                 {this.props.children}
-            </ul>
+            </Collapse>
         )
     }
 }
