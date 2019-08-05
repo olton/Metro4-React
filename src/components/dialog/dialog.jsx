@@ -51,7 +51,7 @@ export default class Dialog extends Component {
         const {open} = this.state;
 
         return (
-            <Body>
+            <React.Fragment>
                 {modal && open && (
                     <div className={'overlay'} style={{backgroundColor: overlayColor, opacity: overlayAlpha}}>{''}</div>
                 )}
@@ -73,7 +73,7 @@ export default class Dialog extends Component {
                     )}
 
                 </div>
-            </Body>
+            </React.Fragment>
         )
     }
 }
