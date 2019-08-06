@@ -3,6 +3,8 @@ import ReactDom from "react-dom";
 import "./dialog.less";
 import {Button} from "../../index";
 
+const dialogRoot = document.body;
+
 export default class Dialog extends Component {
     static defaultProps = {
         closeButton: true,
@@ -12,7 +14,6 @@ export default class Dialog extends Component {
         modal: true,
         overlayColor: "#ffffff",
         overlayAlpha: 1,
-        onClose: () => {}
     };
 
     constructor(props){
@@ -22,7 +23,12 @@ export default class Dialog extends Component {
             open: this.props.open
         };
 
+        this.dialog = React.createRef();
         this.actions = [];
+        this.dialogSize = {
+            height: 0,
+            width: 0
+        };
 
         this.actions = this.props.actions.map((el, index) => {
             return (
@@ -30,14 +36,15 @@ export default class Dialog extends Component {
             )
         });
 
-        this.closeDialog = this.closeDialog.bind(this);
+        this.onClose = this.onClose.bind(this);
     }
 
-    closeDialog(){
-        this.setState({
-            open: false
-        });
-        this.props.onClose();
+    componentDidMount(){
+        const node = ReactDom.findDOMNode(this.dialog);
+        this.dialogSize = {
+            height: node.clientHeight,
+            width: node.clientWidth
+        }
     }
 
     componentWillReceiveProps(nextProps){
@@ -46,23 +53,29 @@ export default class Dialog extends Component {
         })
     }
 
+    onClose(){
+        this.props.onClose();
+    }
+
     render(){
         const {title, closeButton, modal, overlayColor, overlayAlpha} = this.props;
         const {open} = this.state;
 
-        return (
+        return ReactDom.createPortal(
             <React.Fragment>
                 {modal && open && (
                     <div className={'overlay'} style={{backgroundColor: overlayColor, opacity: overlayAlpha}}>{''}</div>
                 )}
-                <div className={'dialog'} hidden={!open} style={{
-                    // transition: 'all .8s',
+                <div className={'dialog'} style={{
+                    transition: 'all .8s',
                     transform: open ? 'translateY(0vh)' : 'translateY(-100vh)',
-                    opacity: open ? 1 : 0
-                }}>
+                    opacity: open ? 1 : 0,
+                    marginLeft: -this.dialogSize.width/2,
+                    marginTop: -this.dialogSize.height/2,
+                }} ref={ref => this.dialog = ref}>
 
                     {closeButton && (
-                        <Button cls={'square closer'} onClick={this.closeDialog}/>
+                        <Button cls={'square closer'} onClick={this.onClose}/>
                     )}
 
                     <div className={'dialog-title'}>{title}</div>
@@ -73,7 +86,8 @@ export default class Dialog extends Component {
                     )}
 
                 </div>
-            </React.Fragment>
+            </React.Fragment>,
+            dialogRoot
         )
     }
 }
