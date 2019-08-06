@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, {Component, Fragment} from "react";
 import ReactDom from "react-dom";
 import "./dialog.less";
 import {Button} from "../../index";
@@ -48,10 +48,13 @@ export default class Dialog extends Component {
         }
     }
 
-    componentWillReceiveProps(nextProps){
-        this.setState({
-            open: nextProps.open
-        })
+    static getDerivedStateFromProps(props, state){
+        if (props.open !== state.open) {
+            return {
+                open: props.open
+            }
+        }
+        return null;
     }
 
     onClose(){
@@ -63,7 +66,7 @@ export default class Dialog extends Component {
         const {open} = this.state;
 
         return ReactDom.createPortal(
-            <React.Fragment>
+            <Fragment>
                 {modal && open && (
                     <div className={'overlay'} style={{backgroundColor: overlayColor, opacity: overlayAlpha}}>{''}</div>
                 )}
@@ -88,7 +91,7 @@ export default class Dialog extends Component {
                     )}
 
                 </div>
-            </React.Fragment>,
+            </Fragment>,
             dialogRoot
         )
     }

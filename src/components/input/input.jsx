@@ -4,7 +4,6 @@ import Button from "../button/button.jsx";
 
 export default class Input extends React.Component {
     static defaultProps = {
-        defaultValue: "",
         name: "",
         placeholder: "",
         value: "",
@@ -33,9 +32,12 @@ export default class Input extends React.Component {
         super(props);
 
         this.state = {
+            initValue: props.value,
             value: props.value,
             type: props.type,
-            focus: false
+            focus: false,
+            autocompleteSorted: [...this.props.autocomplete].sort( (a, b) => a > b ),
+            autocomplete: this.props.autocomplete
         };
 
         this.input = null;
@@ -63,8 +65,13 @@ export default class Input extends React.Component {
         this.input.removeEventListener("focus", this.onFocus);
     }
 
-    static createEvent(){
-
+    static getDerivedStateFromProps(props, state){
+        if (props.value !== state.initValue) {
+            return {
+                value: props.value
+            }
+        }
+        return null;
     }
 
     onBlur(e){
@@ -121,10 +128,6 @@ export default class Input extends React.Component {
                     });
                 }
             }
-            //
-            // if ([13, 38, 40].indexOf(e.keyCode) !== -1) {
-            //     this.props.onChange(e);
-            // }
         }
 
         this.props.onChange(e);
@@ -144,8 +147,10 @@ export default class Input extends React.Component {
         const {onClear} = this.props;
 
         this.setState({
-            value: this.props.defaultValue
+            value: ""
         });
+
+        this.focus();
 
         onClear(e);
     }
@@ -169,15 +174,15 @@ export default class Input extends React.Component {
     }
 
     focus(){
-        this.input.current.focus();
+        this.input.focus();
     }
 
     render() {
-        const {name, placeholder, append, prepend, clear, reveal, search, type: inputType, customButtons, autocomplete} = this.props;
+        const {value: defaultValue, name, placeholder, append, prepend, clear, reveal, search, type: inputType, customButtons, autocomplete} = this.props;
         const {value, type, focus} = this.state;
         const buttons = clear || reveal || search;
         const inputProps = {
-            name, type, placeholder, value
+            name, type, placeholder
         };
 
         const autocompleteItemClick = this.autocompleteItemClick;
@@ -189,7 +194,7 @@ export default class Input extends React.Component {
                     <span className='prepend'>{prepend}</span>
                 )}
 
-                <input {...inputProps} onChange={this.onChange} ref={ref => this.input = ref} onKeyUp={this.onKeyUp}/>
+                <input {...inputProps} value={value} onChange={this.onChange} ref={ref => this.input = ref} onKeyUp={this.onKeyUp}/>
 
                 {buttons && (
                     <div className='button-group'>
@@ -224,7 +229,7 @@ export default class Input extends React.Component {
                 {autocomplete.length > 0 && (
                     <div className='autocomplete-list'>
                         {
-                            autocomplete.map(function(item, index) {
+                            this.state.autocompleteSorted.map(function(item, index) {
                                 const searchIndex = item.toLowerCase().indexOf(value.toLowerCase());
                                 const itemValue = `${item.substr(0, searchIndex)}<strong>${item.substr(searchIndex, value.length)}</strong>${item.substr(searchIndex + value.length)}`;
 
