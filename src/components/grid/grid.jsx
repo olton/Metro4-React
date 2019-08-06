@@ -4,15 +4,17 @@ import "./grid.less";
 export class Cell extends React.Component {
 
     static defaultProps = {
-        style: {},
+        as: "div",
         cls: ""
     };
 
     render() {
+        const {as: Element, cls, ...props} = this.props;
+
         return (
-            <div className={this.props.cls} style={this.props.style}>
+            <Element className={'cell '+ cls} {...props}>
                 {this.props.children}
-            </div>
+            </Element>
         );
     }
 }
@@ -20,12 +22,15 @@ export class Cell extends React.Component {
 export class Row extends React.Component {
 
     static defaultProps = {
+        as: "div",
         cls: ""
     };
 
     render() {
+        const {as: Element, cls, ...props} = this.props;
+
         return (
-            <div className={'row ' + this.props.cls}>
+            <div className={'row ' + cls} {...props}>
                 {this.props.children}
             </div>
         );
@@ -40,11 +45,10 @@ export class Grid extends React.Component {
     };
 
     render() {
-
-        const Element = this.props.as;
+        const {as: Element, cls, ...props} = this.props;
 
         return (
-            <Element className={'grid ' + this.props.cls}>
+            <Element className={'grid ' + cls} {...props}>
                 {this.props.children}
             </Element>
         );
