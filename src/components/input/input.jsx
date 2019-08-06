@@ -17,7 +17,7 @@ export default class Input extends React.Component {
         searchType: 'custom',
         history: false,
         preventSubmit: true,
-        autocomplete: "",
+        autocomplete: [],
         autocompleteDivider: ",",
         autocompleteHeight: 200,
         customButtons: [],
@@ -41,10 +41,6 @@ export default class Input extends React.Component {
         this.input = null;
         this.history = [];
         this.historyIndex = -1;
-        this.autocomplete = this.props.autocomplete
-            .split(",")
-            .map(item => item.trim())
-            .filter(item => item !== '');
 
         this.onChange = this.onChange.bind(this);
         this.onKeyUp = this.onKeyUp.bind(this);
@@ -67,18 +63,22 @@ export default class Input extends React.Component {
         this.input.removeEventListener("focus", this.onFocus);
     }
 
-    onBlur(){
+    static createEvent(){
+
+    }
+
+    onBlur(e){
         this.setState({
             focus: false
         });
-        this.props.onBlur(this.input);
+        this.props.onBlur(e);
     }
 
-    onFocus(){
+    onFocus(e){
         this.setState({
             focus: true
         });
-        this.props.onFocus(this.input);
+        this.props.onFocus(e);
     }
 
     onChange(e){
@@ -98,7 +98,7 @@ export default class Input extends React.Component {
             if (e.keyCode === 13) { //Enter
                 this.history.push(val);
                 this.historyIndex = this.history.length - 1;
-                this.clearValue();
+                this.clearValue(e);
                 if (this.props.preventSubmit) {
                     e.preventDefault();
                 }
@@ -121,11 +121,13 @@ export default class Input extends React.Component {
                     });
                 }
             }
-
-            if ([13, 38, 40].indexOf(e.keyCode) !== -1) {
-                this.props.onChange(this.input.value, this.input);
-            }
+            //
+            // if ([13, 38, 40].indexOf(e.keyCode) !== -1) {
+            //     this.props.onChange(e);
+            // }
         }
+
+        this.props.onChange(e);
     }
 
     changeInputType(){
@@ -138,15 +140,14 @@ export default class Input extends React.Component {
         onReveal(this.input);
     }
 
-    clearValue(){
-        const {onClear, onChange} = this.props;
+    clearValue(e){
+        const {onClear} = this.props;
 
         this.setState({
             value: this.props.defaultValue
         });
 
-        onClear(this.input);
-        onChange(this.props.defaultValue, this.input);
+        onClear(e);
     }
 
     searchValue(){
@@ -161,7 +162,7 @@ export default class Input extends React.Component {
     }
 
     autocompleteItemClick(e){
-        const value = (""+e.target.getAttribute('data-item')).toLowerCase();
+        const value = e.target.getAttribute('data-item');
         this.setState({
             value: value
         });
@@ -172,7 +173,7 @@ export default class Input extends React.Component {
     }
 
     render() {
-        const {name, placeholder, append, prepend, clear, reveal, search, type: inputType, customButtons} = this.props;
+        const {name, placeholder, append, prepend, clear, reveal, search, type: inputType, customButtons, autocomplete} = this.props;
         const {value, type, focus} = this.state;
         const buttons = clear || reveal || search;
         const inputProps = {
@@ -220,11 +221,11 @@ export default class Input extends React.Component {
                     <span className='append'>{append}</span>
                 )}
 
-                {this.autocomplete.length > 0 && (
+                {autocomplete.length > 0 && (
                     <div className='autocomplete-list'>
                         {
-                            this.autocomplete.map(function(item, index) {
-                                const searchIndex = item.toLowerCase().indexOf(value);
+                            autocomplete.map(function(item, index) {
+                                const searchIndex = item.toLowerCase().indexOf(value.toLowerCase());
                                 const itemValue = `${item.substr(0, searchIndex)}<strong>${item.substr(searchIndex, value.length)}</strong>${item.substr(searchIndex + value.length)}`;
 
                                 return (

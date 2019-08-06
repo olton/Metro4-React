@@ -25,11 +25,13 @@ import {
     ToolBar, ToolButton,
     ClickOutside,
     Gravatar, Adsense,
-    Dialog, Body
+    Dialog
 } from "../../src/index";
 
 import MainMenu from "./MainMenu";
 import "../css/demo.less";
+
+const autocompleteList = ["Ukraine", "USA", "Canada", "Marokko", "Singapur"];
 
 const customButtons = [
     {
@@ -529,7 +531,7 @@ export default class Demo extends React.Component {
                         </Cell>
                         <Cell cls="cell-md-4">
                             <h6>autocomplete</h6>
-                            <Input autocomplete="Ukraine, USA, Canada, Marokko, Singapur" />
+                            <Input autocomplete={autocompleteList} />
                         </Cell>
                         <Cell cls="cell-md-4">
                             <h5>custom buttons</h5>
