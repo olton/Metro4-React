@@ -17,13 +17,13 @@ export default class Input extends React.Component {
         history: false,
         preventSubmit: true,
         autocomplete: [],
-        autocompleteDivider: ",",
         autocompleteHeight: 200,
         customButtons: [],
         onSearch: () => {},
         onClear: () => {},
         onReveal: () => {},
         onChange: () => {},
+        onKeyUp: () => {},
         onBlur: () => {},
         onFocus: () => {}
     };
@@ -34,7 +34,7 @@ export default class Input extends React.Component {
         this.state = {
             initValue: props.value,
             value: props.value,
-            type: props.type,
+            inputType: props.type,
             focus: false
         };
 
@@ -130,13 +130,14 @@ export default class Input extends React.Component {
         }
 
         this.props.onChange(e);
+        this.props.onKeyUp(e);
     }
 
     changeInputType(){
         const {onReveal} = this.props;
 
         this.setState((prev) => ({
-            type: prev.type === 'text' ? 'password' : 'text'
+            inputType: prev.inputType === 'text' ? 'password' : 'text'
         }));
 
         onReveal(this.input);
@@ -177,12 +178,9 @@ export default class Input extends React.Component {
     }
 
     render() {
-        const {value: defaultValue, name, placeholder, append, prepend, clear, reveal, search, type: inputType, customButtons, autocomplete} = this.props;
-        const {value, type, focus} = this.state;
+        const {type, append, prepend, clear, reveal, search, searchType, history, preventSubmit, customButtons, autocomplete, autocompleteHeight, onSearch, onClear, onReveal, ...props} = this.props;
+        const {value, inputType, focus} = this.state;
         const buttons = clear || reveal || search;
-        const inputProps = {
-            name, type, placeholder
-        };
 
         const autocompleteItemClick = this.autocompleteItemClick;
 
@@ -193,7 +191,7 @@ export default class Input extends React.Component {
                     <span className='prepend'>{prepend}</span>
                 )}
 
-                <input {...inputProps} value={value} onChange={this.onChange} ref={ref => this.input = ref} onKeyUp={this.onKeyUp}/>
+                <input {...props} type={inputType} value={value} onChange={this.onChange} ref={ref => this.input = ref} onKeyUp={this.onKeyUp}/>
 
                 {buttons && (
                     <div className='button-group'>
@@ -202,7 +200,7 @@ export default class Input extends React.Component {
                                 <span className='default-icon-cross'/>
                             </Button>
                         )}
-                        {inputType === 'password' && reveal && (
+                        {type === 'password' && reveal && (
                             <Button cls='input-reveal-button' type='button' onClick={this.changeInputType} tabIndex={-1}>
                                 <span className='default-icon-eye'/>
                             </Button>
