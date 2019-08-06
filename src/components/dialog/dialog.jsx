@@ -20,10 +20,6 @@ export default class Dialog extends Component {
     constructor(props){
         super(props);
 
-        this.state = {
-            open: this.props.open
-        };
-
         this.dialog = React.createRef();
         this.actions = [];
         this.dialogSize = {
@@ -48,22 +44,12 @@ export default class Dialog extends Component {
         }
     }
 
-    static getDerivedStateFromProps(props, state){
-        if (props.open !== state.open) {
-            return {
-                open: props.open
-            }
-        }
-        return null;
-    }
-
     onClose(){
         this.props.onClose();
     }
 
     render(){
-        const {title, closeButton, modal, overlayColor, overlayAlpha, speed} = this.props;
-        const {open} = this.state;
+        const {open, title, closeButton, modal, overlayColor, overlayAlpha, speed} = this.props;
 
         return ReactDom.createPortal(
             <Fragment>
