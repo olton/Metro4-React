@@ -88,7 +88,7 @@ export default class Input extends React.Component {
             value: e.target.value
         });
 
-        onChange(e.target.value, this.input);
+        onChange(e);
     }
 
     onKeyUp(e){

@@ -49,12 +49,26 @@ const customButtons = [
     }
 ];
 
+const dialogButtons = [
+    {
+        title: 'Ok',
+        cls: 'info',
+        onClick: () => {alert('Ok!')}
+    },
+    {
+        title: 'Cancel',
+        onClick: () => {alert('Cancel!')}
+    }
+];
+
 export default class Demo extends React.Component {
     constructor(props){
         super(props);
+
         this.state = {
             dialogOpen: false
         };
+
         this.toggleDialog = this.toggleDialog.bind(this);
         this.closeDialog = this.closeDialog.bind(this);
     }
@@ -88,7 +102,7 @@ export default class Demo extends React.Component {
                             <div>
                                 <Button onClick={this.toggleDialog}>Open dialog</Button>
                             </div>
-                            <Dialog open={this.state.dialogOpen} title={'This is a Metro 4 for React Dialog'} actions={customButtons} onClose={this.closeDialog}>
+                            <Dialog open={this.state.dialogOpen} title={'This is a Metro 4 for React Dialog'} actions={dialogButtons} onClose={this.closeDialog} modal={true} overlayColor={'#000'} overlayAlpha={.5}>
                                 <div>
                                     Bassus abactors ducunt ad triticum. A fraternal form of manifestation is the bliss.
                                 </div>

@@ -14,6 +14,7 @@ export default class Dialog extends Component {
         modal: true,
         overlayColor: "#ffffff",
         overlayAlpha: 1,
+        speed: .4
     };
 
     constructor(props){
@@ -58,7 +59,7 @@ export default class Dialog extends Component {
     }
 
     render(){
-        const {title, closeButton, modal, overlayColor, overlayAlpha} = this.props;
+        const {title, closeButton, modal, overlayColor, overlayAlpha, speed} = this.props;
         const {open} = this.state;
 
         return ReactDom.createPortal(
@@ -66,8 +67,9 @@ export default class Dialog extends Component {
                 {modal && open && (
                     <div className={'overlay'} style={{backgroundColor: overlayColor, opacity: overlayAlpha}}>{''}</div>
                 )}
+
                 <div className={'dialog'} style={{
-                    transition: 'all .8s',
+                    transition: `transform ${speed}s, opacity ${speed}s`,
                     transform: open ? 'translateY(0vh)' : 'translateY(-100vh)',
                     opacity: open ? 1 : 0,
                     marginLeft: -this.dialogSize.width/2,
