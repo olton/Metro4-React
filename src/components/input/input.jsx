@@ -35,14 +35,13 @@ export default class Input extends React.Component {
             initValue: props.value,
             value: props.value,
             type: props.type,
-            focus: false,
-            autocompleteSorted: [...this.props.autocomplete].sort( (a, b) => a > b ),
-            autocomplete: this.props.autocomplete
+            focus: false
         };
 
         this.input = null;
         this.history = [];
         this.historyIndex = -1;
+        this.autocomplete = [...this.props.autocomplete].sort( (a, b) => a > b );
 
         this.onChange = this.onChange.bind(this);
         this.onKeyUp = this.onKeyUp.bind(this);
@@ -229,7 +228,7 @@ export default class Input extends React.Component {
                 {autocomplete.length > 0 && (
                     <div className='autocomplete-list'>
                         {
-                            this.state.autocompleteSorted.map(function(item, index) {
+                            this.autocomplete.map(function(item, index) {
                                 const searchIndex = item.toLowerCase().indexOf(value.toLowerCase());
                                 const itemValue = `${item.substr(0, searchIndex)}<strong>${item.substr(searchIndex, value.length)}</strong>${item.substr(searchIndex + value.length)}`;
 
