@@ -9,11 +9,11 @@ export default class AppBarMenu extends React.Component {
     };
 
     render(){
-        const {cls, collapsed, expanded, speed, ...props} = this.props;
+        const {cls, collapsed, speed, ...props} = this.props;
         const transition = `height ${speed}ms cubic-bezier(.4, 0, .2, 1)`;
 
         return (
-            <Collapse isOpen={!collapsed} elementType={'ul'} className={'app-bar-menu ' + cls} {...props} transition={collapsed ? null : transition}>
+            <Collapse isOpen={!collapsed} elementType={'ul'} className={'app-bar-menu ' + cls + ' ' + (collapsed ? '-is-collapsed' : '')} {...props} transition={transition}>
                 {this.props.children}
             </Collapse>
         )

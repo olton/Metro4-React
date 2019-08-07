@@ -20,7 +20,9 @@ const webpackConfig = {
     optimization: {
         minimize: isProduction,
         minimizer: [
-            new TerserJSPlugin({}),
+            new TerserJSPlugin({
+                terserOptions: {mangle: false}
+            }),
             new OptimizeCssAssetsPlugin({})],
         splitChunks: {
             chunks: "all",
@@ -90,10 +92,11 @@ const webpackConfig = {
     plugins: [
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
-            filename: !isProduction ? '[name].css' : '[name].[hash].css'
+            filename: '[name].[hash].css'
         }),
         new HtmlWebpackPlugin({
-            template: 'public/index.html'
+            template: 'public/index.html',
+            favicon: "public/favicon.ico"
         })
     ]
 };

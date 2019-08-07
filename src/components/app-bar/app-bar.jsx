@@ -19,7 +19,6 @@ export default class AppBar extends Component {
         super(props);
 
         this.medias = [];
-        this.appBar = React.createRef();
 
         this.windowResize = this.windowResize.bind(this);
         this.collectMedias = this.collectMedias.bind(this);
@@ -49,7 +48,7 @@ export default class AppBar extends Component {
         const expanded = this.props.expand || this.medias.includes(this.props.expandPoint);
         this.setState({
             expanded: expanded,
-            menuCollapsed: expanded ? false : true
+            menuCollapsed: !expanded
         });
     }
 
@@ -72,7 +71,7 @@ export default class AppBar extends Component {
         const {expanded, menuCollapsed} = this.state;
 
         return (
-            <Element className={'app-bar ' + cls + ' ' + (expanded ? 'app-bar-expand' : '')} ref={ref => this.appBar = ref}>
+            <Element className={'app-bar ' + cls + ' ' + (expanded ? 'app-bar-expand' : '')}>
 
                 <Hamburger cls={hamburgerColor + ' ' + (expanded ? 'hidden' : '')} hidden={!expanded} onClick={this.hamburgerClick}/>
 
@@ -90,4 +89,4 @@ export default class AppBar extends Component {
     }
 }
 
-export {AppBarBrand, AppBarMenu};
+export {AppBarBrand, AppBarMenu, AppBarItem};

@@ -12,7 +12,7 @@ export class Cell extends React.Component {
         const {as: Element, cls, ...props} = this.props;
 
         return (
-            <Element className={'cell '+ cls} {...props}>
+            <Element className={'cell-base '+ cls} {...props}>
                 {this.props.children}
             </Element>
         );

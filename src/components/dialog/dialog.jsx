@@ -15,8 +15,8 @@ export default class Dialog extends Component {
         overlayColor: "#ffffff",
         overlayAlpha: 1,
         speed: .4,
-        width: "auto",
-        height: "auto",
+        width: 500,
+        height: 200,
         contentHeight: "auto",
         cls: "",
         clsTitle: "",
@@ -43,21 +43,23 @@ export default class Dialog extends Component {
         this.onClose = this.onClose.bind(this);
         this.actionButtonClick = this.actionButtonClick.bind(this);
         this.windowResize = this.windowResize.bind(this);
+        this.refresh = this.refresh.bind(this);
     }
 
     actionButtonClick(cb){
-        if (typeof cb === 'function') {
-            cb();
-        }
+        if (typeof cb === 'function') cb();
         if (this.props.actionClickClose) this.props.onClose();
     }
 
-    componentDidMount(){
-        const node = ReactDom.findDOMNode(this.dialog);
+    refresh(){
         this.setState({
-            height: node.clientHeight,
-            width: node.clientWidth
+            height: this.dialog.clientHeight,
+            width: this.dialog.clientWidth
         });
+    }
+
+    componentDidMount(){
+        this.refresh();
         window.addEventListener("resize", this.windowResize);
     }
 
@@ -65,12 +67,8 @@ export default class Dialog extends Component {
         window.removeEventListener("resize", this.windowResize);
     }
 
-    windowResize(e){
-        const node = ReactDom.findDOMNode(this.dialog);
-        this.setState({
-            height: node.clientHeight,
-            width: node.clientWidth
-        });
+    windowResize(){
+        this.refresh();
     }
 
     onClose(){
@@ -79,6 +77,7 @@ export default class Dialog extends Component {
 
     render(){
         const {open, title, closeButton, modal, overlayColor, overlayAlpha, speed, cls, clsTitle, clsContent, clsActions, height, width, contentHeight} = this.props;
+        const {width: _width, height: _height} = this.state;
 
         return (
             <Body>
@@ -92,8 +91,8 @@ export default class Dialog extends Component {
                     transition: `transform ${speed}s, opacity ${speed}s`,
                     transform: open ? 'translateY(0vh)' : 'translateY(-100vh)',
                     opacity: open ? 1 : 0,
-                    marginTop: -this.state.height/2,
-                    marginLeft: -this.state.width/2,
+                    marginTop: -(_height/2),
+                    marginLeft: -(_width/2),
                 }} ref={ref => this.dialog = ref}>
 
                     {closeButton && (
