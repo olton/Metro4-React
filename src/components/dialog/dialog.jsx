@@ -2,8 +2,7 @@ import React, {Component, Fragment} from "react";
 import ReactDom from "react-dom";
 import "./dialog.less";
 import {Button} from "../../index";
-
-const dialogRoot = document.body;
+import Body from "../body/body";
 
 export default class Dialog extends Component {
     static defaultProps = {
@@ -60,8 +59,8 @@ export default class Dialog extends Component {
     render(){
         const {open, title, closeButton, modal, overlayColor, overlayAlpha, speed} = this.props;
 
-        return ReactDom.createPortal(
-            <Fragment>
+        return (
+            <Body>
                 {modal && open && (
                     <div className={'overlay'} style={{backgroundColor: overlayColor, opacity: overlayAlpha}}>{''}</div>
                 )}
@@ -86,8 +85,7 @@ export default class Dialog extends Component {
                     )}
 
                 </div>
-            </Fragment>,
-            dialogRoot
+            </Body>
         )
     }
 }
