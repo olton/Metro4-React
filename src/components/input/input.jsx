@@ -67,7 +67,8 @@ export default class Input extends React.Component {
     static getDerivedStateFromProps(props, state){
         if (props.value !== state.initValue) {
             return {
-                value: props.value
+                value: props.value,
+                initValue: props.value
             }
         }
         return null;
