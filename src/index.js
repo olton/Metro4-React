@@ -1,6 +1,7 @@
 import Container  from "./components/container/container";
 import Accordion, {AccordionFrame}  from "./components/accordion/accordion";
 import Activity from "./components/activity/activity";
+import ActivityModal from "./components/activity/activity-modal";
 import Badge from "./components/badge/badge";
 import BottomNav, {BottomNavItem} from "./components/bottom-nav/bottom-nav";
 import Button from "./components/button/button";
@@ -33,7 +34,7 @@ import Dialog from "./components/dialog/dialog";
 export {
     Container,
     Accordion, AccordionFrame,
-    Activity,
+    Activity, ActivityModal,
     Badge,
     BottomNav,
     BottomNavItem,

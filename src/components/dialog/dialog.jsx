@@ -1,5 +1,4 @@
-import React, {Component, Fragment} from "react";
-import ReactDom from "react-dom";
+import React, {Component} from "react";
 import "./dialog.less";
 import {Button} from "../../index";
 import Body from "../body/body";
@@ -15,8 +14,8 @@ export default class Dialog extends Component {
         overlayColor: "#ffffff",
         overlayAlpha: 1,
         speed: .4,
-        width: 500,
-        height: 200,
+        width: "auto",
+        height: "auto",
         contentHeight: "auto",
         cls: "",
         clsTitle: "",

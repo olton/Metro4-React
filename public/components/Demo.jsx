@@ -5,7 +5,7 @@ import {
     Icon,
     Badge,
     Grid, Row, Cell,
-    Activity,
+    Activity, ActivityModal,
     Accordion,
     AccordionFrame,
     Checkbox,
@@ -68,23 +68,37 @@ export default class Demo extends React.Component {
         super(props);
 
         this.state = {
-            dialogOpen: false
+            dialogOpen: false,
+            activityOpen: false
         };
 
         this.toggleDialog = this.toggleDialog.bind(this);
+        this.toggleActivity = this.toggleActivity.bind(this);
         this.closeDialog = this.closeDialog.bind(this);
+        this.closeActivity = this.closeActivity.bind(this);
     }
 
     toggleDialog(){
-        const isOpen = this.state.dialogOpen;
         this.setState({
-            dialogOpen: !isOpen
+            dialogOpen: !this.state.dialogOpen
+        })
+    }
+
+    toggleActivity(){
+        this.setState({
+            activityOpen: !this.state.activityOpen
         })
     }
 
     closeDialog(){
         this.setState({
             dialogOpen: false
+        })
+    }
+
+    closeActivity(){
+        this.setState({
+            activityOpen: false
         })
     }
 
@@ -98,6 +112,16 @@ export default class Demo extends React.Component {
                 <br/>
 
                 <Grid>
+                    <h2 className="text-light">&lt;Modal Activity/&gt;</h2>
+                    <Row>
+                        <Cell>
+                            <div>
+                                <Button onClick={this.toggleActivity}>Open activity</Button>
+                            </div>
+                            <ActivityModal open={this.state.activityOpen} variant={'color'} onClose={this.closeActivity}/>
+                        </Cell>
+                    </Row>
+
                     <h2 className="text-light">&lt;Dialog/&gt;</h2>
                     <Row>
                         <Cell>
@@ -264,61 +288,61 @@ export default class Demo extends React.Component {
                     <h2 className="text-light">&lt;Activity /&gt;</h2>
                     <Row>
                         <Cell cls="cell-md-4 bg-darkGray p-2">
-                            <Activity type="ring" style="light" cls="mx-auto"/>
+                            <Activity type="ring" variant="light" cls="mx-auto"/>
                         </Cell>
                         <Cell cls="cell-md-4 p-2">
-                            <Activity type="ring" style="dark" cls="mx-auto"/>
+                            <Activity type="ring" variant="dark" cls="mx-auto"/>
                         </Cell>
                         <Cell cls="cell-md-4 p-2">
-                            <Activity type="ring" style="color" cls="mx-auto"/>
+                            <Activity type="ring" variant="color" cls="mx-auto"/>
                         </Cell>
                     </Row>
 
                     <Row>
                         <Cell cls="cell-md-4 bg-darkGray p-2">
-                            <Activity type="metro" style="light" cls="mx-auto"/>
+                            <Activity type="metro" variant="light" cls="mx-auto"/>
                         </Cell>
                         <Cell cls="cell-md-4 p-2">
-                            <Activity type="metro" style="dark" cls="mx-auto"/>
+                            <Activity type="metro" variant="dark" cls="mx-auto"/>
                         </Cell>
                         <Cell cls="cell-md-4 p-2">
-                            <Activity type="metro" style="color" cls="mx-auto"/>
+                            <Activity type="metro" variant="color" cls="mx-auto"/>
                         </Cell>
                     </Row>
 
                     <Row>
                         <Cell cls="cell-md-4 bg-darkGray p-2">
-                            <Activity type="square" style="light" cls="mx-auto"/>
+                            <Activity type="square" variant="light" cls="mx-auto"/>
                         </Cell>
                         <Cell cls="cell-md-4 p-2">
-                            <Activity type="square" style="dark" cls="mx-auto"/>
+                            <Activity type="square" variant="dark" cls="mx-auto"/>
                         </Cell>
                         <Cell cls="cell-md-4 p-2">
-                            <Activity type="square" style="color" cls="mx-auto"/>
+                            <Activity type="square" variant="color" cls="mx-auto"/>
                         </Cell>
                     </Row>
 
                     <Row>
                         <Cell cls="cell-md-4 bg-darkGray p-2">
-                            <Activity type="cycle" style="light" cls="mx-auto"/>
+                            <Activity type="cycle" variant="light" cls="mx-auto"/>
                         </Cell>
                         <Cell cls="cell-md-4 p-2">
-                            <Activity type="cycle" style="dark" cls="mx-auto"/>
+                            <Activity type="cycle" variant="dark" cls="mx-auto"/>
                         </Cell>
                         <Cell cls="cell-md-4 p-2">
-                            <Activity type="cycle" style="color" cls="mx-auto"/>
+                            <Activity type="cycle" variant="color" cls="mx-auto"/>
                         </Cell>
                     </Row>
 
                     <Row>
                         <Cell cls="cell-md-4 bg-darkGray p-2">
-                            <Activity type="simple" style="light" cls="mx-auto"/>
+                            <Activity type="simple" variant="light" cls="mx-auto"/>
                         </Cell>
                         <Cell cls="cell-md-4 p-2">
-                            <Activity type="simple" style="dark" cls="mx-auto"/>
+                            <Activity type="simple" variant="dark" cls="mx-auto"/>
                         </Cell>
                         <Cell cls="cell-md-4 p-2">
-                            <Activity type="simple" style="color" cls="mx-auto"/>
+                            <Activity type="simple" variant="color" cls="mx-auto"/>
                         </Cell>
                     </Row>
 

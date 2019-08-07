@@ -11,7 +11,7 @@ export default class Activity extends React.Component {
 
     static defaultProps = {
         type: 'ring',
-        style: 'light',
+        variant: 'light',
         size: 64,
         radius: 20,
         cls: ""
@@ -21,7 +21,7 @@ export default class Activity extends React.Component {
         let activityType;
         let activityClassName;
 
-        const {type, style, size, radius, cls} = this.props;
+        const {type, variant, size, radius, cls} = this.props;
 
         switch (type) {
             case 'metro': activityType = <Metro/>; break;
@@ -31,7 +31,7 @@ export default class Activity extends React.Component {
             default: activityType = <Ring/>;
         }
 
-        activityClassName = `activity-${type} ${style}-style ${cls}`;
+        activityClassName = `activity-${type} ${variant}-style ${cls}`;
 
         return (
             <div className={activityClassName}>
