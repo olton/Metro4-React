@@ -23,6 +23,16 @@ export default class Select extends React.Component {
         });
     }
 
+    static getDerivedStateFromProps(props, state){
+        if (props.value !== state.initValue) {
+            return {
+                value: props.value,
+                initValue: props.value
+            }
+        }
+        return null;
+    }
+
     constructor(props){
         super(props);
 
@@ -36,7 +46,8 @@ export default class Select extends React.Component {
         this.state = {
             open: false,
             filter: "",
-            value: this.props.value
+            value: this.props.value,
+            initValue: props.value
         };
 
         this.selectClick = this.selectClick.bind(this);
