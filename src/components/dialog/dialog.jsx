@@ -11,6 +11,7 @@ export default class Dialog extends Component {
         open: false,
         title: "",
         actions: [],
+        actionClickClose: true,
         modal: true,
         overlayColor: "#ffffff",
         overlayAlpha: 1,
@@ -29,11 +30,19 @@ export default class Dialog extends Component {
 
         this.actions = this.props.actions.map((el, index) => {
             return (
-                <Button {...el} key={index}/>
+                <Button {...el} key={index} onClick={this.actionButtonClick.bind(this, el.onClick)}/>
             )
         });
 
         this.onClose = this.onClose.bind(this);
+        this.actionButtonClick = this.actionButtonClick.bind(this);
+    }
+
+    actionButtonClick(cb){
+        if (typeof cb === 'function') {
+            cb();
+        }
+        if (this.props.actionClickClose) this.props.onClose();
     }
 
     componentDidMount(){

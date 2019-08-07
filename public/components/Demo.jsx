@@ -55,11 +55,11 @@ const dialogButtons = [
     {
         title: 'Ok',
         cls: 'info',
-        onClick: () => {alert('Ok!')}
+        onClick: () => {console.log('Dialog Ok!')}
     },
     {
         title: 'Cancel',
-        onClick: () => {alert('Cancel!')}
+        onClick: () => {console.log('Dialog Cancel!')}
     }
 ];
 
