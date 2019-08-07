@@ -22,12 +22,13 @@ export default class AppBar extends Component {
 
         this.handleWindowResize = this.handleWindowResize.bind(this);
         this.collectMedias = this.collectMedias.bind(this);
+        this.hamburgerClick = this.hamburgerClick.bind(this);
 
         this.collectMedias();
 
         this.state = {
             open: this.props.expand || this.medias.includes(this.props.expandPoint),
-            menuCollapsed: !this.props.expand && !this.medias.includes(this.props.expandPoint)
+            menuCollapsed: true
         };
     }
 
@@ -55,16 +56,28 @@ export default class AppBar extends Component {
         window.removeEventListener("resize", this.handleWindowResize);
     }
 
+    hamburgerClick(){
+        this.setState({
+            menuCollapsed: !this.state.menuCollapsed
+        })
+    }
+
     render(){
         const {as: Element, cls, hamburgerColor} = this.props;
         const {open, menuCollapsed} = this.state;
 
         return (
             <Element className={'app-bar ' + cls + ' ' + (open ? 'app-bar-expand' : '')} ref={ref => this.appBar = ref}>
-                <Hamburger cls={hamburgerColor + ' ' + (open ? 'hidden' : '')} hidden={!open}/>
+                <Hamburger cls={hamburgerColor + ' ' + (open ? 'hidden' : '')} hidden={!open} onClick={this.hamburgerClick}/>
                 {Children.map(this.props.children, function(el, index){
                     if (el.type.name === 'AppBarMenu') {
+                        return React.cloneElement(el, {
+                            expanded: open,
+                            collapsed: menuCollapsed
+                        }, el.props.children);
                     }
+
+                    console.log("ku");
 
                     return el;
                 })}

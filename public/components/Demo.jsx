@@ -104,7 +104,15 @@ export default class Demo extends React.Component {
                             <div>
                                 <Button onClick={this.toggleDialog}>Open dialog</Button>
                             </div>
-                            <Dialog open={this.state.dialogOpen} title={'This is a Metro 4 for React Dialog'} actions={dialogButtons} onClose={this.closeDialog} modal={true} overlayColor={'#000'} overlayAlpha={.5}>
+                            <Dialog open={this.state.dialogOpen}
+                                    title={'This is a Metro 4 for React Dialog'}
+                                    actions={dialogButtons}
+                                    onClose={this.closeDialog}
+                                    modal={true}
+                                    overlayColor={'#000'}
+                                    overlayAlpha={.5}
+                                    cls={"shadow-1"}
+                            >
                                 <div>
                                     Bassus abactors ducunt ad triticum. A fraternal form of manifestation is the bliss.
                                 </div>

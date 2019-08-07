@@ -9,9 +9,9 @@ export default class MainMenu extends React.Component {
                 <AppBar cls={'container pos-relative'} expandPoint={'md'} hamburgerColor={'light'}>
                     <AppBarBrand as={'a'} href={'/'} name={'Metro 4 for React'} cls={'text-bold'}/>
                     <AppBarMenu cls={'ml-auto'}>
-                        {/*<li><Link to="/guide">Guide</Link></li>*/}
+                        <li><Link to="/guide">Guide</Link></li>
                         <li><Link to="/demo">Demo</Link></li>
-                        {/*<li><Link to="/support" className="text-bold fg-yellow"><span className="d-block ani-vertical-">Support Project</span></Link></li>*/}
+                        <li><Link to="/support" className="text-bold fg-yellow"><span className="d-block ani-vertical-">Support Project</span></Link></li>
                         <li>
                             <a href="https://github.com/olton/Metro4-React" target="_blank">
                                 <Icon name={'github'} size={'2x'} cls={'d-none d-block-md'}/>

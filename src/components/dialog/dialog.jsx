@@ -14,7 +14,14 @@ export default class Dialog extends Component {
         modal: true,
         overlayColor: "#ffffff",
         overlayAlpha: 1,
-        speed: .4
+        speed: .4,
+        width: "auto",
+        height: "auto",
+        contentHeight: "auto",
+        cls: "",
+        clsTitle: "",
+        clsContent: "",
+        clsActions: ""
     };
 
     constructor(props){
@@ -22,7 +29,7 @@ export default class Dialog extends Component {
 
         this.dialog = React.createRef();
         this.actions = [];
-        this.dialogSize = {
+        this.state = {
             height: 0,
             width: 0
         };
@@ -35,6 +42,7 @@ export default class Dialog extends Component {
 
         this.onClose = this.onClose.bind(this);
         this.actionButtonClick = this.actionButtonClick.bind(this);
+        this.windowResize = this.windowResize.bind(this);
     }
 
     actionButtonClick(cb){
@@ -46,10 +54,23 @@ export default class Dialog extends Component {
 
     componentDidMount(){
         const node = ReactDom.findDOMNode(this.dialog);
-        this.dialogSize = {
+        this.setState({
             height: node.clientHeight,
             width: node.clientWidth
-        }
+        });
+        window.addEventListener("resize", this.windowResize);
+    }
+
+    componentWillUnmount(){
+        window.removeEventListener("resize", this.windowResize);
+    }
+
+    windowResize(e){
+        const node = ReactDom.findDOMNode(this.dialog);
+        this.setState({
+            height: node.clientHeight,
+            width: node.clientWidth
+        });
     }
 
     onClose(){
@@ -57,7 +78,7 @@ export default class Dialog extends Component {
     }
 
     render(){
-        const {open, title, closeButton, modal, overlayColor, overlayAlpha, speed} = this.props;
+        const {open, title, closeButton, modal, overlayColor, overlayAlpha, speed, cls, clsTitle, clsContent, clsActions, height, width, contentHeight} = this.props;
 
         return (
             <Body>
@@ -65,23 +86,25 @@ export default class Dialog extends Component {
                     <div className={'overlay'} style={{backgroundColor: overlayColor, opacity: overlayAlpha}}>{''}</div>
                 )}
 
-                <div className={'dialog'} style={{
+                <div className={'dialog ' + cls} style={{
+                    height: height,
+                    width: width,
                     transition: `transform ${speed}s, opacity ${speed}s`,
                     transform: open ? 'translateY(0vh)' : 'translateY(-100vh)',
                     opacity: open ? 1 : 0,
-                    marginLeft: -this.dialogSize.width/2,
-                    marginTop: -this.dialogSize.height/2,
+                    marginTop: -this.state.height/2,
+                    marginLeft: -this.state.width/2,
                 }} ref={ref => this.dialog = ref}>
 
                     {closeButton && (
                         <Button cls={'square closer'} onClick={this.onClose}/>
                     )}
 
-                    <div className={'dialog-title'}>{title}</div>
-                    <div className={'dialog-content'}>{this.props.children}</div>
+                    <div className={'dialog-title ' + clsTitle}>{title}</div>
+                    <div className={'dialog-content ' + clsContent} style={{height: contentHeight}}>{this.props.children}</div>
 
                     {this.actions.length > 0 && (
-                        <div className={'dialog-actions'}>{this.actions}</div>
+                        <div className={'dialog-actions ' + clsActions}>{this.actions}</div>
                     )}
 
                 </div>
