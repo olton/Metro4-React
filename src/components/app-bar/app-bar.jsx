@@ -19,16 +19,19 @@ export default class AppBar extends Component {
         super(props);
 
         this.medias = [];
+        this.appBar = React.createRef();
 
-        this.handleWindowResize = this.handleWindowResize.bind(this);
+        this.windowResize = this.windowResize.bind(this);
         this.collectMedias = this.collectMedias.bind(this);
         this.hamburgerClick = this.hamburgerClick.bind(this);
 
         this.collectMedias();
 
+        const expanded = this.props.expand || this.medias.includes(this.props.expandPoint);
+
         this.state = {
-            open: this.props.expand || this.medias.includes(this.props.expandPoint),
-            menuCollapsed: true
+            expanded: expanded,
+            menuCollapsed: !expanded
         };
     }
 
@@ -41,19 +44,21 @@ export default class AppBar extends Component {
         }
     }
 
-    handleWindowResize(){
+    windowResize(){
         this.collectMedias();
+        const expanded = this.props.expand || this.medias.includes(this.props.expandPoint);
         this.setState({
-            open: this.props.expand || this.medias.includes(this.props.expandPoint)
+            expanded: expanded,
+            menuCollapsed: expanded ? false : true
         });
     }
 
     componentDidMount(){
-        window.addEventListener("resize", this.handleWindowResize);
+        window.addEventListener("resize", this.windowResize);
     }
 
     componentWillUnmount(){
-        window.removeEventListener("resize", this.handleWindowResize);
+        window.removeEventListener("resize", this.windowResize);
     }
 
     hamburgerClick(){
@@ -64,20 +69,19 @@ export default class AppBar extends Component {
 
     render(){
         const {as: Element, cls, hamburgerColor} = this.props;
-        const {open, menuCollapsed} = this.state;
+        const {expanded, menuCollapsed} = this.state;
 
         return (
-            <Element className={'app-bar ' + cls + ' ' + (open ? 'app-bar-expand' : '')} ref={ref => this.appBar = ref}>
-                <Hamburger cls={hamburgerColor + ' ' + (open ? 'hidden' : '')} hidden={!open} onClick={this.hamburgerClick}/>
+            <Element className={'app-bar ' + cls + ' ' + (expanded ? 'app-bar-expand' : '')} ref={ref => this.appBar = ref}>
+
+                <Hamburger cls={hamburgerColor + ' ' + (expanded ? 'hidden' : '')} hidden={!expanded} onClick={this.hamburgerClick}/>
+
                 {Children.map(this.props.children, function(el, index){
                     if (el.type.name === 'AppBarMenu') {
                         return React.cloneElement(el, {
-                            expanded: open,
                             collapsed: menuCollapsed
                         }, el.props.children);
                     }
-
-                    console.log("ku");
 
                     return el;
                 })}

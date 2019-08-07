@@ -7,7 +7,7 @@
       Sleek, intuitive, and powerful front-end framework for faster and easier web development. Build responsive, mobile-first projects on the web with the first front-end component library in Metro Style. 
   </p>
   <p align="center">
-      <a href="https://www.patreon.com/metroui">
+      <a href="https://www.patreon.com/metro4_react">
         <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
       </a>
   </p>  

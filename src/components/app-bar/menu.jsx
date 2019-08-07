@@ -8,21 +8,12 @@ export default class AppBarMenu extends React.Component {
         speed: 100
     };
 
-    constructor(props){
-        super(props);
-        this.state = {
-            expanded: this.props.expanded
-        }
-    }
-
     render(){
         const {cls, collapsed, expanded, speed, ...props} = this.props;
         const transition = `height ${speed}ms cubic-bezier(.4, 0, .2, 1)`;
 
-        console.log(expanded);
-
         return (
-            <Collapse isOpen={!collapsed && !expanded} elementType={'ul'} className={'app-bar-menu ' + cls} {...props} transition={transition}>
+            <Collapse isOpen={!collapsed} elementType={'ul'} className={'app-bar-menu ' + cls} {...props} transition={collapsed ? null : transition}>
                 {this.props.children}
             </Collapse>
         )
