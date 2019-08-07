@@ -196,7 +196,7 @@ export default class Input extends React.Component {
 
                 {buttons && (
                     <div className='button-group'>
-                        {clear && (
+                        {clear && !props.readOnly && (
                             <Button cls='input-clear-button' type='button' onClick={this.clearValue} tabIndex={-1}>
                                 <span className='default-icon-cross'/>
                             </Button>
@@ -206,7 +206,7 @@ export default class Input extends React.Component {
                                 <span className='default-icon-eye'/>
                             </Button>
                         )}
-                        {search && (
+                        {search && !props.readOnly && (
                             <Button cls='input-search-button' type='button' onClick={this.searchValue} tabIndex={-1}>
                                 <span className='default-icon-search'/>
                             </Button>
