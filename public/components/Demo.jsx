@@ -25,7 +25,7 @@ import {
     ToolBar, ToolButton,
     ClickOutside,
     Gravatar, Adsense,
-    Dialog
+    Dialog, Pagination
 } from "../../src/index";
 
 import MainMenu from "./MainMenu";
@@ -76,6 +76,11 @@ export default class Demo extends React.Component {
         this.toggleActivity = this.toggleActivity.bind(this);
         this.closeDialog = this.closeDialog.bind(this);
         this.closeActivity = this.closeActivity.bind(this);
+        this.paginationClick = this.paginationClick.bind(this);
+    }
+
+    paginationClick(val){
+        alert(val);
     }
 
     toggleDialog(){
@@ -112,6 +117,14 @@ export default class Demo extends React.Component {
                 <br/>
 
                 <Grid>
+                    <h2 className="text-light">&lt;Pagination/&gt;</h2>
+                    <Row>
+                        <Cell>
+                            <Pagination total={100} itemsPerPage={5} current={7} onClick={this.paginationClick}/>
+                        </Cell>
+                    </Row>
+
+
                     <h2 className="text-light">&lt;Modal Activity/&gt;</h2>
                     <Row>
                         <Cell>

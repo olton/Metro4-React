@@ -30,6 +30,7 @@ import InfoPanel, {InfoPanelTitle, InfoPanelContent, InfoPanelFooter} from "./co
 import Adsense from "./components/google/adsense/adsense";
 import Gravatar from "./components/gravatar/gravatar";
 import Dialog from "./components/dialog/dialog";
+import Pagination from "./components/pagination/pagination";
 
 export {
     Container,
@@ -66,4 +67,5 @@ export {
     Adsense,
     Gravatar,
     Dialog,
+    Pagination,
 };
