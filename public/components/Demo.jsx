@@ -25,7 +25,7 @@ import {
     ToolBar, ToolButton,
     ClickOutside,
     Gravatar, Adsense,
-    Dialog, Pagination
+    Dialog, Pagination, Textarea
 } from "../../src/index";
 
 import MainMenu from "./MainMenu";
@@ -117,6 +117,14 @@ export default class Demo extends React.Component {
                 <br/>
 
                 <Grid>
+                    <h2 className="text-light">&lt;Textarea/&gt;</h2>
+                    <Row>
+                        <Cell cls={'cell-md-4'}>
+                            <Textarea/>
+                        </Cell>
+                    </Row>
+
+
                     <h2 className="text-light">&lt;Pagination/&gt;</h2>
                     <Row>
                         <Cell>

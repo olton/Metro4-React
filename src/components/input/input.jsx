@@ -4,8 +4,6 @@ import Button from "../button/button.jsx";
 
 export default class Input extends React.Component {
     static defaultProps = {
-        name: "",
-        placeholder: "",
         value: "",
         type: 'text',
         append: "",

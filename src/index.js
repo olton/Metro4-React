@@ -31,6 +31,7 @@ import Adsense from "./components/google/adsense/adsense";
 import Gravatar from "./components/gravatar/gravatar";
 import Dialog from "./components/dialog/dialog";
 import Pagination from "./components/pagination/pagination";
+import Textarea from "./components/textarea/textarea";
 
 export {
     Container,
@@ -68,4 +69,5 @@ export {
     Gravatar,
     Dialog,
     Pagination,
+    Textarea
 };
