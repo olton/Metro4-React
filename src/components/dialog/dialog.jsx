@@ -28,10 +28,6 @@ export default class Dialog extends Component {
 
         this.dialog = React.createRef();
         this.actions = [];
-        this.state = {
-            height: 0,
-            width: 0
-        };
 
         this.actions = this.props.actions.map((el, index) => {
             return (
@@ -41,33 +37,11 @@ export default class Dialog extends Component {
 
         this.onClose = this.onClose.bind(this);
         this.actionButtonClick = this.actionButtonClick.bind(this);
-        this.windowResize = this.windowResize.bind(this);
-        this.refresh = this.refresh.bind(this);
     }
 
     actionButtonClick(cb){
         if (typeof cb === 'function') cb();
         if (this.props.actionClickClose) this.props.onClose();
-    }
-
-    refresh(){
-        this.setState({
-            height: this.dialog.clientHeight,
-            width: this.dialog.clientWidth
-        });
-    }
-
-    componentDidMount(){
-        this.refresh();
-        window.addEventListener("resize", this.windowResize);
-    }
-
-    componentWillUnmount(){
-        window.removeEventListener("resize", this.windowResize);
-    }
-
-    windowResize(){
-        this.refresh();
     }
 
     onClose(){
@@ -76,7 +50,6 @@ export default class Dialog extends Component {
 
     render(){
         const {open, title, closeButton, modal, overlayColor, overlayAlpha, speed, cls, clsTitle, clsContent, clsActions, height, width, contentHeight} = this.props;
-        const {width: _width, height: _height} = this.state;
 
         return (
             <Body>
@@ -84,27 +57,28 @@ export default class Dialog extends Component {
                     <div className={'overlay'} style={{backgroundColor: overlayColor, opacity: overlayAlpha}}>{''}</div>
                 )}
 
-                <div className={'dialog ' + cls} style={{
-                    height: height,
-                    width: width,
+                <div className={'dialog-wrapper'} style={{
                     transition: `transform ${speed}s, opacity ${speed}s`,
                     transform: open ? 'translateY(0vh)' : 'translateY(-100vh)',
                     opacity: open ? 1 : 0,
-                    marginTop: -(_height/2),
-                    marginLeft: -(_width/2),
-                }} ref={ref => this.dialog = ref}>
+                }}>
+                    <div className={'dialog ' + cls} ref={ref => this.dialog = ref} style={{
+                        height: height,
+                        width: width,
+                    }}>
 
-                    {closeButton && (
-                        <Button cls={'square closer'} onClick={this.onClose}/>
-                    )}
+                        {closeButton && (
+                            <Button cls={'square closer'} onClick={this.onClose}/>
+                        )}
 
-                    <div className={'dialog-title ' + clsTitle}>{title}</div>
-                    <div className={'dialog-content ' + clsContent} style={{height: contentHeight}}>{this.props.children}</div>
+                        <div className={'dialog-title ' + clsTitle}>{title}</div>
+                        <div className={'dialog-content ' + clsContent} style={{height: contentHeight}}>{this.props.children}</div>
 
-                    {this.actions.length > 0 && (
-                        <div className={'dialog-actions ' + clsActions}>{this.actions}</div>
-                    )}
+                        {this.actions.length > 0 && (
+                            <div className={'dialog-actions ' + clsActions}>{this.actions}</div>
+                        )}
 
+                    </div>
                 </div>
             </Body>
         )

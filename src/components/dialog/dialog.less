@@ -1,6 +1,19 @@
 @import (once) "../../include/less/vars";
 @import (once) "../../include/less/mixins";
 
+.dialog-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: @zindex-modal;
+}
+
 .dialog {
     position: fixed;
     display: flex;
@@ -11,11 +24,8 @@
     max-height: ~"calc(100vh - 100px)";
     background-color: @white;
     color: @dark;
-    z-index: @zindex-modal;
+    z-index: @zindex-modal + 1;
     border: 1px solid @borderColor;
-    top: 50%;
-    left: 50%;
-    margin: 0 auto;
 }
 
 .dialog {
