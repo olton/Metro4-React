@@ -1,10 +1,23 @@
 @import (once) "../../include/less/vars";
 @import (once) "../../include/less/mixins";
 
+.dropdown {
+    float: left;
+    width: auto;
+
+    .drop-object {
+        z-index: @zindex-dropdown;
+    }
+
+    .drop-object.place-right {
+        left: auto;
+        right: 0;
+    }
+}
 
 .d-menu, .v-menu {
-    position: absolute;
-    display: none;
+    position: relative;
+    display: block;
     float: left;
     width: auto;
     margin: 0;
@@ -12,15 +25,7 @@
     list-style: none inside none;
     background-color: @white;
     color: @dark;
-
-    &.open {
-        display: block!important;
-    }
-
-    &.place-right {
-        left: auto;
-        right: 0;
-    }
+    border: 1px solid @borderColor;
 }
 
 .d-menu {
@@ -143,10 +148,6 @@
 }
 
 .d-menu {
-    .default-shadow();
-}
-
-.d-menu {
     &.context {
         li {
             a {
@@ -227,6 +228,12 @@
     .d-menu {
         left: 100%;
         top: -.5rem;
+    }
+}
+
+.d-menu, .v-menu {
+    &.open {
+        display: block!important;
     }
 }
 

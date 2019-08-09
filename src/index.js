@@ -33,6 +33,7 @@ import Dialog from "./components/dialog/dialog";
 import Pagination from "./components/pagination/pagination";
 import Textarea from "./components/textarea/textarea";
 import InputFile from "./components/input-file/input-file";
+import Dropdown from "./components/dropdown/dropdown";
 
 export {
     Container,
@@ -71,5 +72,6 @@ export {
     Dialog,
     Pagination,
     Textarea,
-    InputFile
+    InputFile,
+    Dropdown
 };

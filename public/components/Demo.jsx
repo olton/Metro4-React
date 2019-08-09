@@ -26,6 +26,7 @@ import {
     ClickOutside,
     Gravatar, Adsense,
     Dialog, Pagination, Textarea, InputFile,
+    Dropdown,
 } from "../../src/index";
 
 import MainMenu from "./MainMenu";
@@ -117,6 +118,52 @@ export default class Demo extends React.Component {
                 <br/>
 
                 <Grid>
+                    <h2 className="text-light">&lt;Dropdown/&gt;</h2>
+                    <Row>
+                        <Cell cls={'cell-md-4'}>
+                            <Dropdown cls={'pos-absolute'}>
+                                <a href={'#'} className={'dropdown-toggle'}>Dropdown</a>
+                                <ul className={'d-menu'}>
+                                    <li><a href={'#'}>Item 1</a></li>
+                                    <li><a href={'#'}>Item 2</a></li>
+                                    <li><a href={'#'}>Item 3</a></li>
+                                </ul>
+                            </Dropdown>
+                        </Cell>
+                        <Cell cls={'cell-md-2'}>
+                            <Dropdown>
+                                <button className={'button dropdown-toggle'}>Dropdown</button>
+                                <ul className={'d-menu'}>
+                                    <li><a href={'#'}>Item 1</a></li>
+                                    <li><a href={'#'}>Item 2</a></li>
+                                    <li><a href={'#'}>Item 3</a></li>
+                                </ul>
+                            </Dropdown>
+                        </Cell>
+                        <Cell cls={'cell-md-2'}>
+                            <Dropdown clsDropdown={'win-shadow'}>
+                                <Button cls={'dropdown-toggle alert'}>
+                                    <Icon name={'rocket'}/>
+                                </Button>
+                                <ul className={'d-menu'}>
+                                    <li><a href={'#'}>Item 1</a></li>
+                                    <li><a href={'#'}>Item 2</a></li>
+                                    <li><a href={'#'}>Item 3</a></li>
+                                </ul>
+                            </Dropdown>
+                        </Cell>
+                        <Cell cls={'cell-md-4'}>
+                            <Dropdown place={'right'} cls={'place-right'}>
+                                <button className={'button dropdown-toggle'}>Dropdown</button>
+                                <ul className={'d-menu place-right'}>
+                                    <li><a href={'#'}>Item 1</a></li>
+                                    <li><a href={'#'}>Item 2</a></li>
+                                    <li><a href={'#'}>Item 3</a></li>
+                                </ul>
+                            </Dropdown>
+                        </Cell>
+                    </Row>
+
                     <h2 className="text-light">&lt;Input file/&gt;</h2>
                     <Row>
                         <Cell cls={'cell-md-4'}>

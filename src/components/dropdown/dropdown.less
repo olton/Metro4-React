@@ -5,6 +5,15 @@
     //display: block;
 }
 
+.dropped {
+    & > .dropdown-toggle {
+        &::before {
+            .rotate(135deg);
+            transition: @transition-short;
+        }
+    }
+}
+
 .dropdown-toggle {
 
     .toggle();
