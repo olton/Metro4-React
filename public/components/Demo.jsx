@@ -25,7 +25,7 @@ import {
     ToolBar, ToolButton,
     ClickOutside,
     Gravatar, Adsense,
-    Dialog, Pagination, Textarea
+    Dialog, Pagination, Textarea, InputFile,
 } from "../../src/index";
 
 import MainMenu from "./MainMenu";
@@ -117,6 +117,27 @@ export default class Demo extends React.Component {
                 <br/>
 
                 <Grid>
+                    <h2 className="text-light">&lt;Input file/&gt;</h2>
+                    <Row>
+                        <Cell cls={'cell-md-4'}>
+                            <InputFile/>
+                        </Cell>
+
+                        <Cell cls={'cell-md-4'}>
+                            <InputFile buttonIcon={'folder'} buttonTitle={''}/>
+                        </Cell>
+
+                        <Cell cls={'cell-md-4'}>
+                            <InputFile buttonIcon={'folder'} buttonTitle={''} customButtons={customButtons} multiple={true}/>
+                        </Cell>
+                    </Row>
+                    <br/>
+                    <Row>
+                        <Cell cls={'cell-md-12'}>
+                            <InputFile mode={'drop'} multiple={true}/>
+                        </Cell>
+                    </Row>
+
                     <h2 className="text-light">&lt;Textarea/&gt;</h2>
                     <Row>
                         <Cell cls={'cell-md-4'}>

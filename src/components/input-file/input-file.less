@@ -1,0 +1,104 @@
+@import (once) "../../include/less/vars";
+@import (once) "../../include/less/mixins";
+
+.file, .drop-zone {
+    .hideElement(input);
+}
+
+.file {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0;
+    padding: 0;
+
+    &.focused {
+        box-shadow: 0 0 0 3px rgba(red(@lightGray), green(@lightGray), blue(@lightGray), 0.45);
+    }
+
+    .button-group {
+        display: flex;
+        flex-wrap: nowrap;
+        margin-left: auto;
+        height: 34px;
+    }
+
+    .button {
+        background-color: transparent;
+        color: @dark;
+        height: 34px;
+        min-width: 34px;
+        &:focus {
+            box-shadow: none;
+        }
+        &:hover {
+            background-color: @light;
+            text-shadow: rgba(0,0,0,.25) 0.1em 0.1em 0.2em;
+        }
+    }
+
+    &:hover {
+        .input-select-button {
+            background-color: @light;
+            text-shadow: rgba(0,0,0,.25) 0.1em 0.1em 0.2em;
+        }
+    }
+
+    &.disabled .button-group {
+        button {
+            background-color: @light;
+            color: darken(@light, 10%);
+        }
+    }
+    .caption {
+        line-height: 35px;
+        display: block;
+        padding: 0 .5rem;
+        width: 100%;
+        .text-ellipsis();
+    }
+
+    &.disabled {
+        button {
+            background-color: @light;
+            color: darken(@light, 10%);
+        }
+    }
+
+    .prepend {order: 1}
+    .append {order: 4}
+    .caption {order: 2;}
+    .button-group {order: 3;}
+}
+
+.drop-zone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    width: 100%;
+    height: auto;
+    padding: 40px 0;
+    outline: 4px dashed @darkGray;
+    outline-offset: -12px;
+    background-color: @light;
+
+    .icon {
+        display: block;
+        width: 64px;
+        height: 64px;
+    }
+
+    .caption {
+        margin-top: 10px;
+        font-size: 14px;
+        .text-ellipsis();
+    }
+
+    &.focused {
+        outline-color: @cyan;
+    }
+
+    &.drop-on {
+        outline-color: @green;
+    }
+}

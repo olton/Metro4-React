@@ -32,6 +32,7 @@ import Gravatar from "./components/gravatar/gravatar";
 import Dialog from "./components/dialog/dialog";
 import Pagination from "./components/pagination/pagination";
 import Textarea from "./components/textarea/textarea";
+import InputFile from "./components/input-file/input-file";
 
 export {
     Container,
@@ -69,5 +70,6 @@ export {
     Gravatar,
     Dialog,
     Pagination,
-    Textarea
+    Textarea,
+    InputFile
 };
