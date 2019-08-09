@@ -13,16 +13,6 @@ export default class Select extends React.Component {
         onChange: () => {}
     };
 
-    static addOptions(options, list){
-        Children.forEach(list, function(el, index){
-            if (el.type === 'optgroup') {
-                Select.addOptions(options, el.props.children);
-            } else {
-                options[el.props.value] = el.props.children;
-            }
-        });
-    }
-
     static getDerivedStateFromProps(props, state){
         if (props.value !== state.initValue) {
             return {
@@ -33,20 +23,17 @@ export default class Select extends React.Component {
         return null;
     }
 
-    constructor(props){
+    constructor(props) {
         super(props);
 
         this.select = React.createRef();
         this.selectInput = React.createRef();
         this.input = React.createRef();
-        this.options = {};
-
-        Select.addOptions(this.options, this.props.children);
 
         this.state = {
             open: false,
             filter: "",
-            value: this.props.value,
+            value: props.value,
             initValue: props.value
         };
 
@@ -131,7 +118,7 @@ export default class Select extends React.Component {
         const {multiple, dropHeight, animationDuration, onChange} = this.props;
         const {open, filter, value} = this.state;
         const transition = `height ${animationDuration}ms cubic-bezier(.4, 0, .2, 1)`;
-        const options = this.options;
+        const options = {};
         const items = [];
         const listItemClick = this.listItemClick;
         const tagClick = this.tagClick;
@@ -143,8 +130,12 @@ export default class Select extends React.Component {
                 items.push(<li className={'group-title'} key={optionIndex++}>{el.props.label}</li>);
             } else {
                 items.push(
-                    <li hidden={(filter !== "" && el.props.children.toLowerCase().indexOf(filter.toLowerCase()) === -1) || ( !multiple ? value === el.props.value : value.indexOf(el.props.value) !== -1 )}
+                    <li
+                        hidden={
+                            (filter !== "" && el.props.children.toLowerCase().indexOf(filter.toLowerCase()) === -1)
+                            || ( multiple && value.indexOf(el.props.value) !== -1 )}
                         key={optionIndex++}
+                        className={ !multiple && value === el.props.value ? 'active' : '' }
                         onClick={listItemClick.bind(this, el.props.value)}
                     >
                         <a>{el.props.children}</a>
@@ -156,10 +147,12 @@ export default class Select extends React.Component {
         Children.forEach(this.props.children, function(el){
             if (el.type === 'option') {
                 addOption(el, false);
+                options[el.props.value] = el.props.children;
             } else if (el.type === 'optgroup') {
                 addOption(el, true);
                 Children.forEach(el.props.children, function(el){
                     addOption(el, false);
+                    options[el.props.value] = el.props.children;
                 })
             }
         });
