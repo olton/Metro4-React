@@ -17,6 +17,16 @@ export default class Input extends React.Component {
         autocomplete: [],
         autocompleteHeight: 200,
         customButtons: [],
+        cls: "",
+        clsAppend: "",
+        clsPrepend: "",
+        clsButtonGroup: "",
+        clsCustomButton: "",
+        clsClearButton: "",
+        clsSearchButton: "",
+        clsRevealButton: "",
+        clsAutocomplete: "",
+        clsAutocompleteItem: "",
         onSearch: () => {},
         onClear: () => {},
         onReveal: () => {},
@@ -177,53 +187,57 @@ export default class Input extends React.Component {
     }
 
     render() {
-        const {type, append, prepend, clear, reveal, search, searchType, history, preventSubmit, customButtons, autocomplete, autocompleteHeight, onSearch, onClear, onReveal, ...props} = this.props;
+        const {
+            type, append, prepend, clear, reveal, search, searchType, history, preventSubmit, customButtons, autocomplete, autocompleteHeight, onSearch, onClear, onReveal,
+            cls, clsAppend, clsPrepend, clsClearButton, clsCustomButton, clsSearchButton, clsRevealButton, clsAutocomplete, clsAutocompleteItem, clsButtonGroup,
+            ...props} = this.props;
         const {value, inputType, focus} = this.state;
         const buttons = clear || reveal || search;
 
         const autocompleteItemClick = this.autocompleteItemClick;
 
         return (
-            <div className={'input ' + (focus ? 'focused' : '')}>
+            <div className={'input ' + (focus ? 'focused' : '') + ' ' + cls}>
 
                 {prepend !== "" && (
-                    <span className='prepend'>{prepend}</span>
+                    <span className={'prepend ' + clsPrepend}>{prepend}</span>
                 )}
 
                 <input {...props} type={inputType} value={value} onChange={this.onChange} ref={ref => this.input = ref} onKeyUp={this.onKeyUp}/>
 
                 {buttons && (
-                    <div className='button-group'>
+                    <div className={'button-group ' + clsButtonGroup}>
                         {clear && !props.readOnly && (
-                            <Button cls='input-clear-button' type='button' onClick={this.clearValue} tabIndex={-1}>
+                            <Button cls={'input-clear-button ' + clsClearButton} type='button' onClick={this.clearValue} tabIndex={-1}>
                                 <span className='default-icon-cross'/>
                             </Button>
                         )}
                         {type === 'password' && reveal && (
-                            <Button cls='input-reveal-button' type='button' onClick={this.changeInputType} tabIndex={-1}>
+                            <Button cls={'input-reveal-button ' + clsRevealButton} type='button' onClick={this.changeInputType} tabIndex={-1}>
                                 <span className='default-icon-eye'/>
                             </Button>
                         )}
                         {search && !props.readOnly && (
-                            <Button cls='input-search-button' type='button' onClick={this.searchValue} tabIndex={-1}>
+                            <Button cls={'input-search-button ' + clsSearchButton} type='button' onClick={this.searchValue} tabIndex={-1}>
                                 <span className='default-icon-search'/>
                             </Button>
                         )}
 
                         {customButtons.map(function(btn, index){
+                            const {cls, ...btnProps} = btn;
                             return (
-                                <Button key={index} {...btn}/>
+                                <Button cls={cls+' '+clsCustomButton} key={index} {...btnProps}/>
                             )
                         })}
                     </div>
                 )}
 
                 {append !== "" && (
-                    <span className='append'>{append}</span>
+                    <span className={'append ' + clsAppend}>{append}</span>
                 )}
 
                 {autocomplete.length > 0 && (
-                    <div className='autocomplete-list'>
+                    <div className={'autocomplete-list ' + clsAutocomplete}>
                         {
                             this.autocomplete.map(function(item, index) {
                                 const searchIndex = item.toLowerCase().indexOf(value.toLowerCase());
@@ -231,7 +245,7 @@ export default class Input extends React.Component {
 
                                 return (
                                     <div data-item={item}
-                                         className='item'
+                                         className={'item ' + clsAutocompleteItem}
                                          key={index}
                                          hidden={item === value || value === '' || searchIndex === -1}
                                          dangerouslySetInnerHTML={{__html: itemValue}}
