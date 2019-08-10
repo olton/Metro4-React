@@ -121,7 +121,7 @@ export default class Demo extends React.Component {
                     <h2 className="text-light">&lt;Dropdown/&gt;</h2>
                     <Row>
                         <Cell cls={'cell-md-4'}>
-                            <Dropdown cls={'pos-absolute'}>
+                            <Dropdown>
                                 <a href={'#'} className={'dropdown-toggle'}>Dropdown</a>
                                 <ul className={'d-menu'}>
                                     <li><a href={'#'}>Item 1</a></li>
