@@ -215,7 +215,6 @@
 
         .drop-object {
             position: relative;
-            //top: 100%;
             left: 0;
 
             .d-menu, .v-menu {
@@ -233,9 +232,14 @@
 
         .dropdown {
             height: 52px;
+
+            .dropdown-toggle {
+                &::before {
+                    margin-left: -2rem;
+                }
+            }
             .drop-object {
                 position: absolute;
-                //top: 100%;
                 left: 0;
             }
         }
