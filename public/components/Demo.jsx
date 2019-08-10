@@ -26,7 +26,7 @@ import {
     ClickOutside,
     Gravatar, Adsense,
     Dialog, Pagination, Textarea, InputFile,
-    Dropdown,
+    Dropdown, Modal
 } from "../../src/index";
 
 import MainMenu from "./MainMenu";
@@ -70,7 +70,8 @@ export default class Demo extends React.Component {
 
         this.state = {
             dialogOpen: false,
-            activityOpen: false
+            activityOpen: false,
+            modalOpen: false,
         };
 
         this.toggleDialog = this.toggleDialog.bind(this);
@@ -78,6 +79,8 @@ export default class Demo extends React.Component {
         this.closeDialog = this.closeDialog.bind(this);
         this.closeActivity = this.closeActivity.bind(this);
         this.paginationClick = this.paginationClick.bind(this);
+        this.openModal = this.openModal.bind(this);
+        this.closeModal = this.closeModal.bind(this);
     }
 
     paginationClick(val){
@@ -108,6 +111,18 @@ export default class Demo extends React.Component {
         })
     }
 
+    closeModal() {
+        this.setState({
+            modalOpen: false
+        })
+    };
+
+    openModal(){
+        this.setState({
+            modalOpen: true
+        })
+    };
+
     render(){
         return (
             <Container>
@@ -118,6 +133,18 @@ export default class Demo extends React.Component {
                 <br/>
 
                 <Grid>
+                    <h2 className="text-light">&lt;Modal/&gt;</h2>
+                    <Row>
+                        <Cell>
+                            <div>
+                                <Button onClick={this.openModal}>Open modal</Button>
+                            </div>
+                            <Modal cls={'flex-center'} open={this.state.modalOpen} onClick={this.closeModal}>
+                                <Activity variant={'color'}/>
+                            </Modal>
+                        </Cell>
+                    </Row>
+
                     <h2 className="text-light">&lt;Dropdown/&gt;</h2>
                     <Row>
                         <Cell cls={'cell-md-4'}>

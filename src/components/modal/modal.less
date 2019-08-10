@@ -1,0 +1,19 @@
+@import "../../include/less/vars";
+@import "../../include/less/mixins";
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: @white;
+    color: @dark;
+    z-index: @zindex-modal;
+
+    &.flex-center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

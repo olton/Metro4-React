@@ -34,6 +34,7 @@ import Pagination from "./components/pagination/pagination";
 import Textarea from "./components/textarea/textarea";
 import InputFile from "./components/input-file/input-file";
 import Dropdown from "./components/dropdown/dropdown";
+import Modal from "./components/modal/modal";
 
 export {
     Container,
@@ -73,5 +74,6 @@ export {
     Pagination,
     Textarea,
     InputFile,
-    Dropdown
+    Dropdown,
+    Modal
 };
