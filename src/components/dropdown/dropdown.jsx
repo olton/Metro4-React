@@ -18,8 +18,26 @@ export default class Dropdown extends React.Component {
             open: false
         };
 
+        this.dropdown = React.createRef();
+
         this.toggleState = this.toggleState.bind(this);
     }
+
+    componentDidMount(){
+        document.addEventListener("mousedown", this.handleClickOutside);
+    }
+
+    componentWillUnmount(){
+        document.removeEventListener("mousedown", this.handleClickOutside);
+    }
+
+    handleClickOutside = event => {
+        if (this.dropdown.current && !this.dropdown.current.contains(event.target)) {
+            this.setState({
+                open: false,
+            });
+        }
+    };
 
     toggleState(e){
         const openState = this.state.open;
@@ -35,7 +53,7 @@ export default class Dropdown extends React.Component {
         const transition = `height ${speed}ms cubic-bezier(.4, 0, .2, 1)`;
 
         return (
-            <div className={'dropdown ' + cls + " " + (open ? "dropped" : "")}>
+            <div className={'dropdown ' + cls + " " + (open ? "dropped" : "")} ref={this.dropdown}>
                 {React.cloneElement(children[0], {
                     onClick: this.toggleState
                 })}

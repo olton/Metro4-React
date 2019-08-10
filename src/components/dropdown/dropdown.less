@@ -1,15 +1,51 @@
 @import (once) "../../include/less/vars";
 @import (once) "../../include/less/mixins";
 
-[data-role*=dropdown] {
-    //display: block;
+.dropdown {
+    display: block;
+    float: left;
+    width: auto;
+    background: inherit;
+
+    .drop-object {
+        z-index: @zindex-dropdown;
+    }
+
+    .drop-object.place-right {
+        left: auto;
+        right: 0;
+    }
 }
 
-.dropped {
+.dropdown {
+    .dropdown {
+        width: 100%;
+
+        .drop-object {
+            top: -4px;
+            left: 100%;
+        }
+
+        .dropdown-toggle {
+            padding-right: 2rem;
+        }
+    }
+}
+
+.dropdown.dropped {
     & > .dropdown-toggle {
         &::before {
             .rotate(135deg);
             transition: @transition-short;
+        }
+    }
+
+    .dropdown.dropped {
+        & > .dropdown-toggle {
+            &::before {
+                .rotate(45deg);
+                transition: @transition-short;
+            }
         }
     }
 }

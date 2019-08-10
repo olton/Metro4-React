@@ -127,6 +127,16 @@ export default class Demo extends React.Component {
                                     <li><a href={'#'}>Item 1</a></li>
                                     <li><a href={'#'}>Item 2</a></li>
                                     <li><a href={'#'}>Item 3</a></li>
+                                    <li>
+                                        <Dropdown>
+                                            <a href={'#'} className={'dropdown-toggle'}>Dropdown</a>
+                                            <ul className={'d-menu'}>
+                                                <li><a href={'#'}>Item 1</a></li>
+                                                <li><a href={'#'}>Item 2</a></li>
+                                                <li><a href={'#'}>Item 3</a></li>
+                                            </ul>
+                                        </Dropdown>
+                                    </li>
                                 </ul>
                             </Dropdown>
                         </Cell>
@@ -141,7 +151,7 @@ export default class Demo extends React.Component {
                             </Dropdown>
                         </Cell>
                         <Cell cls={'cell-md-2'}>
-                            <Dropdown clsDropdown={'win-shadow'}>
+                            <Dropdown clsDropdown={'shadow-1'}>
                                 <Button cls={'dropdown-toggle alert'}>
                                     <Icon name={'rocket'}/>
                                 </Button>

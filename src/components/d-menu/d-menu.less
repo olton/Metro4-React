@@ -1,20 +1,6 @@
 @import (once) "../../include/less/vars";
 @import (once) "../../include/less/mixins";
 
-.dropdown {
-    float: left;
-    width: auto;
-
-    .drop-object {
-        z-index: @zindex-dropdown;
-    }
-
-    .drop-object.place-right {
-        left: auto;
-        right: 0;
-    }
-}
-
 .d-menu, .v-menu {
     position: relative;
     display: block;
@@ -224,12 +210,12 @@
     }
 }
 
-.d-menu {
-    .d-menu {
-        left: 100%;
-        top: -.5rem;
-    }
-}
+//.d-menu {
+//    .d-menu {
+//        left: 100%;
+//        top: -.5rem;
+//    }
+//}
 
 .d-menu, .v-menu {
     &.open {

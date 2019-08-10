@@ -4,7 +4,7 @@ import "../d-menu/d-menu.less";
 import Collapse from "../collapse/collapse.jsx";
 import Input from "../input/input.jsx";
 import Tag from "../tag/tag.jsx"
-import ClickOutside from "../click-outside/click-outside.jsx";
+// import ClickOutside from "../click-outside/click-outside.jsx";
 
 export default class Select extends React.Component {
     static defaultProps = {
@@ -29,6 +29,7 @@ export default class Select extends React.Component {
         this.select = React.createRef();
         this.selectInput = React.createRef();
         this.input = React.createRef();
+        this.component = React.createRef();
 
         this.state = {
             open: false,
@@ -96,9 +97,9 @@ export default class Select extends React.Component {
         }
     }
 
-    inputChange(value, input){
+    inputChange(e){
         this.setState({
-            filter: value
+            filter: e.target.value
         })
     }
 
@@ -113,6 +114,22 @@ export default class Select extends React.Component {
             this.selectChange();
         }
     }
+
+    componentDidMount() {
+        document.addEventListener("mousedown", this.handleClickOutside);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener("mousedown", this.handleClickOutside);
+    }
+
+    handleClickOutside = event => {
+        if (this.component.current && !this.component.current.contains(event.target)) {
+            this.setState({
+                open: false,
+            });
+        }
+    };
 
     render() {
         const {multiple, dropHeight, animationDuration, onChange} = this.props;
@@ -158,39 +175,37 @@ export default class Select extends React.Component {
         });
 
         return (
-            <ClickOutside onClickOutside={this.close}>
-                <label className={'select ' + (open ? ' focused ':'') + (multiple ? ' multiple ':'')}>
+            <label className={'select ' + (open ? ' focused ':'') + (multiple ? ' multiple ':'')} ref={this.component}>
 
-                    <span className={'dropdown-toggle ' + (open ? 'active-toggle':'')} onClick={this.selectClick}/>
+                <span className={'dropdown-toggle ' + (open ? 'active-toggle':'')} onClick={this.selectClick}/>
 
-                    <select value={value} multiple={multiple}
-                            ref={this.select}
-                            onChange={onChange}
-                            name={this.props.name}
-                    >
-                        {this.props.children}
-                    </select>
+                <select value={value} multiple={multiple}
+                        ref={this.select}
+                        onChange={onChange}
+                        name={this.props.name}
+                >
+                    {this.props.children}
+                </select>
 
-                    <div className={'select-input'} ref={this.selectInput} onClick={this.selectClick}>
-                        {multiple && value.map( function(el, index){
-                            return (
-                                <Tag key={index} onClick={tagClick} data-value={el}>{options[el]}</Tag>
-                            )
-                        })}
+                <div className={'select-input'} ref={this.selectInput} onClick={this.selectClick}>
+                    {multiple && value.map( function(el, index){
+                        return (
+                            <Tag key={index} onClick={tagClick} data-value={el}>{options[el]}</Tag>
+                        )
+                    })}
 
-                        {!multiple && value !== "" && (
-                            <span>{options[value]}</span>
-                        )}
-                    </div>
+                    {!multiple && value !== "" && (
+                        <span>{options[value]}</span>
+                    )}
+                </div>
 
-                    <Collapse isOpen={open} className={'drop-container'} transition={transition}>
-                        <Input onChange={this.inputChange} ref={this.input} placeholder={'Search...'}/>
-                        <ul className={'d-menu'} style={{maxHeight: dropHeight}}>
-                            {items}
-                        </ul>
-                    </Collapse>
-                </label>
-            </ClickOutside>
+                <Collapse isOpen={open} className={'drop-container'} transition={transition}>
+                    <Input onChange={this.inputChange} ref={this.input} placeholder={'Search...'}/>
+                    <ul className={'d-menu'} style={{maxHeight: dropHeight}}>
+                        {items}
+                    </ul>
+                </Collapse>
+            </label>
         )
     }
 }

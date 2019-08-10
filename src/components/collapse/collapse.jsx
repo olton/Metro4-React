@@ -206,7 +206,8 @@ export default class Collapse extends React.Component {
             {
                 collapseStyle: {
                     height: "",
-                    visibility: ""
+                    visibility: "",
+                    overflow: "visible"
                 }
             },
             () => this.onCallback(this.props.onChange)
