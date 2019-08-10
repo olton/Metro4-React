@@ -24,7 +24,7 @@ import Icon  from "./components/icon/icon";
 import ClickOutside  from "./components/click-outside/click-outside";
 import Collapse from "./components/collapse/collapse";
 import Hero from "./components/hero/hero";
-import AppBar, {AppBarBrand, AppBarMenu} from "./components/app-bar/app-bar";
+import AppBar, {AppBarBrand, AppBarMenu, AppBarItem} from "./components/app-bar/app-bar";
 import Hamburger from "./components/hamburger/hamburger";
 import InfoPanel, {InfoPanelTitle, InfoPanelContent, InfoPanelFooter} from "./components/info-panel/info-panel";
 import Adsense from "./components/google/adsense/adsense";
@@ -65,7 +65,7 @@ export {
     ClickOutside,
     Icon,
     Hero,
-    AppBar, AppBarBrand, AppBarMenu,
+    AppBar, AppBarBrand, AppBarMenu, AppBarItem,
     Hamburger,
     InfoPanel, InfoPanelTitle, InfoPanelContent, InfoPanelFooter,
     Adsense,

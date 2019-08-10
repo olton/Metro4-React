@@ -37,7 +37,7 @@ export default class Collapse extends React.Component {
         } = this.props;
 
         let computedStyle = {
-            overflow: "hidden",
+            // overflow: "hidden",
             transition
             //...style,
             //...this.state.collapseStyle

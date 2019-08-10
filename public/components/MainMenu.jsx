@@ -6,10 +6,11 @@ export default class MainMenu extends React.Component {
     render(){
         return (
             <Container fluid={true} cls={'pos-fixed fixed-top z-fixed bg-react'}>
-                <AppBar cls={'container pos-relative'} expandPoint={'md'} hamburgerColor={'light'}>
+                <AppBar cls={'container pos-relative app-bar-react-colors'} expandPoint={'md'} hamburgerColor={'light'}>
                     <AppBarBrand as={'a'} href={'/'} name={'Metro 4 for React'} cls={'text-bold'}/>
                     <AppBarMenu cls={'ml-auto'}>
-                        {/*<li><Link to="/guide">Guide</Link></li>*/}
+                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/guide">Guide</Link></li>
                         <li><Link to="/demo">Demo</Link></li>
                         <li><a href="https://www.patreon.com/metro4_react" target={'_blank'} className="text-bold fg-yellow"><span className="d-block ani-vertical-">Support Project</span></a></li>
                         <li>

@@ -1,6 +1,10 @@
 @import (once) "../../include/less/vars";
 @import (once) "../../include/less/mixins";
 
+.p-ab {padding-top: 52px!important;}
+.m-ab {margin-top: 52px!important;}
+.h-ab {height: ~"calc(100% - 52px)";}
+
 .app-bar {
     display: flex;
     position: fixed;
@@ -42,6 +46,10 @@
         }
     }
 
+    .brand, .app-bar-item, .app-bar-button {
+        cursor: pointer;
+    }
+
     .app-bar-container {
         padding: 0;
     }
@@ -76,6 +84,7 @@
             background-color: inherit;
             color: inherit;
             flex-shrink: 0;
+            text-decoration: none;
         }
 
         & > li  > a {
@@ -83,6 +92,14 @@
             text-decoration: none;
             font-size: 14px;
             position: relative;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            &:hover {
+                color: inherit;
+            }
         }
 
         & > li {
@@ -113,15 +130,6 @@
         }
     }
 
-    .app-bar-menu {
-        .d-menu, .v-menu {
-            box-shadow: none;
-            position: relative;
-            width: 100%;
-            background-color: @light;
-        }
-    }
-
     .app-bar-menu, .app-bar-container {
         .divider {
             height: 1px!important;
@@ -130,42 +138,8 @@
         }
     }
 
-    .app-bar-container {
-        .d-menu {
-            background-color: @light;
-            position: absolute;
-            width: auto;
-            .default-shadow();
-        }
-
-        .v-menu {
-            position: absolute;
-            float: left;
-            width: auto;
-            border: 1px solid @borderColor;
-            background-color: @white;
-        }
-
-        & > .d-menu, & > .v-menu {
-            top: 100%;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-    }
-
     a {
         outline: none!important;
-    }
-
-    .app-bar-menu .d-menu .d-menu,
-    .app-bar-menu .v-menu .v-menu,
-    .app-bar-menu .v-menu .d-menu,
-    .app-bar-menu .d-menu .v-menu
-    {
-        left: 0;
     }
 }
 
@@ -206,36 +180,9 @@
     }
 
     .app-bar-menu {
-        .d-menu {
-            position: absolute;
-            width: auto;
-            .default-shadow();
-
-            li, a {
-                height: 38px;
-                line-height: 38px;
-            }
-        }
-
-        .v-menu {
-            position: absolute;
-            float: left;
-            width: auto;
-            border: 1px solid @borderColor;
-            background-color: @white;
-        }
-
         &.collapsed {
             display: flex!important;
         }
-    }
-
-    .app-bar-menu .d-menu .d-menu,
-    .app-bar-menu .v-menu .v-menu,
-    .app-bar-menu .v-menu .d-menu,
-    .app-bar-menu .d-menu .v-menu
-    {
-        left: 100%;
     }
 
     .hamburger {
@@ -243,14 +190,54 @@
     }
 }
 
-.p-ab {
-    padding-top: 52px!important;
+.app-bar-menu {
+    .dropdown {
+        display: block;
+        position: relative;
+        line-height: 52px;
+        background-color: inherit;
+        color: inherit;
+        text-decoration: none;
+        font-size: 14px;
+        border: none;
+        width: 100%;
+        height: auto;
+
+        & > *:nth-child(1){
+            padding: 0 16px;
+            height: 52px;
+            display: block;
+        }
+
+        & > * {
+            width: 100%;
+        }
+
+        .drop-object {
+            position: relative;
+            //top: 100%;
+            left: 0;
+
+            .d-menu, .v-menu {
+                border: none;
+            }
+        }
+    }
 }
 
-.m-ab {
-    margin-top: 52px!important;
-}
+.app-bar-expand {
+    .app-bar-menu {
+        li {
+            height: auto;
+        }
 
-.h-ab {
-    height: ~"calc(100% - 52px)";
+        .dropdown {
+            height: 52px;
+            .drop-object {
+                position: absolute;
+                //top: 100%;
+                left: 0;
+            }
+        }
+    }
 }

@@ -26,7 +26,7 @@ import {
     ClickOutside,
     Gravatar, Adsense,
     Dialog, Pagination, Textarea, InputFile,
-    Dropdown, Modal
+    Dropdown, Modal, AppBar, AppBarMenu, AppBarBrand, AppBarItem,
 } from "../../src/index";
 
 import MainMenu from "./MainMenu";
@@ -133,6 +133,32 @@ export default class Demo extends React.Component {
                 <br/>
 
                 <Grid>
+                    <h2 className="text-light">&lt;AppBar/&gt;</h2>
+                    <Row>
+                        <Cell cls={'cell-md-12'}>
+                            <AppBar cls={'pos-relative'} hamburgerColor={'dark'}>
+                                <AppBarBrand name={'Metro 4 for React'}/>
+                                <AppBarMenu cls={'ml-auto'} >
+                                    <li><a href={'#'}>Home</a></li>
+                                    <li><a href={'#'}>Documentation</a></li>
+                                    <li>
+                                        <Dropdown position={'relative'}>
+                                            <a href={'#'} className={'dropdown-toggle'}>Community</a>
+                                            <ul className={'v-menu bg-light'}>
+                                                <li><a href={'#'}>Forum</a></li>
+                                                <li><a href={'#'}>Slack</a></li>
+                                                <li><a href={'#'}>Viber</a></li>
+                                                <li><a href={'#'}>Facebook</a></li>
+                                                <li><a href={'#'}>Twitter</a></li>
+                                            </ul>
+                                        </Dropdown>
+                                    </li>
+                                    <li><a href={'#'}>GitHub</a></li>
+                                </AppBarMenu>
+                            </AppBar>
+                        </Cell>
+                    </Row>
+
                     <h2 className="text-light">&lt;Modal/&gt;</h2>
                     <Row>
                         <Cell>

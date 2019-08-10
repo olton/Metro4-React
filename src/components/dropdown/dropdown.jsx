@@ -47,7 +47,7 @@ export default class Dropdown extends React.Component {
     }
 
     render(){
-        const {speed, position, cls, place, clsDropdown} = this.props;
+        const {speed, cls, place, clsDropdown, position} = this.props;
         const {open} = this.state;
         const children = React.Children.toArray(this.props.children);
         const transition = `height ${speed}ms cubic-bezier(.4, 0, .2, 1)`;
@@ -58,7 +58,7 @@ export default class Dropdown extends React.Component {
                     onClick: this.toggleState
                 })}
 
-                <Collapse isOpen={open} transition={transition} className={'drop-object pos-'+position + ' place-' + place + ' ' + clsDropdown}>
+                <Collapse isOpen={open} transition={transition} className={'drop-object ' + ' place-' + place + ' ' + clsDropdown} style={{position: position}}>
                     {children[1]}
                 </Collapse>
             </div>
