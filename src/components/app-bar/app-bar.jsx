@@ -78,6 +78,7 @@ export default class AppBar extends Component {
                 {Children.map(this.props.children, function(el, index){
                     if (el.type.name === 'AppBarMenu') {
                         return React.cloneElement(el, {
+                            style: {overflow: ""},
                             collapsed: menuCollapsed
                         }, el.props.children);
                     }

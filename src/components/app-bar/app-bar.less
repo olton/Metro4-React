@@ -87,7 +87,7 @@
             text-decoration: none;
         }
 
-        & > li  > a {
+        & > li  > a, .dropdown > a {
             padding: 0 16px;
             text-decoration: none;
             font-size: 14px;
@@ -190,57 +190,41 @@
     }
 }
 
+.app-bar {
+    .dropdown-toggle {
+        &::before {
+            margin-left: -10px;
+        }
+    }
+}
+
 .app-bar-menu {
     .dropdown {
-        display: block;
-        position: relative;
-        line-height: 52px;
-        background-color: inherit;
-        color: inherit;
-        text-decoration: none;
-        font-size: 14px;
-        border: none;
-        width: 100%;
-        height: auto;
-
-        & > *:nth-child(1){
-            padding: 0 16px;
-            height: 52px;
-            display: block;
-        }
-
-        & > * {
-            width: 100%;
-        }
-
         .drop-object {
             position: relative;
-            left: 0;
 
             .d-menu, .v-menu {
                 border: none;
             }
         }
     }
+    .dropdown-toggle {
+        &::before {
+            margin-left: -16px;
+        }
+    }
 }
 
 .app-bar-expand {
     .app-bar-menu {
-        li {
-            height: auto;
-        }
-
-        .dropdown {
-            height: 52px;
-
-            .dropdown-toggle {
-                &::before {
-                    margin-left: -2rem;
-                }
-            }
+        & > .dropdown {
             .drop-object {
                 position: absolute;
-                left: 0;
+            }
+            .dropdown-toggle {
+                &::before {
+                    margin-left: -10px;
+                }
             }
         }
     }

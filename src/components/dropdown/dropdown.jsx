@@ -1,12 +1,13 @@
 import React from "react";
 import Collapse from "../collapse/collapse";
 import "./dropdown.less";
+import Collapsible from "../collapsible/collapsible";
 
 export default class Dropdown extends React.Component {
     static defaultProps = {
+        as: "div",
         speed: 100,
         position: "absolute",
-        place: "left",
         cls: "",
         clsDropdown: ""
     };
@@ -47,21 +48,20 @@ export default class Dropdown extends React.Component {
     }
 
     render(){
-        const {speed, cls, place, clsDropdown, position} = this.props;
+        const {as: Element, speed, cls, clsDropdown, position} = this.props;
         const {open} = this.state;
         const children = React.Children.toArray(this.props.children);
-        const transition = `height ${speed}ms cubic-bezier(.4, 0, .2, 1)`;
 
         return (
-            <div className={'dropdown ' + cls + " " + (open ? "dropped" : "")} ref={this.dropdown}>
+            <Element className={'dropdown ' + cls + " " + (open ? "dropped" : "")} ref={this.dropdown}>
                 {React.cloneElement(children[0], {
                     onClick: this.toggleState
                 })}
 
-                <Collapse isOpen={open} transition={transition} className={'drop-object ' + ' place-' + place + ' ' + clsDropdown} style={{position: position}}>
+                <Collapsible open={open} cls={'drop-object ' + clsDropdown} speed={speed}>
                     {children[1]}
-                </Collapse>
-            </div>
+                </Collapsible>
+            </Element>
         )
     }
 }

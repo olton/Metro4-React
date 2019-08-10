@@ -31,6 +31,7 @@ import {
 
 import MainMenu from "./MainMenu";
 import "../css/demo.less";
+import Collapsible from "../../src/components/collapsible/collapsible";
 
 const autocompleteList = ["Ukraine", "USA", "Canada", "Marokko", "Singapur"];
 
@@ -72,6 +73,7 @@ export default class Demo extends React.Component {
             dialogOpen: false,
             activityOpen: false,
             modalOpen: false,
+            collapsibleOpen: false,
         };
 
         this.toggleDialog = this.toggleDialog.bind(this);
@@ -81,6 +83,7 @@ export default class Demo extends React.Component {
         this.paginationClick = this.paginationClick.bind(this);
         this.openModal = this.openModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
+        this.toggleCollapsible = this.toggleCollapsible.bind(this);
     }
 
     paginationClick(val){
@@ -123,6 +126,12 @@ export default class Demo extends React.Component {
         })
     };
 
+    toggleCollapsible(){
+        this.setState({
+            collapsibleOpen: !this.state.collapsibleOpen
+        })
+    }
+
     render(){
         return (
             <Container>
@@ -133,26 +142,46 @@ export default class Demo extends React.Component {
                 <br/>
 
                 <Grid>
+                    <h2 className="text-light">&lt;Collapsible/&gt;</h2>
+                    <Row>
+                        <Cell>
+                            <div>
+                                <Button onClick={this.toggleCollapsible}>Toggle collapsible</Button>
+                            </div>
+                            <Collapsible open={this.state.collapsibleOpen}>
+                                <div className={'border bd-default p-10'}>
+                                    All those paralysis will be lost in nuclear fluxs like minerals in collision courses.
+                                    All those paralysis will be lost in nuclear fluxs like minerals in collision courses.
+                                    All those paralysis will be lost in nuclear fluxs like minerals in collision courses.
+                                </div>
+                            </Collapsible>
+                        </Cell>
+                    </Row>
+
+
                     <h2 className="text-light">&lt;AppBar/&gt;</h2>
                     <Row>
                         <Cell cls={'cell-md-12'}>
-                            <AppBar cls={'pos-relative'} hamburgerColor={'dark'}>
+                            <AppBar cls={'pos-relative z-dropdown'} hamburgerColor={'dark'}>
                                 <AppBarBrand name={'Metro 4 for React'}/>
-                                <AppBarMenu cls={'ml-auto'} >
+                                <AppBarMenu cls={'ml-auto1'} >
                                     <li><a href={'#'}>Home</a></li>
                                     <li><a href={'#'}>Documentation</a></li>
-                                    <li>
-                                        <Dropdown position={'relative'}>
-                                            <a href={'#'} className={'dropdown-toggle'}>Community</a>
-                                            <ul className={'v-menu bg-light'}>
-                                                <li><a href={'#'}>Forum</a></li>
-                                                <li><a href={'#'}>Slack</a></li>
-                                                <li><a href={'#'}>Viber</a></li>
-                                                <li><a href={'#'}>Facebook</a></li>
-                                                <li><a href={'#'}>Twitter</a></li>
-                                            </ul>
-                                        </Dropdown>
-                                    </li>
+                                    <Dropdown as={'li'}>
+                                        <a href={'#'} className={'dropdown-toggle'}>Community</a>
+                                        <ul className={'v-menu bg-light'}>
+                                            <li><a href={'#'}>Forum</a></li>
+                                            <li><a href={'#'}>Slack</a></li>
+                                            <li><a href={'#'}>Viber</a></li>
+                                            {/*<Dropdown position={'relative'}>*/}
+                                            {/*    <a href={'#'} className={'dropdown-toggle'}>Social</a>*/}
+                                            {/*    <ul className={'v-menu bg-light'}>*/}
+                                            {/*        <li><a href={'#'}>Facebook</a></li>*/}
+                                            {/*        <li><a href={'#'}>Twitter</a></li>*/}
+                                            {/*    </ul>*/}
+                                            {/*</Dropdown>*/}
+                                        </ul>
+                                    </Dropdown>
                                     <li><a href={'#'}>GitHub</a></li>
                                 </AppBarMenu>
                             </AppBar>
@@ -216,9 +245,9 @@ export default class Demo extends React.Component {
                             </Dropdown>
                         </Cell>
                         <Cell cls={'cell-md-4'}>
-                            <Dropdown place={'right'} cls={'place-right'}>
+                            <Dropdown cls={'place-right'} clsDropdown={'place-right'}>
                                 <button className={'button dropdown-toggle'}>Dropdown</button>
-                                <ul className={'d-menu place-right'}>
+                                <ul className={'d-menu'}>
                                     <li><a href={'#'}>Item 1</a></li>
                                     <li><a href={'#'}>Item 2</a></li>
                                     <li><a href={'#'}>Item 3</a></li>
