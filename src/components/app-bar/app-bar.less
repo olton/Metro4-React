@@ -171,18 +171,8 @@
     }
 
     .app-bar-menu {
-        float: left;
-    }
-
-    .app-bar-menu {
         width: auto;
         flex-direction: row;
-    }
-
-    .app-bar-menu {
-        &.collapsed {
-            display: flex!important;
-        }
     }
 
     .hamburger {
@@ -211,6 +201,14 @@
     .dropdown-toggle {
         &::before {
             margin-left: -16px;
+        }
+    }
+
+    .dropdown {
+        .dropdown .drop-object{
+            top: 0;
+            left: 0;
+            position: relative;
         }
     }
 }

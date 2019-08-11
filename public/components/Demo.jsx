@@ -26,12 +26,11 @@ import {
     ClickOutside,
     Gravatar, Adsense,
     Dialog, Pagination, Textarea, InputFile,
-    Dropdown, Modal, AppBar, AppBarMenu, AppBarBrand, AppBarItem,
+    Dropdown, Modal, AppBar, AppBarMenu, AppBarBrand, AppBarItem, Collapse,
 } from "../../src/index";
 
 import MainMenu from "./MainMenu";
 import "../css/demo.less";
-import Collapsible from "../../src/components/collapsible/collapsible";
 
 const autocompleteList = ["Ukraine", "USA", "Canada", "Marokko", "Singapur"];
 
@@ -148,13 +147,13 @@ export default class Demo extends React.Component {
                             <div>
                                 <Button onClick={this.toggleCollapsible}>Toggle collapsible</Button>
                             </div>
-                            <Collapsible open={this.state.collapsibleOpen}>
+                            <Collapse isOpen={this.state.collapsibleOpen}>
                                 <div className={'border bd-default p-10'}>
                                     All those paralysis will be lost in nuclear fluxs like minerals in collision courses.
                                     All those paralysis will be lost in nuclear fluxs like minerals in collision courses.
                                     All those paralysis will be lost in nuclear fluxs like minerals in collision courses.
                                 </div>
-                            </Collapsible>
+                            </Collapse>
                         </Cell>
                     </Row>
 
@@ -164,7 +163,7 @@ export default class Demo extends React.Component {
                         <Cell cls={'cell-md-12'}>
                             <AppBar cls={'pos-relative z-dropdown'} hamburgerColor={'dark'}>
                                 <AppBarBrand name={'Metro 4 for React'}/>
-                                <AppBarMenu cls={'ml-auto1'} >
+                                <AppBarMenu cls={'ml-auto'} >
                                     <li><a href={'#'}>Home</a></li>
                                     <li><a href={'#'}>Documentation</a></li>
                                     <Dropdown as={'li'}>
@@ -173,13 +172,13 @@ export default class Demo extends React.Component {
                                             <li><a href={'#'}>Forum</a></li>
                                             <li><a href={'#'}>Slack</a></li>
                                             <li><a href={'#'}>Viber</a></li>
-                                            {/*<Dropdown position={'relative'}>*/}
-                                            {/*    <a href={'#'} className={'dropdown-toggle'}>Social</a>*/}
-                                            {/*    <ul className={'v-menu bg-light'}>*/}
-                                            {/*        <li><a href={'#'}>Facebook</a></li>*/}
-                                            {/*        <li><a href={'#'}>Twitter</a></li>*/}
-                                            {/*    </ul>*/}
-                                            {/*</Dropdown>*/}
+                                            <Dropdown as={'li'}>
+                                                <a href={'#'} className={'dropdown-toggle'}>Social</a>
+                                                <ul className={'v-menu bg-light'}>
+                                                    <li><a href={'#'}>Facebook</a></li>
+                                                    <li><a href={'#'}>Twitter</a></li>
+                                                </ul>
+                                            </Dropdown>
                                         </ul>
                                     </Dropdown>
                                     <li><a href={'#'}>GitHub</a></li>
@@ -209,16 +208,22 @@ export default class Demo extends React.Component {
                                     <li><a href={'#'}>Item 1</a></li>
                                     <li><a href={'#'}>Item 2</a></li>
                                     <li><a href={'#'}>Item 3</a></li>
-                                    <li>
-                                        <Dropdown>
-                                            <a href={'#'} className={'dropdown-toggle'}>Dropdown</a>
-                                            <ul className={'d-menu'}>
-                                                <li><a href={'#'}>Item 1</a></li>
-                                                <li><a href={'#'}>Item 2</a></li>
-                                                <li><a href={'#'}>Item 3</a></li>
-                                            </ul>
-                                        </Dropdown>
-                                    </li>
+                                    <Dropdown as={'li'}>
+                                        <a href={'#'} className={'dropdown-toggle'}>Dropdown</a>
+                                        <ul className={'d-menu'}>
+                                            <li><a href={'#'}>Item 1</a></li>
+                                            <li><a href={'#'}>Item 2</a></li>
+                                            <li><a href={'#'}>Item 3</a></li>
+                                            <Dropdown as={'li'}>
+                                                <a href={'#'} className={'dropdown-toggle'}>Dropdown</a>
+                                                <ul className={'d-menu'}>
+                                                    <li><a href={'#'}>Item 1</a></li>
+                                                    <li><a href={'#'}>Item 2</a></li>
+                                                    <li><a href={'#'}>Item 3</a></li>
+                                                </ul>
+                                            </Dropdown>
+                                        </ul>
+                                    </Dropdown>
                                 </ul>
                             </Dropdown>
                         </Cell>

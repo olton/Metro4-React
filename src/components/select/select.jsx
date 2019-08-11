@@ -8,7 +8,7 @@ import Tag from "../tag/tag.jsx"
 
 export default class Select extends React.Component {
     static defaultProps = {
-        animationDuration: 100,
+        speed: 100,
         dropHeight: 200,
         onChange: () => {}
     };
@@ -132,9 +132,9 @@ export default class Select extends React.Component {
     };
 
     render() {
-        const {multiple, dropHeight, animationDuration, onChange} = this.props;
+        const {multiple, dropHeight, speed, onChange} = this.props;
         const {open, filter, value} = this.state;
-        const transition = `height ${animationDuration}ms cubic-bezier(.4, 0, .2, 1)`;
+        const transition = `height ${speed}ms cubic-bezier(.4, 0, .2, 1)`;
         const options = {};
         const items = [];
         const listItemClick = this.listItemClick;

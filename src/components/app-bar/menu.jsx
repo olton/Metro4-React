@@ -1,11 +1,11 @@
 import React from "react";
-import {Collapse} from "../../index";
+import Collapse from "../collapse/collapse";
 
 export default class AppBarMenu extends React.Component {
     static defaultProps = {
         cls: "",
         collapsed: false,
-        speed: 100
+        speed: 300
     };
 
     render(){

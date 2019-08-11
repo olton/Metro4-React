@@ -161,9 +161,6 @@ export default class Collapse extends React.Component {
 
         const height = this.getHeight();
 
-        this.content.style.overflow = "hidden";
-        console.log(this.content.style.overflow);
-
         this.setState({
             collapseStyle: {
                 height,
@@ -175,6 +172,7 @@ export default class Collapse extends React.Component {
             this.setState(
                 {
                     collapseStyle: {
+                        overflow: "hidden",
                         height: getCollapseHeight(this.props),
                         visibility: ""
                     }
@@ -192,6 +190,7 @@ export default class Collapse extends React.Component {
                 this.setState(
                     {
                         collapseStyle: {
+                            overflow: "hidden",
                             height,
                             visibility: ""
                         }
