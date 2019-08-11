@@ -62,7 +62,7 @@ export default class Dialog extends Component {
                     transform: open ? 'translateY(0vh)' : 'translateY(-100vh)',
                     opacity: open ? 1 : 0,
                 }}>
-                    <div className={'dialog ' + cls} ref={ref => this.dialog = ref} style={{
+                    <div className={'dialog ' + cls} ref={this.dialog} style={{
                         height: height,
                         width: width,
                     }}>
