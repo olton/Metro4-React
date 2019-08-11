@@ -152,9 +152,10 @@ export default class Demo extends React.Component {
                         </Cell>
                         <Cell cls={'cell-md-4'}>
                             <ButtonGroup radio={true}>
-                                <Button active={true}>1</Button>
-                                <Button>2</Button>
-                                <Button>3</Button>
+                                <Button active={true}><Icon name={'paragraph-left'}/></Button>
+                                <Button><Icon name={'paragraph-center'}/></Button>
+                                <Button><Icon name={'paragraph-right'}/></Button>
+                                <Button><Icon name={'paragraph-justify'}/></Button>
                             </ButtonGroup>
                         </Cell>
                         <Cell cls={'cell-md-4'}>
