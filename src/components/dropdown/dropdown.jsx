@@ -44,6 +44,7 @@ export default class Dropdown extends React.Component {
         this.setState({
             open: !openState
         });
+        e.preventDefault();
     }
 
     render(){

@@ -8,12 +8,29 @@ export default class AppBarMenu extends React.Component {
         speed: 300
     };
 
+    static getDerivedStateFromProps(props, state){
+        if (props.collapsed !== state.collapsed) {
+            return {
+                collapsed: props.collapsed,
+            }
+        }
+        return null;
+    }
+
+    constructor(props){
+        super(props);
+        this.state = {
+            collapsed: props.collapsed
+        };
+    }
+
     render(){
-        const {cls, collapsed, speed, ...props} = this.props;
+        const {cls, speed, collapsed: initCollapsed, ...props} = this.props;
+        const {collapsed} = this.state;
         const transition = `height ${speed}ms cubic-bezier(.4, 0, .2, 1)`;
 
         return (
-            <Collapse isOpen={!collapsed} elementType={'ul'} className={'app-bar-menu ' + cls + ' ' + (collapsed ? '-is-collapsed' : '')} {...props} transition={transition}>
+            <Collapse isOpen={!collapsed} elementType={'ul'} className={'app-bar-menu ' + cls + ' ' + (collapsed ? '-is-collapsed' : '')} transition={transition} ref={ref => this.menu = ref} {...props} >
                 {this.props.children}
             </Collapse>
         )
