@@ -35,6 +35,7 @@ import Textarea from "./components/textarea/textarea";
 import InputFile from "./components/input-file/input-file";
 import Dropdown from "./components/dropdown/dropdown";
 import Modal from "./components/modal/modal";
+import ButtonGroup from "./components/button-group/button-group";
 
 export {
     Container,
@@ -75,5 +76,6 @@ export {
     Textarea,
     InputFile,
     Dropdown,
-    Modal
+    Modal,
+    ButtonGroup
 };

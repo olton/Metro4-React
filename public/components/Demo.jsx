@@ -26,7 +26,7 @@ import {
     ClickOutside,
     Gravatar, Adsense,
     Dialog, Pagination, Textarea, InputFile,
-    Dropdown, Modal, AppBar, AppBarMenu, AppBarBrand, AppBarItem, Collapse,
+    Dropdown, Modal, AppBar, AppBarMenu, AppBarBrand, AppBarItem, Collapse, ButtonGroup,
 } from "../../src/index";
 
 import MainMenu from "./MainMenu";
@@ -141,6 +141,32 @@ export default class Demo extends React.Component {
                 <br/>
 
                 <Grid>
+                    <h2 className="text-light">&lt;ButtonGroup/&gt;</h2>
+                    <Row>
+                        <Cell cls={'cell-md-4'}>
+                            <ButtonGroup>
+                                <Button active={true}>1</Button>
+                                <Button>2</Button>
+                                <Button>3</Button>
+                            </ButtonGroup>
+                        </Cell>
+                        <Cell cls={'cell-md-4'}>
+                            <ButtonGroup radio={true}>
+                                <Button active={true}>1</Button>
+                                <Button>2</Button>
+                                <Button>3</Button>
+                            </ButtonGroup>
+                        </Cell>
+                        <Cell cls={'cell-md-4'}>
+                            <ButtonGroup radio={true} cls={'border bd-cyan p-2 text-center'} clsActive={'alert'} clsButton={'m-1'}>
+                                <Button active={true}>1</Button>
+                                <Button>2</Button>
+                                <Button>3</Button>
+                            </ButtonGroup>
+                        </Cell>
+                    </Row>
+
+
                     <h2 className="text-light">&lt;Collapsible/&gt;</h2>
                     <Row>
                         <Cell>
@@ -168,13 +194,13 @@ export default class Demo extends React.Component {
                                     <li><a href={'#'}>Documentation</a></li>
                                     <Dropdown as={'li'}>
                                         <a href={'#'} className={'dropdown-toggle'}>Community</a>
-                                        <ul className={'v-menu bg-light'}>
+                                        <ul className={'d-menu bg-light'}>
                                             <li><a href={'#'}>Forum</a></li>
                                             <li><a href={'#'}>Slack</a></li>
                                             <li><a href={'#'}>Viber</a></li>
-                                            <Dropdown as={'li'}>
+                                            <Dropdown as={'li'} position={'relative'}>
                                                 <a href={'#'} className={'dropdown-toggle'}>Social</a>
-                                                <ul className={'v-menu bg-light'}>
+                                                <ul className={'d-menu bg-light'}>
                                                     <li><a href={'#'}>Facebook</a></li>
                                                     <li><a href={'#'}>Twitter</a></li>
                                                 </ul>

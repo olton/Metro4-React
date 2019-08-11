@@ -205,6 +205,9 @@
     }
 
     .dropdown {
+        .d-menu {
+            width: 100%;
+        }
         .dropdown .drop-object{
             top: 0;
             left: 0;
@@ -222,6 +225,12 @@
             .dropdown-toggle {
                 &::before {
                     margin-left: -10px;
+                }
+            }
+
+            .dropdown {
+                .drop-object {
+                    position: relative;
                 }
             }
         }
