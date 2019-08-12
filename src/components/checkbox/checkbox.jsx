@@ -19,10 +19,21 @@ export default class Checkbox extends React.Component {
         onUnCheck: ()=>{}
     };
 
+    static getDerivedStateFromProps(props, state){
+        if (props.checked !== state.initChecked) {
+            return {
+                checked: props.checked,
+                initChecked: props.checked
+            }
+        }
+        return null;
+    }
+
     constructor(props){
         super(props);
         this.state = {
-            checked: false
+            checked: props.checked,
+            initChecked: props.checked
         };
 
         this.onChangeHandler = this.onChangeHandler.bind(this);
@@ -33,8 +44,8 @@ export default class Checkbox extends React.Component {
         this.setState({
             checked: state
         });
-        this.props.onChange(e.target, state);
-        this.props[state ? 'onCheck' : 'onUnCheck'](e.target, state);
+        this.props.onChange(e);
+        this.props[state ? 'onCheck' : 'onUnCheck'](e);
     }
 
     render(){
@@ -44,14 +55,25 @@ export default class Checkbox extends React.Component {
             caption,
             variant,
             disabled,
-            clsCheckbox
+            clsCaption,
+            clsCheckbox,
+            clsCheck
         } = this.props;
+
+        const cBoxProps = {
+            name,
+            value,
+            disabled,
+            readOnly: false,
+            checked: this.state.checked,
+            onChange: this.onChangeHandler
+        };
 
         return (
             <label className={'checkbox' + clsCheckbox + ' ' + (variant === 2 ? 'style2' : '') + ' transition-on'}>
-                <input type="checkbox" name={name} defaultChecked={this.props.checked} onChange={this.onChangeHandler} disabled={disabled} value={value} readOnly={false}/>
-                <span className="check"/>
-                <span className="caption">{caption}</span>
+                <input type="checkbox" { ...cBoxProps } />
+                <span className={ 'check ' + clsCheck } />
+                <span className={ 'caption ' + clsCaption }>{caption}</span>
             </label>
         )
     }
