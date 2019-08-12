@@ -158,6 +158,20 @@ export default class Demo extends React.Component {
                                 <Tab>Links</Tab>
                             </Tabs>
                         </Cell>
+                        <Cell cls={'cell-md-2'}>
+                            <Tabs cls={'tabs-expand'} position={'left'}>
+                                <Tab>Home</Tab>
+                                <Tab>Profile</Tab>
+                                <Tab>Links</Tab>
+                            </Tabs>
+                        </Cell>
+                        <Cell cls={'cell-md-2'}>
+                            <Tabs cls={'tabs-expand'} position={'right'}>
+                                <Tab>Home</Tab>
+                                <Tab>Profile</Tab>
+                                <Tab>Links</Tab>
+                            </Tabs>
+                        </Cell>
                     </Row>
                     <br/>
                     <Row>
