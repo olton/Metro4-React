@@ -60,7 +60,7 @@ export default class Checkbox extends React.Component {
             clsCheck
         } = this.props;
 
-        const cBoxProps = {
+        const inputProps = {
             name,
             value,
             disabled,
@@ -71,7 +71,7 @@ export default class Checkbox extends React.Component {
 
         return (
             <label className={'checkbox' + clsCheckbox + ' ' + (variant === 2 ? 'style2' : '') + ' transition-on'}>
-                <input type="checkbox" { ...cBoxProps } />
+                <input type="checkbox" { ...inputProps } />
                 <span className={ 'check ' + clsCheck } />
                 <span className={ 'caption ' + clsCaption }>{caption}</span>
             </label>

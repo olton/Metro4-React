@@ -19,10 +19,21 @@ export default class Switch extends React.Component {
         onUnCheck: ()=>{}
     };
 
+    static getDerivedStateFromProps(props, state){
+        if (props.checked !== state.initChecked) {
+            return {
+                checked: props.checked,
+                initChecked: props.checked
+            }
+        }
+        return null;
+    }
+
     constructor(props){
         super(props);
         this.state = {
-            checked: false
+            checked: props.checked,
+            initChecked: props.checked
         };
 
         this.onChangeHandler = this.onChangeHandler.bind(this);
@@ -33,8 +44,8 @@ export default class Switch extends React.Component {
         this.setState({
             checked: state
         });
-        this.props.onChange(e.target, state);
-        this.props[state ? 'onCheck' : 'onUnCheck'](e.target, state);
+        this.props.onChange(e);
+        this.props[state ? 'onCheck' : 'onUnCheck'](e);
     }
 
     render(){
@@ -44,14 +55,25 @@ export default class Switch extends React.Component {
             caption,
             variant,
             disabled,
-            clsCheckbox
+            clsCheckbox,
+            clsCaption,
+            clsCheck
         } = this.props;
+
+        const inputProps = {
+            name,
+            value,
+            disabled,
+            readOnly: false,
+            checked: this.state.checked,
+            onChange: this.onChangeHandler
+        };
 
         return (
             <label className={'switch' + (variant === 2 ? '-material' : '') + ' ' +  clsCheckbox + ' transition-on'}>
-                <input type="checkbox" name={name} defaultChecked={this.props.checked} onChange={this.onChangeHandler} disabled={disabled} value={value} readOnly={false}/>
-                <span className="check"/>
-                <span className="caption">{caption}</span>
+                <input type="checkbox" {...inputProps}/>
+                <span className={"check " + clsCheck}/>
+                <span className={"caption " + clsCaption}>{caption}</span>
             </label>
         )
     }
