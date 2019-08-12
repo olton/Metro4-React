@@ -36,6 +36,7 @@ import InputFile from "./components/input-file/input-file";
 import Dropdown from "./components/dropdown/dropdown";
 import Modal from "./components/modal/modal";
 import ButtonGroup from "./components/button-group/button-group";
+import Tabs, {Tab} from "./components/tabs/tabs";
 
 export {
     Container,
@@ -77,5 +78,6 @@ export {
     InputFile,
     Dropdown,
     Modal,
-    ButtonGroup
+    ButtonGroup,
+    Tabs, Tab,
 };

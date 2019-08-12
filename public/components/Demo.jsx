@@ -27,6 +27,7 @@ import {
     Gravatar, Adsense,
     Dialog, Pagination, Textarea, InputFile,
     Dropdown, Modal, AppBar, AppBarMenu, AppBarBrand, AppBarItem, Collapse, ButtonGroup,
+    Tabs, Tab,
 } from "../../src/index";
 
 import MainMenu from "./MainMenu";
@@ -141,6 +142,49 @@ export default class Demo extends React.Component {
                 <br/>
 
                 <Grid>
+                    <h2 className="text-light">&lt;Tabs/&gt;</h2>
+                    <Row>
+                        <Cell cls={'cell-md-4'}>
+                            <Tabs cls={'tabs-expand'}>
+                                <Tab>Home</Tab>
+                                <Tab>Profile</Tab>
+                                <Tab>Links</Tab>
+                            </Tabs>
+                        </Cell>
+                        <Cell cls={'cell-md-4'}>
+                            <Tabs cls={'tabs-expand'} position={'bottom'}>
+                                <Tab>Home</Tab>
+                                <Tab>Profile</Tab>
+                                <Tab>Links</Tab>
+                            </Tabs>
+                        </Cell>
+                    </Row>
+                    <br/>
+                    <Row>
+                        <Cell cls={'cell-md-4'}>
+                            <Tabs cls={'tabs-expand'} variant={'text'}>
+                                <Tab>Home</Tab>
+                                <Tab>Profile</Tab>
+                                <Tab>Links</Tab>
+                            </Tabs>
+                        </Cell>
+                        <Cell cls={'cell-md-4 d-flex flex-align-end'}>
+                            <Tabs cls={'tabs-expand'} variant={'group'}>
+                                <Tab>Home</Tab>
+                                <Tab>Profile</Tab>
+                                <Tab>Links</Tab>
+                            </Tabs>
+                        </Cell>
+                        <Cell cls={'cell-md-4 d-flex flex-align-end'}>
+                            <Tabs cls={'tabs-expand'} variant={'pills'}>
+                                <Tab>Home</Tab>
+                                <Tab>Profile</Tab>
+                                <Tab>Links</Tab>
+                            </Tabs>
+                        </Cell>
+                    </Row>
+
+
                     <h2 className="text-light">&lt;ButtonGroup/&gt;</h2>
                     <Row>
                         <Cell cls={'cell-md-4'}>
