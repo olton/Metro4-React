@@ -8,6 +8,7 @@ import Tag from "../tag/tag.jsx"
 
 export default class Select extends React.Component {
     static defaultProps = {
+        cls: "",
         speed: 100,
         dropHeight: 200,
         onChange: () => {}
@@ -132,7 +133,7 @@ export default class Select extends React.Component {
     };
 
     render() {
-        const {multiple, dropHeight, speed, onChange} = this.props;
+        const {multiple, cls, dropHeight, speed, onChange} = this.props;
         const {open, filter, value} = this.state;
         const transition = `height ${speed}ms cubic-bezier(.4, 0, .2, 1)`;
         const options = {};
@@ -175,7 +176,7 @@ export default class Select extends React.Component {
         });
 
         return (
-            <label className={'select ' + (open ? ' focused ':'') + (multiple ? ' multiple ':'')} ref={this.component}>
+            <label className={'select ' + cls + (open ? ' focused ':'') + (multiple ? ' multiple ':'')} ref={this.component}>
 
                 <span className={'dropdown-toggle ' + (open ? 'active-toggle':'')} onClick={this.selectClick}/>
 
