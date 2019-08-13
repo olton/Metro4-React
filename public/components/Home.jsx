@@ -57,21 +57,21 @@ export default class Home extends React.Component {
                                     <Icon name={'embed2'} size={'8x'} cls={'fg-darkGray'}/>
                                     <h4 className="mt-4">Base styles</h4>
                                     <p>
-                                        Metro 4 for React includes various styles for changing the appearance of html elements.
+                                        Includes various styles for changing the appearance of html elements.
                                     </p>
                                 </Cell>
                                 <Cell cls={'cell-md-4'}>
                                     <Icon name={'library'} size={'8x'} cls={'fg-darkGray'}/>
                                     <h4 className="mt-4">100+</h4>
                                     <p>
-                                        Metro 4 for React contains more than 100 components are available to you to solve almost all tasks.
+                                        Contains more than 100 components are available to you to solve almost all tasks.
                                     </p>
                                 </Cell>
                                 <Cell cls={'cell-md-4'}>
                                     <Icon name={'cogs'} size={'8x'} cls={'fg-darkGray'}/>
                                     <h4 className="mt-4">Tools and Routines</h4>
                                     <p>
-                                        Metro 4 for React includes Various built-in tool functions and classes will increase your productivity.
+                                        Includes Various built-in tool functions and classes will increase your productivity.
                                     </p>
                                 </Cell>
                             </Row>
@@ -92,7 +92,7 @@ export default class Home extends React.Component {
                                     <Icon name={'help'} size={'8x'} cls={'fg-darkGray'}/>
                                     <h4 className="mt-4">Guide</h4>
                                     <p>
-                                        Detailed description of all components of the Metro 4 library.
+                                        Detailed description of all components of the Metro 4 for React.
                                     </p>
                                 </Cell>
                                 <Cell cls={'cell-md-4'}>
