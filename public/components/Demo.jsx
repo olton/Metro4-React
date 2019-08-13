@@ -142,6 +142,60 @@ export default class Demo extends React.Component {
                 <br/>
 
                 <Grid>
+                    <h2>&lt;Input/&gt;</h2>
+                    <Row>
+                        <Cell cls="cell-md-4">
+                            <h6>default</h6>
+                            <Input placeholder='Input value' value={123}/>
+                        </Cell>
+                        <Cell cls="cell-md-4">
+                            <h6>password</h6>
+                            <Input placeholder='Enter a password' type='password'/>
+                        </Cell>
+                        <Cell cls="cell-md-4">
+                            <h6>search</h6>
+                            <Input placeholder='Search...' search={true} onSearch={ val => console.log(val) } />
+                        </Cell>
+                    </Row>
+
+                    <Row>
+                        <Cell cls="cell-md-3">
+                            <h6>history</h6>
+                            <Input history={true}/>
+                        </Cell>
+                        <Cell cls="cell-md-3">
+                            <h6>autocomplete</h6>
+                            <Input autocomplete={autocompleteList} />
+                        </Cell>
+                        <Cell cls="cell-md-3">
+                            <h5>custom buttons</h5>
+                            <Input customButtons={customButtons}/>
+                        </Cell>
+                        <Cell cls="cell-md-3">
+                            <h5>invalid</h5>
+                            <Input error={true}/>
+                        </Cell>
+                    </Row>
+
+                    <Row>
+                        <Cell cls="cell-md-3">
+                            <h6>prepend</h6>
+                            <Input value='Input value' prepend='Prepend:'/>
+                        </Cell>
+                        <Cell cls="cell-md-3">
+                            <h6>prepend icon</h6>
+                            <Input value='Input value' prepend={<Icon name='rocket'/>}/>
+                        </Cell>
+                        <Cell cls="cell-md-3">
+                            <h6>append</h6>
+                            <Input value='Input value' append='%'/>
+                        </Cell>
+                        <Cell cls="cell-md-3">
+                            <h6>append icon</h6>
+                            <Input value='Input value' append={<Icon name='rocket'/>}/>
+                        </Cell>
+                    </Row>
+
                     <h2 className="text-light">&lt;Tabs/&gt;</h2>
                     <Row>
                         <Cell cls={'cell-md-4'}>
@@ -723,8 +777,7 @@ export default class Demo extends React.Component {
                         <Cell cls="cell-md-4"/>
                     </Row>
 
-                    <h2 className="text-light">Buttons</h2>
-                    <h4 className="mt-0">&lt;Button/&gt;</h4>
+                    <h2>&lt;Button/&gt;</h2>
                     <Row>
                         <Cell>
                             <Button title='Button'/>
@@ -738,7 +791,7 @@ export default class Demo extends React.Component {
                         </Cell>
                     </Row>
 
-                    <h4>&lt;CommandButton/&gt;</h4>
+                    <h2>&lt;CommandButton/&gt;</h2>
                     <Row>
                         <Cell>
                             <CommandButton icon="share" title="Yes, share and connect" subtitle="Use this option for home or work"/>
@@ -747,7 +800,7 @@ export default class Demo extends React.Component {
                         </Cell>
                     </Row>
 
-                    <h4>&lt;ImageButton/&gt;</h4>
+                    <h2>&lt;ImageButton/&gt;</h2>
                     <Row>
                         <Cell>
                             <ImageButton icon="share" title="Share your connect"/>
@@ -757,7 +810,7 @@ export default class Demo extends React.Component {
                         </Cell>
                     </Row>
 
-                    <h4>&lt;Shortcut/&gt;</h4>
+                    <h2>&lt;Shortcut/&gt;</h2>
                     <Row>
                         <Cell>
                             <Shortcut icon="rocket" title="Rocket"/>
@@ -768,7 +821,7 @@ export default class Demo extends React.Component {
                         </Cell>
                     </Row>
 
-                    <h4>&lt;Breadcrumbs/&gt;</h4>
+                    <h2>&lt;Breadcrumbs/&gt;</h2>
                     <Row>
                         <Cell>
                             <Breadcrumbs cls="mt-0">
@@ -780,7 +833,7 @@ export default class Demo extends React.Component {
                         </Cell>
                     </Row>
 
-                    <h4>&lt;InfoButton/&gt;</h4>
+                    <h2>&lt;InfoButton/&gt;</h2>
                     <Row>
                         <Cell>
                             <InfoButton title="Star" subtitle="6,208" icon="star-full" />
@@ -790,7 +843,7 @@ export default class Demo extends React.Component {
                         </Cell>
                     </Row>
 
-                    <h4>&lt;ActionButton/&gt;</h4>
+                    <h2>&lt;ActionButton/&gt;</h2>
                     <Row>
                         <Cell>
                             <ActionButton icon="star-full" />
@@ -801,7 +854,7 @@ export default class Demo extends React.Component {
                         </Cell>
                     </Row>
 
-                    <h4>&lt;MultiAction/&gt;</h4>
+                    <h2>&lt;MultiAction/&gt;</h2>
                     <Row>
                         <Cell>
                             <MultiAction icon="star-full" cls="alert" drop={'right'}>
@@ -811,55 +864,6 @@ export default class Demo extends React.Component {
                     </Row>
 
 
-                    <h4>&lt;Input/&gt;</h4>
-                    <Row>
-                        <Cell cls="cell-md-4">
-                            <h6>default</h6>
-                            <Input placeholder='Input value' value={123}/>
-                        </Cell>
-                        <Cell cls="cell-md-4">
-                            <h6>password</h6>
-                            <Input placeholder='Enter a password' type='password'/>
-                        </Cell>
-                        <Cell cls="cell-md-4">
-                            <h6>search</h6>
-                            <Input placeholder='Search...' search={true} onSearch={ val => console.log(val) } />
-                        </Cell>
-                    </Row>
-
-                    <Row>
-                        <Cell cls="cell-md-4">
-                            <h6>history</h6>
-                            <Input history={true}/>
-                        </Cell>
-                        <Cell cls="cell-md-4">
-                            <h6>autocomplete</h6>
-                            <Input autocomplete={autocompleteList} />
-                        </Cell>
-                        <Cell cls="cell-md-4">
-                            <h5>custom buttons</h5>
-                            <Input customButtons={customButtons}/>
-                        </Cell>
-                    </Row>
-
-                    <Row>
-                        <Cell cls="cell-md-3">
-                            <h6>prepend</h6>
-                            <Input value='Input value' prepend='Prepend:'/>
-                        </Cell>
-                        <Cell cls="cell-md-3">
-                            <h6>prepend icon</h6>
-                            <Input value='Input value' prepend={<Icon name='rocket'/>}/>
-                        </Cell>
-                        <Cell cls="cell-md-3">
-                            <h6>append</h6>
-                            <Input value='Input value' append='%'/>
-                        </Cell>
-                        <Cell cls="cell-md-3">
-                            <h6>append icon</h6>
-                            <Input value='Input value' append={<Icon name='rocket'/>}/>
-                        </Cell>
-                    </Row>
                 </Grid>
             </Container>
         )
