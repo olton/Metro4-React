@@ -4,7 +4,7 @@ import Button from "../button/button.jsx";
 
 export default class Input extends React.Component {
     static defaultProps = {
-        error: false,
+        fieldState: "normal",
         value: "",
         type: 'text',
         append: "",
@@ -45,7 +45,7 @@ export default class Input extends React.Component {
             value: props.value,
             inputType: props.type,
             focus: false,
-            error: props.error
+            fieldState: props.fieldState
         };
 
         this.input = null;
@@ -75,11 +75,11 @@ export default class Input extends React.Component {
     }
 
     static getDerivedStateFromProps(props, state){
-        if (props.value !== state.initValue || props.error !== state.error) {
+        if (props.value !== state.initValue || props.fieldState !== state.fieldState) {
             return {
                 value: props.value,
                 initValue: props.value,
-                error: props.error
+                fieldState: props.fieldState
             }
         }
         return null;
@@ -191,16 +191,16 @@ export default class Input extends React.Component {
 
     render() {
         const {
-            error: initError, type, append, prepend, clear, reveal, search, searchType, history, preventSubmit, customButtons, autocomplete, autocompleteHeight, onSearch, onClear, onReveal,
+            fieldState: initFieldState, type, append, prepend, clear, reveal, search, searchType, history, preventSubmit, customButtons, autocomplete, autocompleteHeight, onSearch, onClear, onReveal,
             cls, clsAppend, clsPrepend, clsClearButton, clsCustomButton, clsSearchButton, clsRevealButton, clsAutocomplete, clsAutocompleteItem, clsButtonGroup,
             ...props} = this.props;
-        const {value, inputType, focus, error} = this.state;
+        const {value, inputType, focus, fieldState} = this.state;
         const buttons = clear || reveal || search;
 
         const autocompleteItemClick = this.autocompleteItemClick;
 
         return (
-            <div className={'input ' + (focus ? 'focused' : '') + (error ? ' invalid ' : '') + ' ' + cls}>
+            <div className={'input ' + (focus ? 'focused' : '') + (fieldState === 'error' ? ' invalid ' : fieldState === 'success' ? ' success ' : '') + ' ' + cls}>
 
                 {prepend !== "" && (
                     <span className={'prepend ' + clsPrepend}>{prepend}</span>

@@ -159,21 +159,32 @@ export default class Demo extends React.Component {
                     </Row>
 
                     <Row>
-                        <Cell cls="cell-md-3">
+                        <Cell cls="cell-md-4">
                             <h6>history</h6>
                             <Input history={true}/>
                         </Cell>
-                        <Cell cls="cell-md-3">
+                        <Cell cls="cell-md-4">
                             <h6>autocomplete</h6>
                             <Input autocomplete={autocompleteList} />
                         </Cell>
-                        <Cell cls="cell-md-3">
+                        <Cell cls="cell-md-4">
                             <h5>custom buttons</h5>
                             <Input customButtons={customButtons}/>
                         </Cell>
-                        <Cell cls="cell-md-3">
-                            <h5>invalid</h5>
-                            <Input error={true}/>
+                    </Row>
+
+                    <Row>
+                        <Cell cls="cell-md-4">
+                            <h6>state required</h6>
+                            <Input cls={'required'} />
+                        </Cell>
+                        <Cell cls="cell-md-4">
+                            <h6>state error</h6>
+                            <Input fieldState={'error'} />
+                        </Cell>
+                        <Cell cls="cell-md-4">
+                            <h6>state success</h6>
+                            <Input fieldState={'success'} />
                         </Cell>
                     </Row>
 
