@@ -5,6 +5,7 @@ import Button from "../button/button.jsx";
 export default class Input extends React.Component {
     static defaultProps = {
         fieldState: "normal",
+        errorMessage: "",
         value: "",
         type: 'text',
         append: "",
@@ -28,6 +29,7 @@ export default class Input extends React.Component {
         clsRevealButton: "",
         clsAutocomplete: "",
         clsAutocompleteItem: "",
+        clsErrorMessage: "",
         onSearch: () => {},
         onClear: () => {},
         onReveal: () => {},
@@ -191,8 +193,8 @@ export default class Input extends React.Component {
 
     render() {
         const {
-            fieldState: initFieldState, type, append, prepend, clear, reveal, search, searchType, history, preventSubmit, customButtons, autocomplete, autocompleteHeight, onSearch, onClear, onReveal,
-            cls, clsAppend, clsPrepend, clsClearButton, clsCustomButton, clsSearchButton, clsRevealButton, clsAutocomplete, clsAutocompleteItem, clsButtonGroup,
+            errorMessage, fieldState: initFieldState, type, append, prepend, clear, reveal, search, searchType, history, preventSubmit, customButtons, autocomplete, autocompleteHeight, onSearch, onClear, onReveal,
+            cls, clsAppend, clsPrepend, clsClearButton, clsCustomButton, clsSearchButton, clsRevealButton, clsAutocomplete, clsAutocompleteItem, clsButtonGroup, clsErrorMessage,
             ...props} = this.props;
         const {value, inputType, focus, fieldState} = this.state;
         const buttons = clear || reveal || search;
@@ -200,65 +202,70 @@ export default class Input extends React.Component {
         const autocompleteItemClick = this.autocompleteItemClick;
 
         return (
-            <div className={'input ' + (focus ? 'focused' : '') + (fieldState === 'error' ? ' invalid ' : fieldState === 'success' ? ' success ' : '') + ' ' + cls}>
+            <React.Fragment>
+                <div className={'input ' + (focus ? 'focused' : '') + (fieldState === 'error' ? ' invalid ' : fieldState === 'success' ? ' success ' : '') + ' ' + cls}>
 
-                {prepend !== "" && (
-                    <span className={'prepend ' + clsPrepend}>{prepend}</span>
-                )}
+                    {prepend !== "" && (
+                        <span className={'prepend ' + clsPrepend}>{prepend}</span>
+                    )}
 
-                <input {...props} type={inputType} value={value} onChange={this.onChange} ref={ref => this.input = ref} onKeyUp={this.onKeyUp}/>
+                    <input {...props} type={inputType} value={value} onChange={this.onChange} ref={ref => this.input = ref} onKeyUp={this.onKeyUp}/>
 
-                {buttons && (
-                    <div className={'button-group ' + clsButtonGroup}>
-                        {clear && !props.readOnly && (
-                            <Button cls={'input-clear-button ' + clsClearButton} type='button' onClick={this.clearValue} tabIndex={-1}>
-                                <span className='default-icon-cross'/>
-                            </Button>
-                        )}
-                        {type === 'password' && reveal && (
-                            <Button cls={'input-reveal-button ' + clsRevealButton} type='button' onClick={this.changeInputType} tabIndex={-1}>
-                                <span className='default-icon-eye'/>
-                            </Button>
-                        )}
-                        {search && !props.readOnly && (
-                            <Button cls={'input-search-button ' + clsSearchButton} type='button' onClick={this.searchValue} tabIndex={-1}>
-                                <span className='default-icon-search'/>
-                            </Button>
-                        )}
+                    {buttons && (
+                        <div className={'button-group ' + clsButtonGroup}>
+                            {clear && !props.readOnly && (
+                                <Button cls={'input-clear-button ' + clsClearButton} type='button' onClick={this.clearValue} tabIndex={-1}>
+                                    <span className='default-icon-cross'/>
+                                </Button>
+                            )}
+                            {type === 'password' && reveal && (
+                                <Button cls={'input-reveal-button ' + clsRevealButton} type='button' onClick={this.changeInputType} tabIndex={-1}>
+                                    <span className='default-icon-eye'/>
+                                </Button>
+                            )}
+                            {search && !props.readOnly && (
+                                <Button cls={'input-search-button ' + clsSearchButton} type='button' onClick={this.searchValue} tabIndex={-1}>
+                                    <span className='default-icon-search'/>
+                                </Button>
+                            )}
 
-                        {customButtons.map(function(btn, index){
-                            const {cls, ...btnProps} = btn;
-                            return (
-                                <Button cls={cls+' '+clsCustomButton} key={index} {...btnProps}/>
-                            )
-                        })}
-                    </div>
-                )}
-
-                {append !== "" && (
-                    <span className={'append ' + clsAppend}>{append}</span>
-                )}
-
-                {autocomplete.length > 0 && (
-                    <div className={'autocomplete-list ' + clsAutocomplete}>
-                        {
-                            this.autocomplete.map(function(item, index) {
-                                const searchIndex = item.toLowerCase().indexOf(value.toLowerCase());
-                                const itemValue = `${item.substr(0, searchIndex)}<strong>${item.substr(searchIndex, value.length)}</strong>${item.substr(searchIndex + value.length)}`;
-
+                            {customButtons.map(function(btn, index){
+                                const {cls, ...btnProps} = btn;
                                 return (
-                                    <div data-item={item}
-                                         className={'item ' + clsAutocompleteItem}
-                                         key={index}
-                                         hidden={item === value || value === '' || searchIndex === -1}
-                                         dangerouslySetInnerHTML={{__html: itemValue}}
-                                         onClick={autocompleteItemClick}/>
+                                    <Button cls={cls+' '+clsCustomButton} key={index} {...btnProps}/>
                                 )
-                            })
-                        }
-                    </div>
+                            })}
+                        </div>
+                    )}
+
+                    {append !== "" && (
+                        <span className={'append ' + clsAppend}>{append}</span>
+                    )}
+
+                    {autocomplete.length > 0 && (
+                        <div className={'autocomplete-list ' + clsAutocomplete}>
+                            {
+                                this.autocomplete.map(function(item, index) {
+                                    const searchIndex = item.toLowerCase().indexOf(value.toLowerCase());
+                                    const itemValue = `${item.substr(0, searchIndex)}<strong>${item.substr(searchIndex, value.length)}</strong>${item.substr(searchIndex + value.length)}`;
+
+                                    return (
+                                        <div data-item={item}
+                                             className={'item ' + clsAutocompleteItem}
+                                             key={index}
+                                             hidden={item === value || value === '' || searchIndex === -1}
+                                             dangerouslySetInnerHTML={{__html: itemValue}}
+                                             onClick={autocompleteItemClick}/>
+                                    )
+                                })
+                            }
+                        </div>
+                    )}
+                </div>
+                {fieldState === 'error' && errorMessage !== '' && (
+                    <span className={'invalid_feedback ' + clsErrorMessage}>{errorMessage}</span>
                 )}
-            </div>
+            </React.Fragment>
         )
     }
 }

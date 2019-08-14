@@ -180,7 +180,7 @@ export default class Demo extends React.Component {
                         </Cell>
                         <Cell cls="cell-md-4">
                             <h6>state error</h6>
-                            <Input fieldState={'error'} />
+                            <Input fieldState={'error'} errorMessage={'Enter a valid value'}/>
                         </Cell>
                         <Cell cls="cell-md-4">
                             <h6>state success</h6>
