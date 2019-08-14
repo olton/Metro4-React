@@ -14,9 +14,10 @@ export default class Modal extends React.Component {
     };
 
     render(){
-        const {cls, onClick, mount, open} = this.props;
+        const {cls, onClick, mount, open, overlayColor, overlayAlpha} = this.props;
+        const modalBackground = Colors.toRgbaString( Colors.toRGBA(overlayColor, overlayAlpha));
         const style = {
-            backgroundColor: Colors.toRgbaString( Colors.toRGBA(this.props.overlayColor, this.props.overlayAlpha) )
+            background:  modalBackground
         };
 
         return createPortal(

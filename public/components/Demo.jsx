@@ -332,7 +332,7 @@ export default class Demo extends React.Component {
                             <div>
                                 <Button onClick={this.openModal}>Open modal</Button>
                             </div>
-                            <Modal cls={'flex-center'} open={this.state.modalOpen} onClick={this.closeModal}>
+                            <Modal cls={'flex-center'} open={this.state.modalOpen} onClick={this.closeModal} overlayAlpha={.5}>
                                 <Activity variant={'color'}/>
                             </Modal>
                         </Cell>
