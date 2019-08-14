@@ -263,7 +263,7 @@ export default class Input extends React.Component {
                     )}
                 </div>
                 {fieldState === 'error' && errorMessage !== '' && (
-                    <span className={'invalid_feedback ' + clsErrorMessage}>{errorMessage}</span>
+                    <span className={'invalid_feedback ' + clsErrorMessage} dangerouslySetInnerHTML={{__html: errorMessage}}/>
                 )}
             </React.Fragment>
         )
