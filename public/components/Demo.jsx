@@ -178,7 +178,7 @@ export default class Demo extends React.Component {
                             </SplitButton>
                         </Cell>
                         <Cell cls={'cell-md-3'}>
-                            <SplitButton  clsMainButton={'success outline'} clsSplitButton={'info rounded'} dropdown={false}>
+                            <SplitButton  clsMainButton={'success outline'} clsSplitButton={'info rounded'}>
                                 <Button>Reply</Button>
                                 <Button>...</Button>
                             </SplitButton>

@@ -4,7 +4,6 @@ import Dropdown from "../dropdown/dropdown";
 
 export default class SplitButton extends React.Component {
     static defaultProps = {
-        dropdown: true,
         cls: "",
         clsMainButton: "",
         clsSplitButton: "",
@@ -22,7 +21,7 @@ export default class SplitButton extends React.Component {
     }
 
     render(){
-        const {dropdown, cls, clsMainButton, clsSplitButton, clsDropdown} = this.props;
+        const {cls, clsMainButton, clsSplitButton, clsDropdown} = this.props;
         const children = React.Children.toArray(this.props.children);
         return (
             <div className={'split-button ' + cls}>
@@ -30,18 +29,18 @@ export default class SplitButton extends React.Component {
                     cls: `${children[0].props.cls} ${clsMainButton}`
                 })}
 
-                {dropdown && (
+                {children[2] && (
                     <Dropdown>
                         {React.cloneElement(children[1], {
                             cls: `${children[1].props.cls} split dropdown-toggle ${clsSplitButton}`
                         })}
-                        {children[2] && React.cloneElement(children[2], {
+                        {React.cloneElement(children[2], {
                             cls: `${children[2].props.cls} ${clsDropdown}`
                         })}
                     </Dropdown>
                 )}
 
-                {!dropdown && (
+                {!children[2] && (
                     <React.Fragment>
                         {React.cloneElement(children[1], {
                             cls: `${children[1].props.cls} split ${clsSplitButton}`
