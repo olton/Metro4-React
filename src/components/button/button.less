@@ -140,7 +140,7 @@
     }
 }
 
-.dropdown-button, .split-button {
+.dropdown-button {
     display: inline-block;
     position: relative;
     width: auto;
@@ -148,34 +148,7 @@
     line-height: 1;
 }
 
-.split-button {
-    .split {
-        margin-left: -2px;
-        padding: 0 .75rem;
-        text-align: center;
-        vertical-align: middle ;
-        background-color: @lightGray;
-        border: 1px @transparent solid;
-        color: @dark;
-        cursor: pointer;
-        outline: none;
-        font-size: .875rem;
-        position: relative;
-        line-height: 36px;
-        height: 36px;
-
-        &.dropdown-toggle {
-            &::before {margin-left: -1.25rem;}
-        }
-
-        &:hover {
-            background-color: darken(@lightGray, 10%);
-        }
-    }
-}
-
-
-.button, .split-button .split {
+.button {
     &:focus, &:hover {
         text-decoration: none;
     }
@@ -190,7 +163,7 @@
     }
 }
 
-.button, .split-button .split {
+.button {
     &.outline {
         background: transparent none;
         border-width: 1px;
@@ -198,16 +171,9 @@
     }
 }
 
-.button, .split-button .split {
+.button {
     &:active {
         box-shadow: none;
-    }
-}
-
-.button-group {
-    .active {
-        background-color: @darkGray;
-        color: @white;
     }
 }
 
@@ -286,8 +252,7 @@ a {
     &.button,
     &.flat-button,
     &.action-button,
-    //&.tool-button,
-    &.split-button,
+    //&.split-button,
     &.split {
         appearance: none;
         color: @dark;

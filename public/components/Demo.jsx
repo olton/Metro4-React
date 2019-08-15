@@ -27,7 +27,7 @@ import {
     Gravatar, Adsense,
     Dialog, Pagination, Textarea, InputFile,
     Dropdown, Modal, AppBar, AppBarMenu, AppBarBrand, AppBarItem, Collapse, ButtonGroup,
-    Tabs, Tab,
+    Tabs, Tab, SplitButton
 } from "../../src/index";
 
 import MainMenu from "./MainMenu";
@@ -142,6 +142,50 @@ export default class Demo extends React.Component {
                 <br/>
 
                 <Grid>
+                    <h2 className="text-light">&lt;SplitButton/&gt;</h2>
+                    <Row>
+                        <Cell cls={'cell-md-3'}>
+                            <SplitButton>
+                                <Button>Reply</Button>
+                                <Button/>
+                                <ul className={'d-menu'}>
+                                    <li><a href={'#'}>Item 1</a></li>
+                                    <li><a href={'#'}>Item 2</a></li>
+                                    <li><a href={'#'}>Item 3</a></li>
+                                </ul>
+                            </SplitButton>
+                        </Cell>
+                        <Cell cls={'cell-md-3'}>
+                            <SplitButton>
+                                <Button cls={'primary'}>Reply</Button>
+                                <Button cls={'alert'}/>
+                                <ul className={'d-menu'}>
+                                    <li><a href={'#'}>Item 1</a></li>
+                                    <li><a href={'#'}>Item 2</a></li>
+                                    <li><a href={'#'}>Item 3</a></li>
+                                </ul>
+                            </SplitButton>
+                        </Cell>
+                        <Cell cls={'cell-md-3'}>
+                            <SplitButton  clsMainButton={'warning rounded'} clsSplitButton={'info rounded'}>
+                                <Button>Reply</Button>
+                                <Button/>
+                                <ul className={'d-menu'}>
+                                    <li><a href={'#'}>Item 1</a></li>
+                                    <li><a href={'#'}>Item 2</a></li>
+                                    <li><a href={'#'}>Item 3</a></li>
+                                </ul>
+                            </SplitButton>
+                        </Cell>
+                        <Cell cls={'cell-md-3'}>
+                            <SplitButton  clsMainButton={'success outline'} clsSplitButton={'info rounded'} dropdown={false}>
+                                <Button>Reply</Button>
+                                <Button>...</Button>
+                            </SplitButton>
+                        </Cell>
+                    </Row>
+
+                    <br/>
                     <h2 className="text-light">&lt;Select/&gt;</h2>
                     <Row>
                         <Cell cls="cell-md-4">

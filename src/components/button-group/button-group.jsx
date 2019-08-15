@@ -1,4 +1,5 @@
 import React from "react";
+import "./buttonh-group.less";
 
 export default class ButtonGroup extends React.Component {
     static defaultProps = {
