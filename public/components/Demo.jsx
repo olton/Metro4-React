@@ -142,7 +142,129 @@ export default class Demo extends React.Component {
                 <br/>
 
                 <Grid>
-                    <h2>&lt;Input/&gt;</h2>
+                    <h2 className="text-light">&lt;Select/&gt;</h2>
+                    <Row>
+                        <Cell cls="cell-md-4">
+                            <Select>
+                                <optgroup label="Physical servers">
+                                    <option value="dedicated_corei3_hp">Core i3 (hp)</option>
+                                    <option value="dedicated_pentium_hp">Pentium (hp)</option>
+                                    <option value="dedicated_smart_corei3_hp">Smart Core i3 (hp)</option>
+                                </optgroup>
+                                <optgroup label="Virtual hosting">
+                                    <option value="mini">Mini</option>
+                                    <option value="site">Site</option>
+                                    <option value="portal">Portal</option>
+                                </optgroup>
+                                <optgroup label="Virtual servers">
+                                    <option value="evps0">eVPS-TEST (30 дней)</option>
+                                    <option value="evps1">eVPS-1</option>
+                                    <option value="evps2">eVPS-2</option>
+                                </optgroup>
+                            </Select>
+                        </Cell>
+                        <Cell cls="cell-md-4">
+                            <Select value={'mini'} multiple={false}>
+                                <optgroup label="Physical servers">
+                                    <option value="dedicated_corei3_hp">Core i3 (hp)</option>
+                                    <option value="dedicated_pentium_hp">Pentium (hp)</option>
+                                    <option value="dedicated_smart_corei3_hp">Smart Core i3 (hp)</option>
+                                </optgroup>
+                                <optgroup label="Virtual hosting">
+                                    <option value="mini">Mini</option>
+                                    <option value="site">Site</option>
+                                    <option value="portal">Portal</option>
+                                </optgroup>
+                                <optgroup label="Virtual servers">
+                                    <option value="evps0">eVPS-TEST (30 дней)</option>
+                                    <option value="evps1">eVPS-1</option>
+                                    <option value="evps2">eVPS-2</option>
+                                </optgroup>
+                            </Select>
+                        </Cell>
+                        <Cell cls="cell-md-4">
+                            <Select value={['mini', 'dedicated_corei3_hp']} multiple={true}>
+                                <optgroup label="Physical servers">
+                                    <option value="dedicated_corei3_hp">Core i3 (hp)</option>
+                                    <option value="dedicated_pentium_hp">Pentium (hp)</option>
+                                    <option value="dedicated_smart_corei3_hp">Smart Core i3 (hp)</option>
+                                </optgroup>
+                                <optgroup label="Virtual hosting">
+                                    <option value="mini">Mini</option>
+                                    <option value="site">Site</option>
+                                    <option value="portal">Portal</option>
+                                </optgroup>
+                                <optgroup label="Virtual servers">
+                                    <option value="evps0">eVPS-TEST (30 дней)</option>
+                                    <option value="evps1">eVPS-1</option>
+                                    <option value="evps2">eVPS-2</option>
+                                </optgroup>
+                            </Select>
+                        </Cell>
+                    </Row>
+                    <br/>
+                    <br/>
+                    <Row>
+                        <Cell cls="cell-md-4">
+                            <Select fieldState={'success'}>
+                                <optgroup label="Physical servers">
+                                    <option value="dedicated_corei3_hp">Core i3 (hp)</option>
+                                    <option value="dedicated_pentium_hp">Pentium (hp)</option>
+                                    <option value="dedicated_smart_corei3_hp">Smart Core i3 (hp)</option>
+                                </optgroup>
+                                <optgroup label="Virtual hosting">
+                                    <option value="mini">Mini</option>
+                                    <option value="site">Site</option>
+                                    <option value="portal">Portal</option>
+                                </optgroup>
+                                <optgroup label="Virtual servers">
+                                    <option value="evps0">eVPS-TEST (30 дней)</option>
+                                    <option value="evps1">eVPS-1</option>
+                                    <option value="evps2">eVPS-2</option>
+                                </optgroup>
+                            </Select>
+                        </Cell>
+                        <Cell cls="cell-md-4">
+                            <Select value={'mini'} fieldState={'error'} errorMessage={'Select valid value'} clsSelected={'fg-cyan text-bold'}>
+                                <optgroup label="Physical servers">
+                                    <option value="dedicated_corei3_hp">Core i3 (hp)</option>
+                                    <option value="dedicated_pentium_hp">Pentium (hp)</option>
+                                    <option value="dedicated_smart_corei3_hp">Smart Core i3 (hp)</option>
+                                </optgroup>
+                                <optgroup label="Virtual hosting">
+                                    <option value="mini">Mini</option>
+                                    <option value="site">Site</option>
+                                    <option value="portal">Portal</option>
+                                </optgroup>
+                                <optgroup label="Virtual servers">
+                                    <option value="evps0">eVPS-TEST (30 дней)</option>
+                                    <option value="evps1">eVPS-1</option>
+                                    <option value="evps2">eVPS-2</option>
+                                </optgroup>
+                            </Select>
+                        </Cell>
+                        <Cell cls="cell-md-4">
+                            <Select cls={'required'} value={['mini', 'dedicated_corei3_hp']} multiple={true} clsTag={'info'}>
+                                <optgroup label="Physical servers">
+                                    <option value="dedicated_corei3_hp">Core i3 (hp)</option>
+                                    <option value="dedicated_pentium_hp">Pentium (hp)</option>
+                                    <option value="dedicated_smart_corei3_hp">Smart Core i3 (hp)</option>
+                                </optgroup>
+                                <optgroup label="Virtual hosting">
+                                    <option value="mini">Mini</option>
+                                    <option value="site">Site</option>
+                                    <option value="portal">Portal</option>
+                                </optgroup>
+                                <optgroup label="Virtual servers">
+                                    <option value="evps0">eVPS-TEST (30 дней)</option>
+                                    <option value="evps1">eVPS-1</option>
+                                    <option value="evps2">eVPS-2</option>
+                                </optgroup>
+                            </Select>
+                        </Cell>
+                    </Row>
+
+                    <h2 className={'text-light'}>&lt;Input/&gt;</h2>
                     <Row>
                         <Cell cls="cell-md-4">
                             <h6>default</h6>
@@ -207,6 +329,58 @@ export default class Demo extends React.Component {
                         </Cell>
                     </Row>
 
+                    <br/>
+                    <h2 className="text-light">&lt;Checkbox/&gt;, &lt;Radio/&gt;, &lt;Switch/&gt;</h2>
+                    <Row>
+                        <Cell cls="cell-md-4">
+                            <div>
+                                <Checkbox name="check1"/>
+                                <Checkbox name="check2" checked/>
+                                <Checkbox name="check3" disabled/>
+                                <Checkbox name="check4" checked disabled/>
+                                <Checkbox name="check5" caption="my checkbox"/>
+                            </div>
+                            <div>
+                                <Checkbox name="check1" variant={2}/>
+                                <Checkbox name="check2" checked variant={2}/>
+                                <Checkbox name="check3" disabled variant={2}/>
+                                <Checkbox name="check4" checked disabled variant={2}/>
+                                <Checkbox name="check5" caption="my checkbox" variant={2}/>
+                            </div>
+                        </Cell>
+                        <Cell cls="cell-md-4">
+                            <div>
+                                <Radio name="radio1_1" value={1}/>
+                                <Radio name="radio1_1" value={2} checked/>
+                                <Radio name="radio1_2" disabled/>
+                                <Radio name="radio1_3" checked disabled/>
+                                <Radio name="radio1_4" caption="my radio"/>
+                            </div>
+                            <div>
+                                <Radio name="radio2_1" checked variant={2}/>
+                                <Radio name="radio2_1" variant={2}/>
+                                <Radio name="radio2_2" disabled variant={2}/>
+                                <Radio name="radio2_3" checked disabled variant={2}/>
+                                <Radio name="radio2_4" caption="my radio" variant={2}/>
+                            </div>
+                        </Cell>
+                        <Cell cls="cell-md-4">
+                            <div>
+                                <Switch name="switch1"/>
+                                <Switch name="switch2" checked/>
+                                <Switch name="switch3" disabled/>
+                                <Switch name="switch4" checked disabled/>
+                            </div>
+                            <div>
+                                <Switch name="switch1" variant={2}/>
+                                <Switch name="switch2" checked variant={2}/>
+                                <Switch name="switch3" disabled variant={2}/>
+                                <Switch name="switch4" checked disabled variant={2}/>
+                            </div>
+                        </Cell>
+                    </Row>
+
+                    <br/>
                     <h2 className="text-light">&lt;Tabs/&gt;</h2>
                     <Row>
                         <Cell cls={'cell-md-4'}>
@@ -529,68 +703,6 @@ export default class Demo extends React.Component {
                         </Cell>
                     </Row>
 
-
-                    <h2 className="text-light">&lt;Select/&gt;</h2>
-                    <Row>
-                        <Cell cls="cell-md-4">
-                            <Select>
-                                <optgroup label="Physical servers">
-                                    <option value="dedicated_corei3_hp">Core i3 (hp)</option>
-                                    <option value="dedicated_pentium_hp">Pentium (hp)</option>
-                                    <option value="dedicated_smart_corei3_hp">Smart Core i3 (hp)</option>
-                                </optgroup>
-                                <optgroup label="Virtual hosting">
-                                    <option value="mini">Mini</option>
-                                    <option value="site">Site</option>
-                                    <option value="portal">Portal</option>
-                                </optgroup>
-                                <optgroup label="Virtual servers">
-                                    <option value="evps0">eVPS-TEST (30 дней)</option>
-                                    <option value="evps1">eVPS-1</option>
-                                    <option value="evps2">eVPS-2</option>
-                                </optgroup>
-                            </Select>
-                        </Cell>
-                        <Cell cls="cell-md-4">
-                            <Select value={'mini'} multiple={false}>
-                                <optgroup label="Physical servers">
-                                    <option value="dedicated_corei3_hp">Core i3 (hp)</option>
-                                    <option value="dedicated_pentium_hp">Pentium (hp)</option>
-                                    <option value="dedicated_smart_corei3_hp">Smart Core i3 (hp)</option>
-                                </optgroup>
-                                <optgroup label="Virtual hosting">
-                                    <option value="mini">Mini</option>
-                                    <option value="site">Site</option>
-                                    <option value="portal">Portal</option>
-                                </optgroup>
-                                <optgroup label="Virtual servers">
-                                    <option value="evps0">eVPS-TEST (30 дней)</option>
-                                    <option value="evps1">eVPS-1</option>
-                                    <option value="evps2">eVPS-2</option>
-                                </optgroup>
-                            </Select>
-                        </Cell>
-                        <Cell cls="cell-md-4">
-                            <Select value={['mini', 'dedicated_corei3_hp']} multiple={true}>
-                                <optgroup label="Physical servers">
-                                    <option value="dedicated_corei3_hp">Core i3 (hp)</option>
-                                    <option value="dedicated_pentium_hp">Pentium (hp)</option>
-                                    <option value="dedicated_smart_corei3_hp">Smart Core i3 (hp)</option>
-                                </optgroup>
-                                <optgroup label="Virtual hosting">
-                                    <option value="mini">Mini</option>
-                                    <option value="site">Site</option>
-                                    <option value="portal">Portal</option>
-                                </optgroup>
-                                <optgroup label="Virtual servers">
-                                    <option value="evps0">eVPS-TEST (30 дней)</option>
-                                    <option value="evps1">eVPS-1</option>
-                                    <option value="evps2">eVPS-2</option>
-                                </optgroup>
-                            </Select>
-                        </Cell>
-                    </Row>
-
                     <h2 className="text-light">&lt;Tag /&gt;</h2>
                     <Row>
                         <Cell>
@@ -722,56 +834,6 @@ export default class Demo extends React.Component {
 
                                 </AccordionFrame>
                             </Accordion>
-                        </Cell>
-                    </Row>
-
-                    <h2 className="text-light">&lt;Checkbox/&gt;, &lt;Radio/&gt;, &lt;Switch/&gt;</h2>
-                    <Row>
-                        <Cell cls="cell-md-4">
-                            <div>
-                                <Checkbox name="check1"/>
-                                <Checkbox name="check2" checked/>
-                                <Checkbox name="check3" disabled/>
-                                <Checkbox name="check4" checked disabled/>
-                                <Checkbox name="check5" caption="my checkbox"/>
-                            </div>
-                            <div>
-                                <Checkbox name="check1" variant={2}/>
-                                <Checkbox name="check2" checked variant={2}/>
-                                <Checkbox name="check3" disabled variant={2}/>
-                                <Checkbox name="check4" checked disabled variant={2}/>
-                                <Checkbox name="check5" caption="my checkbox" variant={2}/>
-                            </div>
-                        </Cell>
-                        <Cell cls="cell-md-4">
-                            <div>
-                                <Radio name="radio1_1" value={1}/>
-                                <Radio name="radio1_1" value={2} checked/>
-                                <Radio name="radio1_2" disabled/>
-                                <Radio name="radio1_3" checked disabled/>
-                                <Radio name="radio1_4" caption="my radio"/>
-                            </div>
-                            <div>
-                                <Radio name="radio2_1" checked variant={2}/>
-                                <Radio name="radio2_1" variant={2}/>
-                                <Radio name="radio2_2" disabled variant={2}/>
-                                <Radio name="radio2_3" checked disabled variant={2}/>
-                                <Radio name="radio2_4" caption="my radio" variant={2}/>
-                            </div>
-                        </Cell>
-                        <Cell cls="cell-md-4">
-                            <div>
-                                <Switch name="switch1"/>
-                                <Switch name="switch2" checked/>
-                                <Switch name="switch3" disabled/>
-                                <Switch name="switch4" checked disabled/>
-                            </div>
-                            <div>
-                                <Switch name="switch1" variant={2}/>
-                                <Switch name="switch2" checked variant={2}/>
-                                <Switch name="switch3" disabled variant={2}/>
-                                <Switch name="switch4" checked disabled variant={2}/>
-                            </div>
                         </Cell>
                     </Row>
 

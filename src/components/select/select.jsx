@@ -4,21 +4,27 @@ import "../d-menu/d-menu.less";
 import Collapse from "../collapse/collapse.jsx";
 import Input from "../input/input.jsx";
 import Tag from "../tag/tag.jsx"
-// import ClickOutside from "../click-outside/click-outside.jsx";
 
 export default class Select extends React.Component {
     static defaultProps = {
+        searchPlaceholder: "Search...",
+        fieldState: "normal",
+        errorMessage: "",
         cls: "",
+        clsSelected: "",
+        clsTag: "",
+        clsErrorMessage: "",
         speed: 100,
         dropHeight: 200,
         onChange: () => {}
     };
 
     static getDerivedStateFromProps(props, state){
-        if (props.value !== state.initValue) {
+        if (props.value !== state.initValue || props.fieldState !== state.fieldState) {
             return {
                 value: props.value,
-                initValue: props.value
+                initValue: props.value,
+                fieldState: props.fieldState
             }
         }
         return null;
@@ -36,7 +42,8 @@ export default class Select extends React.Component {
             open: false,
             filter: "",
             value: props.value,
-            initValue: props.value
+            initValue: props.value,
+            fieldState: props.fieldState
         };
 
         this.selectClick = this.selectClick.bind(this);
@@ -67,7 +74,7 @@ export default class Select extends React.Component {
         e.stopPropagation();
     }
 
-    selectClick(e){
+    selectClick(){
         const isOpen = this.state.open;
 
         this.setState({
@@ -133,8 +140,8 @@ export default class Select extends React.Component {
     };
 
     render() {
-        const {multiple, cls, dropHeight, speed, onChange} = this.props;
-        const {open, filter, value} = this.state;
+        const {multiple, cls, dropHeight, speed, onChange, errorMessage, clsSelected, clsTag, clsErrorMessage, searchPlaceholder} = this.props;
+        const {open, filter, value, fieldState} = this.state;
         const transition = `height ${speed}ms cubic-bezier(.4, 0, .2, 1)`;
         const options = {};
         const items = [];
@@ -176,37 +183,42 @@ export default class Select extends React.Component {
         });
 
         return (
-            <label className={'select ' + cls + (open ? ' focused ':'') + (multiple ? ' multiple ':'')} ref={this.component}>
+            <React.Fragment>
+                <label className={'select ' + cls + (open ? ' focused ':'') + (multiple ? ' multiple ':'') + (fieldState === 'error' ? ' invalid ' : fieldState === 'success' ? ' success ' : '')} ref={this.component}>
 
-                <span className={'dropdown-toggle ' + (open ? 'active-toggle':'')} onClick={this.selectClick}/>
+                    <span className={'dropdown-toggle ' + (open ? 'active-toggle':'')} onClick={this.selectClick}/>
 
-                <select value={value} multiple={multiple}
-                        ref={this.select}
-                        onChange={onChange}
-                        name={this.props.name}
-                >
-                    {this.props.children}
-                </select>
+                    <select value={value} multiple={multiple}
+                            ref={this.select}
+                            onChange={onChange}
+                            name={this.props.name}
+                    >
+                        {this.props.children}
+                    </select>
 
-                <div className={'select-input'} ref={this.selectInput} onClick={this.selectClick}>
-                    {multiple && value.map( function(el, index){
-                        return (
-                            <Tag key={index} onClick={tagClick} data-value={el}>{options[el]}</Tag>
-                        )
-                    })}
+                    <div className={'select-input ' + clsSelected } ref={this.selectInput} onClick={this.selectClick}>
+                        {multiple && value.map( function(el, index){
+                            return (
+                                <Tag cls={clsTag} key={index} onClick={tagClick} data-value={el}>{options[el]}</Tag>
+                            )
+                        })}
 
-                    {!multiple && value !== "" && (
-                        <span>{options[value]}</span>
-                    )}
-                </div>
+                        {!multiple && value !== "" && (
+                            <span className={clsTag}>{options[value]}</span>
+                        )}
+                    </div>
 
-                <Collapse isOpen={open} className={'drop-container'} transition={transition}>
-                    <Input onChange={this.inputChange} ref={this.input} placeholder={'Search...'}/>
-                    <ul className={'d-menu'} style={{maxHeight: dropHeight}}>
-                        {items}
-                    </ul>
-                </Collapse>
-            </label>
+                    <Collapse isOpen={open} className={'drop-container'} transition={transition}>
+                        <Input onChange={this.inputChange} ref={this.input} placeholder={searchPlaceholder}/>
+                        <ul className={'d-menu'} style={{maxHeight: dropHeight}}>
+                            {items}
+                        </ul>
+                    </Collapse>
+                </label>
+                {fieldState === 'error' && errorMessage !== "" && (
+                    <span className={'invalid_feedback ' + clsErrorMessage}>{errorMessage}</span>
+                )}
+            </React.Fragment>
         )
     }
 }

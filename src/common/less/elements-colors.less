@@ -62,12 +62,19 @@ tbody tr, tbody td,
             &:active, &.focus, &:focus {
                 .focus-show(@@color);
             }
+            & > .remover {
+                background-color: darken(@@color, 10%);
+                color: @white;
+            }
         }
     })
 
     &.yellow, &.light {
         color: @dark;
         &:hover, &.outline:hover {
+            color: @dark;
+        }
+        & > .remover {
             color: @dark;
         }
     }
