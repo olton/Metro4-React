@@ -1,56 +1,31 @@
 import React from "react";
 import "./grid.less";
 
-export class Cell extends React.Component {
+const Grid = props => {
+    const Element = props.as ? props.as : "div";
+    return (
+        <Element className={'grid '+ (props.cls ? props.cls : '')} {...props}>
+            {props.children}
+        </Element>
+    )
+};
 
-    static defaultProps = {
-        as: "div",
-        cls: ""
-    };
+const Row = props => {
+    const Element = props.as ? props.as : "div";
+    return (
+        <Element className={'row '+ (props.cls ? props.cls : '')} {...props}>
+            {props.children}
+        </Element>
+    )
+};
 
-    render() {
-        const {as: Element, cls, ...props} = this.props;
+const Cell = props => {
+    const Element = props.as ? props.as : "div";
+    return (
+        <Element className={props.cls ? props.cls : ''} {...props}>
+            {props.children}
+        </Element>
+    )
+};
 
-        return (
-            <Element className={'cell-base '+ cls} {...props}>
-                {this.props.children}
-            </Element>
-        );
-    }
-}
-
-export class Row extends React.Component {
-
-    static defaultProps = {
-        as: "div",
-        cls: ""
-    };
-
-    render() {
-        const {as: Element, cls, ...props} = this.props;
-
-        return (
-            <div className={'row ' + cls} {...props}>
-                {this.props.children}
-            </div>
-        );
-    }
-}
-
-export class Grid extends React.Component {
-
-    static defaultProps = {
-        as: "div",
-        cls: ""
-    };
-
-    render() {
-        const {as: Element, cls, ...props} = this.props;
-
-        return (
-            <Element className={'grid ' + cls} {...props}>
-                {this.props.children}
-            </Element>
-        );
-    }
-}
+export {Grid, Row, Cell};
