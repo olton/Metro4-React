@@ -18,10 +18,10 @@ export default class Progress extends React.Component {
     static getDerivedStateFromProps(props, state){
         if (props.value !== state.initValue || props.buffer !== state.initBuffer) {
             return {
-                value: props.value,
-                initValue: props.value,
-                buffer: props.buffer,
-                initBuffer: props.buffer
+                value: parseInt(props.value),
+                initValue: parseInt(props.value),
+                buffer: parseInt(props.buffer),
+                initBuffer: parseInt(props.buffer)
             }
         }
         return null;
@@ -31,10 +31,10 @@ export default class Progress extends React.Component {
         super(props);
 
         this.state = {
-            initValue: props.value,
-            value: props.value,
-            buffer: props.buffer,
-            initBuffer: props.buffer
+            initValue: parseInt(props.value),
+            value: parseInt(props.value),
+            buffer: parseInt(props.buffer),
+            initBuffer: parseInt(props.buffer)
         }
     }
 
@@ -42,8 +42,6 @@ export default class Progress extends React.Component {
         const {showValue, variant, cls, clsBack, clsBar, clsBuffer, clsLoad, clsValue} = this.props;
         const {value, buffer} = this.state;
         const valuePosition = value > 90 ? {left: "auto", right: (100 - value) + 'px'} : {left: value + '%'};
-
-        console.log(value, valuePosition);
 
         return (
             <div className={`progress ${cls} ${variant === 'line' ? 'line' : ''}`}>
