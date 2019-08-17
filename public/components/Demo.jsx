@@ -151,7 +151,7 @@ export default class Demo extends React.Component {
                             <Progress value={35} buffer={75}/>
                         </Cell>
                         <Cell cls={'cell-md-4'}>
-                            <Progress value={95} buffer={75} showValue={true}/>
+                            <Progress value={50} buffer={75} showValue={true}/>
                         </Cell>
                     </Row>
                     <br/>
