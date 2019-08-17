@@ -1,0 +1,106 @@
+@import (once) "../../include/less/vars";
+@import (once) "../../include/less/mixins";
+
+@barHeight: 12px;
+
+.progress {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: @barHeight;
+    overflow: hidden;
+    background: transparent;
+}
+
+.progress {
+    .back, .bar, .buffer, .load {
+        position: absolute;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 3;
+    }
+
+    .back {
+        background-color: #eee;
+        width: 100%;
+        z-index: 1;
+    }
+
+    .load {
+        width: 100%;
+        animation: progress-loading 3s infinite linear;
+        background: radial-gradient(#a9c0e9 0%, #a9c0e9 16%, transparent 42%);
+        background-size: @barHeight @barHeight;
+        margin-top: -1px;
+        z-index: 2;
+    }
+
+    .buffer {
+        z-index: 3;
+        background-color: @white;
+        height: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .bar {
+        z-index: 4;
+        background: @green;
+    }
+
+    .value {
+        display: block;
+        position: absolute;
+        z-index: 5;
+        font-size: 11px;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-left: 4px;
+    }
+}
+
+.progress {
+    &.line {
+        background-color: #b3d4fc;
+        display: flex;
+
+        &::before {
+            height: 100%;
+            width: 100%;
+            background-color: @brandColor2;
+            content: '';
+            animation: running-progress 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+    }
+}
+
+.progress {
+    &.small {
+        height: @barHeight / 2;
+
+        .load {
+            background-size: @barHeight / 2 @barHeight / 2;
+        }
+    }
+}
+
+@keyframes progress-loading {
+    0% {
+        opacity: 1;
+        background-position: 0px -23px;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        background-position: -200px -23px;
+    }
+}
+
+@keyframes running-progress {
+    0% { margin-left: 0; margin-right: 100%; }
+    50% { margin-left: 25%; margin-right: 0; }
+    100% { margin-left: 100%; margin-right: 0; }
+}

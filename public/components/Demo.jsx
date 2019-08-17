@@ -27,7 +27,7 @@ import {
     Gravatar, Adsense,
     Dialog, Pagination, Textarea, InputFile,
     Dropdown, Modal, AppBar, AppBarMenu, AppBarBrand, AppBarItem, Collapse, ButtonGroup,
-    Tabs, Tab, SplitButton
+    Tabs, Tab, SplitButton, Progress
 } from "../../src/index";
 
 import MainMenu from "./MainMenu";
@@ -142,6 +142,33 @@ export default class Demo extends React.Component {
                 <br/>
 
                 <Grid>
+                    <h2 className="text-light">&lt;Progress/&gt;</h2>
+                    <Row>
+                        <Cell cls={'cell-md-4'}>
+                            <Progress value={35}/>
+                        </Cell>
+                        <Cell cls={'cell-md-4'}>
+                            <Progress value={35} buffer={75}/>
+                        </Cell>
+                        <Cell cls={'cell-md-4'}>
+                            <Progress value={95} buffer={75} showValue={true}/>
+                        </Cell>
+                    </Row>
+                    <br/>
+                    <Row>
+                        <Cell cls={'cell-md-4'}>
+                            <Progress variant={'line'}/>
+                        </Cell>
+                        <Cell cls={'cell-md-4'}>
+                            <Progress variant={'load'} value={35} buffer={75}/>
+                        </Cell>
+                        <Cell cls={'cell-md-4'}>
+                            <Progress value={35} buffer={75} clsBar={'bg-orange'} clsBuffer={'bg-cyan'} clsBack={'bg-darkSteel'}/>
+                        </Cell>
+                    </Row>
+
+
+                    <br/>
                     <h2 className="text-light">&lt;SplitButton/&gt;</h2>
                     <Row>
                         <Cell cls={'cell-md-3'}>
