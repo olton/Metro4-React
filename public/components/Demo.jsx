@@ -27,7 +27,7 @@ import {
     Gravatar, Adsense,
     Dialog, Pagination, Textarea, InputFile,
     Dropdown, Modal, AppBar, AppBarMenu, AppBarBrand, AppBarItem, Collapse, ButtonGroup,
-    Tabs, Tab, SplitButton, Progress
+    Tabs, Tab, SplitButton, Progress, Panel
 } from "../../src/index";
 
 import MainMenu from "./MainMenu";
@@ -142,6 +142,23 @@ export default class Demo extends React.Component {
                 <br/>
 
                 <Grid>
+                    <h2 className="text-light">&lt;Panel/&gt;</h2>
+                    <Row>
+                        <Cell cls={'cell-md-4'}>
+                            <Panel caption={'Panel'} clsContent={'p-4'} icon={'rocket'} collapsible={false}>
+                                Huge, post-apocalyptic teleporters rudely transfer a carnivorous, ship-wide tribble.
+                                Our ultimate milk for resurrection is to know others extraordinarilly.
+                            </Panel>
+                        </Cell>
+                        <Cell cls={'cell-md-4'}>
+                            <Panel caption={'Panel'} clsContent={'bg-light p-4'} icon={'rocket'} iconPrefix={'fa fa-'} clsIcon={'fg-yellow no-border'} clsDropdownToggle={'no-border marker-light'} clsCaption={'text-bold'} clsTitle={'bg-cyan fg-white'}>
+                                Huge, post-apocalyptic teleporters rudely transfer a carnivorous, ship-wide tribble.
+                                Our ultimate milk for resurrection is to know others extraordinarilly.
+                            </Panel>
+                        </Cell>
+                    </Row>
+
+
                     <h2 className="text-light">&lt;Progress/&gt;</h2>
                     <Row>
                         <Cell cls={'cell-md-4'}>

@@ -16,7 +16,9 @@ export default class Select extends React.Component {
         clsErrorMessage: "",
         speed: 100,
         dropHeight: 200,
-        onChange: () => {}
+        onChange: () => {},
+        onFocus: () => {},
+        onBlur: () => {},
     };
 
     static getDerivedStateFromProps(props, state){
@@ -39,6 +41,7 @@ export default class Select extends React.Component {
         this.component = React.createRef();
 
         this.state = {
+            focus: false,
             open: false,
             filter: "",
             value: props.value,
@@ -125,11 +128,50 @@ export default class Select extends React.Component {
 
     componentDidMount() {
         document.addEventListener("mousedown", this.handleClickOutside);
+        this.component.current.addEventListener("keydown", this.handleComponentKeydown);
+
+        const select = this.component.current;
+        if (select) {
+            select.addEventListener("focus", this.handleSelectFocusing);
+            select.addEventListener("blur", this.handleSelectFocusing);
+        }
     }
 
     componentWillUnmount() {
         document.removeEventListener("mousedown", this.handleClickOutside);
+        this.component.current.removeEventListener("keydown", this.handleComponentKeydown);
+
+        const select = this.component.current;
+        if (select) {
+            select.removeEventListener("focus", this.handleSelectFocusing);
+            select.removeEventListener("blur", this.handleSelectFocusing);
+        }
     }
+
+    handleComponentKeydown = e => {
+        if (e.keyCode === 32) {
+            this.selectClick();
+        }
+
+        // TODO add change selected items by arrow key up
+        if (this.state.open && e.keyCode === 38) {
+            // Up
+        }
+
+        // TODO add change selected items by arrow key down
+        if (this.state.open && e.keyCode === 40) {
+            // Down
+        }
+
+        e.preventDefault();
+    };
+
+    handleSelectFocusing = (e) => {
+        this.setState({
+            focus: e.type === 'focus'
+        });
+        this.props[ e.type === 'focus' ? 'onFocus' : 'onBlur' ](e);
+    };
 
     handleClickOutside = event => {
         if (this.component.current && !this.component.current.contains(event.target)) {
@@ -141,7 +183,7 @@ export default class Select extends React.Component {
 
     render() {
         const {multiple, cls, dropHeight, speed, onChange, errorMessage, clsSelected, clsTag, clsErrorMessage, searchPlaceholder} = this.props;
-        const {open, filter, value, fieldState} = this.state;
+        const {open, filter, value, fieldState, focus} = this.state;
         const transition = `height ${speed}ms cubic-bezier(.4, 0, .2, 1)`;
         const options = {};
         const items = [];
@@ -184,7 +226,7 @@ export default class Select extends React.Component {
 
         return (
             <React.Fragment>
-                <label className={'select ' + cls + (open ? ' focused ':'') + (multiple ? ' multiple ':'') + (fieldState === 'error' ? ' invalid ' : fieldState === 'success' ? ' success ' : '')} ref={this.component}>
+                <label tabIndex={1} className={'select ' + cls + (focus ? ' focused ':'') + (multiple ? ' multiple ':'') + (fieldState === 'error' ? ' invalid ' : fieldState === 'success' ? ' success ' : '')} ref={this.component}>
 
                     <span className={'dropdown-toggle ' + (open ? 'active-toggle':'')} onClick={this.selectClick}/>
 

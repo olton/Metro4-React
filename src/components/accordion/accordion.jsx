@@ -6,7 +6,7 @@ export class AccordionFrame extends React.Component {
     static defaultProps = {
         frame: null,
         open: false,
-        animationDuration: 300,
+        speed: 300,
         title: "",
         clsFrame: "",
         clsFrameHeading: "",
@@ -23,9 +23,9 @@ export class AccordionFrame extends React.Component {
     }
 
     render(){
-        const {open, animationDuration, title, clsFrame, clsFrameHeading, clsFrameContent} = this.props;
+        const {open, speed, title, clsFrame, clsFrameHeading, clsFrameContent} = this.props;
         const props = this.props;
-        const transition = `height ${animationDuration}ms cubic-bezier(.4, 0, .2, 1)`;
+        const transition = `height ${speed}ms cubic-bezier(.4, 0, .2, 1)`;
 
         return (
             <div className={'frame ' + (open ? 'active' : '') + ' ' + clsFrame}>

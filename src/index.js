@@ -39,6 +39,7 @@ import ButtonGroup from "./components/button-group/button-group";
 import Tabs, {Tab} from "./components/tabs/tabs";
 import SplitButton from "./components/split-button/split-button";
 import Progress from "./components/progress/progress";
+import Panel from "./components/panel/panel";
 
 export {
     Container,
@@ -82,5 +83,5 @@ export {
     Modal,
     ButtonGroup,
     Tabs, Tab, SplitButton,
-    Progress
+    Progress, Panel
 };
