@@ -33,6 +33,7 @@ import {
 
 import MainMenu from "./MainMenu";
 import "../css/demo.less";
+import Colors from "../../src/colors/colors";
 
 const autocompleteList = ["Ukraine", "USA", "Canada", "Marokko", "Singapur"];
 
@@ -156,6 +157,20 @@ export default class Demo extends React.Component {
                         </Cell>
                         <Cell cls={'cell-md-3'}>
                             <Rating value={3.5} caption={'(723 votes)'} values={['a', 'b', 'c', 'd', 'e']} onChange={ (e) => {console.log(e.target)}}/>
+                        </Cell>
+                    </Row>
+                    <Row>
+                        <Cell cls={'cell-md-3'}>
+                            <Rating starColor={Colors.colorListMetro.cyan} staredColor={Colors.colorListMetro.orange} value={3}/>
+                        </Cell>
+                        <Cell cls={'cell-md-3'}>
+                            <Rating starColor={Colors.colorListMetro.orange} staredColor={Colors.colorListMetro.cyan} value={3}/>
+                        </Cell>
+                        <Cell cls={'cell-md-3'}>
+                            <Rating starColor={Colors.colorListMetro.pink} staredColor={Colors.colorListMetro.red} value={2.5} isStatic={true}/>
+                        </Cell>
+                        <Cell cls={'cell-md-3'}>
+                            <Rating starColor={Colors.colorListMetro.blue} staredColor={Colors.colorListMetro.green} value={3} caption={'(123 votes)'} clsCaption={'fg-green text-bold'}/>
                         </Cell>
                     </Row>
 

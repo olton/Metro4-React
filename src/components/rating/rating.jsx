@@ -1,5 +1,6 @@
 import React from "react";
 import "./rating.less";
+import Utils from "../../common/js/utils";
 
 export default class Rating extends React.Component {
     static defaultProps = {
@@ -10,6 +11,8 @@ export default class Rating extends React.Component {
         isStatic: false,
         half: true,
         caption: "",
+        starColor: null,
+        staredColor: null,
         cls: "",
         clsStars: "",
         clsStar: "",
@@ -29,7 +32,19 @@ export default class Rating extends React.Component {
             initValue: props.value
         };
 
+        this.id = props.id ? props.id : Utils.elementId("rating");
         this.values = props.values.length ? props.values.sort( (a, b) => a - b ) : [...Array(props.stars)].map( (el, i) => i + 1 );
+
+        if (props.starColor || props.staredColor) {
+            const sheet = Utils.newCssSheet();
+            if (props.starColor && !props.isStatic) {
+                Utils.addCssRule(sheet, "#" + this.id + " .stars:hover li", "color: " + props.starColor + ";");
+            }
+            if (props.staredColor) {
+                Utils.addCssRule(sheet, "#"+this.id+" .stars li.on", "color: "+props.staredColor+";");
+                Utils.addCssRule(sheet, "#"+this.id+" .stars li.half::after", "color: "+props.staredColor+";");
+            }
+        }
     }
 
     static getDerivedStateFromProps(props, state){
@@ -56,7 +71,7 @@ export default class Rating extends React.Component {
 
     render(){
         const {round, half, isStatic, caption, stars, cls, clsStars, clsStar, clsStarOn, clsCaption} = this.props;
-        const {value} = this.state;
+        const {initValue, value} = this.state;
         const items = [], values = this.values;
         const val = isStatic ? Math.floor(value) : Math[round](value);
 
@@ -66,6 +81,7 @@ export default class Rating extends React.Component {
 
         if (isStatic && half) {
             const dec = Math.round((value % 1) * 10);
+            console.log(dec);
             if (dec > 0 && dec <=9) {
                 items[val] = React.cloneElement(items[val], {
                     className: items[val].className + " half half-" + ( dec * 10)
@@ -74,7 +90,7 @@ export default class Rating extends React.Component {
         }
 
         return(
-            <label className={'rating ' + cls + (isStatic ? ' static ' : '')}>
+            <label className={'rating ' + cls + (isStatic ? ' static ' : '')} id={this.id}>
                 <input type={'text'} value={value} onChange={this.onChange} ref={this.input}/>
 
                 <ul className={'stars ' + clsStars}>
