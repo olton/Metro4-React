@@ -27,7 +27,8 @@ import {
     Gravatar, Adsense,
     Dialog, Pagination, Textarea, InputFile,
     Dropdown, Modal, AppBar, AppBarMenu, AppBarBrand, AppBarItem, Collapse, ButtonGroup,
-    Tabs, Tab, SplitButton, Progress, Panel
+    Tabs, Tab, SplitButton, Progress, Panel,
+    Rating
 } from "../../src/index";
 
 import MainMenu from "./MainMenu";
@@ -142,6 +143,22 @@ export default class Demo extends React.Component {
                 <br/>
 
                 <Grid>
+                    <h2 className="text-light">&lt;Rating/&gt;</h2>
+                    <Row>
+                        <Cell cls={'cell-md-3'}>
+                            <Rating/>
+                        </Cell>
+                        <Cell cls={'cell-md-3'}>
+                            <Rating value={3}/>
+                        </Cell>
+                        <Cell cls={'cell-md-3'}>
+                            <Rating value={2.5} isStatic={true}/>
+                        </Cell>
+                        <Cell cls={'cell-md-3'}>
+                            <Rating value={3.5} caption={'(723 votes)'} values={['a', 'b', 'c', 'd', 'e']} onChange={ (e) => {console.log(e.target)}}/>
+                        </Cell>
+                    </Row>
+
                     <h2 className="text-light">&lt;Panel/&gt;</h2>
                     <Row>
                         <Cell cls={'cell-md-4'}>

@@ -22,6 +22,14 @@ export default class Panel extends React.Component {
         clsDropdownToggle: ""
     };
 
+    constructor(props){
+        super(props);
+        this.state = {
+            open: props.open,
+            initState: props.open
+        };
+    }
+
     static getDerivedStateFromProps(props, state){
         if (props.open !== state.initState) {
             return {
@@ -30,14 +38,6 @@ export default class Panel extends React.Component {
             }
         }
         return null;
-    }
-
-    constructor(props){
-        super(props);
-        this.state = {
-            open: props.open,
-            initState: props.open
-        };
     }
 
     togglePanelState = () => {
