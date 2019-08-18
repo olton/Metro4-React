@@ -71,7 +71,7 @@ export default class Rating extends React.Component {
 
     render(){
         const {round, half, isStatic, caption, stars, cls, clsStars, clsStar, clsStarOn, clsCaption} = this.props;
-        const {initValue, value} = this.state;
+        const {value} = this.state;
         const items = [], values = this.values;
         const val = isStatic ? Math.floor(value) : Math[round](value);
 
@@ -81,7 +81,6 @@ export default class Rating extends React.Component {
 
         if (isStatic && half) {
             const dec = Math.round((value % 1) * 10);
-            console.log(dec);
             if (dec > 0 && dec <=9) {
                 items[val] = React.cloneElement(items[val], {
                     className: items[val].className + " half half-" + ( dec * 10)
