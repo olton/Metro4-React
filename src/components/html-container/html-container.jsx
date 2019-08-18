@@ -59,8 +59,6 @@ export default class HtmlContainer extends React.Component {
         const {as: Element, insertAs} = this.props;
         const {fetched, content} = this.state;
 
-        console.log(insertAs);
-
         return (
             <React.Fragment>
                 {!fetched && fetched !== false && (

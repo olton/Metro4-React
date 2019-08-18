@@ -94,7 +94,6 @@ const webpackConfig = {
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
         historyApiFallback: true,
-        watchContentBase: true,
         writeToDisk: true
     },
     plugins: [

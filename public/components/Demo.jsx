@@ -189,7 +189,13 @@ export default class Demo extends React.Component {
                     <h2 className="text-light">&lt;Panel/&gt;</h2>
                     <Row>
                         <Cell cls={'cell-md-4'}>
-                            <Panel caption={'Panel'} clsContent={'p-4'} icon={'rocket'} collapsible={false}>
+                            <Panel caption={'Panel'} clsContent={'p-4'} collapsible={false}>
+                                Huge, post-apocalyptic teleporters rudely transfer a carnivorous, ship-wide tribble.
+                                Our ultimate milk for resurrection is to know others extraordinarilly.
+                            </Panel>
+                        </Cell>
+                        <Cell cls={'cell-md-4'}>
+                            <Panel caption={'Panel'} clsContent={'p-4'} image={'images/setup.png'} collapsible={false}>
                                 Huge, post-apocalyptic teleporters rudely transfer a carnivorous, ship-wide tribble.
                                 Our ultimate milk for resurrection is to know others extraordinarilly.
                             </Panel>
