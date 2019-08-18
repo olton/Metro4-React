@@ -41,6 +41,7 @@ import SplitButton from "./components/split-button/split-button";
 import Progress from "./components/progress/progress";
 import Panel from "./components/panel/panel";
 import Rating from "./components/rating/rating";
+import HtmlContainer from "./components/html-container/html-container";
 
 export {
     Container,
@@ -85,5 +86,5 @@ export {
     ButtonGroup,
     Tabs, Tab, SplitButton,
     Progress, Panel,
-    Rating
+    Rating, HtmlContainer
 };

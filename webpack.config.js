@@ -6,6 +6,7 @@ const TerserJSPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const autoprefixer = require('autoprefixer');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const env = process.env.NODE_ENV || 'development';
 const isProduction = env === 'production';
@@ -43,8 +44,12 @@ const webpackConfig = {
     module: {
         rules: [
             {
-                test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+                test: /\.(woff|woff2|eot|ttf|svg)$/,
                 loader: 'url-loader?limit=100000'
+            },
+            {
+                test: /\.(png|jpg|jpeg|svg|gif)$/,
+                loader: 'file-loader'
             },
             {
                 test: /\.(js|jsx)$/,
@@ -97,7 +102,11 @@ const webpackConfig = {
         new HtmlWebpackPlugin({
             template: 'public/index.html',
             favicon: "public/favicon.ico"
-        })
+        }),
+        new CopyPlugin([
+            { from: 'public/images', to: 'images' },
+            { from: 'public/data', to: 'data' },
+        ]),
     ]
 };
 

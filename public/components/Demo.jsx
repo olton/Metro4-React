@@ -28,7 +28,7 @@ import {
     Dialog, Pagination, Textarea, InputFile,
     Dropdown, Modal, AppBar, AppBarMenu, AppBarBrand, AppBarItem, Collapse, ButtonGroup,
     Tabs, Tab, SplitButton, Progress, Panel,
-    Rating
+    Rating, HtmlContainer
 } from "../../src/index";
 
 import MainMenu from "./MainMenu";
@@ -144,6 +144,18 @@ export default class Demo extends React.Component {
                 <br/>
 
                 <Grid>
+                    <h2 className="text-light">&lt;HtmlContainer/&gt;</h2>
+                    <Row>
+                        <Cell cls={'cell-md-6'}>
+                            <h5>as text</h5>
+                            <HtmlContainer source={'data/append.html'} insertAs={'text'}/>
+                        </Cell>
+                        <Cell cls={'cell-md-6'}>
+                            <h5>as html</h5>
+                            <HtmlContainer source={'data/append.html'} insertAs={'html'}/>
+                        </Cell>
+                    </Row>
+
                     <h2 className="text-light">&lt;Rating/&gt;</h2>
                     <Row>
                         <Cell cls={'cell-md-3'}>

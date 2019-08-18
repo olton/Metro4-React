@@ -10,6 +10,7 @@ import {
 } from "../../src/index";
 
 import "../css/home.less";
+import LogoSocial from "../images/logo-social.png";
 
 export default class Home extends React.Component {
     render(){

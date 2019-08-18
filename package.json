@@ -29,6 +29,7 @@
     "babel-loader": "^8.0.6",
     "babel-preset-react-optimize": "^1.0.1",
     "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.0.4",
     "cross-env": "^5.2.0",
     "css-loader": "^3.0.0",
     "file-loader": "^4.0.0",
