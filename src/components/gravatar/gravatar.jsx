@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import {md5} from "../../common/common";
+import {md5} from "../../routines";
 
 export default class Gravatar extends React.Component {
     static propsTypes = {

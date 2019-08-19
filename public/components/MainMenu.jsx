@@ -7,7 +7,7 @@ export default class MainMenu extends React.Component {
         return (
             <Container fluid={true} cls={'pos-fixed fixed-top z-fixed bg-react'}>
                 <AppBar cls={'container pos-relative app-bar-react-colors'} expandPoint={'md'} hamburgerColor={'light'}>
-                    <AppBarBrand as={'a'} href={'/'} name={'Metro 4 for React'} cls={'text-bold'}/>
+                    <AppBarBrand as={'a'} href={'/'} name={'Metro 4 for React'} cls={'text-bold fg-react'}/>
                     <AppBarMenu cls={'ml-auto'}>
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/guide">Guide</Link></li>

@@ -1,7 +1,7 @@
 import "../src/common/common.less";
 import "../src/colors/colors.less";
 import "../src/icons/mif.less";
-import {Utils} from "../src/common/common";
+import {Utils} from "../src/routines";
 
 import React from "react";
 import {render} from "react-dom";
@@ -11,6 +11,7 @@ import Home from "./components/Home";
 import Guide from "./components/Guide";
 import Support from "./components/Support";
 import Demo from "./components/Demo";
+import Prism from "prismjs";
 
 import "./css/index.less";
 
@@ -28,3 +29,5 @@ render (
     </Router>,
     document.getElementById("root")
 );
+
+setTimeout( () => Prism.highlightAll(), 0 );

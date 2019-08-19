@@ -86,5 +86,5 @@ export {
     ButtonGroup,
     Tabs, Tab, SplitButton,
     Progress, Panel,
-    Rating, HtmlContainer
+    Rating, HtmlContainer,
 };

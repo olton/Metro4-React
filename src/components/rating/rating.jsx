@@ -1,6 +1,6 @@
 import React from "react";
 import "./rating.less";
-import Utils from "../../common/js/utils";
+import Utils from "../../routines/utils";
 
 export default class Rating extends React.Component {
     static defaultProps = {

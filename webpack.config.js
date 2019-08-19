@@ -16,7 +16,8 @@ const webpackConfig = {
     mode: env,
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].bundle.[hash].js'
+        filename: '[name].bundle.[hash].js',
+        publicPath: '/',
     },
     optimization: {
         minimize: isProduction,
@@ -108,6 +109,7 @@ const webpackConfig = {
         new CopyPlugin([
             { from: 'public/images', to: 'images' },
             { from: 'public/data', to: 'data' },
+            'public/.htaccess',
         ]),
     ]
 };

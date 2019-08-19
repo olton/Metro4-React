@@ -1,0 +1,69 @@
+#side-nav {
+    overflow-y: hidden;
+    position: sticky;
+    top: 52px;
+    background-color: #f7f7f7;
+    height: 100%;
+}
+
+.side-bar {
+    padding: 20px 0 0 20px;
+    height: 100%;
+    overflow: hidden;
+}
+
+.side-bar-menu {
+    padding: 0 0 10px 0;
+    margin: 0;
+    list-style: none inside;
+    position: relative;
+    display: block;
+    max-height: ~"calc(100vh - 140px)";
+    overflow-y: auto;
+    width: ~"calc(100% + 20px)";
+
+    .group-title {
+        display: block;
+        position: relative;
+        font-size: 14px;
+        font-weight: bolder;
+        color: #6d6d6d;
+        margin-top: 20px;
+        text-transform: uppercase;
+    }
+
+    li {
+        padding-left: 20px;
+    }
+
+    li, a {
+        display: block;
+        position: relative;
+        margin-top: 5px;
+    }
+
+    a {
+        font-size: 14px;
+        color: #1a1a1a;
+        text-decoration: none;
+
+        &:hover {
+            color: #6d6d6d;
+        }
+    }
+
+    a.active {
+        font-weight: bold;
+
+        &::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: -20px;
+            height: 100%;
+            background-color: #00AFF0;
+            width: 4px;
+        }
+    }
+}

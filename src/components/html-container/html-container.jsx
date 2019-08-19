@@ -51,10 +51,6 @@ export default class HtmlContainer extends React.Component {
         });
     }
 
-    componentWillUnmount(){
-        this.element.current.innerHTML = "";
-    }
-
     render(){
         const {as: Element, insertAs} = this.props;
         const {fetched, content} = this.state;

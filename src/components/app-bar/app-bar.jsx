@@ -4,7 +4,7 @@ import AppBarBrand from "./brand"
 import AppBarItem from "./item"
 import AppBarMenu from "./menu"
 import "./app-bar.less";
-import {mediaPoints} from "../../common/common";
+import {mediaPoints} from "../../routines";
 
 export default class AppBar extends Component {
     static defaultProps = {
