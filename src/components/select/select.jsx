@@ -245,7 +245,7 @@ export default class Select extends React.Component {
                             )
                         })}
 
-                        {!multiple && value !== "" && (
+                        {!multiple && value !== undefined && !!options[value] && (
                             <span className={clsTag}>{options[value]}</span>
                         )}
                     </div>
