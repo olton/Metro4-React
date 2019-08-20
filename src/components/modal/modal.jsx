@@ -1,7 +1,7 @@
 import React from "react";
 import {createPortal} from "react-dom";
 import "./modal.less";
-import Colors from "../../routines/colors";
+import Color from "../../routines/color";
 
 export default class Modal extends React.Component {
     static defaultProps = {
@@ -15,7 +15,7 @@ export default class Modal extends React.Component {
 
     render(){
         const {cls, onClick, mount, open, overlayColor, overlayAlpha} = this.props;
-        const modalBackground = Colors.toRgbaString( Colors.toRGBA(overlayColor, overlayAlpha));
+        const modalBackground = Color.toRgbaString( Color.toRGBA(overlayColor, overlayAlpha));
         const style = {
             background:  modalBackground
         };

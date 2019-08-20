@@ -33,7 +33,7 @@ import {
 
 import MainMenu from "./MainMenu";
 import "../css/demo.less";
-import Colors from "../../src/routines/colors";
+import Color from "../../src/routines/color";
 
 const autocompleteList = ["Ukraine", "USA", "Canada", "Marokko", "Singapur"];
 
@@ -173,16 +173,16 @@ export default class Demo extends React.Component {
                     </Row>
                     <Row>
                         <Cell cls={'cell-md-3'}>
-                            <Rating starColor={Colors.colorListMetro.cyan} staredColor={Colors.colorListMetro.orange} value={3}/>
+                            <Rating starColor={Color.colorListMetro.cyan} staredColor={Color.colorListMetro.orange} value={3}/>
                         </Cell>
                         <Cell cls={'cell-md-3'}>
-                            <Rating starColor={Colors.colorListMetro.orange} staredColor={Colors.colorListMetro.cyan} value={3}/>
+                            <Rating starColor={Color.colorListMetro.orange} staredColor={Color.colorListMetro.cyan} value={3}/>
                         </Cell>
                         <Cell cls={'cell-md-3'}>
-                            <Rating starColor={Colors.colorListMetro.pink} staredColor={Colors.colorListMetro.red} value={2.5} isStatic={true}/>
+                            <Rating starColor={Color.colorListMetro.pink} staredColor={Color.colorListMetro.red} value={2.5} isStatic={true}/>
                         </Cell>
                         <Cell cls={'cell-md-3'}>
-                            <Rating starColor={Colors.colorListMetro.blue} staredColor={Colors.colorListMetro.green} value={3} caption={'(123 votes)'} clsCaption={'fg-green text-bold'}/>
+                            <Rating starColor={Color.colorListMetro.blue} staredColor={Color.colorListMetro.green} value={3} caption={'(123 votes)'} clsCaption={'fg-green text-bold'}/>
                         </Cell>
                     </Row>
 

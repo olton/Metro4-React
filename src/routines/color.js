@@ -37,7 +37,7 @@ function CMYK(c, m, y, k){
     this.k = k || 0;
 }
 
-const Colors = {
+const Color = {
 
     TYPES: {
         HEX: "hex",
@@ -238,24 +238,24 @@ const Colors = {
     },
 
     setup: function(options){
-        Colors.options = Object.assign( {}, Colors.options, options );
+        Color.options = Object.assign( {}, Color.options, options );
     },
 
     color: function(name, palette){
-        palette = palette || Colors.PALETTES.ALL;
+        palette = palette || Color.PALETTES.ALL;
         return this[palette][name] !== undefined ? this[palette][name] : false;
     },
 
     palette: function(palette){
-        palette = palette || Colors.PALETTES.ALL;
+        palette = palette || Color.PALETTES.ALL;
         return Object.keys(this[palette]);
     },
 
     colors: function(palette){
         let c = [];
-        palette = palette || Colors.PALETTES.ALL;
-        for(let k in Colors[palette]) {
-            c.push(Colors[palette][k]);
+        palette = palette || Color.PALETTES.ALL;
+        for(let k in Color[palette]) {
+            c.push(Color[palette][k]);
         }
         return c;
     },
@@ -342,11 +342,11 @@ const Colors = {
     },
 
     hsv2hex: function(hsv){
-        return Colors.rgb2hex(Colors.hsv2rgb(hsv));
+        return Color.rgb2hex(Color.hsv2rgb(hsv));
     },
 
     hex2hsv: function(hex){
-        return Colors.rgb2hsv(Colors.hex2rgb(hex));
+        return Color.rgb2hsv(Color.hex2rgb(hex));
     },
 
     rgb2cmyk: function(rgb){
@@ -426,130 +426,130 @@ const Colors = {
     },
 
     hex2websafe: function(hex){
-        return Colors.rgb2hex(Colors.rgb2websafe(Colors.toRGB(hex)));
+        return Color.rgb2hex(Color.rgb2websafe(Color.toRGB(hex)));
     },
 
     hsv2websafe: function(hsv){
-        return Colors.rgb2hsv(Colors.rgb2websafe(Colors.toRGB(hsv)));
+        return Color.rgb2hsv(Color.rgb2websafe(Color.toRGB(hsv)));
     },
 
     hsl2websafe: function(hsl){
-        return Colors.hsv2hsl(Colors.rgb2hsv(Colors.rgb2websafe(Colors.toRGB(hsl))));
+        return Color.hsv2hsl(Color.rgb2hsv(Color.rgb2websafe(Color.toRGB(hsl))));
     },
 
     cmyk2websafe: function(cmyk){
-        return Colors.rgb2cmyk(Colors.rgb2websafe(Colors.cmyk2rgb(cmyk)));
+        return Color.rgb2cmyk(Color.rgb2websafe(Color.cmyk2rgb(cmyk)));
     },
 
     websafe: function(color){
-        if (Colors.isHEX(color)) return Colors.hex2websafe(color);
-        if (Colors.isRGB(color)) return Colors.rgb2websafe(color);
-        if (Colors.isRGBA(color)) return Colors.rgba2websafe(color);
-        if (Colors.isHSV(color)) return Colors.hsv2websafe(color);
-        if (Colors.isHSL(color)) return Colors.hsl2websafe(color);
-        if (Colors.isCMYK(color)) return Colors.cmyk2websafe(color);
+        if (Color.isHEX(color)) return Color.hex2websafe(color);
+        if (Color.isRGB(color)) return Color.rgb2websafe(color);
+        if (Color.isRGBA(color)) return Color.rgba2websafe(color);
+        if (Color.isHSV(color)) return Color.hsv2websafe(color);
+        if (Color.isHSL(color)) return Color.hsl2websafe(color);
+        if (Color.isCMYK(color)) return Color.cmyk2websafe(color);
 
         return color;
     },
 
     is: function(color){
-        if (Colors.isHEX(color)) return Colors.TYPES.HEX;
-        if (Colors.isRGB(color)) return Colors.TYPES.RGB;
-        if (Colors.isRGBA(color)) return Colors.TYPES.RGBA;
-        if (Colors.isHSV(color)) return Colors.TYPES.HSV;
-        if (Colors.isHSL(color)) return Colors.TYPES.HSL;
-        if (Colors.isCMYK(color)) return Colors.TYPES.CMYK;
+        if (Color.isHEX(color)) return Color.TYPES.HEX;
+        if (Color.isRGB(color)) return Color.TYPES.RGB;
+        if (Color.isRGBA(color)) return Color.TYPES.RGBA;
+        if (Color.isHSV(color)) return Color.TYPES.HSV;
+        if (Color.isHSL(color)) return Color.TYPES.HSL;
+        if (Color.isCMYK(color)) return Color.TYPES.CMYK;
 
-        return Colors.TYPES.UNKNOWN;
+        return Color.TYPES.UNKNOWN;
     },
 
     toRGB: function(color){
-        if (Colors.isHSV(color)) return Colors.hsv2rgb(color);
-        if (Colors.isHSL(color)) return Colors.hsv2rgb(Colors.hsl2hsv(color));
-        if (Colors.isRGB(color)) return color;
-        if (Colors.isHEX(color)) return Colors.hex2rgb(color);
-        if (Colors.isCMYK(color)) return Colors.cmyk2rgb(color);
+        if (Color.isHSV(color)) return Color.hsv2rgb(color);
+        if (Color.isHSL(color)) return Color.hsv2rgb(Color.hsl2hsv(color));
+        if (Color.isRGB(color)) return color;
+        if (Color.isHEX(color)) return Color.hex2rgb(color);
+        if (Color.isCMYK(color)) return Color.cmyk2rgb(color);
 
         throw new Error("Unknown color format!");
     },
 
     toRGBA: function(color, alpha){
-        const result = Colors.toRGB(color);
+        const result = Color.toRGB(color);
         result.a = alpha || 1;
         return result;
     },
 
     toHSV: function(color){
-        return Colors.rgb2hsv(Colors.toRGB(color));
+        return Color.rgb2hsv(Color.toRGB(color));
     },
 
     toHSL: function(color){
-        return Colors.hsv2hsl(Colors.rgb2hsv(Colors.toRGB(color)));
+        return Color.hsv2hsl(Color.rgb2hsv(Color.toRGB(color)));
     },
 
     toHSLA: function(color, alpha){
-        let hsla = Colors.hsv2hsl(Colors.rgb2hsv(Colors.toRGB(color)));
-        hsla.a = alpha || Colors.options.alpha;
+        let hsla = Color.hsv2hsl(Color.rgb2hsv(Color.toRGB(color)));
+        hsla.a = alpha || Color.options.alpha;
         return hsla;
     },
 
     toHEX: function(color){
-        return Colors.rgb2hex(Colors.toRGB(color));
+        return Color.rgb2hex(Color.toRGB(color));
     },
 
     toCMYK: function(color){
-        return Colors.rgb2cmyk(Colors.toRGB(color));
+        return Color.rgb2cmyk(Color.toRGB(color));
     },
 
     toHexString: function(color){
-        return Colors.toHEX(color);
+        return Color.toHEX(color);
     },
 
     toHsvString: function(color){
-        const hsv = Colors.isHSV(color) ? color : Colors.toHSV(color);
+        const hsv = Color.isHSV(color) ? color : Color.toHSV(color);
         return "hsv("+[hsv.h, hsv.s, hsv.v].join(",")+")";
     },
 
     toHslString: function(color){
-        const hsl = Colors.isHSL(color) ? color : Colors.toHSL(color);
+        const hsl = Color.isHSL(color) ? color : Color.toHSL(color);
         return "hsl("+[Math.round(hsl.h), Math.round(hsl.s * 100) + "%" , Math.round(hsl.l * 100) + "%"].join(",")+")";
     },
 
     toHslaString: function(color){
-        const hsl = Colors.isHSLA(color) ? color : Colors.toHSLA(color);
+        const hsl = Color.isHSLA(color) ? color : Color.toHSLA(color);
         return "hsl("+[Math.round(hsl.h), Math.round(hsl.s * 100) + "%" , Math.round(hsl.l * 100) + "%", hsl.a].join(",")+")";
     },
 
     toCmykString: function(color){
-        const cmyk = Colors.isCMYK(color) ? color : Colors.toCMYK(color);
+        const cmyk = Color.isCMYK(color) ? color : Color.toCMYK(color);
         return "cmyk("+[cmyk.c, cmyk.m, cmyk.y, cmyk.k].join(",")+")";
     },
 
     toRgbString: function(color){
-        const rgb = Colors.isRGB(color) ? color : Colors.toRGB(color);
+        const rgb = Color.isRGB(color) ? color : Color.toRGB(color);
         return "rgb("+[rgb.r, rgb.g, rgb.b].join(",")+")";
     },
 
     toRgbaString: function(color){
-        const rgb = Colors.isRGBA(color) ? color : Colors.toRGBA(color);
+        const rgb = Color.isRGBA(color) ? color : Color.toRGBA(color);
         return "rgba("+[rgb.r, rgb.g, rgb.b, rgb.a].join(",")+")";
     },
 
     toString: function(color){
-        if (Colors.isHEX(color)) return Colors.toHexString(color);
-        if (Colors.isRGB(color)) return Colors.toRgbString(color);
-        if (Colors.isRGBA(color)) return Colors.toRgbaString(color);
-        if (Colors.isHSV(color)) return Colors.toHsvString(color);
-        if (Colors.isHSL(color)) return Colors.toHslString(color);
-        if (Colors.isHSLA(color)) return Colors.toHslaString(color);
-        if (Colors.isCMYK(color)) return Colors.toCmykString(color);
+        if (Color.isHEX(color)) return Color.toHexString(color);
+        if (Color.isRGB(color)) return Color.toRgbString(color);
+        if (Color.isRGBA(color)) return Color.toRgbaString(color);
+        if (Color.isHSV(color)) return Color.toHsvString(color);
+        if (Color.isHSL(color)) return Color.toHslString(color);
+        if (Color.isHSLA(color)) return Color.toHslaString(color);
+        if (Color.isCMYK(color)) return Color.toCmykString(color);
 
         throw new Error("Unknown color format!");
     },
 
     grayscale: function(color, output){
         output = output || "hex";
-        const rgb = Colors.toRGB(color);
+        const rgb = Color.toRGB(color);
         const gray = Math.round(rgb.r * .2125 + rgb.g * .7154 + rgb.b * .0721);
         const mono = {
             r: gray,
@@ -563,7 +563,7 @@ const Colors = {
         if (amount === undefined) {
             amount = 10;
         }
-        return Colors.lighten(color, -1 * Math.abs(amount));
+        return Color.lighten(color, -1 * Math.abs(amount));
     },
 
     lighten: function(color, amount){
@@ -596,29 +596,29 @@ const Colors = {
             amount = 10;
         }
 
-        type = Colors.is(color);
+        type = Color.is(color);
 
-        if (type === Colors.TYPES.RGBA) {
+        if (type === Color.TYPES.RGBA) {
             alpha = color.a;
         }
 
         do {
-            res = calc(Colors.toHEX(color), amount);
+            res = calc(Color.toHEX(color), amount);
             ring ? amount-- : amount++;
         } while (res.length < 7);
 
         switch (type) {
-            case "rgb": return Colors.toRGB(res);
-            case "rgba": return Colors.toRGBA(res, alpha);
-            case "hsv": return Colors.toHSV(res);
-            case "hsl": return Colors.toHSL(res);
-            case "cmyk": return Colors.toCMYK(res);
+            case "rgb": return Color.toRGB(res);
+            case "rgba": return Color.toRGBA(res, alpha);
+            case "hsv": return Color.toHSV(res);
+            case "hsl": return Color.toHSL(res);
+            case "cmyk": return Color.toCMYK(res);
             default: return res;
         }
     },
 
     isDark: function(color){
-        const rgb = Colors.toRGB(color);
+        const rgb = Color.toRGB(color);
         const YIQ = (
             ( rgb.r * 299 ) +
             ( rgb.g * 587 ) +
@@ -628,7 +628,7 @@ const Colors = {
     },
 
     isLight: function(hex){
-        return !Colors.isDark(hex);
+        return !Color.isDark(hex);
     },
 
     isHSV: function(val){
@@ -661,12 +661,12 @@ const Colors = {
 
     isColor: function(color){
         return !color ? false :
-            Colors.isHEX(color) ||
-            Colors.isRGB(color) ||
-            Colors.isRGBA(color) ||
-            Colors.isHSV(color) ||
-            Colors.isHSL(color) ||
-            Colors.isCMYK(color);
+            Color.isHEX(color) ||
+            Color.isRGB(color) ||
+            Color.isRGBA(color) ||
+            Color.isHSV(color) ||
+            Color.isHSL(color) ||
+            Color.isCMYK(color);
     },
 
     hueShift: function(h, s){
@@ -677,17 +677,17 @@ const Colors = {
     },
 
     getScheme: function(color, name, format, options){
-        const opt = Object.assign( {}, Colors.options, options );
+        const opt = Object.assign( {}, Color.options, options );
 
         let i;
         const scheme = [];
         let hsv;
         let rgb, h, s, v;
 
-        hsv = Colors.toHSV(color);
+        hsv = Color.toHSV(color);
         h = hsv.h; s = hsv.s; v = hsv.v;
 
-        if (Colors.isHSV(hsv) === false) {
+        if (Color.isHSV(hsv) === false) {
             console.log("The value is a not supported color format!");
             return false;
         }
@@ -695,11 +695,11 @@ const Colors = {
         function convert(source, format) {
             let result = [];
             switch (format) {
-                case "hex": result = source.map(function(v){return Colors.toHEX(v);}); break;
-                case "rgb": result = source.map(function(v){return Colors.toRGB(v);}); break;
-                case "rgba": result = source.map(function(v){return Colors.toRGBA(v, opt.alpha);}); break;
-                case "hsl": result = source.map(function(v){return Colors.toHSL(v);}); break;
-                case "cmyk": result = source.map(function(v){return Colors.toCMYK(v);}); break;
+                case "hex": result = source.map(function(v){return Color.toHEX(v);}); break;
+                case "rgb": result = source.map(function(v){return Color.toRGB(v);}); break;
+                case "rgba": result = source.map(function(v){return Color.toRGBA(v, opt.alpha);}); break;
+                case "hsl": result = source.map(function(v){return Color.toHSL(v);}); break;
+                case "cmyk": result = source.map(function(v){return Color.toCMYK(v);}); break;
                 default: result = source;
             }
 
@@ -720,31 +720,31 @@ const Colors = {
             case "mono":
                 if (opt.algorithm === 1) {
 
-                    rgb = Colors.hsv2rgb(hsv);
+                    rgb = Color.hsv2rgb(hsv);
                     rgb.r = toRange(Math.round(rgb.r + (255 - rgb.r) * opt.tint1), 0, 255);
                     rgb.g = toRange(Math.round(rgb.g + (255 - rgb.g) * opt.tint1), 0, 255);
                     rgb.b = toRange(Math.round(rgb.b + (255 - rgb.b) * opt.tint1), 0, 255);
-                    scheme.push(Colors.rgb2hsv(rgb));
+                    scheme.push(Color.rgb2hsv(rgb));
 
-                    rgb = Colors.hsv2rgb(hsv);
+                    rgb = Color.hsv2rgb(hsv);
                     rgb.r = toRange(Math.round(rgb.r + (255 - rgb.r) * opt.tint2), 0, 255);
                     rgb.g = toRange(Math.round(rgb.g + (255 - rgb.g) * opt.tint2), 0, 255);
                     rgb.b = toRange(Math.round(rgb.b + (255 - rgb.b) * opt.tint2), 0, 255);
-                    scheme.push(Colors.rgb2hsv(rgb));
+                    scheme.push(Color.rgb2hsv(rgb));
 
                     scheme.push(hsv);
 
-                    rgb = Colors.hsv2rgb(hsv);
+                    rgb = Color.hsv2rgb(hsv);
                     rgb.r = toRange(Math.round(rgb.r * opt.shade1), 0, 255);
                     rgb.g = toRange(Math.round(rgb.g * opt.shade1), 0, 255);
                     rgb.b = toRange(Math.round(rgb.b * opt.shade1), 0, 255);
-                    scheme.push(Colors.rgb2hsv(rgb));
+                    scheme.push(Color.rgb2hsv(rgb));
 
-                    rgb = Colors.hsv2rgb(hsv);
+                    rgb = Color.hsv2rgb(hsv);
                     rgb.r = toRange(Math.round(rgb.r * opt.shade2), 0, 255);
                     rgb.g = toRange(Math.round(rgb.g * opt.shade2), 0, 255);
                     rgb.b = toRange(Math.round(rgb.b * opt.shade2), 0, 255);
-                    scheme.push(Colors.rgb2hsv(rgb));
+                    scheme.push(Color.rgb2hsv(rgb));
                 } else if (opt.algorithm === 2) {
                     scheme.push(hsv);
                     for(i = 1; i <= opt.distance; i++) {
@@ -780,7 +780,7 @@ const Colors = {
             case 'comp':
                 scheme.push(hsv);
 
-                h = Colors.hueShift(hsv.h, 180.0);
+                h = Color.hueShift(hsv.h, 180.0);
                 scheme.push({h: h, s: s, v: v});
                 break;
 
@@ -789,13 +789,13 @@ const Colors = {
             case 'double':
                 scheme.push(hsv);
 
-                h = Colors.hueShift(h, 180.0);
+                h = Color.hueShift(h, 180.0);
                 scheme.push({h: h, s: s, v: v});
 
-                h = Colors.hueShift(h, opt.angle);
+                h = Color.hueShift(h, opt.angle);
                 scheme.push({h: h, s: s, v: v});
 
-                h = Colors.hueShift(h, 180.0);
+                h = Color.hueShift(h, 180.0);
                 scheme.push({h: h, s: s, v: v});
 
                 break;
@@ -803,12 +803,12 @@ const Colors = {
             case 'analogous':
             case 'analog':
 
-                h = Colors.hueShift(h, opt.angle);
+                h = Color.hueShift(h, opt.angle);
                 scheme.push({h: h, s: s, v: v});
 
                 scheme.push(hsv);
 
-                h = Colors.hueShift(hsv.h, 0.0 - opt.angle);
+                h = Color.hueShift(hsv.h, 0.0 - opt.angle);
                 scheme.push({h: h, s: s, v: v});
 
                 break;
@@ -817,7 +817,7 @@ const Colors = {
             case 'triad':
                 scheme.push(hsv);
                 for ( i = 1; i < 3; i++ ) {
-                    h = Colors.hueShift(h, 120.0);
+                    h = Color.hueShift(h, 120.0);
                     scheme.push({h: h, s: s, v: v});
                 }
                 break;
@@ -826,13 +826,13 @@ const Colors = {
             case 'tetra':
                 scheme.push(hsv);
 
-                h = Colors.hueShift(hsv.h, 180.0);
+                h = Color.hueShift(hsv.h, 180.0);
                 scheme.push({h: h, s: s, v: v});
 
-                h = Colors.hueShift(hsv.h, -1 * opt.angle);
+                h = Color.hueShift(hsv.h, -1 * opt.angle);
                 scheme.push({h: h, s: s, v: v});
 
-                h = Colors.hueShift(h, 180.0);
+                h = Color.hueShift(h, 180.0);
                 scheme.push({h: h, s: s, v: v});
 
                 break;
@@ -840,7 +840,7 @@ const Colors = {
             case 'square':
                 scheme.push(hsv);
                 for ( i = 1; i < 4; i++ ) {
-                    h = Colors.hueShift(h, 90.0);
+                    h = Color.hueShift(h, 90.0);
                     scheme.push({h: h, s: s, v: v});
                 }
                 break;
@@ -848,12 +848,12 @@ const Colors = {
             case 'split-complementary':
             case 'split-complement':
             case 'split':
-                h = Colors.hueShift(h, 180.0 - opt.angle);
+                h = Color.hueShift(h, 180.0 - opt.angle);
                 scheme.push({h: h, s: s, v: v});
 
                 scheme.push(hsv);
 
-                h = Colors.hueShift(hsv.h, 180.0 + opt.angle);
+                h = Color.hueShift(hsv.h, 180.0 + opt.angle);
                 scheme.push({h: h, s: s, v: v});
                 break;
 
@@ -864,10 +864,10 @@ const Colors = {
     }
 };
 
-Colors.init = function(){
-    Colors.colorList = Object.assign({}, Colors.colorListMetro, Colors.colorListStandard);
+Color.init = function(){
+    Color.colorList = Object.assign({}, Color.colorListMetro, Color.colorListStandard);
 };
 
-Colors.init();
+Color.init();
 
-export default Colors;
+export default Color;

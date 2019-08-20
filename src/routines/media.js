@@ -1,4 +1,4 @@
-const mediaPoints = {
+const MediaPoints = {
     'fs': 0,
     'xs': 360,
     'sm': 576,
@@ -9,4 +9,4 @@ const mediaPoints = {
     'xxl': 1452,
 };
 
-export {mediaPoints};
+export {MediaPoints};

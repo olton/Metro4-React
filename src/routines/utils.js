@@ -427,7 +427,7 @@ const Utils = {
         } : a;
     },
 
-    // TODO deprecated, move to colors.js
+    // TODO deprecated, move to color.js
     computedRgbToHex: function(rgb){
         const a = rgb.replace(/[^\d,]/g, '').split(',');
         let result = "#";
@@ -440,7 +440,7 @@ const Utils = {
         return result;
     },
 
-    // TODO deprecated, move to colors.js
+    // TODO deprecated, move to color.js
     computedRgbToRgba: function(rgb, alpha){
         const a = rgb.replace(/[^\d,]/g, '').split(',');
         if (alpha === undefined) {
@@ -450,12 +450,12 @@ const Utils = {
         return "rgba("+a.join(",")+")";
     },
 
-    // TODO deprecated, move to colors.js
+    // TODO deprecated, move to color.js
     computedRgbToArray: function(rgb){
         return rgb.replace(/[^\d,]/g, '').split(',');
     },
 
-    // TODO deprecated, move to colors.js
+    // TODO deprecated, move to color.js
     hexColorToArray: function(hex){
         let c;
         if (/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
@@ -469,7 +469,7 @@ const Utils = {
         return [0,0,0];
     },
 
-    // TODO deprecated, move to colors.js
+    // TODO deprecated, move to color.js
     hexColorToRgbA: function(hex, alpha){
         let c;
         if (/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){

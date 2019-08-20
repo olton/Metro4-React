@@ -52,7 +52,7 @@ export default class Common extends React.Component {
                     <li>utils.less - any utils classes (scroll, overflow, ...)</li>
                 </ul>
                 <p>
-                    Detailed description you can find in official <a href={'https://metroui.org.ua/'}>Metro 4 Documentation</a>.
+                    Detailed description you can find in official <a href={METRO_OFF_SITE}>Metro 4 Documentation</a>.
                 </p>
 
 

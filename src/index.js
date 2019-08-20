@@ -1,6 +1,7 @@
 import * as Common from "./common";
 import * as Colors from "./colors";
 import * as Icons from "./icons";
+import * as Routines from "./routines";
 
 import Container  from "./components/container/container";
 import Accordion, {AccordionFrame}  from "./components/accordion/accordion";
@@ -46,9 +47,13 @@ import Progress from "./components/progress/progress";
 import Panel from "./components/panel/panel";
 import Rating from "./components/rating/rating";
 import HtmlContainer from "./components/html-container/html-container";
+import Table from "./components/table/table";
+
+import {Utils, Color, MD5, MediaPoints} from "./routines"
 
 export {
-    Common, Colors, Icons,
+    Common, Colors, Icons, Routines,
+    Utils, Color, MD5, MediaPoints,
 
     Container,
     Accordion, AccordionFrame,
@@ -93,4 +98,5 @@ export {
     Tabs, Tab, SplitButton,
     Progress, Panel,
     Rating, HtmlContainer,
+    Table,
 };

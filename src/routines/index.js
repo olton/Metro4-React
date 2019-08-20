@@ -1,9 +1,11 @@
+import Color from "./color";
 import Utils from "./utils";
-import md5 from "./md5";
-import {mediaPoints} from "./media";
+import MD5 from "./md5";
+import {MediaPoints} from "./media";
 
 export {
+    Color,
     Utils,
-    md5,
-    mediaPoints
+    MD5,
+    MediaPoints
 }

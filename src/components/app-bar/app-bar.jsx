@@ -4,7 +4,7 @@ import AppBarBrand from "./brand"
 import AppBarItem from "./item"
 import AppBarMenu from "./menu"
 import "./app-bar.less";
-import {mediaPoints} from "../../routines";
+import {MediaPoints} from "../../routines";
 
 export default class AppBar extends Component {
     static defaultProps = {
@@ -36,8 +36,8 @@ export default class AppBar extends Component {
 
     collectMedias(){
         this.medias = [];
-        for(let k in mediaPoints) {
-            if (window.matchMedia(`(min-width: ${mediaPoints[k]}px)`).matches) {
+        for(let k in MediaPoints) {
+            if (window.matchMedia(`(min-width: ${MediaPoints[k]}px)`).matches) {
                 this.medias.push(k);
             }
         }

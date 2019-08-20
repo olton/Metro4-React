@@ -9,6 +9,7 @@ import "../css/guide.less";
 import NotFound from "./NotFound";
 import GuideIntro from "./guide/Intro";
 import GuideCommon from "./guide/Common";
+import GuideColorStyles from "./guide/ColorStyles";
 import GuideGrid from "./guide/Grid";
 
 export default class Guide extends React.Component {
@@ -23,6 +24,7 @@ export default class Guide extends React.Component {
                             <Switch>
                                 <Route exact path='/guide/' component={GuideIntro}/>
                                 <Route path='/guide/common' component={GuideCommon}/>
+                                <Route path='/guide/colors' component={GuideColorStyles}/>
                                 <Route path='/guide/grid' component={GuideGrid}/>
                                 <Route component={NotFound} />
                             </Switch>

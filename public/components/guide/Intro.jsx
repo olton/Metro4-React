@@ -2,17 +2,17 @@ import React from "react";
 import PrismCode from "../PrismCode";
 import {Adsense} from "../../../src";
 
-const codeInstallNpm = `> npm install metro4-react`;
-const codeInstallYarn = `> yarn add metro4-react`;
-const codeImportComponent = `import {Button} from "metro4-react";`;
-
 export default class Intro extends React.Component {
     render(){
+        const codeInstallNpm = `> npm install metro4-react`;
+        const codeInstallYarn = `> yarn add metro4-react`;
+        const codeImportComponent = `import {Button} from "metro4-react";`;
+
         return(
             <div className={'pl-10-md pr-10-md'}>
                 <h1>Intro</h1>
                 <div className={'text-leader2'}>
-                    Metro 4 for React is a complete re-implementation of the <a href={'https://metroui.org.ua'}>Metro 4</a> components library using React.
+                    Metro 4 for React is a complete re-implementation of the <a href={METRO_OFF_SITE}>Metro 4</a> components library using React.
                     If you have React setup and Metro 4 for React installed you have everything you need.
                     Metro 4 for React is a collection of over 100+ components ready to use in your reactive application.
                 </div>
@@ -25,10 +25,6 @@ export default class Intro extends React.Component {
                 <Adsense client={'ca-pub-1632668592742327'} slot={'4639163605'} test={SITE_MODE_DEV}/>
                 <br/>
 
-                <p className={'remark alert'}>
-                    <b>Very important!</b> You should have at least a general understanding of how ReactJS works and how to use components written for it.
-                </p>
-                <br/>
                 <h3>Installation</h3>
                 <p>
                     The best way to consume <code>Metro 4 for React</code> is via the <code>npm package</code> which you can install with <code>npm</code> or <code>yarn</code>.
