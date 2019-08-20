@@ -1,7 +1,7 @@
 import React from "react";
 import {createPortal} from "react-dom";
 import "./modal.less";
-import Colors from "../../colors/colors";
+import Colors from "../../routines/colors";
 
 export default class Modal extends React.Component {
     static defaultProps = {

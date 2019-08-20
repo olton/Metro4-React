@@ -1,12 +1,12 @@
 import React from "react";
 import PrismCode from "../PrismCode";
-import {Adsense, Container} from "../../../src";
+import {Adsense} from "../../../src";
 
-const codeInstall = `> npm install metro4-react`;
-const codeImportCommon = `import 'metro4-react/common';`;
+const codeInstallNpm = `> npm install metro4-react`;
+const codeInstallYarn = `> yarn add metro4-react`;
 const codeImportComponent = `import {Button} from "metro4-react";`;
 
-export default class GuideIntro extends React.Component {
+export default class Intro extends React.Component {
     render(){
         return(
             <div className={'pl-10-md pr-10-md'}>
@@ -25,19 +25,21 @@ export default class GuideIntro extends React.Component {
                 <Adsense client={'ca-pub-1632668592742327'} slot={'4639163605'} test={SITE_MODE_DEV}/>
                 <br/>
 
+                <p className={'remark alert'}>
+                    <b>Very important!</b> You should have at least a general understanding of how ReactJS works and how to use components written for it.
+                </p>
                 <br/>
                 <h3>Installation</h3>
                 <p>
-                    The best way to consume <code>Metro 4 for React</code> is via the <code>npm package</code> which you can install with <code>npm</code>.
+                    The best way to consume <code>Metro 4 for React</code> is via the <code>npm package</code> which you can install with <code>npm</code> or <code>yarn</code>.
                 </p>
-                <PrismCode language={'shell'} code={codeInstall}/>
+                <h5>npm</h5>
+                <PrismCode language={'shell'} code={codeInstallNpm}/>
+                <h5>yarn</h5>
+                <PrismCode language={'shell'} code={codeInstallYarn}/>
 
                 <br/>
                 <h3>Importing</h3>
-                <p>
-                    Before using Metro 4 for React components, you must import <code>common styles</code>.
-                </p>
-                <PrismCode language="js" code={codeImportCommon}/>
 
                 <p>
                     You should import individual components like: <code>metro4-react/Button</code> rather than the entire library.

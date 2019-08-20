@@ -33,7 +33,7 @@ export default class SideMenu extends React.Component {
 
                         <li className={'group-title'}>Form elements</li>
                         <li><NavLink to={'/guide/input'}>Input</NavLink></li>
-                        <li><NavLink to={'/guide/input-file'}>Input file</NavLink></li>
+                        <li><NavLink to={'/guide/input-file'}>File</NavLink></li>
                         <li><NavLink to={'/guide/checkbox'}>Checkbox</NavLink></li>
                         <li><NavLink to={'/guide/switch'}>Switch</NavLink></li>
                         <li><NavLink to={'/guide/radio'}>Radio</NavLink></li>

@@ -1,11 +1,10 @@
-import "../src/common/common.less";
-import "../src/colors/colors.less";
-import "../src/icons/mif.less";
-import {Utils} from "../src/routines";
-
 import React from "react";
 import {render} from "react-dom";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+import {Common, Colors, Icons} from "../src"
+import {Utils} from "../src/routines";
+
 import NotFound from "./components/NotFound";
 import Home from "./components/Home";
 import Guide from "./components/Guide";

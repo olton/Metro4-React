@@ -4,11 +4,12 @@ import {
     Container, Grid, Row, Cell,
 } from "../../src";
 import MainMenu from "./MainMenu";
-import GuideGrid from "./guide/Grid";
 import SideMenu from "./SideMenu";
 import "../css/guide.less";
 import NotFound from "./NotFound";
 import GuideIntro from "./guide/Intro";
+import GuideCommon from "./guide/Common";
+import GuideGrid from "./guide/Grid";
 
 export default class Guide extends React.Component {
     render(){
@@ -21,6 +22,7 @@ export default class Guide extends React.Component {
                         <article>
                             <Switch>
                                 <Route exact path='/guide/' component={GuideIntro}/>
+                                <Route path='/guide/common' component={GuideCommon}/>
                                 <Route path='/guide/grid' component={GuideGrid}/>
                                 <Route component={NotFound} />
                             </Switch>

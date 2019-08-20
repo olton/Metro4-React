@@ -33,7 +33,7 @@ import {
 
 import MainMenu from "./MainMenu";
 import "../css/demo.less";
-import Colors from "../../src/colors/colors";
+import Colors from "../../src/routines/colors";
 
 const autocompleteList = ["Ukraine", "USA", "Canada", "Marokko", "Singapur"];
 

@@ -1,3 +1,7 @@
+import * as Common from "./common";
+import * as Colors from "./colors";
+import * as Icons from "./icons";
+
 import Container  from "./components/container/container";
 import Accordion, {AccordionFrame}  from "./components/accordion/accordion";
 import Activity from "./components/activity/activity";
@@ -44,6 +48,8 @@ import Rating from "./components/rating/rating";
 import HtmlContainer from "./components/html-container/html-container";
 
 export {
+    Common, Colors, Icons,
+
     Container,
     Accordion, AccordionFrame,
     Activity, ActivityModal,
