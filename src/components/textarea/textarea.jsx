@@ -9,6 +9,7 @@ export default class Textarea extends React.Component {
         append: "",
         prepend: "",
         clear: true,
+        clsClearButton: "",
         onClear: () => {},
         onChange: () => {},
         onBlur: () => {},
@@ -116,7 +117,7 @@ export default class Textarea extends React.Component {
     }
 
     render(){
-        const {autosize, append, prepend, clear, onClear, ...props} = this.props;
+        const {autosize, append, prepend, clear, onClear, clsClearButton, ...props} = this.props;
         const {value, focus} = this.state;
 
         return (
@@ -128,7 +129,7 @@ export default class Textarea extends React.Component {
                 <textarea {...props} value={value} onChange={this.onChange} ref={ref => this.input = ref}/>
 
                 {clear && !props.readOnly && (
-                    <Button cls='input-clear-button' type='button' onClick={this.clearValue} tabIndex={-1}>
+                    <Button cls={'input-clear-button ' + clsClearButton} type='button' onClick={this.clearValue} tabIndex={-1}>
                         <span className='default-icon-cross'/>
                     </Button>
                 )}
