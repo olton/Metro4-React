@@ -2,7 +2,7 @@ import React from "react";
 import {Adsense} from "../../../src";
 import PrismCode from "../PrismCode";
 
-export default class Template extends React.Component {
+export default class GuideTemplate extends React.Component {
     render(){
         const codeImport = ``;
 

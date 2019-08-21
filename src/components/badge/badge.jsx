@@ -6,15 +6,16 @@ export default class Badge extends React.Component {
         inside: false,
         inline: false,
         value: false,
-        cls: ""
+        cls: "",
+        className: ""
     };
 
     render(){
-        const {value, inside, inline, cls} = this.props;
-        const className = `badge ${inline ? 'inline' : ''} ${inside ? 'inside' : ''} ${cls}`;
+        const {value, inside, inline, cls, className} = this.props;
+        const classBadge = `badge ${inline ? 'inline' : ''} ${inside ? 'inside' : ''} ${cls} ${className}`;
 
         return (
-            <span className={className}>
+            <span className={classBadge}>
                 {value !== false && (
                     <span>{value}</span>
                 )}

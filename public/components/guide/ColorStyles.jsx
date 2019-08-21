@@ -3,7 +3,7 @@ import {Adsense, Color, Table} from "../../../src";
 import PrismCode from "../PrismCode";
 import "../../../src/extensions";
 
-export default class ColorStyles extends React.Component {
+export default class GuideColorStyles extends React.Component {
     render(){
         const codeImportColors = `import {Colors} from metro4-react;`;
         const palette = [];

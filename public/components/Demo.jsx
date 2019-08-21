@@ -997,8 +997,8 @@ export default class Demo extends React.Component {
                             &nbsp;<Button cls="warning" icon="bell"/>
                             &nbsp;<Button as="a" cls="secondary" title="Link as Button" href="#"/>
                             &nbsp;<Button as="span" cls="primary" title="Span as Button"/>
-                            &nbsp;<Button title="Flat Button" isFlat={true}/>
-                            &nbsp;<Button icon="envelop"><Badge cls="alert" value={10}/></Button>
+                            &nbsp;<Button title="Flat Button" cls={'flat-button'}/>
+                            &nbsp;<Button icon="envelop" badge={10} clsBadge={'alert'}/>
                         </Cell>
                     </Row>
 

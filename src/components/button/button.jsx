@@ -1,24 +1,26 @@
 import React from "react";
 import Icon from "../icon/icon.jsx";
 import "./button.less";
+import Badge from "../badge/badge";
 
 export default class Button extends React.Component{
     static defaultProps = {
         as: "button",
         title: "",
-        tag: false,
-        icon: false,
+        badge: null,
+        icon: null,
         iconPrefix: "mif-",
-        image: false,
+        image: null,
         cls: "",
-        type: "button",
-        href: "",
-        isFlat: false
+        className: "",
+        clsTitle: "",
+        clsIcon: "",
+        clsBadge: "",
     };
 
     constructor(props){
         super(props);
-        this.button = null;
+        this.button = React.createRef();
     }
 
     render(){
@@ -28,41 +30,31 @@ export default class Button extends React.Component{
             iconPrefix,
             image,
             title,
-            cls,
-            type,
-            href,
-            isFlat,
-            tag
+            cls, className,
+            clsTitle, clsIcon, clsBadge,
+            badge,
+            ...rest
         } = this.props;
 
         const Element = this.props.as;
-        const className = `button ${cls} ${isFlat ? 'flat-button' : ''}`;
-        const buttonProps = {};
-
-        if (as === 'a') {
-            buttonProps.href = href;
-        } else {
-            buttonProps.type = type;
-        }
+        const classButton = `button ${cls} ${className}`;
 
         return (
-            <Element className={className} {...buttonProps} ref={btn => this.button = btn} tabIndex={this.props.tabIndex} onClick={this.props.onClick}>
+            <Element className={classButton} ref={this.button} {...rest}>
                 {icon && (
-                    <Icon prefix={iconPrefix} name={icon} />
+                    <Icon prefix={iconPrefix} name={icon} cls={clsIcon} />
                 )}
 
                 {image && (
-                    <img className={'icon '} src={image} alt=""/>
+                    <img className={'icon ' + clsIcon} src={image} alt=""/>
                 )}
 
                 {title && (
-                    <span className={'caption '} dangerouslySetInnerHTML={{__html: title}}/>
+                    <span className={'caption ' + clsTitle} dangerouslySetInnerHTML={{__html: title}}/>
                 )}
 
-                {tag && (
-                    <span className={'tag '}>
-                    {tag}
-                </span>
+                {badge && (
+                    <Badge value={badge} cls={clsBadge}/>
                 )}
 
                 {this.props.children}

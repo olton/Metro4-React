@@ -100,7 +100,7 @@ const webpackConfig = {
     plugins: [
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
-            filename: isProduction ? '[name].[hash].css' : '[name].js'
+            filename: isProduction ? '[name].[hash].css' : '[name].css'
         }),
         new HtmlWebpackPlugin({
             template: 'public/index.html',

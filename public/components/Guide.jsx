@@ -11,6 +11,7 @@ import GuideIntro from "./guide/Intro";
 import GuideCommon from "./guide/Common";
 import GuideColorStyles from "./guide/ColorStyles";
 import GuideGrid from "./guide/Grid";
+import GuideButton from './guide/Button'
 
 export default class Guide extends React.Component {
     constructor(props){
@@ -62,6 +63,7 @@ export default class Guide extends React.Component {
                                 <Route path='/guide/common' component={GuideCommon}/>
                                 <Route path='/guide/colors' component={GuideColorStyles}/>
                                 <Route path='/guide/grid' component={GuideGrid}/>
+                                <Route path='/guide/push-button' component={GuideButton}/>
                                 <Route component={NotFound} />
                             </Switch>
                         </article>

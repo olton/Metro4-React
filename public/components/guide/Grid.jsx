@@ -2,7 +2,7 @@ import React from "react";
 import {Adsense, Table} from "../../../src";
 import PrismCode from "../PrismCode";
 
-export default class Grid extends React.Component {
+export default class GuideGrid extends React.Component {
     render(){
         const codeImport = `import {Grid, Row, Cell} from "metro4-react;"`;
         const codeUseGrid = `<Grid>...</Grid>`;

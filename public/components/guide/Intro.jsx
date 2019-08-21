@@ -2,7 +2,7 @@ import React from "react";
 import PrismCode from "../PrismCode";
 import {Adsense} from "../../../src";
 
-export default class Intro extends React.Component {
+export default class GuideIntro extends React.Component {
     render(){
         const codeInstallNpm = `> npm install metro4-react`;
         const codeInstallYarn = `> yarn add metro4-react`;
