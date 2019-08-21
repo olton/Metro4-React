@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import {
-    Container, Row, Cell,
+    Container, Row, Cell, MediaPoints,
 } from "../../src";
 import MainMenu from "./MainMenu";
 import SideMenu from "./SideMenu";
@@ -13,7 +13,43 @@ import GuideColorStyles from "./guide/ColorStyles";
 import GuideGrid from "./guide/Grid";
 
 export default class Guide extends React.Component {
+    constructor(props){
+        super(props);
+        this.collectMedias();
+        const isMobile = !this.medias.includes("md");
+        this.state = {
+            sideMenuOpen: !isMobile,
+            isMobile: isMobile
+        };
+    }
+
+    collectMedias(){
+        this.medias = [];
+        for(let k in MediaPoints) {
+            if (window.matchMedia(`(min-width: ${MediaPoints[k]}px)`).matches) {
+                this.medias.push(k);
+            }
+        }
+    }
+
+    handleWindowResize = e => {
+        this.collectMedias();
+        this.setState({
+            isMobile: !this.medias.includes("md")
+        });
+    };
+
+    componentDidMount(){
+        window.addEventListener("resize", this.handleWindowResize);
+    }
+
+    componentWillUnmount(){
+        window.removeEventListener("resize", this.handleWindowResize);
+    }
+
     render(){
+        const {isMobile} = this.state;
+
         return (
             <Container fluid={true} cls={'guide-main-container'}>
                 <MainMenu fullSize={true}/>
@@ -31,7 +67,7 @@ export default class Guide extends React.Component {
                         </article>
                     </Cell>
                     <Cell cls={'cell-md-4 cell-lg-3 order-1 order-md-2'} id={'side-nav'}>
-                        <SideMenu/>
+                        <SideMenu isMobile={isMobile}/>
                     </Cell>
                 </Row>
             </Container>

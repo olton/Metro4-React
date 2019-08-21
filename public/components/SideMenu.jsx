@@ -3,82 +3,121 @@ import {Router, NavLink, Link} from "react-router-dom";
 import SearchForm from "./SearchForm";
 import Collapse from "../../src/components/collapse/collapse";
 import "../css/side-bar.less";
+import {Button} from "../../src";
+
+const menuItems = {
+    "General": [
+        {to: "/guide", caption: "Intro", exact: true},
+        {to: "/guide/common", caption: "Common styles"},
+        {to: "/guide/colors", caption: "Colors styles"},
+    ],
+    "Grid": [
+        {to: "/guide/grid", caption: "Responsive Grid"}
+    ],
+    "Buttons": [
+        {to: "/guide/push-button", caption: "PushButton"},
+        {to: "/guide/split-button", caption: "SplitButton"},
+        {to: "/guide/tool-button", caption: "ToolButton"},
+        {to: "/guide/command-button", caption: "CommandButton"},
+        {to: "/guide/info-button", caption: "InfoButton"},
+        {to: "/guide/images-button", caption: "ImageButton"},
+        {to: "/guide/action-button", caption: "ActionButton"},
+        {to: "/guide/shortcut", caption: "Shortcut"},
+        {to: "/guide/pagination", caption: "Pagination"},
+        {to: "/guide/breadcrumbs", caption: "Breadcrumbs"},
+        {to: "/guide/hamburger", caption: "Hamburger"},
+    ],
+    "Form elements": [
+        {to: "/guide/input", caption: "Input"},
+        {to: "/guide/file", caption: "File"},
+        {to: "/guide/switch", caption: "Switch"},
+        {to: "/guide/radio", caption: "Radio"},
+        {to: "/guide/select", caption: "Select"},
+        {to: "/guide/rating", caption: "Rating"},
+        {to: "/guide/textarea", caption: "Textarea"},
+    ],
+    "Menus": [
+        {to: "/guide/app-bar", caption: "AppBar"},
+        {to: "/guide/bottom-nav", caption: "BottomNav"},
+    ],
+    "Layout": [
+        {to: "/guide/container", caption: "Container"},
+        {to: "/guide/panel", caption: "Panel"},
+        {to: "/guide/info-panel", caption: "InfoPanel"},
+        {to: "/guide/accordion", caption: "Accordion"},
+        {to: "/guide/tabs", caption: "Tabs"},
+        {to: "/guide/modal", caption: "Modal"},
+        {to: "/guide/body", caption: "Body"},
+        {to: "/guide/html-container", caption: "HtmlContainer"},
+        {to: "/guide/dialog", caption: "Dialog"},
+        {to: "/guide/button-group", caption: "ButtonGroup"},
+    ],
+    "Dropdown & collapse": [
+        {to: "/guide/collapse", caption: "Collapse"},
+        {to: "/guide/dropdown", caption: "Dropdown"},
+    ],
+    "Routines": [
+        {to: "/guide/utils", caption: "Utils functions"},
+        {to: "/guide/color", caption: "Color routines"},
+        {to: "/guide/md5", caption: "MD5"},
+        {to: "/guide/media", caption: "Media"},
+    ],
+    "Icon font": [
+        {to: "/guide/mif", caption: "Metro Icon Font"},
+        {to: "/guide/icon", caption: "Icon"},
+        {to: "/guide/other-icon-fonts", caption: "Other icon fonts"},
+    ]
+};
 
 export default class SideMenu extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            open: !props.isMobile,
+            isMobile: props.isMobile
+        }
+    }
+
+    static getDerivedStateFromProps(props, state){
+        if (props.isMobile !== state.isMobile) {
+            return {
+                open: !props.isMobile,
+                isMobile: props.isMobile
+            }
+        }
+        return null;
+    }
+
+    toggleMenu = e => {
+        this.setState({
+            open: !this.state.open
+        })
+    };
+
     render(){
+        const {open, isMobile} = this.state;
+        const items = [];
+        let itemIndex = -1;
+
+        for (let itemGroup in menuItems) {
+            items.push(<li key={itemIndex++} className={'group-title'}>{itemGroup.toUpperCase()}</li>);
+
+            menuItems[itemGroup].map( item => {
+                return items.push(<li key={itemIndex++}><NavLink exact={item.exact ? true : null} to={item.to} onClick={isMobile ? this.toggleMenu : null}>{item.caption}</NavLink></li>);
+            });
+        }
+
         return (
             <div className={'side-bar'}>
                 <SearchForm/>
 
-                <Collapse isOpen={true}>
+                <div className='p-4' hidden={!this.props.isMobile} >
+                    <Button cls={'dropdown-toggle w-100 ' + (open ? 'active-toggle' : '')} onClick={this.toggleMenu}>Navigator</Button>
+                </div>
+
+                <Collapse isOpen={open}>
                     <ul className={'side-bar-menu'}>
-                        <li className={'group-title'}>General</li>
-                        <li><NavLink exact to={'/guide'}>Intro</NavLink></li>
-                        <li><NavLink to={'/guide/common'}>Common styles</NavLink></li>
-                        <li><NavLink to={'/guide/colors'}>Color styles</NavLink></li>
-
-                        <li className={'group-title'}>Grid</li>
-                        <li><NavLink to={'/guide/grid'}>Responsive Grid</NavLink></li>
-
-                        <li className={'group-title'}>Buttons</li>
-                        <li><NavLink to={'/guide/push-button'}>PushButton</NavLink></li>
-                        <li><NavLink to={'/guide/split-button'}>SplitButton</NavLink></li>
-                        <li><NavLink to={'/guide/tool-button'}>ToolButton</NavLink></li>
-                        <li><NavLink to={'/guide/command-button'}>CommandButton</NavLink></li>
-                        <li><NavLink to={'/guide/info-button'}>InfoButton</NavLink></li>
-                        <li><NavLink to={'/guide/image-button'}>ImageButton</NavLink></li>
-                        <li><NavLink to={'/guide/shortcut'}>Shortcut</NavLink></li>
-                        <li><NavLink to={'/guide/action-button'}>ActionButton</NavLink></li>
-                        <li><NavLink to={'/guide/pagination'}>Pagination</NavLink></li>
-                        <li><NavLink to={'/guide/breadcrumbs'}>Breadcrumbs</NavLink></li>
-                        <li><NavLink to={'/guide/hamburger'}>Hamburger</NavLink></li>
-
-                        <li className={'group-title'}>Form elements</li>
-                        <li><NavLink to={'/guide/input'}>Input</NavLink></li>
-                        <li><NavLink to={'/guide/input-file'}>File</NavLink></li>
-                        <li><NavLink to={'/guide/checkbox'}>Checkbox</NavLink></li>
-                        <li><NavLink to={'/guide/switch'}>Switch</NavLink></li>
-                        <li><NavLink to={'/guide/radio'}>Radio</NavLink></li>
-                        <li><NavLink to={'/guide/select'}>Select</NavLink></li>
-                        <li><NavLink to={'/guide/rating'}>Rating</NavLink></li>
-                        <li><NavLink to={'/guide/textarea'}>Textarea</NavLink></li>
-
-                        <li className={'group-title'}>Menus</li>
-                        <li><NavLink to={'/guide/app-bar'}>App bar</NavLink></li>
-                        <li><NavLink to={'/guide/bottom-nav'}>Bottom nav</NavLink></li>
-
-                        <li className={'group-title'}>Visual components</li>
-                        <li><NavLink to={'/guide/activity'}>Activity</NavLink></li>
-                        <li><NavLink to={'/guide/progress'}>Progress</NavLink></li>
-                        <li><NavLink to={'/guide/gravatar'}>Gravatar</NavLink></li>
-                        <li><NavLink to={'/guide/badge'}>Badge</NavLink></li>
-
-                        <li className={'group-title'}>Layout</li>
-                        <li><NavLink to={'/guide/container'}>Container</NavLink></li>
-                        <li><NavLink to={'/guide/panel'}>Panel</NavLink></li>
-                        <li><NavLink to={'/guide/info-panel'}>Info Panel</NavLink></li>
-                        <li><NavLink to={'/guide/accordion'}>Accordion</NavLink></li>
-                        <li><NavLink to={'/guide/accordion'}>Tabs</NavLink></li>
-                        <li><NavLink to={'/guide/modal'}>Modal</NavLink></li>
-                        <li><NavLink to={'/guide/body'}>Body</NavLink></li>
-                        <li><NavLink to={'/guide/html-container'}>Html container</NavLink></li>
-                        <li><NavLink to={'/guide/html-container'}>Dialog</NavLink></li>
-                        <li><NavLink to={'/guide/html-container'}>Button group</NavLink></li>
-
-                        <li className={'group-title'}>Dropdown &amp; Collapse</li>
-                        <li><NavLink to={'/guide/collapse'}>Collapse</NavLink></li>
-                        <li><NavLink to={'/guide/dropdown'}>Dropdown</NavLink></li>
-
-                        <li className={'group-title'}>Routines</li>
-                        <li><NavLink to={'/guide/utils'}>Utils functions</NavLink></li>
-                        <li><NavLink to={'/guide/color-module'}>Color routines</NavLink></li>
-                        <li><NavLink to={'/guide/md5'}>MD5</NavLink></li>
-                        <li><NavLink to={'/guide/media'}>Media</NavLink></li>
-
-                        <li className={'group-title'}>Icon font</li>
-                        <li><NavLink to={'/guide/mif'}>Metro icon font</NavLink></li>
-                        <li><NavLink to={'/guide/icon-component'}>Icon component</NavLink></li>
-                        <li><NavLink to={'/guide/other-fonts'}>Other fonts</NavLink></li>
+                        {items}
                     </ul>
                 </Collapse>
             </div>

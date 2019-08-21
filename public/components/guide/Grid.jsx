@@ -71,7 +71,7 @@ export default class Grid extends React.Component {
 
                 <br/>
                 <h4>Grid</h4>
-                <PrismCode language="js" code={codeUseGrid}/>
+                <PrismCode language="jsx" code={codeUseGrid}/>
 
                 <h5>Props</h5>
                 <Table className='table-border cell-border'>
@@ -89,11 +89,11 @@ export default class Grid extends React.Component {
 
                 <br/>
                 <h4>Row</h4>
-                <PrismCode language="js" code={codeUseRow}/>
+                <PrismCode language="jsx" code={codeUseRow}/>
                 <p>
                     You can use <code>Row</code> without a <code>Grid</code> element.
                 </p>
-                <PrismCode language="js" code={codeUseRowStandalone}/>
+                <PrismCode language="jsx" code={codeUseRowStandalone}/>
 
                 <h5>Props</h5>
                 <Table className='table-border cell-border'>
@@ -111,7 +111,7 @@ export default class Grid extends React.Component {
 
                 <br/>
                 <h4>Cell</h4>
-                <PrismCode language="js" code={codeUseCell}/>
+                <PrismCode language="jsx" code={codeUseCell}/>
 
                 <h5>Props</h5>
                 <Table className='table-border cell-border'>
@@ -146,13 +146,13 @@ export default class Grid extends React.Component {
                     In example below, cell will use one column when width less then <code>768px</code>, and six columns when width more or equal <code>768px</code>.
                 </p>
 
-                <PrismCode language="js" code={codeUseCellResponsive}/>
+                <PrismCode language="jsx" code={codeUseCellResponsive}/>
 
                 <p>
                     You can combine classes to build responsive grid with 12 columns total.
                 </p>
 
-                <PrismCode language="js" code={codeUseCellClass}/>
+                <PrismCode language="jsx" code={codeUseCellClass}/>
 
                 <Table className='table-border cell-border'>
                     <tr>
