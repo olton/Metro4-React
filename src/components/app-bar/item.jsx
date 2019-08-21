@@ -2,16 +2,19 @@ import React from "react";
 
 export default class AppBarItem extends React.Component {
     static defaultProps = {
+        name: "",
+        isBrand: false,
         as: "span",
-        cls: ""
+        cls: "",
+        className: ""
     };
 
     render(){
-        const {as: Element, cls, ...props} = this.props;
+        const {as: Element, cls, className, isBrand, name, children, ...rest} = this.props;
 
         return (
-            <Element className={'app-bar-item ' + cls} {...props}>
-                {this.props.name ? this.props.name : this.props.children}
+            <Element className={`${isBrand ? 'brand no-hover' : 'app-bar-item'} ${cls} ${className}`} {...rest}>
+                {name !== "" ? name : children}
             </Element>
         )
     }

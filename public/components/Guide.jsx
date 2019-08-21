@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import {
-    Container, Grid, Row, Cell,
+    Container, Row, Cell,
 } from "../../src";
 import MainMenu from "./MainMenu";
 import SideMenu from "./SideMenu";
@@ -16,7 +16,7 @@ export default class Guide extends React.Component {
     render(){
         return (
             <Container fluid={true} cls={'guide-main-container'}>
-                <MainMenu/>
+                <MainMenu fullSize={true}/>
 
                 <Row>
                     <Cell cls={'cell-md-8 cell-lg-9 order-2 order-md-1'}>

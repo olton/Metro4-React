@@ -26,7 +26,7 @@ import {
     ClickOutside,
     Gravatar, Adsense,
     Dialog, Pagination, Textarea, InputFile,
-    Dropdown, Modal, AppBar, AppBarMenu, AppBarBrand, AppBarItem, Collapse, ButtonGroup,
+    Dropdown, Modal, AppBar, AppBarMenu, AppBarItem, Collapse, ButtonGroup,
     Tabs, Tab, SplitButton, Progress, Panel,
     Rating, HtmlContainer
 } from "../../src/index";
@@ -624,7 +624,7 @@ export default class Demo extends React.Component {
                     <Row>
                         <Cell cls={'cell-md-12'}>
                             <AppBar cls={'pos-relative z-dropdown'} hamburgerColor={'dark'}>
-                                <AppBarBrand name={'Metro 4 for React'}/>
+                                <AppBarItem isBrand={true} name={'Metro 4 for React'}/>
                                 <AppBarMenu cls={'ml-auto'} >
                                     <li><a href={'#'}>Home</a></li>
                                     <li><a href={'#'}>Documentation</a></li>

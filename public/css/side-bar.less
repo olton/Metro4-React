@@ -1,7 +1,7 @@
 #side-nav {
+    display: block;
+    position: relative;
     overflow-y: hidden;
-    position: sticky;
-    top: 52px;
     background-color: #f7f7f7;
     height: 100%;
 }
@@ -18,7 +18,6 @@
     list-style: none inside;
     position: relative;
     display: block;
-    max-height: ~"calc(100vh - 145px)";
     overflow-y: auto;
     width: ~"calc(100% + 20px)";
 
@@ -65,5 +64,16 @@
             background-color: #00AFF0;
             width: 4px;
         }
+    }
+}
+
+@media (min-width: 768px) {
+    #side-nav {
+        position: sticky;
+        top: 52px;
+    }
+
+    .side-bar-menu {
+        max-height: ~"calc(100vh - 145px)";
     }
 }

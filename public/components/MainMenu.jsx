@@ -1,13 +1,16 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {Container, AppBar, AppBarBrand, AppBarMenu, Icon} from "../../src/index";
+import {Container, AppBar, AppBarItem, AppBarMenu, Icon} from "../../src/index";
 
 export default class MainMenu extends React.Component {
+    static defaultProps = {
+        fullSize: false
+    };
     render(){
         return (
             <Container fluid={true} cls={'pos-fixed fixed-top z-fixed bg-react'}>
-                <AppBar cls={'container pos-relative app-bar-react-colors'} expandPoint={'md'} hamburgerColor={'light'}>
-                    <AppBarBrand as={'a'} href={'/'} name={'Metro 4 for React'} cls={'text-bold fg-react'}/>
+                <AppBar cls={(this.props.fullSize ? '': 'container') + ' pos-relative app-bar-react-colors'} expandPoint={'md'} hamburgerColor={'light'}>
+                    <AppBarItem isBrand={true} as={'a'} href={'/'} name={'Metro 4 for React'} cls={'text-bold fg-react'}/>
                     <AppBarMenu cls={'ml-auto'}>
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/guide">Guide</Link></li>

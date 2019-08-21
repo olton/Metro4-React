@@ -10,7 +10,7 @@
 }
 
 article {
-    padding: 10px 40px;
+    padding: 10px 20px;
 }
 
 .demo-inline-box {
@@ -19,8 +19,8 @@ article {
     height: 24px;
 }
 
-each(range(12), {
-    .iterator-@{value} {
-        a: b;
+@media (min-width: 768px) {
+    article {
+        padding: 10px 40px;
     }
-})
+}

@@ -1,6 +1,5 @@
 import React, {Component, Children} from "react";
 import Hamburger from "../hamburger/hamburger";
-import AppBarBrand from "./brand"
 import AppBarItem from "./item"
 import AppBarMenu from "./menu"
 import "./app-bar.less";
@@ -90,4 +89,4 @@ export default class AppBar extends Component {
     }
 }
 
-export {AppBarBrand, AppBarMenu, AppBarItem};
+export {AppBarMenu, AppBarItem};
