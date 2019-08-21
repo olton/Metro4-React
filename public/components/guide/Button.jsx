@@ -5,7 +5,7 @@ import PrismCode from "../PrismCode";
 
 export default class GuideButton extends React.Component {
     render(){
-        const codeImport = `import {Button} from "metro4-react`;
+        const codeImport = `import {Button} from "metro4-react";`;
         const codeDefaultUse = `
 <Button title="Button">
 <Button>Button</Button>
@@ -122,6 +122,9 @@ export default class GuideButton extends React.Component {
                 </div>
                 <PrismCode language="jsx" code={codeCLassesUse}/>
 
+                <br/>
+                <Adsense client={'ca-pub-1632668592742327'} slot={'4639163605'} test={SITE_MODE_DEV}/>
+                <br/>
             </div>
         )
     }
