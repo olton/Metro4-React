@@ -16,7 +16,7 @@ const webpackConfig = {
     mode: env,
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].bundle.[hash].js',
+        filename: isProduction ? '[name].bundle.[hash].js' : '[name].js',
         publicPath: '/',
     },
     optimization: {
@@ -100,7 +100,7 @@ const webpackConfig = {
     plugins: [
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
-            filename: '[name].[hash].css'
+            filename: isProduction ? '[name].[hash].css' : '[name].js'
         }),
         new HtmlWebpackPlugin({
             template: 'public/index.html',

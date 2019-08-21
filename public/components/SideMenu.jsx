@@ -16,7 +16,9 @@ export default class SideMenu extends React.Component {
                         <li><NavLink exact to={'/guide'}>Intro</NavLink></li>
                         <li><NavLink to={'/guide/common'}>Common styles</NavLink></li>
                         <li><NavLink to={'/guide/colors'}>Color styles</NavLink></li>
-                        <li><NavLink to={'/guide/grid'}>Grid</NavLink></li>
+
+                        <li className={'group-title'}>Grid</li>
+                        <li><NavLink to={'/guide/grid'}>Responsive Grid</NavLink></li>
 
                         <li className={'group-title'}>Buttons</li>
                         <li><NavLink to={'/guide/push-button'}>PushButton</NavLink></li>

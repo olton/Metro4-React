@@ -14,7 +14,7 @@ import Prism from "prismjs";
 
 import "./css/index.less";
 
-window.METRO_OFF_SITE = 'https://metroui.org.ua';
+window.METRO_OFF_SITE = 'https://metroui.org.ua/';
 window.SITE_MODE_DEV = Utils.isLocalhost() ? 'on' : 'off';
 
 render (
