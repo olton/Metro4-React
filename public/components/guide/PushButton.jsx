@@ -1,6 +1,6 @@
 import "@fortawesome/fontawesome-free/css/all.css";
 import React from "react";
-import {Adsense, Table, Button} from "../../../src";
+import {Adsense, Table, Button, Cell} from "../../../src";
 import PrismCode from "../PrismCode";
 
 export default class GuideButton extends React.Component {
@@ -23,11 +23,27 @@ export default class GuideButton extends React.Component {
         return(
             <div>
                 <h1>Push button</h1>
+                <p className='text-leader2'>
+                    With the Metro 4 you can easily create different types of stylized push buttons.
+                </p>
 
                 <br/>
                 <Adsense client={'ca-pub-1632668592742327'} slot={'4639163605'} test={SITE_MODE_DEV}/>
                 <br/>
 
+                <h3>Introduction</h3>
+                <div className='example'>
+                    <Button title='Button'/>
+                    &nbsp;<Button cls="alert" title='Button'/>
+                    &nbsp;<Button cls="info" title='Button' icon="rocket"/>
+                    &nbsp;<Button cls="warning" icon="bell"/>
+                    &nbsp;<Button as="a" cls="secondary" title="Link as Button" href="#"/>
+                    &nbsp;<Button as="span" cls="primary" title="Span as Button"/>
+                    &nbsp;<Button title="Flat Button" cls={'flat-button'}/>
+                    &nbsp;<Button icon="envelop" badge={10} clsBadge={'alert'}/>
+                </div>
+
+                <br/>
                 <h3>Importing</h3>
                 <PrismCode language="js" code={codeImport}/>
 

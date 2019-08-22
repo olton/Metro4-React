@@ -25,6 +25,11 @@ export default class GuideIntro extends React.Component {
                 <Adsense client={'ca-pub-1632668592742327'} slot={'4639163605'} test={SITE_MODE_DEV}/>
                 <br/>
 
+                <br/>
+                <h3>Introduction</h3>
+                <p>Metro 4 for React includes common styles, additional color classes, over 100 ready-to-use components, additional utilities and functions to simplify your code.</p>
+
+                <br/>
                 <h3>Installation</h3>
                 <p>
                     The best way to consume <code>Metro 4 for React</code> is via the <code>npm package</code> which you can install with <code>npm</code> or <code>yarn</code>.

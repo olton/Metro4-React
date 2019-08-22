@@ -26,16 +26,16 @@ export default class SplitButton extends React.Component {
         return (
             <div className={'split-button ' + cls}>
                 {React.cloneElement(children[0], {
-                    cls: `${children[0].props.cls} ${clsMainButton}`
+                    className: `${children[0].props.cls ? children[0].props.cls : ''} ${children[0].props.className ? children[0].props.className : ''} ${clsMainButton}`
                 })}
 
                 {children[2] && (
                     <Dropdown>
                         {React.cloneElement(children[1], {
-                            cls: `${children[1].props.cls} split dropdown-toggle ${clsSplitButton}`
+                            className: `split dropdown-toggle ${children[1].props.cls ? children[1].props.cls : ''} ${children[1].props.className ? children[1].props.className : ''} ${clsSplitButton}`
                         })}
                         {React.cloneElement(children[2], {
-                            cls: `${children[2].props.cls} ${clsDropdown}`
+                            className: `d-menu ${children[2].props.cls ? children[2].props.cls : ''} ${clsDropdown}`
                         })}
                     </Dropdown>
                 )}
@@ -43,7 +43,7 @@ export default class SplitButton extends React.Component {
                 {!children[2] && (
                     <React.Fragment>
                         {React.cloneElement(children[1], {
-                            cls: `${children[1].props.cls} split ${clsSplitButton}`
+                            className: `split ${children[1].props.cls ? children[1].props.cls : ''} ${children[1].props.className ? children[1].props.className : ''} ${clsSplitButton}`
                         })}
                     </React.Fragment>
                 )}

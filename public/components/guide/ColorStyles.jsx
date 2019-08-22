@@ -5,7 +5,7 @@ import "../../../src/extensions";
 
 export default class GuideColorStyles extends React.Component {
     render(){
-        const codeImportColors = `import {Colors} from metro4-react;`;
+        const codeImportColors = `import {Colors} from 'metro4-react';`;
         const palette = [];
 
         for(let c in Color.colorListMetro) {

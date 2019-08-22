@@ -2,10 +2,7 @@ import React from "react";
 import {Adsense} from "../../../src";
 import PrismCode from "../PrismCode";
 
-const codeImportCommon = `
-import {Common} 'metro4-react';
-import {Button, Tabs, ...} from 'metro4-react';
-`;
+const codeImportCommon = `import {Common} 'metro4-react';`;
 
 export default class GuideCommon extends React.Component {
     render(){

@@ -27,6 +27,10 @@ export default class GuideTemplate extends React.Component {
                 <br/>
                 <h3>Importing</h3>
                 <PrismCode language="js" code={codeImport}/>
+
+                <br/>
+                <Adsense client={'ca-pub-1632668592742327'} slot={'4639163605'} test={SITE_MODE_DEV}/>
+                <br/>
             </div>
         )
     }
