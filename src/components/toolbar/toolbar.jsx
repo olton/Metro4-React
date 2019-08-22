@@ -4,13 +4,14 @@ import "./toolbar.less";
 export class ToolButton extends Component {
     static defaultProps = {
         as: "span",
-        cls: ""
+        cls: "",
+        className: ""
     };
 
     render() {
-        const {as: Element, cls, ...props} = this.props;
+        const {as: Element, cls, className, ...rest} = this.props;
         return (
-            <Element className={'tool-button ' + (cls ? cls : "")} {...props}>
+            <Element className={`tool-button ${cls} ${className}`} {...rest}>
                 {this.props.children}
             </Element>
         )
@@ -19,14 +20,15 @@ export class ToolButton extends Component {
 
 export default class ToolBar extends Component {
     static defaultProps = {
-        cls: ""
+        cls: "",
+        className: ""
     };
 
     render() {
-        const className = `toolbar ${this.props.cls}`;
+        const {cls, className} = this.props;
 
         return (
-            <div className={className}>
+            <div className={`toolbar ${cls} ${className}`}>
                 {Children.map(this.props.children, function(el, index){
                     return (
                         <ToolButton {...el.props} key={index}>
