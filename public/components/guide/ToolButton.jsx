@@ -1,12 +1,20 @@
 import React from "react";
 import {Adsense, Cell, Icon, Table, ToolBar, ToolButton} from "../../../src";
 import PrismCode from "../PrismCode";
+import Defs from "../Defs";
 
 export default class GuideToolButton extends React.Component {
     render(){
         const codeImport = `import {ToolBar, ToolButton} from 'metro4-react';`;
         const codeUseDefault = `
 <ToolBar>
+    <ToolButton><Icon name={'rocket'}/></ToolButton>
+    <ToolButton cls={'text-button'}>Open</ToolButton>
+    <ToolButton as={'a'} href={'#'}><Icon name={'printer'}/></ToolButton>
+</ToolBar>
+`;
+        const codeUseVertical = `
+<ToolBar vertical={true}>
     <ToolButton><Icon name={'rocket'}/></ToolButton>
     <ToolButton cls={'text-button'}>Open</ToolButton>
     <ToolButton as={'a'} href={'#'}><Icon name={'printer'}/></ToolButton>
@@ -89,6 +97,20 @@ export default class GuideToolButton extends React.Component {
                     You can also use any allowed props for the button. Example, if semantic element is <code>anchor</code>, you can use prop <code>href</code> for define link target.
                 </p>
                 <PrismCode language="js" code={codeUserAnchor}/>
+
+                <br/>
+                <h3>Vertical ToolBar</h3>
+                <p>
+                    If you need to create <code>&lt;ToolBar/&gt;</code> with vertical orientation, use prop <code>vertical={Defs.OPEN_BRACE+"true"+Defs.CLOSE_BRACE}</code>.
+                </p>
+                <div className='example'>
+                    <ToolBar vertical={true}>
+                        <ToolButton><Icon name={'rocket'}/></ToolButton>
+                        <ToolButton><Icon name={'folder'}/></ToolButton>
+                        <ToolButton as={'a'} href={'#'}><Icon name={'printer'}/></ToolButton>
+                    </ToolBar>
+                </div>
+                <PrismCode language="js" code={codeUseVertical}/>
 
                 <br/>
                 <Adsense client={'ca-pub-1632668592742327'} slot={'4639163605'} test={SITE_MODE_DEV}/>

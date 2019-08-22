@@ -20,15 +20,16 @@ export class ToolButton extends Component {
 
 export default class ToolBar extends Component {
     static defaultProps = {
+        vertical: false,
         cls: "",
         className: ""
     };
 
     render() {
-        const {cls, className} = this.props;
+        const {vertical, cls, className} = this.props;
 
         return (
-            <div className={`toolbar ${cls} ${className}`}>
+            <div className={`toolbar ${cls} ${className} ${vertical ? 'vertical' : ''}`}>
                 {Children.map(this.props.children, function(el, index){
                     return (
                         <ToolButton {...el.props} key={index}>
