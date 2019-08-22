@@ -16,6 +16,7 @@ export default class Button extends React.Component{
         clsTitle: "",
         clsIcon: "",
         clsBadge: "",
+        active: false,
     };
 
     constructor(props){
@@ -33,6 +34,7 @@ export default class Button extends React.Component{
             cls, className,
             clsTitle, clsIcon, clsBadge,
             badge,
+            active,
             ...rest
         } = this.props;
 
