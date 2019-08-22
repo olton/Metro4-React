@@ -11,9 +11,11 @@ import GuideIntro from "./guide/Intro";
 import GuideCommon from "./guide/Common";
 import GuideColorStyles from "./guide/ColorStyles";
 import GuideGrid from "./guide/Grid";
-import GuideButton from './guide/PushButton'
-import GuideSplitButton from './guide/SplitButton'
-import GuideToolButton from './guide/ToolButton'
+import GuideButton from './guide/PushButton';
+import GuideSplitButton from './guide/SplitButton';
+import GuideToolButton from './guide/ToolButton';
+import GuideCommandButton from './guide/CommandButton';
+import GuideInfoButton from './guide/InfoButton';
 
 export default class Guide extends React.Component {
     constructor(props){
@@ -68,6 +70,8 @@ export default class Guide extends React.Component {
                                 <Route path='/guide/push-button' component={GuideButton}/>
                                 <Route path='/guide/split-button' component={GuideSplitButton}/>
                                 <Route path='/guide/tool-button' component={GuideToolButton}/>
+                                <Route path='/guide/command-button' component={GuideCommandButton}/>
+                                <Route path='/guide/info-button' component={GuideInfoButton}/>
                                 <Route component={NotFound} />
                             </Switch>
                         </article>

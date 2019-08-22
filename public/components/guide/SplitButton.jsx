@@ -30,7 +30,7 @@ export default class GuideSplitButton extends React.Component {
 
                 <h3>Introduction</h3>
                 <p>
-                    SplitButton is a composite component and consists of the main button, drop-down list, and a drop-down list control button.
+                    <code>SplitButton</code> is a composite component and consists of the main button, drop-down list, and a drop-down list control button.
                 </p>
                 <div className='example'>
                     <Row>

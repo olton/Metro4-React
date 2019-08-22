@@ -1,57 +1,55 @@
 import React from "react";
 import "./command-button.less";
+import Icon from "../icon/icon";
 
 export default class CommandButton extends React.Component{
     static defaultProps = {
         as: "button",
         title: "",
         subtitle: "",
-        icon: false,
-        image: false,
+        icon: null,
+        iconPrefix: "mif-",
+        image: null,
         cls: "",
-        type: "button",
-        href: "#"
+        className: "",
+        clsTitle: "",
+        clsSubtitle: "",
+        clsIcon: ""
     };
 
     constructor(props){
         super(props);
-        this.button = null;
+        this.button = React.createRef();
     }
 
     render(){
         const {
-            as,
+            as: Element,
             icon,
+            iconPrefix,
             image,
             title,
             subtitle,
             cls,
-            type,
-            href
+            className,
+            clsTitle,
+            clsSubtitle,
+            clsIcon,
+            ...rest
         } = this.props;
 
-        const Element = as;
-        const className = `command-button ${cls}`;
-        const buttonProps = {};
-
-        if (as === 'a') {
-            buttonProps.href = href;
-        } else {
-            buttonProps.type = type;
-        }
-
         return (
-            <Element className={className} {...buttonProps} ref={btn => this.button = btn}  onClick={this.props.onClick}>
+            <Element className={`command-button ${cls} $className`} ref={this.button} {...rest}>
                 {icon && (
-                    <span className={'icon mif-' + icon}/>
+                    <Icon name={icon} prefix={iconPrefix} cls={'icon ' + clsIcon}/>
                 )}
 
                 {image && (
-                    <img className={'icon '} src={image} alt=""/>
+                    <img className={'icon ' + clsIcon} src={image} alt=""/>
                 )}
-                <span className={'caption '}>
+                <span className={'caption ' + clsTitle}>
                     {title}
-                    <small>{subtitle}</small>
+                    <small className={clsSubtitle}>{subtitle}</small>
                 </span>
             </Element>
         )

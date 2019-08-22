@@ -17,7 +17,7 @@ export default class Adsense extends React.Component {
         layout: "",
         layoutKey: "",
         format: "auto",
-        responsive: false,
+        responsive: true,
         test: 'off'
     };
 

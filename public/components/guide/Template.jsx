@@ -4,7 +4,7 @@ import PrismCode from "../PrismCode";
 
 export default class GuideTemplate extends React.Component {
     render(){
-        const codeImport = ``;
+        const codeImport = `import {Component} from "metro4-react" `;
 
         return(
             <div>

@@ -4,33 +4,36 @@ import "./info-button.less";
 
 export default class InfoButton extends React.Component {
     static defaultProps = {
-        as: "div",
+        as: "span",
         title: "",
         subtitle: "",
         href: "",
         hrefTitle: "",
         hrefSubtitle: "",
-        icon: false,
-        image: false,
+        icon: null,
+        iconPrefix: "mif-",
+        image: null,
         cls: "",
+        className: "",
         clsTitle: "",
-        clsSubtitle: ""
+        clsSubtitle: "",
+        clsIcon: "",
+        onClick: () => {}
     };
 
     constructor(props){
         super(props);
-        this.button = null;
+        this.button = React.createRef();
     }
 
     render(){
-        const Element = this.props.as;
         const SubElement = this.props.as === 'a' ? 'span' : 'a';
         const {
-            title, subtitle, href, hrefTitle, hrefSubtitle,
+            as: Element, title, subtitle, href, hrefTitle, hrefSubtitle,
             icon, image,
-            cls, clsTitle, clsSubtitle
+            cls, className, clsTitle, clsSubtitle, clsIcon,
+            onClick
         } = this.props;
-        const className = `info-button ${cls}`;
         const elemProps = {};
         const buttonProps = {};
         const infoProps = {};
@@ -43,14 +46,14 @@ export default class InfoButton extends React.Component {
         }
 
         return (
-            <Element className={className} {...elemProps} onClick={this.props.onClick}>
+            <Element className={`info-button ${cls} ${className}`} {...elemProps} onClick={onClick}>
                 <SubElement {...buttonProps} className={'button ' + clsTitle}>
                     {icon && (
-                        <Icon name={icon} cls="icon"/>
+                        <Icon name={icon} cls={"icon " + clsIcon}/>
                     )}
 
                     {image && (
-                        <img src={image} alt=""/>
+                        <img src={image} alt="" className={'icon ' + clsIcon}/>
                     )}
 
                     {title}

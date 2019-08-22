@@ -5,7 +5,8 @@ export default class Icon extends React.Component {
         prefix: "mif-",
         name: "",
         size: false,
-        cls: ""
+        cls: "",
+        className: ""
     };
 
     render(){
@@ -13,13 +14,12 @@ export default class Icon extends React.Component {
             prefix,
             name,
             size,
-            cls
+            cls,
+            className
         } = this.props;
 
-        const className = `${prefix+name} ${size ? prefix + size : ''} ${cls}`;
-
         return (
-            <span className={className}/>
+            <span className={`${prefix+name} ${size ? prefix + size : ''} ${cls} ${className}`}/>
         )
     }
 }
