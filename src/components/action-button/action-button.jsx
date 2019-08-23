@@ -5,31 +5,26 @@ import "./action-button.less";
 export default class ActionButton extends React.Component {
     static defaultProps = {
         as: "button",
-        icon: false,
+        variant: "default",
+        icon: null,
         iconPrefix: 'mif-',
-        image: false,
+        image: null,
         cls: '',
-        active: false,
-        onClick: () => {}
+        className: "",
+        clsIcon: "",
     };
 
-    constructor(props){
-        super(props);
-
-        this.onClick = this.onClick.bind(this);
-    }
-
-    onClick(){
-        this.props.onClick()
-    }
-
     render() {
-        const {as: Element, icon, iconPrefix, image, cls, active} = this.props;
-        const className = `action-button ${cls} ${active ? 'active' : ''}`;
+        const {as: Element, variant, icon, iconPrefix, image, cls, className, clsIcon, ...rest} = this.props;
 
         return (
-            <Element className={className} onClick={this.onClick}>
-                <Icon name={icon} iconPrefix={iconPrefix} image={image}/>
+            <Element className={`action-button ${cls} ${className} ${variant === 'secondary' ? 'second' : ''}`} {...rest}>
+                {icon && (
+                    <Icon name={icon} iconPrefix={iconPrefix} cls={clsIcon}/>
+                )}
+                {image && (
+                    <img src={image} alt="" className={clsIcon}/>
+                )}
             </Element>
         )
     }
