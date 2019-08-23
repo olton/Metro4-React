@@ -1,56 +1,53 @@
 import React from "react";
 import "./image-button.less";
+import Icon from "../icon/icon";
 
 export default class ImageButton extends React.Component{
     static defaultProps = {
         as: "button",
         title: "",
-        icon: false,
-        image: false,
+        icon: null,
+        iconPrefix: "mif-",
+        image: null,
         cls: "",
-        type: "button",
-        href: ""
+        className: "",
+        clsIcon: "",
+        clsTitle: ""
     };
 
     constructor(props){
         super(props);
-        this.button = null;
+        this.button = React.createRef();
     }
 
     render(){
         const {
-            as,
+            as: Element,
             icon,
+            iconPrefix,
             image,
             title,
             cls,
-            type,
-            href
+            className,
+            clsIcon,
+            clsTitle,
+            ...rest
         } = this.props;
 
-        const Element = this.props.as;
-        const className = `image-button ${cls}`;
-
-        const buttonProps = {};
-
-        if (as === 'a') {
-            buttonProps.href = href;
-        } else {
-            buttonProps.type = type;
-        }
-
         return (
-            <Element className={className} {...buttonProps} ref={btn => this.button = btn}  onClick={this.props.onClick}>
+            <Element className={`image-button ${cls} ${className}`} ref={this.button} {...rest}>
                 {icon && (
-                    <span className={'icon mif-' + icon}/>
+                    <Icon name={icon} prefix={iconPrefix} cls={'icon ' + clsIcon}/>
                 )}
 
                 {image && (
-                    <img className={'icon '} src={image} alt=""/>
+                    <img className={'icon ' + clsIcon} src={image} alt=""/>
                 )}
-                <span className={'caption '}>
-                    {title}
-                </span>
+                {title && (
+                    <span className={'caption '}>{title}</span>
+                )}
+
+                {this.props.children}
             </Element>
         )
     }

@@ -6,16 +6,16 @@ export default class GuideSplitButton extends React.Component {
     render(){
         const codeImport = `import {SplitButton} from 'metro4-react'`;
         const codeUseDefault = `
-<SplitButton>
-    <Button>Reply</Button>
-    <Button/>
-    <ul>
-        <li><a href={'#'}>Item 1</a></li>
-        <li><a href={'#'}>Item 2</a></li>
-        <li><a href={'#'}>Item 3</a></li>
-    </ul>
-</SplitButton>
-`;
+            <SplitButton>
+                <Button>Reply</Button>
+                <Button/>
+                <ul>
+                    <li><a href={'#'}>Item 1</a></li>
+                    <li><a href={'#'}>Item 2</a></li>
+                    <li><a href={'#'}>Item 3</a></li>
+                </ul>
+            </SplitButton>
+        `;
 
         return(
             <div>

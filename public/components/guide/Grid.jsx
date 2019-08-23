@@ -7,30 +7,30 @@ export default class GuideGrid extends React.Component {
         const codeImport = `import {Grid, Row, Cell} from "metro4-react;"`;
         const codeUseGrid = `<Grid>...</Grid>`;
         const codeUseRow = `
-<Grid>
-    <Row>...</Row>
-    ...
-    <Row>...</Row>
-</Grid>
+            <Grid>
+                <Row>...</Row>
+                ...
+                <Row>...</Row>
+            </Grid>
         `;
         const codeUseRowStandalone = `
-<Row>...</Row>
-...
-<Row>...</Row>
+            <Row>...</Row>
+            ...
+            <Row>...</Row>
         `;
         const codeUseCell = `
-<Row>
-    <Cell>...</Cell>
-    ...
-    <Cell>...</Cell>
-</Row>
+            <Row>
+                <Cell>...</Cell>
+                ...
+                <Cell>...</Cell>
+            </Row>
         `;
         const codeUseCellClass = `
-<Row>
-    <Cell cls="cell-md-6">...</Cell>
-    <Cell cls="cell-md-2">...</Cell>
-    <Cell cls="cell-md-2">...</Cell>
-</Row>
+            <Row>
+                <Cell cls="cell-md-6">...</Cell>
+                <Cell cls="cell-md-2">...</Cell>
+                <Cell cls="cell-md-2">...</Cell>
+            </Row>
         `;
         const codeUseCellResponsive = `<Cell cls="cell-md-6">...</Cell>`;
 

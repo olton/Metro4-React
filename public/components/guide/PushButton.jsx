@@ -7,14 +7,14 @@ export default class GuideButton extends React.Component {
     render(){
         const codeImport = `import {Button} from "metro4-react";`;
         const codeDefaultUse = `
-<Button title="Button">
-<Button>Button</Button>
-`;
+            <Button title="Button">
+            <Button>Button</Button>
+        `;
         const codeAddIcon = `
-<Button icon='rocket'/>
-<Button icon='rocket' iconPrefix="fa fa-"/>
-<Button image='images/location.png'/>
-`;
+            <Button icon='rocket'/>
+            <Button icon='rocket' iconPrefix="fa fa-"/>
+            <Button image='images/location.png'/>
+        `;
         const codeAddBadge = `<Button icon="envelop" badge={10} clsBadge={'alert'}/>`;
         const codeSemanticUse = `<Button as='a' title='This is link' href='https://metroui.org.ua'/>`;
 

@@ -1,10 +1,11 @@
 import React from "react";
 import {Adsense} from "../../../src";
 import PrismCode from "../PrismCode";
+import Example from "../Example";
 
 export default class GuideTemplate extends React.Component {
     render(){
-        const codeImport = `import {Component} from "metro4-react" `;
+        const codeImport = `import {Component} from "metro4-react";`;
 
         return(
             <div>

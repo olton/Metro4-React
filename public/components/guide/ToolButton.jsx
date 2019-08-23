@@ -7,19 +7,19 @@ export default class GuideToolButton extends React.Component {
     render(){
         const codeImport = `import {ToolBar, ToolButton} from 'metro4-react';`;
         const codeUseDefault = `
-<ToolBar>
-    <ToolButton><Icon name={'rocket'}/></ToolButton>
-    <ToolButton cls={'text-button'}>Open</ToolButton>
-    <ToolButton as={'a'} href={'#'}><Icon name={'printer'}/></ToolButton>
-</ToolBar>
-`;
+            <ToolBar>
+                <ToolButton><Icon name={'rocket'}/></ToolButton>
+                <ToolButton cls={'text-button'}>Open</ToolButton>
+                <ToolButton as={'a'} href={'#'}><Icon name={'printer'}/></ToolButton>
+            </ToolBar>
+        `;
         const codeUseVertical = `
-<ToolBar vertical={true}>
-    <ToolButton><Icon name={'rocket'}/></ToolButton>
-    <ToolButton cls={'text-button'}>Open</ToolButton>
-    <ToolButton as={'a'} href={'#'}><Icon name={'printer'}/></ToolButton>
-</ToolBar>
-`;
+            <ToolBar vertical={true}>
+                <ToolButton><Icon name={'rocket'}/></ToolButton>
+                <ToolButton cls={'text-button'}>Open</ToolButton>
+                <ToolButton as={'a'} href={'#'}><Icon name={'printer'}/></ToolButton>
+            </ToolBar>
+        `;
         const codeUserAnchor = `<ToolButton as={'a'} href={'#'}><Icon name={'printer'}/></ToolButton>`;
 
         return(

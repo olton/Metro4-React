@@ -8,7 +8,7 @@
         ["prismjs", {
             "languages": ["javascript", "css", "html"],
             "plugins": ["line-numbers", "show-language"],
-            "theme": "okaidia",
+            "theme": "tomorrow",
             "css": true
         }]
     ]

@@ -7,22 +7,22 @@ export default class GuideInfoButton extends React.Component {
         const codeImport = `import {InfoButton} from "metro4-react" `;
         const codeUse = `<InfoButton title="Star" subtitle="6,208" icon="star-full" />`;
         const codeUseAnchor = `
-<InfoButton as="a" 
-    title="This is a link" 
-    subtitle="6,208" 
-    icon="star-full" 
-    cls="warning rounded" 
-    href="https://metroui.org.ua"/>
-`;
+            <InfoButton as="a" 
+                title="This is a link" 
+                subtitle="6,208" 
+                icon="star-full" 
+                cls="warning rounded" 
+                href="https://metroui.org.ua"/>
+        `;
         const codeUseAnchor2 = `
-<InfoButton 
-    title="This is a link" 
-    subtitle="6,208" 
-    icon="star-full" 
-    cls="warning rounded" 
-    hrefTitle="https://metroui.org.ua" 
-    hrefSubtitle="https://github.com/olton/Metro-UI-CSS"/>
-`;
+            <InfoButton 
+                title="This is a link" 
+                subtitle="6,208" 
+                icon="star-full" 
+                cls="warning rounded" 
+                hrefTitle="https://metroui.org.ua" 
+                hrefSubtitle="https://github.com/olton/Metro-UI-CSS"/>
+        `;
 
         return(
             <div>

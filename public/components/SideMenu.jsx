@@ -20,7 +20,7 @@ const menuItems = {
         {to: "/guide/tool-button", caption: "ToolButton"},
         {to: "/guide/command-button", caption: "CommandButton"},
         {to: "/guide/info-button", caption: "InfoButton"},
-        {to: "/guide/images-button", caption: "ImageButton"},
+        {to: "/guide/image-button", caption: "ImageButton"},
         {to: "/guide/action-button", caption: "ActionButton"},
         {to: "/guide/shortcut", caption: "Shortcut"},
         {to: "/guide/pagination", caption: "Pagination"},
