@@ -1,6 +1,8 @@
 import React from "react";
 import {Adsense, Table} from "../../../src";
 import PrismCode from "../PrismCode";
+import Defs, {tablePropsHeader} from "../Defs";
+import table from "../../../src/components/table/table";
 
 export default class GuideGrid extends React.Component {
     render(){
@@ -50,7 +52,8 @@ export default class GuideGrid extends React.Component {
                 <p>
                     Metro 4 grid system uses a series of <code>containers</code>, <code>rows</code>, and <code>columns</code> to layout and align content.
                 </p>
-                <Table className='table-border cell-border'>
+                <Table className='table-border cell-border' >
+                    <tbody>
                     <tr>
                         <td>Containers</td>
                         <td><code>Grid</code></td>
@@ -63,6 +66,7 @@ export default class GuideGrid extends React.Component {
                         <td>Columns</td>
                         <td><code>Cell</code></td>
                     </tr>
+                    </tbody>
                 </Table>
 
                 <br/>
@@ -74,7 +78,8 @@ export default class GuideGrid extends React.Component {
                 <PrismCode language="jsx" code={codeUseGrid}/>
 
                 <h5>Props</h5>
-                <Table className='table-border cell-border'>
+                <Table className='table-border cell-border' head={tablePropsHeader}>
+                    <tbody>
                     <tr>
                         <td><code>as</code></td>
                         <td><code>div</code></td>
@@ -85,6 +90,7 @@ export default class GuideGrid extends React.Component {
                         <td></td>
                         <td>Element classes</td>
                     </tr>
+                    </tbody>
                 </Table>
 
                 <br/>
@@ -96,7 +102,8 @@ export default class GuideGrid extends React.Component {
                 <PrismCode language="jsx" code={codeUseRowStandalone}/>
 
                 <h5>Props</h5>
-                <Table className='table-border cell-border'>
+                <Table className='table-border cell-border' head={tablePropsHeader}>
+                    <tbody>
                     <tr>
                         <td><code>as</code></td>
                         <td><code>div</code></td>
@@ -107,6 +114,7 @@ export default class GuideGrid extends React.Component {
                         <td></td>
                         <td>Element classes</td>
                     </tr>
+                    </tbody>
                 </Table>
 
                 <br/>
@@ -114,7 +122,8 @@ export default class GuideGrid extends React.Component {
                 <PrismCode language="jsx" code={codeUseCell}/>
 
                 <h5>Props</h5>
-                <Table className='table-border cell-border'>
+                <Table className='table-border cell-border' head={tablePropsHeader}>
+                    <tbody>
                     <tr>
                         <td><code>as</code></td>
                         <td><code>div</code></td>
@@ -125,6 +134,7 @@ export default class GuideGrid extends React.Component {
                         <td></td>
                         <td>Element classes</td>
                     </tr>
+                    </tbody>
                 </Table>
                 <p className='remark info'>
                     Each cell has default <code>padding: 12px</code>. To remove all padding use class <code>.no-gap</code> for <code>Grid</code> or <code>Row</code>.
@@ -155,6 +165,7 @@ export default class GuideGrid extends React.Component {
                 <PrismCode language="jsx" code={codeUseCellClass}/>
 
                 <Table className='table-border cell-border'>
+                    <tbody>
                     <tr>
                         <td><b>fs</b></td>
                         <td><code>min-width 0px</code></td>
@@ -179,7 +190,13 @@ export default class GuideGrid extends React.Component {
                         <td><b>xxl</b></td>
                         <td><code>min-width 1452px</code></td>
                     </tr>
+                    </tbody>
                 </Table>
+
+                <br/>
+                <Adsense client={'ca-pub-1632668592742327'} slot={'4639163605'} test={SITE_MODE_DEV}/>
+                <br/>
+
             </div>
         )
     }

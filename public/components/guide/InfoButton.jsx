@@ -1,6 +1,7 @@
 import React from "react";
 import {Adsense, Cell, InfoButton, Table} from "../../../src";
 import PrismCode from "../PrismCode";
+import Defs, {tablePropsHeader} from "../Defs";
 
 export default class GuideInfoButton extends React.Component {
     render(){
@@ -49,7 +50,8 @@ export default class GuideInfoButton extends React.Component {
 
                 <br/>
                 <h4>Props</h4>
-                <Table className='table-border cell-border'>
+                <Table className='table-border cell-border' head={tablePropsHeader}>
+                    <tbody>
                     <tr>
                         <td><code>as</code></td>
                         <td><code>span</code></td>
@@ -120,6 +122,7 @@ export default class GuideInfoButton extends React.Component {
                         <td></td>
                         <td>onClick event handler</td>
                     </tr>
+                    </tbody>
                 </Table>
 
                 <br/>

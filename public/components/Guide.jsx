@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import {
     Container, Row, Cell, MediaPoints,
 } from "../../src";
@@ -18,7 +18,7 @@ import GuideCommandButton from './guide/CommandButton';
 import GuideInfoButton from './guide/InfoButton';
 import GuideImageButton from "./guide/ImageButton";
 import GuideActionButton from "./guide/ActionButton";
-import GuideShortcut from "./guide/GuideShortcut";
+import GuideShortcut from "./guide/Shortcut";
 
 export default class Guide extends React.Component {
     constructor(props){

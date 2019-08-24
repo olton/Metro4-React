@@ -1,6 +1,7 @@
 import React from "react";
 import {Adsense, Button, Cell, Grid, Row, SplitButton, Table} from "../../../src";
 import PrismCode from "../PrismCode";
+import Defs, {tablePropsHeader} from "../Defs";
 
 export default class GuideSplitButton extends React.Component {
     render(){
@@ -16,6 +17,11 @@ export default class GuideSplitButton extends React.Component {
                 </ul>
             </SplitButton>
         `;
+
+        const tablePropsData = [
+            ["<code>cls</code>", "", "Additional classes"],
+            ["<code>className</code>", "", "Additional classes"],
+        ];
 
         return(
             <div>
@@ -82,33 +88,7 @@ export default class GuideSplitButton extends React.Component {
 
                 <br/>
                 <h4>Props</h4>
-                <Table className='table-border cell-border'>
-                    <tr>
-                        <td><code>as</code></td>
-                        <td><code>button</code></td>
-                        <td>Semantic element</td>
-                    </tr>
-                    <tr>
-                        <td><code>cls</code>, <code>className</code></td>
-                        <td></td>
-                        <td>Button classes</td>
-                    </tr>
-                    <tr>
-                        <td><code>clsMainButton</code></td>
-                        <td></td>
-                        <td>Class for main button</td>
-                    </tr>
-                    <tr>
-                        <td><code>clsSplitButton</code></td>
-                        <td></td>
-                        <td>Class for split button</td>
-                    </tr>
-                    <tr>
-                        <td><code>clsDropdown</code></td>
-                        <td></td>
-                        <td>Class for dropdown list</td>
-                    </tr>
-                </Table>
+                <Table className='table-border cell-border' head={tablePropsHeader} data={tablePropsData}/>
 
                 <br/>
                 <h3>Using</h3>

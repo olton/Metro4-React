@@ -1,7 +1,7 @@
 import React from "react";
 import {Adsense, Cell, Icon, Table, ToolBar, ToolButton} from "../../../src";
 import PrismCode from "../PrismCode";
-import Defs from "../Defs";
+import Defs, {tablePropsHeader} from "../Defs";
 
 export default class GuideToolButton extends React.Component {
     render(){
@@ -72,16 +72,19 @@ export default class GuideToolButton extends React.Component {
 
                 <br/>
                 <h4>ToolBar props</h4>
-                <Table className='table-border cell-border'>
+                <Table className='table-border cell-border' head={tablePropsHeader}>
+                    <tbody>
                     <tr>
                         <td><code>cls</code>, <code>className</code></td>
                         <td>Button classes</td>
                     </tr>
+                    </tbody>
                 </Table>
 
                 <br/>
                 <h4>ToolButton props</h4>
-                <Table className='table-border cell-border'>
+                <Table className='table-border cell-border' head={tablePropsHeader}>
+                    <tbody>
                     <tr>
                         <td><code>as</code></td>
                         <td><code>span</code></td>
@@ -92,6 +95,7 @@ export default class GuideToolButton extends React.Component {
                         <td></td>
                         <td>Button classes</td>
                     </tr>
+                    </tbody>
                 </Table>
                 <p>
                     You can also use any allowed props for the button. Example, if semantic element is <code>anchor</code>, you can use prop <code>href</code> for define link target.

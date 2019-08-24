@@ -43,6 +43,7 @@ export default class GuideColorStyles extends React.Component {
                 <br/>
                 <h3>Class naming</h3>
                 <Table cls={'table-border cell-border'}>
+                    <tbody>
                     <tr>
                         <td>background</td>
                         <td><code>bg-*</code></td>
@@ -73,11 +74,12 @@ export default class GuideColorStyles extends React.Component {
                         <td><code>bd-cyan</code></td>
                         <td><span className={'border bd-cyan'}>ribbed-cyan</span></td>
                     </tr>
+                    </tbody>
                 </Table>
 
                 <br/>
                 <h3>Palette</h3>
-                <Table>{palette}</Table>
+                <Table><tbody>{palette}</tbody></Table>
 
                 <p>
                     More about additional colors you can read in official <a href={METRO_OFF_SITE + 'colors.html#_additional_colors'}>Metro 4 Documentation</a>.

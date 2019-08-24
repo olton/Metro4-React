@@ -2,6 +2,7 @@ import "@fortawesome/fontawesome-free/css/all.css";
 import React from "react";
 import {Adsense, Table, Button, Cell} from "../../../src";
 import PrismCode from "../PrismCode";
+import Defs, {tablePropsHeader} from "../Defs";
 
 export default class GuideButton extends React.Component {
     render(){
@@ -19,6 +20,20 @@ export default class GuideButton extends React.Component {
         const codeSemanticUse = `<Button as='a' title='This is link' href='https://metroui.org.ua'/>`;
 
         const codeCLassesUse = `<Button title='Button' cls='alert' clsTitle='fg-yellow'/>`;
+
+        const tablePropsData = [
+            ["<code>as</code>", "<code>button</code>", "Semantic element"],
+            ["<code>title</code>", "", "Button title"],
+            ["<code>badge</code>", "<code>null</code>", "Button badge value"],
+            ["<code>icon</code>", "<code>null</code>", "Button icon from icon font"],
+            ["<code>iconPrefix</code>", "<code>mif-</code>", "Button icon prefix"],
+            ["<code>image</code>", "<code>null</code>", "Button icon image"],
+            ["<code>cls</code>", "", "Button additional classes"],
+            ["<code>className</code>", "", "Button additional classes"],
+            ["<code>classTitle</code>", "", "Button additional classes for title"],
+            ["<code>classIcon</code>", "", "Button additional classes for icon"],
+            ["<code>classBadge</code>", "", "Button additional classes for badge"],
+        ];
 
         return(
             <div>
@@ -49,58 +64,7 @@ export default class GuideButton extends React.Component {
 
                 <br/>
                 <h4>Props</h4>
-                <Table className='table-border cell-border'>
-                    <tr>
-                        <td><code>as</code></td>
-                        <td><code>button</code></td>
-                        <td>Semantic element</td>
-                    </tr>
-                    <tr>
-                        <td><code>title</code></td>
-                        <td></td>
-                        <td>Button title</td>
-                    </tr>
-                    <tr>
-                        <td><code>badge</code></td>
-                        <td></td>
-                        <td>Badge in title</td>
-                    </tr>
-                    <tr>
-                        <td><code>icon</code></td>
-                        <td></td>
-                        <td>Button icon from icon font</td>
-                    </tr>
-                    <tr>
-                        <td><code>iconPrefix</code></td>
-                        <td><code>mif-</code></td>
-                        <td>Button icon prefix for icon from icon font</td>
-                    </tr>
-                    <tr>
-                        <td><code>image</code></td>
-                        <td></td>
-                        <td>Source for button image</td>
-                    </tr>
-                    <tr>
-                        <td><code>cls</code>, <code>className</code></td>
-                        <td></td>
-                        <td>Button classes</td>
-                    </tr>
-                    <tr>
-                        <td><code>clsTitle</code></td>
-                        <td></td>
-                        <td>Button class for title (when use prop title)</td>
-                    </tr>
-                    <tr>
-                        <td><code>clsIcon</code></td>
-                        <td></td>
-                        <td>Button class for icon or image</td>
-                    </tr>
-                    <tr>
-                        <td><code>clsBadge</code></td>
-                        <td></td>
-                        <td>Button class for badge</td>
-                    </tr>
-                </Table>
+                <Table className='table-border cell-border' head={tablePropsHeader} data={tablePropsData}/>
 
                 <br/>
                 <h3>Using</h3>

@@ -2,6 +2,7 @@ import React from "react";
 import {ActionButton, Adsense, Row, Cell, MultiAction, MultiActionItem, Table} from "../../../src";
 import PrismCode from "../PrismCode";
 import Example from "../Example";
+import Defs, {tablePropsHeader} from "../Defs";
 
 export default class GuideActionButton extends React.Component {
     render(){
@@ -45,7 +46,8 @@ export default class GuideActionButton extends React.Component {
 
                 <br/>
                 <h4>Props</h4>
-                <Table className='table-border cell-border'>
+                <Table className='table-border cell-border' head={tablePropsHeader}>
+                    <tbody>
                     <tr>
                         <td><code>as</code></td>
                         <td><code>button</code></td>
@@ -86,6 +88,7 @@ export default class GuideActionButton extends React.Component {
                         <td>false</td>
                         <td>Button state</td>
                     </tr>
+                    </tbody>
                 </Table>
 
                 <br/>
@@ -105,7 +108,8 @@ export default class GuideActionButton extends React.Component {
                 <br/>
                 <h4>Props for MultiAction</h4>
                 <p>Same as for <code>ActionButton</code> and:</p>
-                <Table className='table-border cell-border'>
+                <Table className='table-border cell-border' head={tablePropsHeader}>
+                    <tbody>
                     <tr>
                         <td><code>drop</code></td>
                         <td><code>up</code></td>
@@ -121,11 +125,13 @@ export default class GuideActionButton extends React.Component {
                         <td></td>
                         <td>Callback for click event</td>
                     </tr>
+                    </tbody>
                 </Table>
 
                 <br/>
                 <h4>Props for MultiActionItem</h4>
-                <Table className='table-border cell-border'>
+                <Table className='table-border cell-border' head={tablePropsHeader}>
+                    <tbody>
                     <tr>
                         <td><code>icon</code></td>
                         <td></td>
@@ -151,6 +157,7 @@ export default class GuideActionButton extends React.Component {
                         <td></td>
                         <td>Callback for click event </td>
                     </tr>
+                    </tbody>
                 </Table>
 
                 <br/>
