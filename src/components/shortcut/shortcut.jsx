@@ -1,65 +1,60 @@
 import React from "react";
 import "./shortcut.less";
+import Icon from "../icon/icon";
+import Badge from "../badge/badge";
 
 export default class Shortcut extends React.Component{
     static defaultProps = {
         as: "button",
         title: "",
-        badge: false,
-        icon: false,
-        image: false,
+        badge: null,
+        icon: null,
+        iconPrefix: "mif-",
+        image: null,
         cls: "",
-        type: "button",
-        href: ""
+        className: "",
+        clsIcon: "",
+        clsTitle: "",
+        clsBadge: ""
     };
 
     constructor(props){
         super(props);
-        this.button = null;
+        this.button = React.createRef();
     }
 
     render(){
         const {
-            as,
+            as: Element,
             icon,
+            iconPrefix,
             image,
             title,
             badge,
             cls,
-            type,
-            href
+            className,
+            clsIcon,
+            clsTitle,
+            clsBadge,
+            ...rest
         } = this.props;
 
-        const Element = this.props.as;
-        const className = `shortcut ${cls}`;
-        const buttonProps = {};
-
-        if (as === 'a') {
-            buttonProps.href = href;
-        } else {
-            buttonProps.type = type;
-        }
-
         return (
-            <Element className={className} {...buttonProps} ref={btn => this.button = btn} onClick={this.props.onClick}>
+            <Element className={`shortcut ${cls} ${className}`} ref={this.button} {...rest}>
                 {icon && (
-                    <span className={'icon mif-' + icon}/>
+                    <Icon name={icon} prefix={iconPrefix} cls={'icon ' + clsIcon}/>
                 )}
 
                 {image && (
-                    <img className={'icon '} src={image} alt=""/>
+                    <img className={'icon ' + clsIcon} src={image} alt=""/>
                 )}
 
                 {title && (
-                    <span className={'caption '}>
-                    {title}
-                </span>
+                    <span className={'caption ' + clsTitle}>{title}</span>
                 )}
 
                 {badge && (
-                    <span className={'badge '}>
-                    {badge}
-                </span>
+                    <Badge cls={clsBadge} value={badge}/>
                 )}
             </Element>
         )

@@ -18,6 +18,7 @@ import GuideCommandButton from './guide/CommandButton';
 import GuideInfoButton from './guide/InfoButton';
 import GuideImageButton from "./guide/ImageButton";
 import GuideActionButton from "./guide/ActionButton";
+import GuideShortcut from "./guide/GuideShortcut";
 
 export default class Guide extends React.Component {
     constructor(props){
@@ -76,6 +77,7 @@ export default class Guide extends React.Component {
                                 <Route path='/guide/info-button' component={GuideInfoButton}/>
                                 <Route path='/guide/image-button' component={GuideImageButton}/>
                                 <Route path='/guide/action-button' component={GuideActionButton}/>
+                                <Route path='/guide/shortcut' component={GuideShortcut}/>
                                 <Route component={NotFound} />
                             </Switch>
                         </article>

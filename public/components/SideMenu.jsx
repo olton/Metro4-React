@@ -11,8 +11,9 @@ const menuItems = {
         {to: "/guide/common", caption: "Common styles"},
         {to: "/guide/colors", caption: "Colors styles"},
     ],
-    "Grid": [
-        {to: "/guide/grid", caption: "Responsive Grid"}
+    "Grid & Table": [
+        {to: "/guide/grid", caption: "Responsive Grid"},
+        {to: "/guide/table", caption: "Table"}
     ],
     "Buttons": [
         {to: "/guide/push-button", caption: "PushButton"},
@@ -26,6 +27,7 @@ const menuItems = {
         {to: "/guide/pagination", caption: "Pagination"},
         {to: "/guide/breadcrumbs", caption: "Breadcrumbs"},
         {to: "/guide/hamburger", caption: "Hamburger"},
+        {to: "/guide/button-group", caption: "ButtonGroup"},
     ],
     "Form elements": [
         {to: "/guide/input", caption: "Input"},
