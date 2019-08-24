@@ -15,8 +15,7 @@ export default class Button extends React.Component{
         className: "",
         clsTitle: "",
         clsIcon: "",
-        clsBadge: "",
-        active: false,
+        clsBadge: ""
     };
 
     constructor(props){
@@ -26,7 +25,7 @@ export default class Button extends React.Component{
 
     render(){
         const {
-            as,
+            as: Element,
             icon,
             iconPrefix,
             image,
@@ -34,11 +33,9 @@ export default class Button extends React.Component{
             cls, className,
             clsTitle, clsIcon, clsBadge,
             badge,
-            active,
             ...rest
         } = this.props;
 
-        const Element = this.props.as;
         const classButton = `button ${cls} ${className}`;
 
         return (

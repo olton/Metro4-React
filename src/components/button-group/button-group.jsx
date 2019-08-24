@@ -1,8 +1,11 @@
 import React from "react";
 import "./buttonh-group.less";
 
+// TODO Remove active prop from Button
+
 export default class ButtonGroup extends React.Component {
     static defaultProps = {
+        active: 1,
         radio: false,
         cls: "",
         clsActive: "",
@@ -13,13 +16,15 @@ export default class ButtonGroup extends React.Component {
     constructor(props){
         super(props);
 
-        const pressedButtons = {};
+        const pressedButtons = [];
 
-        React.Children.forEach(this.props.children, (button, index) => {
-            if (button.props.active) {
-                pressedButtons[index] = true;
-            }
-        });
+        if (!Array.isArray(props.active)) {
+            pressedButtons.push(props.active);
+        } else {
+            props.active.forEach( (ind)=>{
+                pressedButtons.push(ind);
+            })
+        }
 
         this.state = {
             radio: this.props.radio,
@@ -31,21 +36,22 @@ export default class ButtonGroup extends React.Component {
 
     buttonClick(index){
         const {buttons, radio} = this.state;
-        const active = !!buttons[index];
-        const button = React.Children.toArray(this.props.children)[index];
+        const active = buttons.includes(index);
+        const button = React.Children.toArray(this.props.children)[index - 1];
 
         if (!radio) {
+            if (!active) {
+                buttons.push(index)
+            } else {
+                buttons.splice(buttons.indexOf(index), 1)
+            }
+
             this.setState({
-                buttons: {
-                    ...buttons,
-                    [index]: !active
-                }
+                buttons: buttons
             });
         } else {
             this.setState({
-                buttons: {
-                    [index]: !active
-                }
+                buttons: [index]
             });
         }
         this.props.onButtonClick(button);
@@ -59,12 +65,13 @@ export default class ButtonGroup extends React.Component {
             <div className={'button-group ' + cls}>
                 {
                     React.Children.map(this.props.children, (button, index) => {
-                        const isActive = !!buttons[index];
+                        const correctIndex = index + 1;
+                        const isActive = buttons.includes(correctIndex);
                         return (
                             React.cloneElement(button, {
                                 cls: button.props.cls + ' ' + clsButton + ' ' + (isActive ? clsActive === '' ? ' active ' : clsActive : ''),
-                                index: index,
-                                onClick: this.buttonClick.bind(this, index)
+                                index: correctIndex,
+                                onClick: this.buttonClick.bind(this, correctIndex)
                             })
                         )
                     })

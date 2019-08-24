@@ -16,8 +16,8 @@ export default class GuideActionButton extends React.Component {
         const codeUseMultiAction = `
             <MultiAction icon="star-full" cls="alert" drop={'right'}>
                 <MultiActionItem icon="home" />
-                <MultiActionItem icon="rocket" onClick={() => alert('rocket')}/>
-                <MultiActionItem icon="adb" onClick={() => alert('adb')}/>
+                <MultiActionItem icon="rocket" onClick={...}/>
+                <MultiActionItem icon="adb" onClick={...}/>
             </MultiAction>
         `;
 

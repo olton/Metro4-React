@@ -579,23 +579,23 @@ export default class Demo extends React.Component {
                     <h2 className="text-light">&lt;ButtonGroup/&gt;</h2>
                     <Row>
                         <Cell cls={'cell-md-4'}>
-                            <ButtonGroup>
-                                <Button active={true}>1</Button>
+                            <ButtonGroup active={2}>
+                                <Button>1</Button>
                                 <Button>2</Button>
                                 <Button>3</Button>
                             </ButtonGroup>
                         </Cell>
                         <Cell cls={'cell-md-4'}>
                             <ButtonGroup radio={true}>
-                                <Button active={true}><Icon name={'paragraph-left'}/></Button>
+                                <Button><Icon name={'paragraph-left'}/></Button>
                                 <Button><Icon name={'paragraph-center'}/></Button>
                                 <Button><Icon name={'paragraph-right'}/></Button>
                                 <Button><Icon name={'paragraph-justify'}/></Button>
                             </ButtonGroup>
                         </Cell>
                         <Cell cls={'cell-md-4'}>
-                            <ButtonGroup radio={true} cls={'border bd-cyan p-2 text-center'} clsActive={'alert'} clsButton={'m-1'}>
-                                <Button active={true}>1</Button>
+                            <ButtonGroup active={[1, 2]} cls={'border bd-cyan p-2 text-center'} clsActive={'alert'} clsButton={'m-1'}>
+                                <Button>1</Button>
                                 <Button>2</Button>
                                 <Button>3</Button>
                             </ButtonGroup>
