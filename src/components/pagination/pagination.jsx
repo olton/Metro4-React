@@ -51,7 +51,7 @@ export default class Pagination extends React.Component {
         const pagesCount = Math.ceil(total / itemsPerPage);
         const items = [];
 
-        items.push(<PaginationItem title={prevTitle} cls={'service prev-page'} data={'prev'} disabled={current === 1}/>);
+        items.push(<PaginationItem title={prevTitle} cls={'service prev-page ' + (current === 1 ? ' disabled ' : '')} data={'prev'} />);
 
         items.push(<PaginationItem title={1} cls={current === 1 ? 'active' : ''} data={1} />);
 
@@ -87,7 +87,7 @@ export default class Pagination extends React.Component {
             items.push(<PaginationItem title={pagesCount} cls={current === pagesCount ? 'active' : ''} data={pagesCount}/>);
         }
 
-        items.push(<PaginationItem title={nextTitle} cls={'service next-page'} data={'next'} disabled={current === pagesCount}/>);
+        items.push(<PaginationItem title={nextTitle} cls={'service next-page ' + (current === pagesCount ? ' disabled ' : '')} data={'next'} />);
 
         return (
             <ul className={'pagination ' + cls + (total === 0 ? ' disabled ' : '')} {...props}>

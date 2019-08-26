@@ -22,15 +22,35 @@ export default class MemoryTable extends React.Component {
     constructor(props){
         super(props);
 
-        this.rawData = null;
+        this.head = null;
+        this.data = null;
 
         this.state = {
             status: FetchStatus.init,
-            dataSlice: null,
-            dataView: null,
-            rowsPerPage: props.showRows
+            rowsPerPage: props.showRows,
+            total: 0,
+            page: 1
         };
     }
+
+    sliceData = () => {
+        const {page, rowsPerPage: rows, total} = this.state;
+        const data = [];
+        const start = parseInt(rows) === -1 ? 0 : rows * (page - 1),
+              stop = parseInt(rows) === -1 ? total - 1 : start + rows - 1;
+
+        if (this.data) {
+            for (let i = start; i <= stop; i++) {
+                data.push(this.data[i]);
+            }
+        }
+
+        return data;
+    };
+
+    createView = () => {
+        return this.head;
+    };
 
     load = (source) => {
         if (source && typeof source === 'string') {
@@ -38,9 +58,13 @@ export default class MemoryTable extends React.Component {
                 (response) => response.json()
             ).then(
                 (response) => {
-                    this.rawData = response;
+
+                    if (response.data) this.data = response.data;
+                    if (response.header) this.head = response.header;
+
                     this.setState({
-                        status: FetchStatus.ok
+                        status: FetchStatus.ok,
+                        total: this.data && Array.isArray(this.data) ? this.data.length : 0,
                     })
                 }
             ).catch( (e)=>{
@@ -52,6 +76,22 @@ export default class MemoryTable extends React.Component {
         }
     };
 
+    paginationClick = (page) => {
+        let nextPage;
+
+        if (page === 'next') {
+            nextPage = this.state.page + 1;
+        } else if (page === 'prev') {
+            nextPage = this.state.page - 1;
+        } else {
+            nextPage = page;
+        }
+
+        this.setState({
+            page: nextPage,
+        })
+    };
+
     componentDidMount(){
         const {source} = this.props;
         this.load(source);
@@ -59,7 +99,11 @@ export default class MemoryTable extends React.Component {
 
     render(){
         const {source, pagination, search, rows, showRows, clsSearchBlock, clsSearch, clsRows, searchPlaceholder, rowsPrepend, ...rest} = this.props;
-        const {dataView, dataSlice, rowsPerPage} = this.state;
+        const {dataView, dataSlice, rowsPerPage, total, page} = this.state;
+
+        const tableData = this.sliceData();
+        const tableHeader = this.createView();
+
         return (
             <div className={'memory-table'}>
 
@@ -76,11 +120,11 @@ export default class MemoryTable extends React.Component {
                     </div>
                 </div>
 
-                <Table head={dataView} data={dataSlice} {...rest}/>
+                <Table head={tableHeader} data={tableData} {...rest}/>
 
                 {pagination && (
                     <div className={'pagination-wrapper'}>
-                        <Pagination/>
+                        <Pagination total={total} itemsPerPage={rowsPerPage} current={page} onClick={this.paginationClick}/>
                     </div>
                 )}
             </div>
