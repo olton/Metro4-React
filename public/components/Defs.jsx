@@ -8,7 +8,7 @@ export default Defs;
 export const tablePropsHeader = [
     {
         name: "prop",
-        title: "Property",
+        title: "Property"
     },
     {
         name: "defValue",
@@ -19,3 +19,10 @@ export const tablePropsHeader = [
         title: "Description",
     },
 ];
+
+export const FetchStatus = {
+    ok: "OK",
+    error: "ERROR",
+    fetching: "FETCHING",
+    init: "INIT"
+};

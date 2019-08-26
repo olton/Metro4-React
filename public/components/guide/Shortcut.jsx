@@ -33,9 +33,9 @@ export default class GuideShortcut extends React.Component {
             ["<code>image</code>", "<code>null</code>", "Button icon image"],
             ["<code>cls</code>", "", "Button additional classes"],
             ["<code>className</code>", "", "Button additional classes"],
-            ["<code>classTitle</code>", "", "Button additional classes for title"],
-            ["<code>classIcon</code>", "", "Button additional classes for icon"],
-            ["<code>classBadge</code>", "", "Button additional classes for badge"],
+            ["<code>clsTitle</code>", "", "Button additional classes for title"],
+            ["<code>clsIcon</code>", "", "Button additional classes for icon"],
+            ["<code>clsBadge</code>", "", "Button additional classes for badge"],
         ];
 
         return(

@@ -13,7 +13,8 @@ const menuItems = {
     ],
     "Grid & Table": [
         {to: "/guide/grid", caption: "Responsive Grid"},
-        {to: "/guide/table", caption: "Table"}
+        {to: "/guide/table", caption: "Table"},
+        {to: "/guide/memory-table", caption: "MemoryTable"}
     ],
     "Buttons": [
         {to: "/guide/push-button", caption: "PushButton"},

@@ -48,6 +48,7 @@ import Panel from "./components/panel/panel";
 import Rating from "./components/rating/rating";
 import HtmlContainer from "./components/html-container/html-container";
 import Table from "./components/table/table";
+import MemoryTable from "./components/table/memory-table";
 
 import {Utils, Color, MD5, MediaPoints} from "./routines"
 
@@ -98,5 +99,5 @@ export {
     Tabs, Tab, SplitButton,
     Progress, Panel,
     Rating, HtmlContainer,
-    Table,
+    Table, MemoryTable,
 };

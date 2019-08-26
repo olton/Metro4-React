@@ -16,6 +16,11 @@ export default class Select extends React.Component {
         clsErrorMessage: "",
         speed: 100,
         dropHeight: 200,
+        prepend: null,
+        append: null,
+        clsPrepend: "",
+        clsAppend: "",
+        clsDropdownToggle: "",
         onChange: () => {},
         onFocus: () => {},
         onBlur: () => {},
@@ -182,7 +187,7 @@ export default class Select extends React.Component {
     };
 
     render() {
-        const {multiple, cls, dropHeight, speed, onChange, errorMessage, clsSelected, clsTag, clsErrorMessage, searchPlaceholder} = this.props;
+        const {multiple, cls, dropHeight, speed, onChange, errorMessage, clsSelected, clsTag, clsErrorMessage, searchPlaceholder, prepend, append, clsPrepend, clsAppend, clsDropdownToggle} = this.props;
         const {open, filter, value, fieldState, focus} = this.state;
         const transition = `height ${speed}ms cubic-bezier(.4, 0, .2, 1)`;
         const options = {};
@@ -228,7 +233,7 @@ export default class Select extends React.Component {
             <React.Fragment>
                 <label tabIndex={1} className={'select ' + cls + (focus ? ' focused ':'') + (multiple ? ' multiple ':'') + (fieldState === 'error' ? ' invalid ' : fieldState === 'success' ? ' success ' : '')} ref={this.component}>
 
-                    <span className={'dropdown-toggle ' + (open ? 'active-toggle':'')} onClick={this.selectClick}/>
+                    <span className={'dropdown-toggle ' + (` ${clsDropdownToggle} `) + (open ? 'active-toggle':'')} onClick={this.selectClick}/>
 
                     <select value={value} multiple={multiple}
                             ref={this.select}
@@ -256,6 +261,13 @@ export default class Select extends React.Component {
                             {items}
                         </ul>
                     </Collapse>
+
+                    {prepend && (
+                        <span className={'prepend ' + clsPrepend} dangerouslySetInnerHTML={{__html: prepend}}/>
+                    )}
+                    {append && (
+                        <span className={'append ' + clsAppend} dangerouslySetInnerHTML={{__html: append}}/>
+                    )}
                 </label>
                 {fieldState === 'error' && errorMessage !== "" && (
                     <span className={'invalid_feedback ' + clsErrorMessage}>{errorMessage}</span>
