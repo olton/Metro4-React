@@ -16,7 +16,9 @@ export default class MemoryTable extends React.Component {
         clsSearch: "cell-md-9",
         clsRows: "cell-md-3",
         searchPlaceholder: "Search...",
-        rowsPrepend: null
+        rowsPrepend: null,
+        onHeadClick: () => {},
+        onColumnClick: () => {},
     };
 
     constructor(props){
@@ -24,12 +26,15 @@ export default class MemoryTable extends React.Component {
 
         this.head = null;
         this.data = null;
+        this.table = React.createRef();
 
         this.state = {
             status: FetchStatus.init,
             rows: props.rows,
             total: 0,
-            page: 1
+            page: 1,
+            sortColumn: 0,
+            sortDir: "asc"
         };
     }
 
@@ -52,7 +57,16 @@ export default class MemoryTable extends React.Component {
     };
 
     createView = () => {
-        return this.head;
+        const {sortColumn, sortDir} = this.state;
+        const view = this.head;
+        if (view) view.forEach( (el, index) => {
+            if (index === sortColumn) {
+                el.sortDir = sortDir
+            } else {
+                el.sortDir = null
+            }
+        });
+        return view;
     };
 
     load = (source) => {
@@ -102,10 +116,37 @@ export default class MemoryTable extends React.Component {
         });
     };
 
+    sortTable = () => {
+
+    };
+
+    filterTable = () => {
+
+    };
+
     componentDidMount(){
         const {source} = this.props;
         this.load(source);
     }
+
+    componentWillUnmount(){
+    }
+
+    onHeadClick = e => {
+        const columnIndex = parseInt(e.target.getAttribute("index"));
+        const {sortColumn, sortDir} = this.state;
+        if (e.target.className.contains("sortable-column")) {
+            this.setState({
+                sortColumn: columnIndex,
+                sortDir: columnIndex === sortColumn ? sortDir === 'asc' ? 'desc' : 'asc' : 'asc'
+            });
+        }
+        this.props.onHeadClick(e);
+    };
+
+    onColumnClick = e => {
+        this.props.onColumnClick(e)
+    };
 
     render(){
         const {source, pagination, search, rowsSteps, rows: initRowsCount, clsSearchBlock, clsSearch, clsRows, searchPlaceholder, rowsPrepend, ...rest} = this.props;
@@ -130,7 +171,7 @@ export default class MemoryTable extends React.Component {
                     </div>
                 </div>
 
-                <Table head={tableHeader} data={tableData} {...rest}/>
+                <Table head={tableHeader} data={tableData} {...rest} ref={this.table} onHeadClick={this.onHeadClick} onColumnClick={this.onColumnClick}/>
 
                 {pagination && (
                     <div className={'pagination-wrapper'}>

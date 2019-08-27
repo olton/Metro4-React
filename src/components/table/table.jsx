@@ -12,7 +12,9 @@ export default class Table extends React.Component {
         clsHeadRow: "",
         clsHeadCol: "",
         clsDataRow: "",
-        clsDataCol: ""
+        clsDataCol: "",
+        onHeadClick: () => {},
+        onColumnClick: () => {},
     };
 
     constructor(props){
@@ -22,6 +24,7 @@ export default class Table extends React.Component {
             dataHash: MD5(JSON.stringify(props.data))
         };
         this.header = null;
+        this.table = null;
     }
 
     static getDerivedStateFromProps(props, state){
@@ -44,7 +47,7 @@ export default class Table extends React.Component {
                         const sortClass = staticTable ? `${sortable ? 'sortable-column' : ''} ${sortDir ? 'sort-'+sortDir : ''}` : '';
                         const headClass = cls ? cls : '';
                         return (
-                            <th className={`${sortClass} ${clsHeadCol} ${headClass}`} key={index} dangerouslySetInnerHTML={{__html: title ? title : name}}/>
+                            <th index={index} className={`${sortClass} ${clsHeadCol} ${headClass}`} key={index} dangerouslySetInnerHTML={{__html: title ? title : name}} onClick={this.headClick}/>
                         )
                     } )}
                 </tr>
@@ -66,7 +69,11 @@ export default class Table extends React.Component {
                             return (
                                 <td key={key}
                                     className={`${clsDataCol} ${colProps && colProps["clsColumn"] ? colProps["clsColumn"] : ''}`}
-                                    dangerouslySetInnerHTML={{__html: colProps && colProps["template"] ?  colProps["template"].replace("%VAL%", val) : val}}/>
+                                    dangerouslySetInnerHTML={{__html: colProps && colProps["template"] ?  colProps["template"].replace("%VAL%", val) : val}} onClick={this.columnClick}
+                                    style={{
+                                        width: (colProps && colProps["size"] ? colProps["size"] : "auto")
+                                    }}
+                                />
                             )
                         })}
                     </tr>
@@ -76,12 +83,20 @@ export default class Table extends React.Component {
         return tableBody;
     };
 
+    headClick = e => {
+        this.props.onHeadClick(e);
+    };
+
+    columnClick = e => {
+        this.props.onColumnClick(e);
+    };
+
     render(){
-        const {data, head, cls, className, staticTable, clsHeadRow, clsHeadCol, clsDataRow, clsDataCol, children, ...rest} = this.props;
+        const {data, head, cls, className, staticTable, clsHeadRow, clsHeadCol, clsDataRow, clsDataCol, children, onHeadClick, onColumnClick, ...rest} = this.props;
         const classTable = `table ${cls} ${className}`;
 
         return (
-            <table className={classTable} {...rest}>
+            <table className={classTable} {...rest} ref={ref => this.table = ref}>
                 {head && (
                     <thead>{this.drawHeader()}</thead>
                 )}
