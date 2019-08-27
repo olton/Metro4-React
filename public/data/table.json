@@ -6,7 +6,8 @@
       "size": 50,
       "sortable": true,
       "sortDir": "asc",
-      "format": "number"
+      "format": "number",
+      "clsColumn": "bg-light"
     },
     {
       "name": "name",
@@ -25,7 +26,8 @@
       "name": "age",
       "title": "Age",
       "sortable": true,
-      "size": 80
+      "size": 80,
+      "template": "<code>%VAL%</code"
     },
     {
       "name": "salary",

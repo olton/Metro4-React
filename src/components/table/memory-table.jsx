@@ -10,8 +10,8 @@ export default class MemoryTable extends React.Component {
         source: null,
         pagination: true,
         search: true,
-        rows: [-1, 10, 20, 100],
-        showRows: 10,
+        rowsSteps: [-1, 10, 20, 100],
+        rows: 10,
         clsSearchBlock: "row",
         clsSearch: "cell-md-9",
         clsRows: "cell-md-3",
@@ -27,18 +27,21 @@ export default class MemoryTable extends React.Component {
 
         this.state = {
             status: FetchStatus.init,
-            rowsPerPage: props.showRows,
+            rows: props.rows,
             total: 0,
             page: 1
         };
     }
 
     sliceData = () => {
-        const {page, rowsPerPage: rows, total} = this.state;
-        const data = [];
+        const {page, rows, total} = this.state;
+        let data = [];
         const start = parseInt(rows) === -1 ? 0 : rows * (page - 1),
               stop = parseInt(rows) === -1 ? total - 1 : start + rows - 1;
 
+        if (rows === -1) {
+            data = this.data;
+        } else
         if (this.data) {
             for (let i = start; i <= stop; i++) {
                 data.push(this.data[i]);
@@ -92,14 +95,21 @@ export default class MemoryTable extends React.Component {
         })
     };
 
+    rowsChange = (e) => {
+        const rows = parseInt(e.target.value);
+        this.setState({
+            rows: rows === -1 ? this.data.length : rows
+        });
+    };
+
     componentDidMount(){
         const {source} = this.props;
         this.load(source);
     }
 
     render(){
-        const {source, pagination, search, rows, showRows, clsSearchBlock, clsSearch, clsRows, searchPlaceholder, rowsPrepend, ...rest} = this.props;
-        const {dataView, dataSlice, rowsPerPage, total, page} = this.state;
+        const {source, pagination, search, rowsSteps, rows: initRowsCount, clsSearchBlock, clsSearch, clsRows, searchPlaceholder, rowsPrepend, ...rest} = this.props;
+        const {rows, total, page} = this.state;
 
         const tableData = this.sliceData();
         const tableHeader = this.createView();
@@ -112,8 +122,8 @@ export default class MemoryTable extends React.Component {
                         <Input placeholder={searchPlaceholder}/>
                     </div>
                     <div className={clsRows}>
-                        <Select value={rowsPerPage} prepend={rowsPrepend}>
-                            {rows.map( (val, index)=>{
+                        <Select value={rows} prepend={rowsPrepend} onChange={this.rowsChange}>
+                            {rowsSteps.map( (val, index)=>{
                                 return <option key={index} value={val}>{val === -1 ? 'All' : val}</option>
                             } )}
                         </Select>
@@ -124,7 +134,7 @@ export default class MemoryTable extends React.Component {
 
                 {pagination && (
                     <div className={'pagination-wrapper'}>
-                        <Pagination total={total} itemsPerPage={rowsPerPage} current={page} onClick={this.paginationClick}/>
+                        <Pagination total={total} itemsPerPage={rows} current={page} onClick={this.paginationClick}/>
                     </div>
                 )}
             </div>

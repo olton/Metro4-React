@@ -56,12 +56,18 @@ export default class Table extends React.Component {
         const {clsDataRow, clsDataCol} = this.props;
         const {data} = this.state;
         const tableBody = [];
+
         if (Array.isArray(data) && data.length > 0) {
             data.forEach( (el, index) => {
                 tableBody.push(
                     <tr key={index} className={clsDataRow}>
                         {el.map((val, key)=>{
-                            return <td className={`${clsDataCol}`} key={key} dangerouslySetInnerHTML={{__html: val}}/>
+                            const colProps = this.props.head ? this.props.head[key] : null;
+                            return (
+                                <td key={key}
+                                    className={`${clsDataCol} ${colProps && colProps["clsColumn"] ? colProps["clsColumn"] : ''}`}
+                                    dangerouslySetInnerHTML={{__html: colProps && colProps["template"] ?  colProps["template"].replace("%VAL%", val) : val}}/>
+                            )
                         })}
                     </tr>
                 );

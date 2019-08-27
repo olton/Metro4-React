@@ -48,7 +48,7 @@ export default class Pagination extends React.Component {
 
     render() {
         const {cls, total, itemsPerPage, current, distance, prevTitle, nextTitle, moreTitle, onClick, ...props} = this.props;
-        const pagesCount = Math.ceil(total / itemsPerPage);
+        const pagesCount = parseInt(itemsPerPage) === -1 ? 1 : Math.ceil(total / itemsPerPage);
         const items = [];
 
         items.push(<PaginationItem title={prevTitle} cls={'service prev-page ' + (current === 1 ? ' disabled ' : '')} data={'prev'} />);
