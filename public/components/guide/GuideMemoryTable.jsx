@@ -17,7 +17,7 @@ export default class GuideMemoryTable extends React.Component {
 
                 <h3>Introduction</h3>
                 <Example>
-                    <MemoryTable source={'../data/table.json'} rowsPrepend='Show: '/>
+                    <MemoryTable cellWrap={false} className="table-border striped" source={'../data/table-100k.json'} rowsTitle='Show: '/>
                 </Example>
 
                 <br/>

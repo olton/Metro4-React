@@ -105,7 +105,7 @@ export default class Input extends React.Component {
         const {onChange} = this.props;
 
         this.setState({
-            value: e.target.value
+            value: e.target.value ? e.target.value : ""
         });
 
         onChange(e);
@@ -164,7 +164,8 @@ export default class Input extends React.Component {
             value: ""
         });
 
-        this.focus();
+        this.focus(e);
+        this.onChange(e);
 
         onClear(e);
     }

@@ -7,6 +7,7 @@ import Select from "../select/select";
 
 export default class MemoryTable extends React.Component {
     static defaultProps = {
+        scrollable: false,
         source: null,
         pagination: true,
         search: true,
@@ -16,9 +17,12 @@ export default class MemoryTable extends React.Component {
         clsSearch: "cell-md-9",
         clsRows: "cell-md-3",
         searchPlaceholder: "Search...",
-        rowsPrepend: null,
+        searchFilter: "",
+        searchFilterLength: 1,
+        searchFilterThreshold: 500,
+        rowsTitle: null,
         onHeadClick: () => {},
-        onColumnClick: () => {},
+        onCellClick: () => {},
     };
 
     constructor(props){
@@ -27,29 +31,74 @@ export default class MemoryTable extends React.Component {
         this.head = null;
         this.data = null;
         this.table = React.createRef();
+        this.searchThresholdTimer = false;
+        this.dataLength = 0;
 
         this.state = {
             status: FetchStatus.init,
             rows: props.rows,
-            total: 0,
             page: 1,
             sortColumn: 0,
-            sortDir: "asc"
+            sortDir: "asc",
+            searchFilter: ""
         };
     }
 
+    componentDidMount(){
+        const {source} = this.props;
+        this.load(source);
+    }
+
+    componentWillUnmount(){
+    }
+
+    load = (source) => {
+        if (source && typeof source === 'string') {
+            fetch(source).then(
+                (response) => response.json()
+            ).then(
+                (response) => {
+
+                    if (response.data) this.data = response.data;
+                    if (response.header) this.head = response.header;
+
+                    this.dataLength = this.data && Array.isArray(this.data) ? this.data.length : 0;
+
+                    this.setState({
+                        status: FetchStatus.ok,
+                    })
+                }
+            ).catch( (e)=>{
+                this.setState({
+                    status: FetchStatus.error,
+                    message: e.message
+                })
+            })
+        }
+    };
+
     sliceData = () => {
-        const {page, rows, total} = this.state;
-        let data = [];
+        const {searchFilterLength} = this.props;
+        const {page, rows, total, searchFilter} = this.state;
+        let data = [], workData;
         const start = parseInt(rows) === -1 ? 0 : rows * (page - 1),
               stop = parseInt(rows) === -1 ? total - 1 : start + rows - 1;
 
+        if (!this.data || this.data.length === 0) return [];
+
+        workData = this.data;
+
+        if (searchFilter !== "" && searchFilter.length >= searchFilterLength) {
+            workData = this.searchTable(workData);
+        }
+
+        this.dataLength = workData.length;
+
         if (rows === -1) {
-            data = this.data;
-        } else
-        if (this.data) {
+            data = workData;
+        } else {
             for (let i = start; i <= stop; i++) {
-                data.push(this.data[i]);
+                if (workData[i]) data.push(workData[i]);
             }
         }
 
@@ -69,28 +118,19 @@ export default class MemoryTable extends React.Component {
         return view;
     };
 
-    load = (source) => {
-        if (source && typeof source === 'string') {
-            fetch(source).then(
-                (response) => response.json()
-            ).then(
-                (response) => {
+    sortTable = () => {
 
-                    if (response.data) this.data = response.data;
-                    if (response.header) this.head = response.header;
+    };
 
-                    this.setState({
-                        status: FetchStatus.ok,
-                        total: this.data && Array.isArray(this.data) ? this.data.length : 0,
-                    })
-                }
-            ).catch( (e)=>{
-                this.setState({
-                    status: FetchStatus.error,
-                    message: e.message
-                })
-            })
-        }
+    searchTable = (data) => {
+        const {searchFilter} = this.state;
+        return data.filter((el)=>{
+            let textContent = "";
+            for(let i = 0; i < el.length; i++) {
+                textContent += " "+el[i];
+            }
+            return textContent.toLowerCase().includes(searchFilter);
+        })
     };
 
     paginationClick = (page) => {
@@ -116,22 +156,6 @@ export default class MemoryTable extends React.Component {
         });
     };
 
-    sortTable = () => {
-
-    };
-
-    filterTable = () => {
-
-    };
-
-    componentDidMount(){
-        const {source} = this.props;
-        this.load(source);
-    }
-
-    componentWillUnmount(){
-    }
-
     onHeadClick = e => {
         const columnIndex = parseInt(e.target.getAttribute("index"));
         const {sortColumn, sortDir} = this.state;
@@ -144,15 +168,38 @@ export default class MemoryTable extends React.Component {
         this.props.onHeadClick(e);
     };
 
-    onColumnClick = e => {
-        this.props.onColumnClick(e)
+    onCellClick = e => {
+        this.props.onCellClick(e)
+    };
+
+    searchFilterChange = e => {
+        const val = e.target.value ? e.target.value.trim() : "";
+
+        clearTimeout(this.searchThresholdTimer);
+        this.searchThresholdTimer = false;
+
+        if (!this.searchThresholdTimer) this.searchThresholdTimer = setTimeout( ()=> {
+            console.log("threshold");
+            this.setState({
+                searchFilter: val,
+                page: 1
+            });
+
+            clearTimeout(this.searchThresholdTimer);
+            this.searchThresholdTimer = false;
+        }, this.props.searchFilterThreshold);
     };
 
     render(){
-        const {source, pagination, search, rowsSteps, rows: initRowsCount, clsSearchBlock, clsSearch, clsRows, searchPlaceholder, rowsPrepend, ...rest} = this.props;
-        const {rows, total, page} = this.state;
+        const {
+            source, pagination, search, rowsSteps, rows: initRowsCount,
+            clsSearchBlock, clsSearch, clsRows, searchPlaceholder, rowsTitle,
+            searchFilter, searchFilterThreshold, searchFilterLength,
+            scrollable,
+            ...rest} = this.props;
+        const {rows, page} = this.state;
 
-        const tableData = this.sliceData();
+        const tableBody = this.sliceData();
         const tableHeader = this.createView();
 
         return (
@@ -160,10 +207,10 @@ export default class MemoryTable extends React.Component {
 
                 <div className={clsSearchBlock}>
                     <div className={clsSearch}>
-                        <Input placeholder={searchPlaceholder}/>
+                        <Input placeholder={searchPlaceholder} onChange={this.searchFilterChange} onClear={this.searchFilterChange}/>
                     </div>
                     <div className={clsRows}>
-                        <Select value={rows} prepend={rowsPrepend} onChange={this.rowsChange}>
+                        <Select value={rows} prepend={rowsTitle} onChange={this.rowsChange}>
                             {rowsSteps.map( (val, index)=>{
                                 return <option key={index} value={val}>{val === -1 ? 'All' : val}</option>
                             } )}
@@ -171,11 +218,13 @@ export default class MemoryTable extends React.Component {
                     </div>
                 </div>
 
-                <Table head={tableHeader} data={tableData} {...rest} ref={this.table} onHeadClick={this.onHeadClick} onColumnClick={this.onColumnClick}/>
+                <div className={'table-container ' + (scrollable ? 'horizontal-scroll':'')}>
+                    <Table head={tableHeader} body={tableBody} {...rest} ref={this.table} onHeadClick={this.onHeadClick} onCellClick={this.onCellClick}/>
+                </div>
 
                 {pagination && (
                     <div className={'pagination-wrapper'}>
-                        <Pagination total={total} itemsPerPage={rows} current={page} onClick={this.paginationClick}/>
+                        <Pagination total={this.dataLength} itemsPerPage={rows} current={page} onClick={this.paginationClick}/>
                     </div>
                 )}
             </div>
