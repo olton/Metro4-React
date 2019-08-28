@@ -4,6 +4,7 @@ import Pagination from "../pagination/pagination";
 import {FetchStatus} from "../../../public/components/Defs";
 import Input from "../input/input";
 import Select from "../select/select";
+import Utils from "../../routines/utils";
 
 export default class MemoryTable extends React.Component {
     static defaultProps = {
@@ -21,6 +22,8 @@ export default class MemoryTable extends React.Component {
         searchFilterLength: 1,
         searchFilterThreshold: 500,
         rowsTitle: null,
+        thousandSeparator: ",",
+        decimalSeparator: ".",
         onHeadClick: () => {},
         onCellClick: () => {},
     };
@@ -92,6 +95,8 @@ export default class MemoryTable extends React.Component {
             workData = this.searchTable(workData);
         }
 
+        workData = this.sortTable(workData);
+
         this.dataLength = workData.length;
 
         if (rows === -1) {
@@ -118,8 +123,47 @@ export default class MemoryTable extends React.Component {
         return view;
     };
 
-    sortTable = () => {
+    getItemContent = (data) => {
+        const {thousandSeparator, decimalSeparator} = this.props;
+        const {sortColumn} = this.state;
+        const format = this.head ? this.head[sortColumn]["format"] : undefined;
+        const formatMask = this.head ? this.head[sortColumn]["formatMask"] : undefined;
 
+        let result = (""+data).toLowerCase().replace(/[\n\r]+|[\s]{2,}/g, ' ').trim();
+
+        if (result && format) {
+            if (['number', 'int', 'float', 'money'].indexOf(format) !== -1 && (thousandSeparator !== "," || decimalSeparator !== "." )) {
+                result = Utils.parseNumber(result, thousandSeparator, decimalSeparator);
+            }
+
+            switch (format) {
+                case "date": result = Utils.isValue(formatMask) ? result.toDate(formatMask) : new Date(result); break;
+                case "number": result = Number(result); break;
+                case "int": result = parseInt(result); break;
+                case "float": result = parseFloat(result); break;
+                case "money": result = Utils.parseMoney(result); break;
+                case "card": result = Utils.parseCard(result); break;
+                case "phone": result = Utils.parsePhone(result); break;
+            }
+        }
+
+        return result;
+    };
+
+    sortTable = (data) => {
+        const {sortColumn, sortDir} = this.state;
+        return !data ? data : data.sort((a, b)=>{
+            const item1 = this.getItemContent(a[sortColumn]),
+                  item2 = this.getItemContent(b[sortColumn]);
+            let result = 0;
+            if (item1 < item2) {
+                result = sortDir === 'asc' ? -1 : 1;
+            }
+            if (item1 > item2) {
+                result = sortDir === 'asc' ? 1 : -1;
+            }
+            return result;
+        });
     };
 
     searchTable = (data) => {
@@ -195,7 +239,7 @@ export default class MemoryTable extends React.Component {
             source, pagination, search, rowsSteps, rows: initRowsCount,
             clsSearchBlock, clsSearch, clsRows, searchPlaceholder, rowsTitle,
             searchFilter, searchFilterThreshold, searchFilterLength,
-            scrollable,
+            scrollable, decimalSeparator, thousandSeparator,
             ...rest} = this.props;
         const {rows, page} = this.state;
 

@@ -66,7 +66,7 @@ export default class GuideShortcut extends React.Component {
 
                 <br/>
                 <h4>Props</h4>
-                <Table className='table-border cell-border' head={tablePropsHeader} data={tablePropsData}/>
+                <Table className='table-border cell-border' head={tablePropsHeader} body={tablePropsData}/>
 
                 <br/>
                 <h3>Using</h3>
