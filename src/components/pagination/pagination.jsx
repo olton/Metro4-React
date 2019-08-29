@@ -31,6 +31,7 @@ export default class Pagination extends React.Component {
         current: 0,
         distance: 5,
         cls: "",
+        className: "",
         prevTitle: "Prev",
         nextTitle: "Next",
         moreTitle: "...",
@@ -47,7 +48,7 @@ export default class Pagination extends React.Component {
     }
 
     render() {
-        const {cls, total, itemsPerPage, current, distance, prevTitle, nextTitle, moreTitle, onClick, ...props} = this.props;
+        const {cls, className, total, itemsPerPage, current, distance, prevTitle, nextTitle, moreTitle, onClick, ...props} = this.props;
         const pagesCount = parseInt(itemsPerPage) === -1 ? 1 : Math.ceil(total / itemsPerPage);
         const items = [];
 
@@ -90,7 +91,7 @@ export default class Pagination extends React.Component {
         items.push(<PaginationItem title={nextTitle} cls={'service next-page ' + (current === pagesCount ? ' disabled ' : '')} data={'next'} />);
 
         return (
-            <ul className={'pagination ' + cls + (total === 0 ? ' disabled ' : '')} {...props}>
+            <ul className={`pagination ${cls} ${className} ${total === 0 ? 'disabled' : ''}`} {...props}>
                 {items.map( (el, index) => {
                     return React.cloneElement(el, {
                         key: index,

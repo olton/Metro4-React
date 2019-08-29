@@ -40,6 +40,7 @@ export default class Table extends React.Component {
 
     drawHeader = () => {
         const {head, mode, clsHeadRow, clsHeadCell} = this.props;
+
         if (Array.isArray(head) && head.length > 0) {
             return (
                 <tr className={clsHeadRow}>

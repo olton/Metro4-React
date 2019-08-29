@@ -94,7 +94,9 @@ export default class GuideTable extends React.Component {
             ["clsColumn", "Additional classes for body cell"],
             ["size", "Fixed size for body cell"],
             ["format", "Body cell data format: date, number, int, float, money, card, phone. This field used in extended components such as <code>&lt;MemoryTable/&gt;</code>"],
-            ["formatMask", "Format mask template for data manipulate when sort"]
+            ["formatMask", "Format mask template for data manipulate when sort"],
+            ["thousandSeparator", "Separator for divide thousands, default is <code>,</code>"],
+            ["decimalSeparator", "Separator for divide decimal part, default is <code>.</code>"],
         ];
 
         return(

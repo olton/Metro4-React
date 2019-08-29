@@ -12,18 +12,22 @@ export default class MemoryTable extends React.Component {
         source: null,
         pagination: true,
         search: true,
+        info: true,
+        infoTemplate: "Showing $1 to $2 of $3 entries",
         rowsSteps: [-1, 10, 20, 100],
         rows: 10,
-        clsSearchBlock: "row",
-        clsSearch: "cell-md-9",
-        clsRows: "cell-md-3",
+        rowsTitle: null,
         searchPlaceholder: "Search...",
         searchFilter: "",
         searchFilterLength: 1,
         searchFilterThreshold: 500,
-        rowsTitle: null,
-        thousandSeparator: ",",
-        decimalSeparator: ".",
+        clsSearchBlock: "",
+        clsSearch: "",
+        clsRows: "",
+        clsInfoBlock: "",
+        clsPagination: "",
+        clsPaginationBlock: "",
+        clsInfo: "",
         onHeadClick: () => {},
         onCellClick: () => {},
     };
@@ -43,7 +47,7 @@ export default class MemoryTable extends React.Component {
             page: 1,
             sortColumn: 0,
             sortDir: "asc",
-            searchFilter: ""
+            searchFilter: props.searchFilter
         };
     }
 
@@ -124,10 +128,11 @@ export default class MemoryTable extends React.Component {
     };
 
     getItemContent = (data) => {
-        const {thousandSeparator, decimalSeparator} = this.props;
         const {sortColumn} = this.state;
         const format = this.head ? this.head[sortColumn]["format"] : undefined;
         const formatMask = this.head ? this.head[sortColumn]["formatMask"] : undefined;
+        const thousandSeparator = this.head ? this.head[sortColumn]["thousandSeparator"] : ",";
+        const decimalSeparator = this.head ? this.head[sortColumn]["decimalSeparator"] : ".";
 
         let result = (""+data).toLowerCase().replace(/[\n\r]+|[\s]{2,}/g, ' ').trim();
 
@@ -236,12 +241,16 @@ export default class MemoryTable extends React.Component {
 
     render(){
         const {
-            source, pagination, search, rowsSteps, rows: initRowsCount,
-            clsSearchBlock, clsSearch, clsRows, searchPlaceholder, rowsTitle,
-            searchFilter, searchFilterThreshold, searchFilterLength,
+            source, pagination, search, info, infoTemplate, rowsSteps, rows: initRowsCount,
+            clsSearchBlock, clsInfoBlock, clsSearch, clsRows, clsPagination, clsPaginationBlock, clsInfo, searchPlaceholder, rowsTitle,
+            searchFilter: initSearchFilter, searchFilterThreshold, searchFilterLength,
             scrollable, decimalSeparator, thousandSeparator,
             ...rest} = this.props;
-        const {rows, page} = this.state;
+        const {rows, page, searchFilter} = this.state;
+
+        const dataLength = this.dataLength;
+        const dataStart = (rows === -1 ? 1 : (rows * (page - 1)) + 1) + 1;
+        const dataStop = (rows === -1 ? dataLength - 1 : dataStart + rows - 1) + 1;
 
         const tableBody = this.sliceData();
         const tableHeader = this.createView();
@@ -251,7 +260,7 @@ export default class MemoryTable extends React.Component {
 
                 <div className={clsSearchBlock}>
                     <div className={clsSearch}>
-                        <Input placeholder={searchPlaceholder} onChange={this.searchFilterChange} onClear={this.searchFilterChange}/>
+                        <Input placeholder={searchPlaceholder} onChange={this.searchFilterChange} onClear={this.searchFilterChange} value={searchFilter}/>
                     </div>
                     <div className={clsRows}>
                         <Select value={rows} prepend={rowsTitle} onChange={this.rowsChange}>
@@ -266,11 +275,27 @@ export default class MemoryTable extends React.Component {
                     <Table head={tableHeader} body={tableBody} {...rest} ref={this.table} onHeadClick={this.onHeadClick} onCellClick={this.onCellClick}/>
                 </div>
 
-                {pagination && (
-                    <div className={'pagination-wrapper'}>
-                        <Pagination total={this.dataLength} itemsPerPage={rows} current={page} onClick={this.paginationClick}/>
+                {(pagination || info) && (
+                    <div className={clsInfoBlock}>
+                        {info && (
+                            <div className={'info-wrapper ' + clsInfo}>
+                                <span>{
+                                    infoTemplate
+                                        .replace("$1", dataStart)
+                                        .replace("$2", dataStop)
+                                        .replace("$3", dataLength)
+                                }</span>
+                            </div>
+                        )}
+
+                        {pagination && (
+                            <div className={'pagination-wrapper ' + clsPaginationBlock}>
+                                <Pagination total={dataLength} itemsPerPage={rows} current={page} onClick={this.paginationClick} cls={clsPagination}/>
+                            </div>
+                        )}
                     </div>
                 )}
+
             </div>
         )
     }
