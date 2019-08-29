@@ -8,11 +8,13 @@ export default Defs;
 export const tablePropsHeader = [
     {
         name: "prop",
-        title: "Property"
+        title: "Property",
+        template: "<code>%VAL%</code>"
     },
     {
         name: "defValue",
         title: "Default Value",
+        template: "<code>%VAL%</code>"
     },
     {
         name: "desc",

@@ -19,7 +19,8 @@ import GuideInfoButton from './guide/InfoButton';
 import GuideImageButton from "./guide/ImageButton";
 import GuideActionButton from "./guide/ActionButton";
 import GuideShortcut from "./guide/Shortcut";
-import GuideMemoryTable from "./guide/GuideMemoryTable";
+import GuideTable from "./guide/Table";
+import GuideMemoryTable from "./guide/MemoryTable";
 
 export default class Guide extends React.Component {
     constructor(props){
@@ -71,6 +72,7 @@ export default class Guide extends React.Component {
                                 <Route path='/guide/common' component={GuideCommon}/>
                                 <Route path='/guide/colors' component={GuideColorStyles}/>
                                 <Route path='/guide/grid' component={GuideGrid}/>
+                                <Route path='/guide/table' component={GuideTable}/>
                                 <Route path='/guide/memory-table' component={GuideMemoryTable}/>
                                 <Route path='/guide/push-button' component={GuidePushButton}/>
                                 <Route path='/guide/split-button' component={GuideSplitButton}/>

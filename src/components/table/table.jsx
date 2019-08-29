@@ -10,9 +10,9 @@ export default class Table extends React.Component {
         cls: "",
         className: "",
         clsHeadRow: "",
-        clsHeadCol: "",
-        clsDataRow: "",
-        clsDataCol: "",
+        clsHeadCell: "",
+        clsBodyRow: "",
+        clsBodyCell: "",
         onHeadClick: () => {},
         onCellClick: () => {},
         onDrawCell: val => val,
@@ -39,7 +39,7 @@ export default class Table extends React.Component {
     }
 
     drawHeader = () => {
-        const {head, mode, clsHeadRow, clsHeadCol} = this.props;
+        const {head, mode, clsHeadRow, clsHeadCell} = this.props;
         if (Array.isArray(head) && head.length > 0) {
             return (
                 <tr className={clsHeadRow}>
@@ -48,7 +48,7 @@ export default class Table extends React.Component {
                         const sortClass = mode !== "static" ? `${sortable ? 'sortable-column' : ''} ${sortDir ? 'sort-'+sortDir : ''}` : '';
                         const headClass = cls ? cls : '';
                         return (
-                            <th index={index} className={`${sortClass} ${clsHeadCol} ${headClass}`} key={index} dangerouslySetInnerHTML={{__html: title ? title : name}} onClick={this.headClick}/>
+                            <th index={index} className={`${sortClass} ${clsHeadCell} ${headClass}`} key={index} dangerouslySetInnerHTML={{__html: title ? title : name}} onClick={this.headClick}/>
                         )
                     } )}
                 </tr>
@@ -57,17 +57,17 @@ export default class Table extends React.Component {
     };
 
     drawBody = () => {
-        const {clsDataRow, clsDataCol, cellWrap, onDrawCell} = this.props;
+        const {clsBodyRow, clsBodyCell, cellWrap, onDrawCell} = this.props;
         const {body} = this.state;
         const tableBody = [];
 
         if (Array.isArray(body) && body.length > 0) {
             body.forEach( (el, index) => {
                 tableBody.push(
-                    <tr key={index} className={clsDataRow}>
+                    <tr key={index} className={clsBodyRow}>
                         {el.map((val, key)=>{
                             const colProps = this.props.head ? this.props.head[key] : null;
-                            const cellClass = `${clsDataCol} ${colProps && colProps["clsColumn"] ? colProps["clsColumn"] : ''}`;
+                            const cellClass = `${clsBodyCell} ${colProps && colProps["clsColumn"] ? colProps["clsColumn"] : ''}`;
                             let cellVal = colProps && colProps["template"] ?  colProps["template"].replace("%VAL%", val) : val;
                             const style = {};
 
@@ -75,7 +75,7 @@ export default class Table extends React.Component {
                                 style.width = colProps["size"];
                             }
 
-                            cellVal = onDrawCell(cellVal, colProps);
+                            cellVal = onDrawCell(cellVal, colProps, key);
 
                             return (
                                 <td key={key}
@@ -102,7 +102,7 @@ export default class Table extends React.Component {
 
     render(){
         const {
-            cellWrap, body: initBody, head, cls, className, mode, clsHeadRow, clsHeadCol, clsDataRow, clsDataCol, children,
+            cellWrap, body: initBody, head, cls, className, mode, clsHeadRow, clsHeadCell, clsBodyRow, clsBodyCell, children,
             onHeadClick, onCellClick, onDrawCell,
             ...rest} = this.props;
         const {body} = this.state;
