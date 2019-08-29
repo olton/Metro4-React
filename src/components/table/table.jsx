@@ -15,6 +15,7 @@ export default class Table extends React.Component {
         clsDataCol: "",
         onHeadClick: () => {},
         onCellClick: () => {},
+        onDrawCell: val => val,
     };
 
     constructor(props){
@@ -56,7 +57,7 @@ export default class Table extends React.Component {
     };
 
     drawBody = () => {
-        const {clsDataRow, clsDataCol, cellWrap} = this.props;
+        const {clsDataRow, clsDataCol, cellWrap, onDrawCell} = this.props;
         const {body} = this.state;
         const tableBody = [];
 
@@ -73,6 +74,8 @@ export default class Table extends React.Component {
                             if (colProps && colProps["size"]) {
                                 style.width = colProps["size"];
                             }
+
+                            cellVal = onDrawCell(cellVal, colProps);
 
                             return (
                                 <td key={key}
@@ -98,7 +101,10 @@ export default class Table extends React.Component {
     };
 
     render(){
-        const {cellWrap, body: initBody, head, cls, className, mode, clsHeadRow, clsHeadCol, clsDataRow, clsDataCol, children, onHeadClick, onCellClick, ...rest} = this.props;
+        const {
+            cellWrap, body: initBody, head, cls, className, mode, clsHeadRow, clsHeadCol, clsDataRow, clsDataCol, children,
+            onHeadClick, onCellClick, onDrawCell,
+            ...rest} = this.props;
         const {body} = this.state;
         const classTable = `table ${cls} ${className}`;
 

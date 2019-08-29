@@ -4,6 +4,13 @@ import PrismCode from "../PrismCode";
 import Example from "../Example";
 
 export default class GuideMemoryTable extends React.Component {
+    drawCell = (val, props) => {
+        if (props.name === 'name') {
+            return `<a href="#">${val}</a>`
+        }
+        return val;
+    };
+
     render(){
         const codeImport = `import {MemoryTable} from "metro4-react";`;
 
@@ -17,7 +24,7 @@ export default class GuideMemoryTable extends React.Component {
 
                 <h3>Introduction</h3>
                 <Example>
-                    <MemoryTable cellWrap={false} className="table-border striped" source={'../data/table.json'} rowsTitle='Show: '/>
+                    <MemoryTable cellWrap={false} className="table-border striped" source={'../data/table.json'} rowsTitle='Show: ' onDrawCell={this.drawCell}/>
                 </Example>
 
                 <br/>
