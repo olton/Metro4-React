@@ -21,6 +21,7 @@ import GuideActionButton from "./guide/ActionButton";
 import GuideShortcut from "./guide/Shortcut";
 import GuideTable from "./guide/Table";
 import GuideMemoryTable from "./guide/MemoryTable";
+import GuidePagination from "./guide/Pagination";
 
 export default class Guide extends React.Component {
     constructor(props){
@@ -82,6 +83,7 @@ export default class Guide extends React.Component {
                                 <Route path='/guide/image-button' component={GuideImageButton}/>
                                 <Route path='/guide/action-button' component={GuideActionButton}/>
                                 <Route path='/guide/shortcut' component={GuideShortcut}/>
+                                <Route path='/guide/pagination' component={GuidePagination}/>
                                 <Route component={NotFound} />
                             </Switch>
                         </article>
