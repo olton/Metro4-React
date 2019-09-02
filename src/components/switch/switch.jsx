@@ -10,6 +10,8 @@ export default class Switch extends React.Component {
         disabled: false,
         value: "",
 
+        cls: "",
+        className: "",
         clsCheckbox: "",
         clsCheck: "",
         clsCaption: "",
@@ -55,6 +57,7 @@ export default class Switch extends React.Component {
             caption,
             variant,
             disabled,
+            cls, className,
             clsCheckbox,
             clsCaption,
             clsCheck
@@ -70,7 +73,7 @@ export default class Switch extends React.Component {
         };
 
         return (
-            <label className={'switch' + (variant === 2 ? '-material' : '') + ' ' +  clsCheckbox + ' transition-on'}>
+            <label className={`switch${(variant === 2 ? '-material' : '')} ${clsCheckbox} transition-on ${cls} ${className}`}>
                 <input type="checkbox" {...inputProps}/>
                 <span className={"check " + clsCheck}/>
                 <span className={"caption " + clsCaption}>{caption}</span>

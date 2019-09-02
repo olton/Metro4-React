@@ -8,6 +8,7 @@ export default class ButtonGroup extends React.Component {
         active: 1,
         radio: false,
         cls: "",
+        className: "",
         clsActive: "",
         clsButton: "",
         onButtonClick: ()=>{}
@@ -58,11 +59,11 @@ export default class ButtonGroup extends React.Component {
     }
 
     render(){
-        const {cls, clsActive, clsButton} = this.props;
+        const {cls, className, clsActive, clsButton} = this.props;
         const {buttons} = this.state;
 
         return (
-            <div className={'button-group ' + cls}>
+            <div className={`button-group ${cls} ${className}`}>
                 {
                     React.Children.map(this.props.children, (button, index) => {
                         const correctIndex = index + 1;

@@ -20,6 +20,7 @@ export default class Input extends React.Component {
         autocompleteHeight: 200,
         customButtons: [],
         cls: "",
+        className: "",
         clsAppend: "",
         clsPrepend: "",
         clsButtonGroup: "",
@@ -195,7 +196,7 @@ export default class Input extends React.Component {
     render() {
         const {
             errorMessage, fieldState: initFieldState, type, append, prepend, clear, reveal, search, searchType, history, preventSubmit, customButtons, autocomplete, autocompleteHeight, onSearch, onClear, onReveal,
-            cls, clsAppend, clsPrepend, clsClearButton, clsCustomButton, clsSearchButton, clsRevealButton, clsAutocomplete, clsAutocompleteItem, clsButtonGroup, clsErrorMessage,
+            cls, className, clsAppend, clsPrepend, clsClearButton, clsCustomButton, clsSearchButton, clsRevealButton, clsAutocomplete, clsAutocompleteItem, clsButtonGroup, clsErrorMessage,
             ...props} = this.props;
         const {value, inputType, focus, fieldState} = this.state;
         const buttons = clear || reveal || search;
@@ -204,7 +205,7 @@ export default class Input extends React.Component {
 
         return (
             <React.Fragment>
-                <div className={'input ' + (focus ? 'focused' : '') + (fieldState === 'error' ? ' invalid ' : fieldState === 'success' ? ' success ' : '') + ' ' + cls}>
+                <div className={'input ' + (focus ? 'focused' : '') + (fieldState === 'error' ? ' invalid ' : fieldState === 'success' ? ' success ' : '') + ' ' + cls+ ' ' + className}>
 
                     {prepend !== "" && (
                         <span className={'prepend ' + clsPrepend}>{prepend}</span>

@@ -24,6 +24,7 @@ export default class InputFile extends React.Component {
         select: true,
         customButtons: [],
         cls: "",
+        className: "",
         clsCaption: "",
         clsAppend: "",
         clsPrepend: "",
@@ -119,7 +120,7 @@ export default class InputFile extends React.Component {
     render(){
         const {
             append, prepend, clear, select, customButtons, onClear, onSelect,
-            cls, clsAppend, clsPrepend, clsClearButton, clsCustomButton, clsSelectButton, clsButtonGroup, clsCaption,
+            cls, className, clsAppend, clsPrepend, clsClearButton, clsCustomButton, clsSelectButton, clsButtonGroup, clsCaption,
             mode, buttonTitle, dropTitle, dropTitleSecondary, buttonIcon, buttonIconPrefix, buttonIconSize,
             dropIcon, dropIconPrefix, dropIconSize,
             ...props} = this.props;
@@ -127,7 +128,7 @@ export default class InputFile extends React.Component {
         const buttons = true;
 
         return (
-            <label className={(mode !== 'input' ? ' drop-zone ' : ' file ') + (focus ? ' focused ' : '') + cls} title={caption}>
+            <label className={(mode !== 'input' ? ' drop-zone ' : ' file ') + (focus ? ' focused ' : '') + cls + ' ' + className} title={caption}>
 
                 <input {...props} type={'file'} onChange={this.onChange} ref={ref => this.input = ref} />
 
