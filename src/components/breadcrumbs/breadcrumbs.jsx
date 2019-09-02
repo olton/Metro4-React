@@ -4,22 +4,22 @@ import "./breadcrumbs.less";
 export class BreadcrumbsItem extends React.Component {
     static defaultProps = {
         cls: "",
-        clsPageItem: "",
-        clsPageLink: "",
-        href: ""
+        className: "",
+        clsItem: "",
+        clsLink: ""
     };
 
     render() {
         const {
-            href, clsPageItem, clsPageLink, cls
+            href, clsItem, clsLink, cls, className, ...rest
         } = this.props;
 
-        const classItem = `page-item ${clsPageItem} ${cls}`;
-        const classLink = `page-link ${clsPageLink}`;
+        const classItem = `page-item ${cls} ${className} ${clsItem}`;
+        const classLink = `page-link ${clsLink}`;
 
         return (
             <li className={classItem}>
-                <a href={href} className={classLink}>
+                <a className={classLink} {...rest}>
                     {this.props.children}
                 </a>
             </li>
@@ -30,29 +30,29 @@ export class BreadcrumbsItem extends React.Component {
 export default class Breadcrumbs extends React.Component {
     static defaultProps = {
         cls: "",
-        clsPageItem: "",
-        clsPageLink: ""
+        className: "",
+        clsItem: "",
+        clsLink: ""
     };
 
     render() {
         const {
-            cls, clsPageItem, clsPageLink
+            cls, className, clsItem, clsLink
         } = this.props;
 
         const Breadcrumbs = "ul";
-        const className = `breadcrumbs ${cls}`;
 
         return (
-            <Breadcrumbs className={className}>
+            <Breadcrumbs className={`breadcrumbs ${cls} ${className}`}>
                 {
                     React.Children.map(this.props.children, (item, index) => {
                         const props = item.props;
-                        const classItem = `page-item ${clsPageItem} ${props.clsPageItem}`;
-                        const classLink = `page-link ${clsPageLink} ${props.clsPageLink}`;
+                        const classItem = `page-item ${clsItem} ${props.clsItem}`;
+                        const classLink = `page-link ${clsLink} ${props.clsLink}`;
                         const itemProps = {
                             ...props,
-                            clsPageItem: classItem,
-                            clsPageLink: classLink
+                            classItem,
+                            classLink
                         };
                         return (
                             <BreadcrumbsItem {...itemProps} key={index}>

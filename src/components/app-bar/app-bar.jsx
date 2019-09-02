@@ -72,7 +72,7 @@ export default class AppBar extends Component {
         return (
             <Element className={'app-bar ' + cls + ' ' + (expanded ? 'app-bar-expand' : '')}>
 
-                <Hamburger cls={hamburgerColor + ' ' + (expanded ? 'hidden' : '')} hidden={!expanded} onClick={this.hamburgerClick}/>
+                <Hamburger className={hamburgerColor + ' ' + (menuCollapsed ? '' : 'active')} hidden={expanded} onClick={this.hamburgerClick}/>
 
                 {Children.map(this.props.children, function(el, index){
                     if (el.type.name === 'AppBarMenu') {

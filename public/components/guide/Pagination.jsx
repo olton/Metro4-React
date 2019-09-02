@@ -21,7 +21,7 @@ export default class GuidePagination extends React.Component {
             ["prevTitle", "Prev", "Previous button title"],
             ["nextTitle", "Next", "Next button title"],
             ["moreTitle", "...", "More title"],
-            ["onClick", "() => {}", "Callback for pagination button click event"]
+            ["onClick", "() => {}", "Callback for pagination button click event. Function receive <code>page number</code> or <code>next</code>, <code>prev</code>"]
         ];
 
         return(

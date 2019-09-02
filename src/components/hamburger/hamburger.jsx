@@ -4,6 +4,7 @@ import "./hamburger.less";
 export default class Hamburger extends React.Component {
     static defaultProps = {
         cls: "",
+        className: "",
         variant: 'menu-down',
         onClick: () => {}
     };
@@ -18,8 +19,10 @@ export default class Hamburger extends React.Component {
     }
 
     render(){
+        const {cls, className, variant, onClick, ...rest} = this.props;
+
         return (
-            <button className={'hamburger ' + this.props.variant + ' ' + this.props.cls} onClick={this.onClick}>
+            <button className={`hamburger ${variant} ${cls} ${className}`} onClick={this.onClick} {...rest}>
                 <span className={'line'}/>
                 <span className={'line'}/>
                 <span className={'line'}/>
