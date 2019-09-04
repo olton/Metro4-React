@@ -17,7 +17,15 @@
   },
   "author": "Sergey Pimenov <sergey@pimenov.com.ua>",
   "license": "MIT",
-  "keywords": [],
+  "keywords": [
+    "metro",
+    "metro 4",
+    "metro ui css",
+    "react",
+    "js",
+    "css",
+    "less"
+  ],
   "devDependencies": {
     "@babel/core": "^7.5.4",
     "@babel/plugin-proposal-class-properties": "^7.5.0",
