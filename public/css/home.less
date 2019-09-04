@@ -22,6 +22,7 @@
 
 .add-neb {
     &::after {
+        z-index: 1;
         display: block;
         content: "";
         width: 0;
@@ -33,6 +34,12 @@
         left: 50%;
         transform: translateX(-50%);
         border-color: @reactBackgroundColorSecondary transparent transparent transparent;
+    }
+}
+
+.about-wrapper {
+    &::after {
+        border-top-color: white;
     }
 }
 
@@ -48,6 +55,30 @@ footer {
 #social-menu {
     li + li {
         margin-left: 20px;
+    }
+}
+
+.who-uses {
+    justify-content: space-between;
+    align-items: center;
+
+    [class*=cell-] {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    img {
+        width: 124px;
+        max-height: 64px;
+    }
+}
+
+.who-uses {
+    margin-bottom: 10px;
+    img {
+        height: 200px;
+        width: auto;
+        max-width: 300px;
     }
 }
 

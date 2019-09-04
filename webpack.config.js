@@ -110,6 +110,7 @@ const webpackConfig = {
             { from: 'public/images', to: 'images' },
             { from: 'public/data', to: 'data' },
             'public/.htaccess',
+            'package.json',
         ]),
     ]
 };

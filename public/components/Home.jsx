@@ -13,6 +13,20 @@ import "../css/home.less";
 import LogoSocial from "../images/logo-social.png";
 
 export default class Home extends React.Component {
+
+    constructor(props){
+        super(props);
+        this.version = React.createRef();
+    }
+
+    componentDidMount(){
+        fetch("package.json").then(
+            response => response.json()
+        ).then(
+            response => this.version.current.innerText = response.version
+        )
+    }
+
     render(){
         return (
             <React.Fragment>
@@ -27,10 +41,10 @@ export default class Home extends React.Component {
                         </div>
                     </h5>
 
-                    <h4 className={'text-center fg-white'}>&#123; 0.0.1 &#125;</h4>
+                    <h4 className={'text-center fg-white'}>&#123; <span ref={this.version}>0.0.1</span> &#125;</h4>
 
                     <div className={'text-center mt-10'}>
-                        <Button as={'a'} href={'/demo'} cls={'bg-react-text fg-white-hover'}>Get started</Button>
+                        <Button as={'a'} href={'/guide'} cls={'bg-react-text fg-white-hover'}>Get started</Button>
                         &nbsp;&nbsp;<a href="https://www.patreon.com/metro4_react">
                             <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160"/>
                         </a>
@@ -38,18 +52,20 @@ export default class Home extends React.Component {
                     </div>
                 </Hero>
 
-                <Container fluid={true}>
+                <Container fluid={true} cls="add-neb about-wrapper">
                     <Container cls={'text-center p-6 p-20-md'}>
 
                         <h1>What is it?</h1>
                         <div className={'text-leader pl-20-md pr-20-md'}>
-                            Metro 4 for React is an open source toolkit for developing with HTML, CSS, and JS. Quickly prototype your ideas or build your entire app with extensive prebuilt components.
+                            Metro 4 for React is an open source toolkit for developing with HTML, CSS, and JS for ReactJS. Quickly prototype your ideas or build your entire app with extensive prebuilt components.
                         </div>
 
                         <br/>
+                        <Adsense client={'ca-pub-1632668592742327'} slot={'4639163605'} test={SITE_MODE_DEV}/>
+                        <br/>
+
                         <br/>
                         <div className={'text-leader2 text-center text-bold'}>Metro 4 for React contains:</div>
-                        <br/>
                         <br/>
 
                         <div>
@@ -76,10 +92,6 @@ export default class Home extends React.Component {
                                     </p>
                                 </Cell>
                             </Row>
-
-                            <br/>
-                            <Adsense client={'ca-pub-1632668592742327'} slot={'4639163605'} test={SITE_MODE_DEV}/>
-                            <br/>
 
                             <Row>
                                 <Cell cls={'cell-md-4'}>
@@ -108,6 +120,20 @@ export default class Home extends React.Component {
 
                         <br/>
                         <br/>
+                    </Container>
+                </Container>
+
+                <Container fluid={true} style={{background: "lightblue"}}>
+                    <Container cls="p-4">
+                        <div className="h1 text-center"><span className="reduce-1 enlarge-1-md">Who uses</span></div>
+
+                        <Row className="who-uses">
+                            <Cell className="cell-md-4"/>
+                            <Cell className="cell-md-4">
+                                <a href="https://mirohost.net"><img src="images/mirohost_logo.svg"/></a>
+                            </Cell>
+                            <Cell className="cell-md-4"/>
+                        </Row>
                     </Container>
                 </Container>
 

@@ -5,15 +5,15 @@ export default class Container extends React.Component {
     static defaultProps = {
         as: "div",
         fluid: false,
-        cls: ""
+        cls: "",
+        className: ""
     };
 
     render(){
-        const Element = this.props.as;
-        const className = `container${this.props.fluid ? '-fluid' : ''} ${this.props.cls}`;
+        const {as: Element, fluid, cls, className, ...rest} = this.props;
 
         return (
-            <Element className={className}>
+            <Element className={`container${fluid ? '-fluid' : ''} ${cls} ${className}`} {...rest}>
                 {this.props.children}
             </Element>
         )
