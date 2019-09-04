@@ -123,7 +123,7 @@ export default class Home extends React.Component {
                     </Container>
                 </Container>
 
-                <Container fluid={true} style={{background: "lightblue"}}>
+                <Container fluid={true} className="who-uses-wrapper">
                     <Container cls="p-4">
                         <div className="h1 text-center"><span className="reduce-1 enlarge-1-md">Who uses</span></div>
 
