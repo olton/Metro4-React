@@ -9,6 +9,7 @@ export default class Select extends React.Component {
     static defaultProps = {
         searchPlaceholder: "Search...",
         fieldState: "normal",
+        filter: true,
         errorMessage: "",
         cls: "",
         clsSelected: "",
@@ -154,6 +155,11 @@ export default class Select extends React.Component {
     }
 
     handleComponentKeydown = e => {
+        // for correct keyboard behavior for search input
+        if ((e.target.tagName || '').toLowerCase() === 'input') {
+            return true;
+        }
+
         if (e.keyCode === 32) {
             this.selectClick();
         }
@@ -256,7 +262,7 @@ export default class Select extends React.Component {
                     </div>
 
                     <Collapse isOpen={open} className={'drop-container'} transition={transition}>
-                        <Input onChange={this.inputChange} ref={this.input} placeholder={searchPlaceholder}/>
+                        { this.props.filter && <Input onChange={this.inputChange} ref={this.input} placeholder={searchPlaceholder}/> }
                         <ul className={'d-menu'} style={{maxHeight: dropHeight}}>
                             {items}
                         </ul>
