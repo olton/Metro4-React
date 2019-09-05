@@ -91,7 +91,9 @@ export default class Select extends React.Component {
         });
 
         if (!isOpen) {
-            // Need focus search input
+            setTimeout( () => {
+                this.input.current.focus();
+            }, 100 );
         }
     }
 
