@@ -16,6 +16,14 @@ export default class GuideBreadcrumbs extends React.Component {
             </Breadcrumbs>
         `;
 
+        const codeItemStructure = `
+            <li className={classItem}>
+                <a className={classLink} {...rest}>
+                    {this.props.children}
+                </a>
+            </li>        
+        `;
+
         const tablePropsBody = [
             ["cls", "null", "Additional classes for component"],
             ["className", "null", "Additional classes for component"],
@@ -65,6 +73,10 @@ export default class GuideBreadcrumbs extends React.Component {
                 <p>
                     In additional, you can use all valid props for <code>&lt;a&gt;</code> - such as <code>href</code>, <code>target</code>, etc.
                 </p>
+
+                <br/>
+                <h4>Item structure</h4>
+                <PrismCode language="js" code={codeItemStructure}/>
 
                 <br/>
                 <Adsense client={'ca-pub-1632668592742327'} slot={'4639163605'} test={SITE_MODE_DEV}/>
