@@ -24,6 +24,7 @@ import GuideMemoryTable from "./guide/MemoryTable";
 import GuidePagination from "./guide/Pagination";
 import GuideBreadcrumbs from "./guide/Breadcrumbs";
 import GuideHamburger from "./guide/Hamburger";
+import GuideButtonGroup from "./guide/ButtonGroup";
 
 export default class Guide extends React.Component {
     constructor(props){
@@ -88,6 +89,7 @@ export default class Guide extends React.Component {
                                 <Route path='/guide/pagination' component={GuidePagination}/>
                                 <Route path='/guide/breadcrumbs' component={GuideBreadcrumbs}/>
                                 <Route path='/guide/hamburger' component={GuideHamburger}/>
+                                <Route path='/guide/button-group' component={GuideButtonGroup}/>
 
                                 <Route component={NotFound} />
                             </Switch>

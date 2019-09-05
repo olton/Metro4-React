@@ -9,7 +9,7 @@ export default class ButtonGroup extends React.Component {
         radio: false,
         cls: "",
         className: "",
-        clsActive: "",
+        clsActive: "active",
         clsButton: "",
         onButtonClick: ()=>{}
     };
