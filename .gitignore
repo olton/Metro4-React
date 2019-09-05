@@ -9,3 +9,5 @@ dist/
 .vscode
 *.swp
 *.swo
+
+*.bat
