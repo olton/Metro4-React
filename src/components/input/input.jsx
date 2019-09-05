@@ -165,8 +165,14 @@ export default class Input extends React.Component {
             value: ""
         });
 
-        this.focus(e);
-        this.onChange(e);
+        // Original event is a click. On target == clear button. Without value. It cause errors in onChange
+        this.input.value = '';
+        const event = new Event('change', { bubbles: true, composed: true });
+        this.input.dispatchEvent(event);
+
+        this.focus(event);
+        this.onChange(event);
+
 
         onClear(e);
     }
