@@ -2,6 +2,8 @@ import React from "react";
 import "./textarea.less";
 import Button from "../button/button";
 
+const changeEvents = ["keyup", "keydown", "change", "cut", "paste", "drop", "propertychange", "input"];
+
 export default class Textarea extends React.Component {
     static defaultProps = {
         autosize: true,
@@ -25,6 +27,7 @@ export default class Textarea extends React.Component {
         };
 
         this.input = React.createRef();
+        this.fakeInput = React.createRef();
 
         this.onChange = this.onChange.bind(this);
         this.clearValue = this.clearValue.bind(this);
@@ -39,12 +42,15 @@ export default class Textarea extends React.Component {
         this.input.addEventListener("focus", this.onFocus);
 
         if (this.props.autosize) {
-            this.input.addEventListener("keyup", this.resize);
-            this.input.addEventListener("keydown", this.resize);
-            this.input.addEventListener("change", this.resize);
-            this.input.addEventListener("cut", this.resize);
-            this.input.addEventListener("paste", this.resize);
-            this.input.addEventListener("drop", this.resize);
+            changeEvents.forEach( (ev) => {
+                this.input.addEventListener(ev, this.resize);
+            });
+            // this.input.addEventListener("keyup", this.resize);
+            // this.input.addEventListener("keydown", this.resize);
+            // this.input.addEventListener("change", this.resize);
+            // this.input.addEventListener("cut", this.resize);
+            // this.input.addEventListener("paste", this.resize);
+            // this.input.addEventListener("drop", this.resize);
         }
     }
 
@@ -53,12 +59,15 @@ export default class Textarea extends React.Component {
         this.input.removeEventListener("focus", this.onFocus);
 
         if (this.props.autosize) {
-            this.input.removeEventListener("keyup", this.resize);
-            this.input.removeEventListener("keydown", this.resize);
-            this.input.removeEventListener("change", this.resize);
-            this.input.removeEventListener("cut", this.resize);
-            this.input.removeEventListener("paste", this.resize);
-            this.input.removeEventListener("drop", this.resize);
+            changeEvents.forEach( (ev) => {
+                this.input.removeEventListener(ev, this.resize);
+            });
+            // this.input.removeEventListener("keyup", this.resize);
+            // this.input.removeEventListener("keydown", this.resize);
+            // this.input.removeEventListener("change", this.resize);
+            // this.input.removeEventListener("cut", this.resize);
+            // this.input.removeEventListener("paste", this.resize);
+            // this.input.removeEventListener("drop", this.resize);
         }
     }
 
@@ -112,8 +121,10 @@ export default class Textarea extends React.Component {
     }
 
     resize(){
-        this.input.style.cssText = 'height:auto;';
-        this.input.style.cssText = 'height:' + this.input.scrollHeight + 'px';
+        this.fakeInput.value = this.input.value;
+        this.fakeInput.style.cssText = 'height:auto;';
+        this.fakeInput.style.cssText = 'height:' + this.fakeInput.scrollHeight + 'px';
+        this.input.style.cssText = 'height:' + this.fakeInput.scrollHeight + 'px';
     }
 
     render(){
@@ -121,10 +132,12 @@ export default class Textarea extends React.Component {
         const {value, focus} = this.state;
 
         return (
-            <div className={'textarea ' + (autosize ? ' autosize ' : '') + (focus ? ' focused ' : '')}>
+            <div className={`textarea  ${autosize ? 'autosize no-scroll-vertical' : ''} ${focus ? 'focused' : ''}`}>
                 {prepend !== "" && (
                     <span className='prepend'>{prepend}</span>
                 )}
+
+                <textarea className="fake-textarea" ref={ref => this.fakeInput = ref}/>
 
                 <textarea {...props} value={value} onChange={this.onChange} ref={ref => this.input = ref}/>
 
