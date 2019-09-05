@@ -2,6 +2,8 @@ import React from "react";
 import {Adsense, Color, Table} from "../../../src";
 import PrismCode from "../PrismCode";
 import "../../../src/extensions";
+import Article from "../Article";
+import GuideLogo from "../GuideLogo";
 
 export default class GuideColorStyles extends React.Component {
     render(){
@@ -19,7 +21,8 @@ export default class GuideColorStyles extends React.Component {
         }
 
         return(
-            <div>
+            <Article>
+                <GuideLogo/>
                 <h1>Color styles</h1>
 
                 <p className={'text-leader2'}>
@@ -89,7 +92,7 @@ export default class GuideColorStyles extends React.Component {
                 <Adsense client={'ca-pub-1632668592742327'} slot={'4639163605'} test={SITE_MODE_DEV}/>
                 <br/>
 
-            </div>
+            </Article>
         )
     }
 }

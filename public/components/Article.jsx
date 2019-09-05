@@ -1,7 +1,11 @@
 import React from "react";
 
-export default class Article extends React.Component {
-    render(){
-        return this.props.children;
-    }
-}
+const Article = ({cls = "", className = "", children, ...rest}) => {
+    return (
+        <article className={`${cls} ${className}`} {...rest}>
+            {children}
+        </article>
+    )
+};
+
+export default Article;

@@ -3,6 +3,8 @@ import {Adsense, Table} from "../../../src";
 import PrismCode from "../PrismCode";
 import Defs, {tablePropsHeader} from "../Defs";
 import table from "../../../src/components/table/table";
+import Article from "../Article";
+import GuideLogo from "../GuideLogo";
 
 export default class GuideGrid extends React.Component {
     render(){
@@ -37,7 +39,8 @@ export default class GuideGrid extends React.Component {
         const codeUseCellResponsive = `<Cell cls="cell-md-6">...</Cell>`;
 
         return(
-            <div>
+            <Article>
+                <GuideLogo/>
                 <h1>Grid</h1>
 
                 <p className={'text-leader2'}>
@@ -197,7 +200,7 @@ export default class GuideGrid extends React.Component {
                 <Adsense client={'ca-pub-1632668592742327'} slot={'4639163605'} test={SITE_MODE_DEV}/>
                 <br/>
 
-            </div>
+            </Article>
         )
     }
 }

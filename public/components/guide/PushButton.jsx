@@ -3,6 +3,8 @@ import React from "react";
 import {Adsense, Table, Button, Cell} from "../../../src";
 import PrismCode from "../PrismCode";
 import Defs, {tablePropsHeader} from "../Defs";
+import Article from "../Article";
+import GuideLogo from "../GuideLogo";
 
 export default class GuideButton extends React.Component {
     render(){
@@ -36,7 +38,8 @@ export default class GuideButton extends React.Component {
         ];
 
         return(
-            <div>
+            <Article>
+                <GuideLogo/>
                 <h1>Push button</h1>
                 <p className='text-leader2'>
                     With the Metro 4 you can easily create different types of stylized push buttons.
@@ -105,7 +108,7 @@ export default class GuideButton extends React.Component {
                 <br/>
                 <Adsense client={'ca-pub-1632668592742327'} slot={'4639163605'} test={SITE_MODE_DEV}/>
                 <br/>
-            </div>
+            </Article>
         )
     }
 }

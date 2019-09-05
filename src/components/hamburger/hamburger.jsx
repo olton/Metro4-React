@@ -6,6 +6,8 @@ export default class Hamburger extends React.Component {
         cls: "",
         className: "",
         variant: 'menu-down',
+        active: false,
+        theme: "light",
         onClick: () => {}
     };
 
@@ -19,10 +21,10 @@ export default class Hamburger extends React.Component {
     }
 
     render(){
-        const {cls, className, variant, onClick, ...rest} = this.props;
+        const {theme, cls, className, variant, active, onClick, ...rest} = this.props;
 
         return (
-            <button className={`hamburger ${variant} ${cls} ${className}`} onClick={this.onClick} {...rest}>
+            <button className={`hamburger ${theme} ${variant} ${cls} ${className} ${active ? 'active' : ''}`} onClick={this.onClick} {...rest}>
                 <span className={'line'}/>
                 <span className={'line'}/>
                 <span className={'line'}/>

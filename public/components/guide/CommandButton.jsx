@@ -2,6 +2,8 @@ import React from "react";
 import {Adsense, Cell, CommandButton, Table} from "../../../src";
 import PrismCode from "../PrismCode";
 import Defs, {tablePropsHeader} from "../Defs";
+import Article from "../Article";
+import GuideLogo from "../GuideLogo";
 
 export default class GuideCommandButton extends React.Component {
     render(){
@@ -20,7 +22,8 @@ export default class GuideCommandButton extends React.Component {
                 cls="icon-right info fg-white"/>`;
 
         return(
-            <div>
+            <Article>
+                <GuideLogo/>
                 <h1>Command button</h1>
 
                 <p className={'text-leader2'}>
@@ -107,7 +110,7 @@ export default class GuideCommandButton extends React.Component {
                 <br/>
                 <Adsense client={'ca-pub-1632668592742327'} slot={'4639163605'} test={SITE_MODE_DEV}/>
                 <br/>
-            </div>
+            </Article>
         )
     }
 }

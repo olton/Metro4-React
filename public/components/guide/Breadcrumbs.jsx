@@ -3,6 +3,8 @@ import {Adsense, Breadcrumbs, BreadcrumbsItem, Cell, Table} from "../../../src";
 import PrismCode from "../PrismCode";
 import Example from "../Example";
 import {tablePropsHeader} from "../Defs";
+import Article from "../Article";
+import GuideLogo from "../GuideLogo";
 
 export default class GuideBreadcrumbs extends React.Component {
     render(){
@@ -38,7 +40,8 @@ export default class GuideBreadcrumbs extends React.Component {
         ];
 
         return(
-            <div>
+            <Article>
+                <GuideLogo/>
                 <h1>Breadcrumbs</h1>
 
                 <br/>
@@ -81,7 +84,7 @@ export default class GuideBreadcrumbs extends React.Component {
                 <br/>
                 <Adsense client={'ca-pub-1632668592742327'} slot={'4639163605'} test={SITE_MODE_DEV}/>
                 <br/>
-            </div>
+            </Article>
         )
     }
 }

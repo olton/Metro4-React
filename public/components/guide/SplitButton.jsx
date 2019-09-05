@@ -2,6 +2,8 @@ import React from "react";
 import {Adsense, Button, Cell, Grid, Row, SplitButton, Table} from "../../../src";
 import PrismCode from "../PrismCode";
 import Defs, {tablePropsHeader} from "../Defs";
+import Article from "../Article";
+import GuideLogo from "../GuideLogo";
 
 export default class GuideSplitButton extends React.Component {
     render(){
@@ -24,7 +26,8 @@ export default class GuideSplitButton extends React.Component {
         ];
 
         return(
-            <div>
+            <Article>
+                <GuideLogo/>
                 <h1>Split button</h1>
                 <p className='text-leader2'>
                     With the Metro 4 you can easily create different types of stylized split buttons.
@@ -100,7 +103,7 @@ export default class GuideSplitButton extends React.Component {
                 <br/>
                 <Adsense client={'ca-pub-1632668592742327'} slot={'4639163605'} test={SITE_MODE_DEV}/>
                 <br/>
-            </div>
+            </Article>
         )
     }
 }

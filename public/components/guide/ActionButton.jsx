@@ -3,6 +3,8 @@ import {ActionButton, Adsense, Row, Cell, MultiAction, MultiActionItem, Table} f
 import PrismCode from "../PrismCode";
 import Example from "../Example";
 import Defs, {tablePropsHeader} from "../Defs";
+import Article from "../Article";
+import GuideLogo from "../GuideLogo";
 
 export default class GuideActionButton extends React.Component {
     render(){
@@ -24,7 +26,8 @@ export default class GuideActionButton extends React.Component {
 
 
         return(
-            <div>
+            <Article>
+                <GuideLogo/>
                 <h1>Action button</h1>
 
                 <p className={'text-leader2'}>
@@ -200,7 +203,7 @@ export default class GuideActionButton extends React.Component {
                 <br/>
                 <Adsense client={'ca-pub-1632668592742327'} slot={'4639163605'} test={SITE_MODE_DEV}/>
                 <br/>
-            </div>
+            </Article>
         )
     }
 }

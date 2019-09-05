@@ -2,6 +2,8 @@ import React from "react";
 import {Adsense, Cell, InfoButton, Table} from "../../../src";
 import PrismCode from "../PrismCode";
 import Defs, {tablePropsHeader} from "../Defs";
+import Article from "../Article";
+import GuideLogo from "../GuideLogo";
 
 export default class GuideInfoButton extends React.Component {
     render(){
@@ -26,7 +28,8 @@ export default class GuideInfoButton extends React.Component {
         `;
 
         return(
-            <div>
+            <Article>
+                <GuideLogo/>
                 <h1>Info button</h1>
                 <p className='text-leader2'>
                     Need button as on GitHub site? Use Metro 4 InfoButton!
@@ -135,7 +138,7 @@ export default class GuideInfoButton extends React.Component {
                 <br/>
                 <Adsense client={'ca-pub-1632668592742327'} slot={'4639163605'} test={SITE_MODE_DEV}/>
                 <br/>
-            </div>
+            </Article>
         )
     }
 }

@@ -11,7 +11,7 @@ export default class AppBar extends Component {
         cls: "",
         expand: false,
         expandPoint: 'md',
-        hamburgerColor: "dark"
+        hamburgerTheme: "dark"
     };
 
     constructor(props){
@@ -66,13 +66,13 @@ export default class AppBar extends Component {
     }
 
     render(){
-        const {as: Element, cls, hamburgerColor} = this.props;
+        const {as: Element, cls, hamburgerTheme} = this.props;
         const {expanded, menuCollapsed} = this.state;
 
         return (
             <Element className={'app-bar ' + cls + ' ' + (expanded ? 'app-bar-expand' : '')}>
 
-                <Hamburger className={hamburgerColor + ' ' + (menuCollapsed ? '' : 'active')} hidden={expanded} onClick={this.hamburgerClick}/>
+                <Hamburger theme={hamburgerTheme} active={!menuCollapsed} hidden={expanded} onClick={this.hamburgerClick}/>
 
                 {Children.map(this.props.children, function(el, index){
                     if (el.type.name === 'AppBarMenu') {

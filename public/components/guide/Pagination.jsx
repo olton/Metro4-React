@@ -4,6 +4,8 @@ import PrismCode from "../PrismCode";
 import Example from "../Example";
 import Table from "../../../src/components/table/table";
 import Defs, {tablePropsHeader} from "../Defs";
+import Article from "../Article";
+import GuideLogo from "../GuideLogo";
 
 
 export default class GuidePagination extends React.Component {
@@ -25,7 +27,8 @@ export default class GuidePagination extends React.Component {
         ];
 
         return(
-            <div>
+            <Article>
+                <GuideLogo/>
                 <h1>Pagination</h1>
 
                 <br/>
@@ -54,7 +57,7 @@ export default class GuidePagination extends React.Component {
                 <br/>
                 <Adsense client={'ca-pub-1632668592742327'} slot={'4639163605'} test={SITE_MODE_DEV}/>
                 <br/>
-            </div>
+            </Article>
         )
     }
 }

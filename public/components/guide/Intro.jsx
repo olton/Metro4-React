@@ -1,6 +1,8 @@
 import React from "react";
 import PrismCode from "../PrismCode";
 import {Adsense} from "../../../src";
+import Article from "../Article";
+import GuideLogo from "../GuideLogo";
 
 export default class GuideIntro extends React.Component {
     render(){
@@ -9,7 +11,8 @@ export default class GuideIntro extends React.Component {
         const codeImportComponent = `import {Button} from "metro4-react";`;
 
         return(
-            <div className={'pl-10-md pr-10-md'}>
+            <Article>
+                <GuideLogo/>
                 <h1>Intro</h1>
                 <div className={'text-leader2'}>
                     Metro 4 for React is a complete re-implementation of the <a href={METRO_OFF_SITE}>Metro 4</a> components library using React.
@@ -52,7 +55,7 @@ export default class GuideIntro extends React.Component {
                 <Adsense client={'ca-pub-1632668592742327'} slot={'4639163605'} test={SITE_MODE_DEV}/>
                 <br/>
 
-            </div>
+            </Article>
         )
     }
 }

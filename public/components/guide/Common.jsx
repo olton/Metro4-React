@@ -1,13 +1,16 @@
 import React from "react";
 import {Adsense} from "../../../src";
 import PrismCode from "../PrismCode";
+import Article from "../Article";
+import GuideLogo from "../GuideLogo";
 
 const codeImportCommon = `import {Common} 'metro4-react';`;
 
 export default class GuideCommon extends React.Component {
     render(){
         return(
-            <div>
+            <Article>
+                <GuideLogo/>
                 <h1>Common styles</h1>
 
                 <div className={'text-leader2'}>
@@ -56,7 +59,7 @@ export default class GuideCommon extends React.Component {
                 <br/>
                 <Adsense client={'ca-pub-1632668592742327'} slot={'4639163605'} test={SITE_MODE_DEV}/>
                 <br/>
-            </div>
+            </Article>
         )
     }
 }

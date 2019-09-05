@@ -4,6 +4,8 @@ import PrismCode from "../PrismCode";
 import Example from "../Example";
 import Defs, {tablePropsHeader} from "../Defs";
 import Table from "../../../src/components/table/table";
+import Article from "../Article";
+import GuideLogo from "../GuideLogo";
 
 export default class GuideTable extends React.Component {
     render(){
@@ -100,7 +102,8 @@ export default class GuideTable extends React.Component {
         ];
 
         return(
-            <div>
+            <Article>
+                <GuideLogo/>
                 <h1>Table</h1>
 
                 <p className={'text-leader2'}>
@@ -148,7 +151,7 @@ export default class GuideTable extends React.Component {
                 <br/>
                 <Adsense client={'ca-pub-1632668592742327'} slot={'4639163605'} test={SITE_MODE_DEV}/>
                 <br/>
-            </div>
+            </Article>
         )
     }
 }
