@@ -11,7 +11,7 @@ export class BreadcrumbsItem extends React.Component {
 
     render() {
         const {
-            href, clsItem, clsLink, cls, className, ...rest
+            clsItem, clsLink, cls, className, ...rest
         } = this.props;
 
         const classItem = `page-item ${cls} ${className} ${clsItem}`;
@@ -51,8 +51,8 @@ export default class Breadcrumbs extends React.Component {
                         const classLink = `page-link ${clsLink} ${props.clsLink}`;
                         const itemProps = {
                             ...props,
-                            classItem,
-                            classLink
+                            clsItem: classItem,
+                            clsLink: classLink
                         };
                         return (
                             <BreadcrumbsItem {...itemProps} key={index}>
