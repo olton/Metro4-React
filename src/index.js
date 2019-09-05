@@ -51,6 +51,7 @@ import Table from "./components/table/table";
 import MemoryTable from "./components/table/memory-table";
 
 import {Utils, Color, MD5, MediaPoints} from "./routines"
+import {FetchStatus} from "./defines"
 
 export {
     Common, Colors, Icons, Routines,
@@ -100,4 +101,5 @@ export {
     Progress, Panel,
     Rating, HtmlContainer,
     Table, MemoryTable,
+    FetchStatus
 };

@@ -53,7 +53,6 @@ const menuItems = {
         {to: "/guide/body", caption: "Body"},
         {to: "/guide/html-container", caption: "HtmlContainer"},
         {to: "/guide/dialog", caption: "Dialog"},
-        {to: "/guide/button-group", caption: "ButtonGroup"},
     ],
     "Dropdown & collapse": [
         {to: "/guide/collapse", caption: "Collapse"},

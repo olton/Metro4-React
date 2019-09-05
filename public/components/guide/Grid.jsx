@@ -140,7 +140,7 @@ export default class GuideGrid extends React.Component {
                     </tbody>
                 </Table>
                 <p className='remark info'>
-                    Each cell has default <code>padding: 12px</code>. To remove all padding use class <code>.no-gap</code> for <code>Grid</code> or <code>Row</code>.
+                    Each cell has default <code>padding: 6px</code>. To remove all padding use class <code>.no-gap</code> for <code>Grid</code> or <code>Row</code>.
                 </p>
 
 

@@ -47,20 +47,21 @@ textarea,
     }
 
     .input-clear-button, .input-reveal-button {
-        visibility: hidden;
+        .hide-element();
+
         &:active, &:focus, &:hover {
-            visibility: visible;
+            .show-element();
+        }
+    }
+
+    &:focus, &.focused, &:hover {
+        .input-clear-button, .input-reveal-button {
+            .show-element();
         }
     }
 
     &:focus, &.focused {
         box-shadow: 0 0 0 3px rgba(red(@lightGray), green(@lightGray), blue(@lightGray), 0.45);
-    }
-
-    &:focus, &.focused, &:hover {
-        .input-clear-button, .input-reveal-button {
-            visibility: visible;
-        }
     }
 
     &:disabled, &.disabled {
