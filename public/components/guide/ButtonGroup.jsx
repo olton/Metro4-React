@@ -38,7 +38,7 @@ export default class GuideButtonGroup extends React.Component {
                 <h1>ButtonGroup</h1>
 
                 <p className={'text-leader2'}>
-                    ...
+                    Group buttons using ButtonGroup component.
                 </p>
 
                 <br/>
@@ -47,7 +47,7 @@ export default class GuideButtonGroup extends React.Component {
 
                 <h3>Introduction</h3>
                 <p>
-                    You can group button with component <code>ButtonGroup</code> and set switch mode: <code>check</code> or <code>radio</code>.
+                    You can group buttons using component <code>ButtonGroup</code> and set switch mode: <code>check</code> or <code>radio</code>.
                 </p>
                 <Example>
                     <Row>
