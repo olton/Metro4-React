@@ -26,6 +26,7 @@ import GuideBreadcrumbs from "./guide/Breadcrumbs";
 import GuideHamburger from "./guide/Hamburger";
 import GuideButtonGroup from "./guide/ButtonGroup";
 import GuideInput from "./guide/Input";
+import GuideInputFile from "./guide/InputFile";
 
 export default class Guide extends React.Component {
     constructor(props){
@@ -93,6 +94,7 @@ export default class Guide extends React.Component {
                                 <Route path='/guide/button-group' component={GuideButtonGroup}/>
 
                                 <Route path='/guide/input' component={GuideInput}/>
+                                <Route path='/guide/input-file' component={GuideInputFile}/>
 
                                 <Route component={NotFound} />
                             </Switch>

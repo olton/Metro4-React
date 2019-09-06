@@ -211,13 +211,13 @@ export default class Input extends React.Component {
 
         return (
             <React.Fragment>
-                <div className={'input ' + (focus ? 'focused' : '') + (fieldState === 'error' ? ' invalid ' : fieldState === 'success' ? ' success ' : '') + ' ' + cls+ ' ' + className}>
+                <div className={'input ' + (focus ? 'focused' : '') + (fieldState === 'error' ? ' invalid ' : fieldState === 'success' ? ' success ' : '') + ' ' + cls}>
 
                     {prepend !== "" && (
                         <span className={'prepend ' + clsPrepend}>{prepend}</span>
                     )}
 
-                    <input {...props} type={inputType} value={value} onChange={this.onChange} ref={ref => this.input = ref} onKeyUp={this.onKeyUp}/>
+                    <input className={className} {...props} type={inputType} value={value} onChange={this.onChange} ref={ref => this.input = ref} onKeyUp={this.onKeyUp}/>
 
                     {buttons && (
                         <div className={'button-group ' + clsButtonGroup}>

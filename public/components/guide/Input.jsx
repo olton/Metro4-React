@@ -38,10 +38,10 @@ export default class GuideInput extends React.Component {
         `;
 
         const tablePropsBody = [
-            ["placeholder", "", "Input placeholder"],
+            ["placeholder", "empty", "Input placeholder"],
             ["fieldState", "normal", "Field state: normal, error, success"],
             ["errorMessage", "null", "Error message for invalid input"],
-            ["value", "", "Input initial value"],
+            ["value", "empty", "Input initial value"],
             ["type", "text", "Field type, can be all of supported text types"],
             ["append", "null", "Field append data"],
             ["prepend", "null", "Field prepend data"],
@@ -55,7 +55,7 @@ export default class GuideInput extends React.Component {
             ["autocompleteHeight", "200", "Autocomplete dropdown list height"],
             ["customButtons", "[]", "Array of custom buttons"],
             ["cls", "null", "Additional classes for input component"],
-            ["className", "null", "Additional classes for input component"],
+            ["className", "null", "Additional classes for input element"],
             ["clsAppend", "null", "Additional classes for append data"],
             ["clsPrepend", "null", "Additional classes for prepend data"],
             ["clsButtonGroup", "null", "Additional classes button group"],
