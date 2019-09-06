@@ -28,9 +28,52 @@ export default class GuideInput extends React.Component {
         ];
 
         const codeImport = `import {Input} from "metro4-react";`;
-        const codeUsing = ``;
+        const codeUsing = `
+            <Input placeholder='Input value' value={123}/>
+            <Input placeholder='Search...' search={true} onSearch={ val => console.log(val) } />
+            <Input autocomplete={["Value 1", "Value 2", "Value 3", "Value 4"]} />
+            <Input fieldState={'error'} errorMessage={'Enter a valid value'}/>
+            <Input value='Input value' append={<Icon name='rocket'/>}/>
+            <Input value='Input value' prepend='Prepend:'/>
+        `;
 
-        const tablePropsBody = [];
+        const tablePropsBody = [
+            ["placeholder", "", "Input placeholder"],
+            ["fieldState", "normal", "Field state: normal, error, success"],
+            ["errorMessage", "null", "Error message for invalid input"],
+            ["value", "", "Input initial value"],
+            ["type", "text", "Field type, can be all of supported text types"],
+            ["append", "null", "Field append data"],
+            ["prepend", "null", "Field prepend data"],
+            ["clear", "true", "Show clear button"],
+            ["reveal", "true", "Show reveal button for password input"],
+            ["search", "true", "Show search button"],
+            ["searchType", "custom", "Search type: <code>custom</code>, <code>submit</code>"],
+            ["history", "false", "History feature"],
+            ["preventSubmit", "true", "When true and history, enter press prevented submit"],
+            ["autocomplete", "[]", "Array with autocomplete values"],
+            ["autocompleteHeight", "200", "Autocomplete dropdown list height"],
+            ["customButtons", "[]", "Array of custom buttons"],
+            ["cls", "null", "Additional classes for input component"],
+            ["className", "null", "Additional classes for input component"],
+            ["clsAppend", "null", "Additional classes for append data"],
+            ["clsPrepend", "null", "Additional classes for prepend data"],
+            ["clsButtonGroup", "null", "Additional classes button group"],
+            ["clsCustomButton", "null", "Additional classes custom buttons"],
+            ["clsClearButton", "null", "Additional classes clear button"],
+            ["clsRevealButton", "null", "Additional classes reveal button"],
+            ["clsSearchButton", "null", "Additional classes search button"],
+            ["clsAutocomplete", "null", "Additional classes for autocomplete list"],
+            ["clsAutocompleteItem", "null", "Additional classes for autocomplete list item"],
+            ["clsErrorMessage", "null", "Additional classes for error message"],
+            ["onSearch", "()=>{}", "Callback for search button click event"],
+            ["onClear", "()=>{}", "Callback for clear button click"],
+            ["onReveal", "()=>{}", "Callback for reveal button click"],
+            ["onChange", "()=>{}", "Callback for input change event"],
+            ["onKeyUp", "()=>{}", "Callback for input keyup event"],
+            ["onBlur", "()=>{}", "Callback for input blur"],
+            ["onFocus", "()=>{}", "Callback for input focus"],
+        ];
 
         return(
             <Article>

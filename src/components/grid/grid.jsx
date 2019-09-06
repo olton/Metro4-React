@@ -1,37 +1,28 @@
 import React from "react";
 import "./grid.less";
 
-const Grid = props => {
-    const {as: Element, cls, className, ...rest} = props;
+const Grid = ({as: Element = "div", cls = "", className = "", ...rest}) => {
     return (
         <Element className={`grid ${cls} ${className}`} {...rest}>
-            {props.children}
+            {rest.children}
         </Element>
     )
 };
 
-Grid.defaultProps = {as: "div", cls: "", className: ""};
-
-const Row = props => {
-    const {as: Element, cls, className, ...rest} = props;
+const Row = ({as: Element = "div", cls = "", className = "", ...rest}) => {
     return (
         <Element className={`row ${cls} ${className}`} {...rest}>
-            {props.children}
+            {rest.children}
         </Element>
     )
 };
 
-Row.defaultProps = {as: "div", cls: "", className: ""};
-
-const Cell = props => {
-    const {as: Element, cls, className, ...rest} = props;
+const Cell = ({as: Element = "div", cls = "", className = "", ...rest}) => {
     return (
         <Element className={`${cls} ${className}`} {...rest}>
-            {props.children}
+            {rest.children}
         </Element>
     )
 };
-
-Cell.defaultProps = {as: "div", cls: "", className: ""};
 
 export {Grid, Row, Cell};

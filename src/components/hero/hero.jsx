@@ -1,19 +1,13 @@
 import React from "react";
 import "./hero.less";
 
-export default class Hero extends React.Component {
-    static defaultProps = {
-        as: "div",
-        cls: ""
-    };
+const Hero = ({as: Element = "div", cls = "", className = "", children}) => {
+    return (
+        <Element className={'hero ' + cls}>
+            {children}
+        </Element>
+    )
+};
 
-    render(){
-        const {as: Element, cls} = this.props;
+export default Hero;
 
-        return (
-            <Element className={'hero ' + cls}>
-                {this.props.children}
-            </Element>
-        )
-    }
-}
