@@ -25,6 +25,7 @@ export default class Select extends React.Component {
         onChange: () => {},
         onFocus: () => {},
         onBlur: () => {},
+        onDrawItem: (item) => item,
     };
 
     static getDerivedStateFromProps(props, state){
@@ -195,7 +196,7 @@ export default class Select extends React.Component {
     };
 
     render() {
-        const {multiple, cls, dropHeight, speed, onChange, errorMessage, clsSelected, clsTag, clsErrorMessage, searchPlaceholder, prepend, append, clsPrepend, clsAppend, clsDropdownToggle} = this.props;
+        const {multiple, cls, dropHeight, speed, onChange, errorMessage, clsSelected, clsTag, clsErrorMessage, searchPlaceholder, prepend, append, clsPrepend, clsAppend, clsDropdownToggle, onDrawItem} = this.props;
         const {open, filter, value, fieldState, focus} = this.state;
         const transition = `height ${speed}ms cubic-bezier(.4, 0, .2, 1)`;
         const options = {};
@@ -210,16 +211,18 @@ export default class Select extends React.Component {
                 items.push(<li className={'group-title'} key={optionIndex++}>{el.props.label}</li>);
             } else {
                 items.push(
-                    <li
-                        hidden={
-                            (filter !== "" && el.props.children.toLowerCase().indexOf(filter.toLowerCase()) === -1)
-                            || ( multiple && value.indexOf(el.props.value) !== -1 )}
-                        key={optionIndex++}
-                        className={ !multiple && value === el.props.value ? 'active' : '' }
-                        onClick={listItemClick.bind(this, el.props.value)}
-                    >
-                        <a>{el.props.children}</a>
-                    </li>
+
+                        <li hidden={
+                                (filter !== "" && el.props.children.toLowerCase().indexOf(filter.toLowerCase()) === -1)
+                                || ( multiple && value.indexOf(el.props.value) !== -1 )
+                            }
+                            key={optionIndex++}
+                            className={ !multiple && value === el.props.value ? 'active' : '' }
+                            onClick={listItemClick.bind(this, el.props.value)}
+                        >
+                            <a dangerouslySetInnerHTML={{__html: onDrawItem(el.props.children)}}/>
+                        </li>
+
                 );
             }
         }

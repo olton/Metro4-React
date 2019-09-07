@@ -1,6 +1,7 @@
 import React from "react";
 import "@fortawesome/fontawesome-free/css/all.css";
 import {
+    Color,
     Container,
     Icon,
     Badge,
@@ -28,12 +29,11 @@ import {
     Dialog, Pagination, Textarea, InputFile,
     Dropdown, Modal, AppBar, AppBarMenu, AppBarItem, Collapse, ButtonGroup,
     Tabs, Tab, SplitButton, Progress, Panel,
-    Rating, HtmlContainer
+    Rating, HtmlContainer, SelectColor
 } from "../../src/index";
 
 import MainMenu from "./MainMenu";
 import "../css/demo.less";
-import Color from "../../src/routines/color";
 
 const autocompleteList = ["Ukraine", "USA", "Canada", "Marokko", "Singapur"];
 
@@ -144,6 +144,20 @@ export default class Demo extends React.Component {
                 <br/>
 
                 <Grid>
+                    <h2 className="text-light">&lt;SelectColor/&gt;</h2>
+                    <Row>
+                        <Cell cls="cell-md-4">
+                            <SelectColor source={Color.colorListMetro} prepend="Color: "/>
+                        </Cell>
+                        <Cell cls="cell-md-4">
+                            <SelectColor source={Color.colorListStandard} append="your color"/>
+                        </Cell>
+                        <Cell cls="cell-md-4">
+                            <SelectColor source={Color.colorList} searchPlaceholder="Type to search your color..."/>
+                        </Cell>
+                    </Row>
+
+
                     <h2 className="text-light">&lt;HtmlContainer/&gt;</h2>
                     <Row>
                         <Cell cls={'cell-md-6'}>

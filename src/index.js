@@ -49,6 +49,7 @@ import Rating from "./components/rating/rating";
 import HtmlContainer from "./components/html-container/html-container";
 import Table from "./components/table/table";
 import MemoryTable from "./components/table/memory-table";
+import SelectColor from "./components/select-color/select-color";
 
 import {Utils, Color, MD5, MediaPoints} from "./routines"
 import {FetchStatus} from "./defines"
@@ -56,6 +57,7 @@ import {FetchStatus} from "./defines"
 export {
     Common, Colors, Icons, Routines,
     Utils, Color, MD5, MediaPoints,
+    FetchStatus,
 
     Container,
     Accordion, AccordionFrame,
@@ -101,5 +103,5 @@ export {
     Progress, Panel,
     Rating, HtmlContainer,
     Table, MemoryTable,
-    FetchStatus
+    SelectColor
 };
