@@ -26,6 +26,7 @@ export default class Select extends React.Component {
         onFocus: () => {},
         onBlur: () => {},
         onDrawItem: (item) => item,
+        onDrawCaption: ( caption ) => caption
     };
 
     static getDerivedStateFromProps(props, state){
@@ -196,7 +197,7 @@ export default class Select extends React.Component {
     };
 
     render() {
-        const {multiple, cls, dropHeight, speed, onChange, errorMessage, clsSelected, clsTag, clsErrorMessage, searchPlaceholder, prepend, append, clsPrepend, clsAppend, clsDropdownToggle, onDrawItem} = this.props;
+        const {multiple, cls, dropHeight, speed, onChange, errorMessage, clsSelected, clsTag, clsErrorMessage, searchPlaceholder, prepend, append, clsPrepend, clsAppend, clsDropdownToggle, onDrawItem, onDrawCaption} = this.props;
         const {open, filter, value, fieldState, focus} = this.state;
         const transition = `height ${speed}ms cubic-bezier(.4, 0, .2, 1)`;
         const options = {};
@@ -262,7 +263,7 @@ export default class Select extends React.Component {
                         })}
 
                         {!multiple && value !== undefined && !!options[value] && (
-                            <span className={clsTag}>{options[value]}</span>
+                            <span className={clsTag} dangerouslySetInnerHTML={{__html: onDrawCaption(options[value])}}/>
                         )}
                     </div>
 

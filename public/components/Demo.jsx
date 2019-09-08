@@ -146,14 +146,14 @@ export default class Demo extends React.Component {
                 <Grid>
                     <h2 className="text-light">&lt;SelectColor/&gt;</h2>
                     <Row>
-                        <Cell cls="cell-md-4">
+                        <Cell cls="cell-sm-5">
                             <SelectColor source={Color.colorListMetro} prepend="Color: "/>
                         </Cell>
-                        <Cell cls="cell-md-4">
+                        <Cell cls="cell-sm-5">
                             <SelectColor source={Color.colorListStandard} append="your color"/>
                         </Cell>
-                        <Cell cls="cell-md-4">
-                            <SelectColor filter={false}>
+                        <Cell cls="cell-sm-2">
+                            <SelectColor filter={false} value="#008000" colorNameInCaption={false}>
                                 <option value="#ff0000">red</option>
                                 <option value="#008000">green</option>
                                 <option value="#0000ff">blue</option>
