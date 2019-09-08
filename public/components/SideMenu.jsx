@@ -36,6 +36,7 @@ const menuItems = {
         {to: "/guide/switch", caption: "Switch"},
         {to: "/guide/radio", caption: "Radio"},
         {to: "/guide/select", caption: "Select"},
+        {to: "/guide/select-color", caption: "SelectColor"},
         {to: "/guide/rating", caption: "Rating"},
         {to: "/guide/textarea", caption: "Textarea"},
     ],

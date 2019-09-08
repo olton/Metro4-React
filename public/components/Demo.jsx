@@ -153,7 +153,11 @@ export default class Demo extends React.Component {
                             <SelectColor source={Color.colorListStandard} append="your color"/>
                         </Cell>
                         <Cell cls="cell-md-4">
-                            <SelectColor source={Color.colorList} searchPlaceholder="Type to search your color..."/>
+                            <SelectColor filter={false}>
+                                <option value="#ff0000">red</option>
+                                <option value="#008000">green</option>
+                                <option value="#0000ff">blue</option>
+                            </SelectColor>
                         </Cell>
                     </Row>
 
