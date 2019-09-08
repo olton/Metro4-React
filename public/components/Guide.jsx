@@ -27,6 +27,7 @@ import GuideHamburger from "./guide/Hamburger";
 import GuideButtonGroup from "./guide/ButtonGroup";
 import GuideInput from "./guide/Input";
 import GuideInputFile from "./guide/InputFile";
+import GuideSelectColor from "./guide/SelectColor";
 
 export default class Guide extends React.Component {
     constructor(props){
@@ -95,6 +96,7 @@ export default class Guide extends React.Component {
 
                                 <Route path='/guide/input' component={GuideInput}/>
                                 <Route path='/guide/input-file' component={GuideInputFile}/>
+                                <Route path='/guide/select-color' component={GuideSelectColor}/>
 
                                 <Route component={NotFound} />
                             </Switch>

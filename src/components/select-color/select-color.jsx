@@ -48,6 +48,7 @@ export default class SelectColor extends React.Component {
     };
 
     drawCaption = caption => {
+        console.log(this.source);
         return !this.source ? caption : `
             <div class='color-box-item'>
                 <span class='box' style='background: ${this.source[caption]}'></span>
