@@ -93,7 +93,7 @@ export default class Select extends React.Component {
 
         if (!isOpen) {
             setTimeout( () => {
-                this.input.current.focus();
+                if (this.input.current) this.input.current.focus();
             }, 100 );
         }
     }
