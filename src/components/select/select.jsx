@@ -211,12 +211,15 @@ export default class Select extends React.Component {
             if (isGroupTitle) {
                 items.push(<li className={'group-title'} key={optionIndex++}>{el.props.label}</li>);
             } else {
+                let hidden;
+                if (multiple) {
+                    hidden = value.indexOf(el.props.value) !== -1;
+                } else {
+                    hidden = filter !== "" && el.props.children.toLowerCase().indexOf(filter.toLowerCase()) === -1;
+                }
                 items.push(
 
-                        <li hidden={
-                                (filter !== "" && el.props.children.toLowerCase().indexOf(filter.toLowerCase()) === -1)
-                                || ( multiple && value.indexOf(el.props.value) !== -1 )
-                            }
+                        <li hidden={hidden}
                             key={optionIndex++}
                             className={ !multiple && value === el.props.value ? 'active' : '' }
                             onClick={listItemClick.bind(this, el.props.value)}
@@ -268,7 +271,7 @@ export default class Select extends React.Component {
                     </div>
 
                     <Collapse isOpen={open} className={'drop-container'} transition={transition}>
-                        { this.props.filter && <Input onChange={this.inputChange} ref={this.input} placeholder={searchPlaceholder}/> }
+                        { this.props.filter && <Input onChange={this.inputChange} ref={this.input} placeholder={searchPlaceholder} value={filter}/> }
                         <ul className={'d-menu'} style={{maxHeight: dropHeight}}>
                             {items}
                         </ul>
