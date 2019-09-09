@@ -5,6 +5,8 @@
 + [x] ButtonGroup: updates for using props, add docs
 + [x] Select: add focus to input when dropdown
 + [x] Textarea: fix autosize jumping, issue 1400 from core Metro 4
++ [x] Select: add props: `source` (must be a object with key-value pairs), `placeholder`
++ [x] SelectColor: add component
 
 ### 0.1.0
 + [x] Initial version, contains 40 components, common styles, additional colors, routines.

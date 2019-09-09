@@ -10,7 +10,7 @@ export default class GuideSelectColor extends React.Component {
     render(){
         const codeImport = `import {SelectColor} from "metro4-react";`;
         const codeUsing = `<SelectColor source={Color.colorListMetro} prepend="Color: "/>`;
-        const codeUsing2 = `            
+        const codeUsing2 = `
             <SelectColor filter={false} value="#008000" colorNameInCaption={false}>
                 <option value="#ff0000">red</option>
                 <option value="#008000">green</option>

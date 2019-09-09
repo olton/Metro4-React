@@ -7,6 +7,8 @@ import Tag from "../tag/tag.jsx"
 
 export default class Select extends React.Component {
     static defaultProps = {
+        source: null,
+        placeholder: "Select a value...",
         searchPlaceholder: "Search...",
         fieldState: "normal",
         filter: true,
@@ -14,6 +16,7 @@ export default class Select extends React.Component {
         cls: "",
         clsSelected: "",
         clsTag: "",
+        clsPlaceholder: "",
         clsErrorMessage: "",
         speed: 100,
         dropHeight: 200,
@@ -196,53 +199,64 @@ export default class Select extends React.Component {
         }
     };
 
+    createListItemGroupTitle = (cap) => {
+        return <li className={'group-title'}>{cap}</li>;
+    };
+
+    createListItem = (val, cap) => {
+        let hidden;
+        const {multiple, onDrawItem} = this.props;
+        const {filter, value} = this.state;
+
+        hidden = multiple ? value.indexOf(val) !== -1 : filter !== "" && (""+cap).toLowerCase().indexOf(filter.toLowerCase()) === -1;
+
+        return (
+            <li hidden={hidden}
+                className={ !multiple && value === val ? 'active' : '' }
+                onClick={this.listItemClick.bind(this, val)}
+            >
+                <a dangerouslySetInnerHTML={{__html: onDrawItem(cap)}}/>
+            </li>
+        );
+    };
+
     render() {
-        const {multiple, cls, dropHeight, speed, onChange, errorMessage, clsSelected, clsTag, clsErrorMessage, searchPlaceholder, prepend, append, clsPrepend, clsAppend, clsDropdownToggle, onDrawItem, onDrawCaption} = this.props;
+        const {source, placeholder, multiple, cls, dropHeight, speed, onChange, errorMessage, clsSelected, clsTag, clsPlaceholder, clsErrorMessage, searchPlaceholder, prepend, append, clsPrepend, clsAppend, clsDropdownToggle, onDrawItem, onDrawCaption} = this.props;
         const {open, filter, value, fieldState, focus} = this.state;
         const transition = `height ${speed}ms cubic-bezier(.4, 0, .2, 1)`;
         const options = {};
         const items = [];
-        const listItemClick = this.listItemClick;
         const tagClick = this.tagClick;
 
         let optionIndex = -1;
 
-        function addOption(el, isGroupTitle) {
-            if (isGroupTitle) {
-                items.push(<li className={'group-title'} key={optionIndex++}>{el.props.label}</li>);
-            } else {
-                let hidden;
-                if (multiple) {
-                    hidden = value.indexOf(el.props.value) !== -1;
-                } else {
-                    hidden = filter !== "" && el.props.children.toLowerCase().indexOf(filter.toLowerCase()) === -1;
+        if (!source) {
+            Children.toArray(this.props.children).forEach(el => {
+                if (el.type === 'option') {
+                    items.push(React.cloneElement(this.createListItem(el.props.value, el.props.children), {
+                        key: optionIndex++
+                    }));
+                    options[el.props.value] = el.props.children;
+                } else if (el.type === 'optgroup') {
+                    items.push(React.cloneElement(this.createListItemGroupTitle(el.props.label), {
+                        key: optionIndex++
+                    }));
+                    Children.toArray(el.props.children).forEach(el => {
+                        items.push(React.cloneElement(this.createListItem(el.props.value, el.props.children), {
+                            key: optionIndex++
+                        }));
+                        options[el.props.value] = el.props.children;
+                    })
                 }
-                items.push(
-
-                        <li hidden={hidden}
-                            key={optionIndex++}
-                            className={ !multiple && value === el.props.value ? 'active' : '' }
-                            onClick={listItemClick.bind(this, el.props.value)}
-                        >
-                            <a dangerouslySetInnerHTML={{__html: onDrawItem(el.props.children)}}/>
-                        </li>
-
-                );
+            });
+        } else {
+            for (let key in source) {
+                items.push(React.cloneElement(this.createListItem(source[key], key), {
+                    key: optionIndex++
+                }));
+                options[source[key]] = key;
             }
         }
-
-        Children.forEach(this.props.children, function(el){
-            if (el.type === 'option') {
-                addOption(el, false);
-                options[el.props.value] = el.props.children;
-            } else if (el.type === 'optgroup') {
-                addOption(el, true);
-                Children.forEach(el.props.children, function(el){
-                    addOption(el, false);
-                    options[el.props.value] = el.props.children;
-                })
-            }
-        });
 
         return (
             <React.Fragment>
@@ -255,6 +269,12 @@ export default class Select extends React.Component {
                             onChange={onChange}
                             name={this.props.name}
                     >
+                        {source && Object.keys(source).map( (key, ind) => {
+                            return (
+                                <option  key={ind} value={source[key]}>{key}</option>
+                            )
+                        } )}
+
                         {this.props.children}
                     </select>
 
@@ -267,6 +287,10 @@ export default class Select extends React.Component {
 
                         {!multiple && value !== undefined && !!options[value] && (
                             <span className={clsTag} dangerouslySetInnerHTML={{__html: onDrawCaption(options[value])}}/>
+                        )}
+
+                        {(!value || value === "" || value.length === 0) && (
+                            <span className={`placeholder ${clsPlaceholder}`}>{placeholder}</span>
                         )}
                     </div>
 

@@ -21,23 +21,6 @@ export default class SelectColor extends React.Component {
         this.source = props.source ? props.source : source;
     }
 
-    createItems = () => {
-        const options = [];
-        let index = -1;
-
-        if (this.source) {
-            for (let item in this.source) {
-                options.push(
-                    <option value={this.source[item]} key={index++}>
-                        {item}
-                    </option>
-                )
-            }
-        }
-
-        return options;
-    };
-
     drawItem = item => {
         return !this.source ? item : `
             <div class='color-box-item'>
@@ -48,7 +31,6 @@ export default class SelectColor extends React.Component {
     };
 
     drawCaption = caption => {
-        console.log(this.source);
         return !this.source ? caption : `
             <div class='color-box-item'>
                 <span class='box' style='background: ${this.source[caption]}'></span>
@@ -58,12 +40,11 @@ export default class SelectColor extends React.Component {
     };
 
     render(){
-        const {source, colorNameInCaption, colorNameInItem, children, ...rest} = this.props;
-        const options = this.createItems();
+        const {colorNameInCaption, colorNameInItem, children, ...rest} = this.props;
 
         return (
             <Select onDrawItem={this.drawItem} onDrawCaption={this.drawCaption} {...rest}>
-                {options}
+                {children}
             </Select>
         )
     }
