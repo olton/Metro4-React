@@ -43,7 +43,7 @@ export default class SelectColor extends React.Component {
         const {colorNameInCaption, colorNameInItem, children, ...rest} = this.props;
 
         return (
-            <Select onDrawItem={this.drawItem} onDrawCaption={this.drawCaption} {...rest}>
+            <Select onDrawItem={this.drawItem} onDrawCaption={this.drawCaption} useHTML={true} {...rest}>
                 {children}
             </Select>
         )

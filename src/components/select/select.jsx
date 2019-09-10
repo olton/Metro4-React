@@ -25,6 +25,7 @@ export default class Select extends React.Component {
         clsPrepend: "",
         clsAppend: "",
         clsDropdownToggle: "",
+        useHTML: false,
         onChange: () => {},
         onFocus: () => {},
         onBlur: () => {},
@@ -205,7 +206,7 @@ export default class Select extends React.Component {
 
     createListItem = (val, cap) => {
         let hidden;
-        const {multiple, onDrawItem} = this.props;
+        const {multiple, onDrawItem, useHTML} = this.props;
         const {filter, value} = this.state;
 
         hidden = multiple ? value.indexOf(val) !== -1 : filter !== "" && (""+cap).toLowerCase().indexOf(filter.toLowerCase()) === -1;
@@ -215,7 +216,13 @@ export default class Select extends React.Component {
                 className={ !multiple && value === val ? 'active' : '' }
                 onClick={this.listItemClick.bind(this, val)}
             >
-                <a dangerouslySetInnerHTML={{__html: onDrawItem(cap)}}/>
+                {useHTML && (
+                    <a dangerouslySetInnerHTML={{__html: onDrawItem(cap)}}/>
+                )}
+
+                {!useHTML && (
+                    <a>{onDrawItem(cap)}</a>
+                )}
             </li>
         );
     };

@@ -100,7 +100,7 @@ export default class SelectIcon extends React.Component {
         else placeholder = "Icons not loaded";
 
         return(
-            <Select onDrawItem={this.drawItem} onDrawCaption={this.drawCaption} source={valueAsPath ? this.source : this.items} {...rest} placeholder={placeholder}/>
+            <Select useHTML={true} onDrawItem={this.drawItem} onDrawCaption={this.drawCaption} source={valueAsPath ? this.source : this.items} {...rest} placeholder={placeholder}/>
         )
     }
 }

@@ -11,6 +11,7 @@ import Guide from "./components/Guide";
 import Support from "./components/Support";
 import Demo from "./components/Demo";
 import Prism from "prismjs";
+import Test from "./components/Test";
 
 import "./css/index.less";
 
@@ -24,6 +25,7 @@ render (
             <Route path='/guide' component={Guide}/>
             <Route path='/support' component={Support}/>
             <Route path='/demo' component={Demo}/>
+            <Route path='/test' component={Test}/>
             <Route component={NotFound} />
         </Switch>
     </Router>,
