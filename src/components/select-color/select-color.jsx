@@ -5,8 +5,8 @@ import "./select-color.less";
 export default class SelectColor extends React.Component {
     static defaultProps = {
         source: null,
-        colorNameInCaption: true,
-        colorNameInItem: true,
+        nameInCaption: true,
+        nameInItem: true,
     };
 
     constructor(props){
@@ -23,18 +23,18 @@ export default class SelectColor extends React.Component {
 
     drawItem = item => {
         return !this.source ? item : `
-            <div class='color-box-item'>
+            <div class='select-color-item'>
                 <span class='box' style='background: ${this.source[item]}'></span>
-                <span class='caption ${this.props.colorNameInItem ? '' : 'd-none'}'>${item}</span>
+                <span class='caption ${this.props.nameInItem ? '' : 'd-none'}'>${item}</span>
             </div>
         `;
     };
 
     drawCaption = caption => {
         return !this.source ? caption : `
-            <div class='color-box-item'>
+            <div class='select-color-item'>
                 <span class='box' style='background: ${this.source[caption]}'></span>
-                <span class='caption ${this.props.colorNameInCaption ? '' : 'd-none'}'>${caption}</span>
+                <span class='caption ${this.props.nameInCaption ? '' : 'd-none'}'>${caption}</span>
             </div>
         `;
     };

@@ -29,11 +29,12 @@ import {
     Dialog, Pagination, Textarea, InputFile,
     Dropdown, Modal, AppBar, AppBarMenu, AppBarItem, Collapse, ButtonGroup,
     Tabs, Tab, SplitButton, Progress, Panel,
-    Rating, HtmlContainer, SelectColor
+    Rating, HtmlContainer, SelectColor, SelectIcon
 } from "../../src/index";
 
 import MainMenu from "./MainMenu";
 import "../css/demo.less";
+import Example from "./Example";
 
 const autocompleteList = ["Ukraine", "USA", "Canada", "Marokko", "Singapur"];
 
@@ -66,6 +67,13 @@ const dialogButtons = [
         onClick: () => {console.log('Dialog Cancel!')}
     }
 ];
+
+const textAreaValue = `
+111
+222
+333
+444
+`;
 
 export default class Demo extends React.Component {
     constructor(props){
@@ -144,6 +152,22 @@ export default class Demo extends React.Component {
                 <br/>
 
                 <Grid>
+                    <h2 className="text-light">&lt;SelectIcon/&gt;</h2>
+                    <Row>
+                        <Cell cls="cell-sm-5">
+                            <h5>Metro icon font</h5>
+                            <SelectIcon source="/data/metro.svg"/>
+                        </Cell>
+                        <Cell cls="cell-sm-5">
+                            <h5>Font Awesome</h5>
+                            <SelectIcon source="/data/fa.svg" viewBoxWidth={512} viewBoxHeight={448} valueAsPath={true}/>
+                        </Cell>
+                        <Cell cls="cell-sm-2">
+                            <h5>No titles</h5>
+                            <SelectIcon source="/data/fa-brands.svg" viewBoxWidth={512} viewBoxHeight={448} nameInCaption={false} nameInItem={false}/>
+                        </Cell>
+                    </Row>
+
                     <h2 className="text-light">&lt;SelectColor/&gt;</h2>
                     <Row>
                         <Cell cls="cell-sm-5">
@@ -153,7 +177,7 @@ export default class Demo extends React.Component {
                             <SelectColor source={Color.colorListStandard} append="your color"/>
                         </Cell>
                         <Cell cls="cell-sm-2">
-                            <SelectColor filter={false} value="#008000" colorNameInCaption={false}>
+                            <SelectColor filter={false} value="#008000" nameInCaption={false} nameInItem={false}>
                                 <option value="#ff0000">red</option>
                                 <option value="#008000">green</option>
                                 <option value="#0000ff">blue</option>
@@ -171,6 +195,13 @@ export default class Demo extends React.Component {
                         <Cell cls={'cell-md-6'}>
                             <h5>as html</h5>
                             <HtmlContainer source={'data/append.html'} insertAs={'html'}/>
+                        </Cell>
+                    </Row>
+
+                    <h2 className="text-light">&lt;Textarea/&gt;</h2>
+                    <Row>
+                        <Cell cls="cell-md-4">
+                            <Textarea value={textAreaValue.trim()}/>
                         </Cell>
                     </Row>
 

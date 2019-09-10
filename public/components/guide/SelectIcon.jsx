@@ -1,29 +1,22 @@
 import React from "react";
-import {Adsense, Table, Cell, Row, SelectColor, Color} from "../../../src";
+import {Adsense, Table, Cell, Row, SelectIcon, Color} from "../../../src";
 import PrismCode from "../PrismCode";
 import Example from "../Example";
 import {tablePropsHeader} from "../Defs";
 import Article from "../Article";
 import GuideLogo from "../GuideLogo";
 
-export default class GuideSelectColor extends React.Component {
+export default class GuideSelectIcon extends React.Component {
     render(){
-        const codeImport = `import {SelectColor} from "metro4-react";`;
-        const codeUsing = `<SelectColor source={Color.colorListMetro} prepend="Color: "/>`;
-        const codeUsing2 = `
-            <SelectColor filter={false} value="#008000" colorNameInCaption={false}>
-                <option value="#ff0000">red</option>
-                <option value="#008000">green</option>
-                <option value="#0000ff">blue</option>
-            </SelectColor>
-        `;
+        const codeImport = `import {SelectIcon} from "metro4-react";`;
+        const codeUsing = `<SelectIcon source="/data/font.svg"/>`;
 
         const tablePropsBody = [];
 
         return(
             <Article>
                 <GuideLogo/>
-                <h1>SelectColor</h1>
+                <h1>SelectIcon</h1>
 
                 <br/>
                 <Adsense client={'ca-pub-1632668592742327'} slot={'4639163605'} test={SITE_MODE_DEV}/>
@@ -33,17 +26,13 @@ export default class GuideSelectColor extends React.Component {
                 <Example>
                     <Row>
                         <Cell cls="cell-sm-5">
-                            <SelectColor source={Color.colorListMetro} prepend="Color: "/>
+                            <SelectIcon source="/data/metro.svg"/>
                         </Cell>
                         <Cell cls="cell-sm-5">
-                            <SelectColor source={Color.colorListStandard} append="your color"/>
+                            <SelectIcon source="/data/fa.svg" viewBoxWidth={512} viewBoxHeight={448}/>
                         </Cell>
                         <Cell cls="cell-sm-2">
-                            <SelectColor filter={false} value="#008000" nameInCaption={false} nameInItem={false}>
-                                <option value="#ff0000">red</option>
-                                <option value="#008000">green</option>
-                                <option value="#0000ff">blue</option>
-                            </SelectColor>
+                            <SelectIcon source="/data/fa-brands.svg" viewBoxWidth={512} viewBoxHeight={448} nameInCaption={false} nameInItem={false}/>
                         </Cell>
                     </Row>
                 </Example>
@@ -55,7 +44,6 @@ export default class GuideSelectColor extends React.Component {
                 <br/>
                 <h3>Using</h3>
                 <PrismCode language="js" code={codeUsing}/>
-                <PrismCode language="js" code={codeUsing2}/>
 
                 <br/>
                 <h4>Props</h4>

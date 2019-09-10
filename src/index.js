@@ -50,6 +50,7 @@ import HtmlContainer from "./components/html-container/html-container";
 import Table from "./components/table/table";
 import MemoryTable from "./components/table/memory-table";
 import SelectColor from "./components/select-color/select-color";
+import SelectIcon from "./components/select-icon/select-icon";
 
 import {Utils, Color, MD5, MediaPoints} from "./routines"
 import {FetchStatus} from "./defines"
@@ -103,5 +104,5 @@ export {
     Progress, Panel,
     Rating, HtmlContainer,
     Table, MemoryTable,
-    SelectColor
+    SelectColor, SelectIcon
 };

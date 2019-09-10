@@ -45,13 +45,8 @@ export default class Textarea extends React.Component {
             changeEvents.forEach( (ev) => {
                 this.input.addEventListener(ev, this.resize);
             });
-            // this.input.addEventListener("keyup", this.resize);
-            // this.input.addEventListener("keydown", this.resize);
-            // this.input.addEventListener("change", this.resize);
-            // this.input.addEventListener("cut", this.resize);
-            // this.input.addEventListener("paste", this.resize);
-            // this.input.addEventListener("drop", this.resize);
         }
+        this.resize();
     }
 
     componentWillUnmount() {
@@ -62,12 +57,6 @@ export default class Textarea extends React.Component {
             changeEvents.forEach( (ev) => {
                 this.input.removeEventListener(ev, this.resize);
             });
-            // this.input.removeEventListener("keyup", this.resize);
-            // this.input.removeEventListener("keydown", this.resize);
-            // this.input.removeEventListener("change", this.resize);
-            // this.input.removeEventListener("cut", this.resize);
-            // this.input.removeEventListener("paste", this.resize);
-            // this.input.removeEventListener("drop", this.resize);
         }
     }
 
@@ -111,6 +100,10 @@ export default class Textarea extends React.Component {
             value: ""
         });
 
+        setTimeout(()=>{
+            this.resize();
+        }, 100);
+
         this.focus();
 
         this.props.onClear(e);
@@ -137,7 +130,7 @@ export default class Textarea extends React.Component {
                     <span className='prepend'>{prepend}</span>
                 )}
 
-                <textarea className="fake-textarea" ref={ref => this.fakeInput = ref}/>
+                <textarea defaultValue={value} className="fake-textarea" ref={ref => this.fakeInput = ref}/>
 
                 <textarea {...props} value={value} onChange={this.onChange} ref={ref => this.input = ref}/>
 
