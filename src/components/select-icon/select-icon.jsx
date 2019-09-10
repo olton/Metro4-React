@@ -25,7 +25,7 @@ export default class SelectIcon extends React.Component {
     }
 
     componentDidMount(){
-        const {source} = this.props;
+        const {source, valueAsPath} = this.props;
 
         if (source) {
             fetch(source).then( r => r.text() ).then( r => {
@@ -66,14 +66,12 @@ export default class SelectIcon extends React.Component {
     drawItem = item => {
         const {viewBoxWidth, viewBoxHeight, nameInItem} = this.props;
         return !this.source ? item : `
-            <div class='select-icon-item'>
-                <div class='icon'>
-                    <svg width="24" height="24" viewBox="0 0 ${viewBoxWidth} ${viewBoxHeight}">
-                        <path d="${this.source[item]}" stroke="black"/>
-                    </svg>
-                </div>
-                <span class='caption ${nameInItem ? '' : 'd-none'}'>${item}</span>
+            <div class='icon'>
+                <svg width="24" height="24" viewBox="0 0 ${viewBoxWidth} ${viewBoxHeight}">
+                    <path d="${this.source[item]}" stroke="black"/>
+                </svg>
             </div>
+            <span class='caption ${nameInItem ? '' : 'd-none'}'>${item}</span>
         `;
     };
 

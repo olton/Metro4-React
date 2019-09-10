@@ -286,7 +286,7 @@ export default class Select extends React.Component {
                         })}
 
                         {!multiple && value !== undefined && !!options[value] && (
-                            <span className={clsTag} dangerouslySetInnerHTML={{__html: onDrawCaption(options[value])}}/>
+                            <span className={'caption ' + clsTag} dangerouslySetInnerHTML={{__html: onDrawCaption(options[value])}}/>
                         )}
 
                         {(!value || value === "" || value.length === 0) && (
