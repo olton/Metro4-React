@@ -7,6 +7,8 @@ export default class SelectColor extends React.Component {
         source: null,
         nameInCaption: true,
         nameInItem: true,
+        cls: "",
+        className: ""
     };
 
     constructor(props){
@@ -40,10 +42,10 @@ export default class SelectColor extends React.Component {
     };
 
     render(){
-        const {colorNameInCaption, colorNameInItem, children, ...rest} = this.props;
+        const {colorNameInCaption, colorNameInItem, children, cls, className, ...rest} = this.props;
 
         return (
-            <Select onDrawItem={this.drawItem} onDrawCaption={this.drawCaption} useHTML={true} {...rest}>
+            <Select className={`select-color ${cls} ${className}`} onDrawItem={this.drawItem} onDrawCaption={this.drawCaption} useHTML={true} {...rest}>
                 {children}
             </Select>
         )

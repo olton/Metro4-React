@@ -1,17 +1,16 @@
 import React from "react";
 import "./select-icon.less";
 import Select from "../select/select";
-import icon from "../icon/icon";
 import {FetchStatus} from "../../defines";
 
 export default class SelectIcon extends React.Component {
     static defaultProps = {
         source: null,
-        viewBoxWidth: 1024,
-        viewBoxHeight: 960,
         nameInCaption: true,
         nameInItem: true,
-        valueAsPath: false
+        valueAsPath: false,
+        cls: "",
+        className: ""
     };
 
     constructor(props){
@@ -19,40 +18,45 @@ export default class SelectIcon extends React.Component {
         this.source = {};
         this.items = {};
         this.state = {
+            viewWidth: 0,
+            viewHeight: 0,
             loaded: FetchStatus.init,
             message: ""
         };
     }
 
     componentDidMount(){
-        const {source, valueAsPath} = this.props;
+        const {source} = this.props;
 
         if (source) {
             fetch(source).then( r => r.text() ).then( r => {
                 const parser = new DOMParser();
                 const xml = parser.parseFromString(r, "application/xml");
+                const fontFace = xml.querySelector("font-face");
                 const icons = Array.from(xml.querySelectorAll("glyph")).filter( el => {
                     return el.getAttribute("d").trim() !== "";
                 }).sort( (a, b) => {
-                    if (a.attributes["glyph-name"].nodeValue.toLowerCase() < b.attributes["glyph-name"].nodeValue.toLowerCase()) {
+                    if (a.getAttribute("glyph-name").toLowerCase() < b.getAttribute("glyph-name").toLowerCase()) {
                         return -1;
                     }
-                    if (a.attributes["glyph-name"].nodeValue.toLowerCase() > b.attributes["glyph-name"].nodeValue.toLowerCase()) {
+                    if (a.getAttribute("glyph-name").toLowerCase() > b.getAttribute("glyph-name").toLowerCase()) {
                         return 1;
                     }
                     return 0;
                 } );
                 icons.forEach( el => {
                     this.source = Object.assign(this.source, {
-                        [el.attributes["glyph-name"].nodeValue]: el.attributes.d.nodeValue
+                        [el.getAttribute("glyph-name")]: el.getAttribute("d")
                     });
                     this.items = Object.assign(this.items, {
-                        [el.attributes["glyph-name"].nodeValue]: el.attributes["glyph-name"].nodeValue
+                        [el.getAttribute("glyph-name")]: el.getAttribute("glyph-name")
                     });
                 });
                 this.setState({
                     loaded: FetchStatus.ok,
-                    message: "OK"
+                    message: "OK",
+                    viewWidth: +fontFace.getAttribute("units-per-em"),
+                    viewHeight: +fontFace.getAttribute("ascent"),
                 });
             }).catch( e=> {
                 this.setState({
@@ -64,10 +68,11 @@ export default class SelectIcon extends React.Component {
     }
 
     drawItem = item => {
-        const {viewBoxWidth, viewBoxHeight, nameInItem} = this.props;
+        const {nameInItem} = this.props;
+        const {viewWidth, viewHeight} = this.state;
         return !this.source ? item : `
             <div class='icon'>
-                <svg width="24" height="24" viewBox="0 0 ${viewBoxWidth} ${viewBoxHeight}">
+                <svg width="24" height="24" viewBox="0 0 ${viewWidth} ${viewHeight}">
                     <path d="${this.source[item]}" stroke="black"/>
                 </svg>
             </div>
@@ -76,11 +81,12 @@ export default class SelectIcon extends React.Component {
     };
 
     drawCaption = item => {
-        const {viewBoxWidth, viewBoxHeight, nameInCaption} = this.props;
+        const {nameInCaption} = this.props;
+        const {viewWidth, viewHeight} = this.state;
         return !this.source ? item : `
             <div class='select-icon-item'>
                 <div class='icon'>
-                    <svg width="24" height="24" viewBox="0 0 ${viewBoxWidth} ${viewBoxHeight}">
+                    <svg width="24" height="24" viewBox="0 0 ${viewWidth} ${viewHeight}">
                         <path d="${this.source[item]}" stroke="black"/>
                     </svg>
                 </div>
@@ -90,7 +96,7 @@ export default class SelectIcon extends React.Component {
     };
 
     render(){
-        const {source, viewBoxWidth, viewBoxHeight, nameInCaption, nameInItem, valueAsPath, ...rest} = this.props;
+        const {source, viewBoxWidth, viewBoxHeight, nameInCaption, nameInItem, valueAsPath, cls, className, ...rest} = this.props;
         const {loaded, message} = this.state;
         let placeholder;
 
@@ -100,7 +106,7 @@ export default class SelectIcon extends React.Component {
         else placeholder = "Icons not loaded";
 
         return(
-            <Select useHTML={true} onDrawItem={this.drawItem} onDrawCaption={this.drawCaption} source={valueAsPath ? this.source : this.items} {...rest} placeholder={placeholder}/>
+            <Select className={`select-icon ${cls} ${className}`} useHTML={true} onDrawItem={this.drawItem} onDrawCaption={this.drawCaption} source={valueAsPath ? this.source : this.items} {...rest} placeholder={placeholder}/>
         )
     }
 }

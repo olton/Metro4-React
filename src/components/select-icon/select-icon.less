@@ -1,18 +1,30 @@
 @import (once) "../../include/less/vars";
 @import (once) "../../include/less/mixins";
 
-.select-icon-item {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    height: 34px;
-    width: 100%;
-    .caption {
-        margin-left: 10px;
+.select-icon {
+    .select-icon-item {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        height: 34px;
+        width: 100%;
+        .caption {
+            margin-left: 10px;
+        }
+        .icon {
+            left: 0!important;
+            width: 24px;
+            height: 24px;
+            transform: rotate(180deg) scaleX(-1);
+        }
     }
-    .icon {
-        left: 0!important;
-        width: 24px;
-        height: 24px;
+
+    .d-menu {
+        .icon {
+            transform: rotate(180deg) scaleX(-1);
+            width: 24px;
+            height: 24px;
+            margin-top: -2px!important;
+        }
     }
 }

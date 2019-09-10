@@ -14,6 +14,7 @@ export default class Select extends React.Component {
         filter: true,
         errorMessage: "",
         cls: "",
+        className: "",
         clsSelected: "",
         clsTag: "",
         clsPlaceholder: "",
@@ -228,7 +229,7 @@ export default class Select extends React.Component {
     };
 
     render() {
-        const {source, placeholder, multiple, cls, dropHeight, speed, onChange, errorMessage, clsSelected, clsTag, clsPlaceholder, clsErrorMessage, searchPlaceholder, prepend, append, clsPrepend, clsAppend, clsDropdownToggle, onDrawItem, onDrawCaption} = this.props;
+        const {source, placeholder, multiple, cls, className, dropHeight, speed, onChange, errorMessage, clsSelected, clsTag, clsPlaceholder, clsErrorMessage, searchPlaceholder, prepend, append, clsPrepend, clsAppend, clsDropdownToggle, onDrawItem, onDrawCaption} = this.props;
         const {open, filter, value, fieldState, focus} = this.state;
         const transition = `height ${speed}ms cubic-bezier(.4, 0, .2, 1)`;
         const options = {};
@@ -267,7 +268,9 @@ export default class Select extends React.Component {
 
         return (
             <React.Fragment>
-                <label tabIndex={1} className={'select ' + cls + (focus ? ' focused ':'') + (multiple ? ' multiple ':'') + (fieldState === 'error' ? ' invalid ' : fieldState === 'success' ? ' success ' : '')} ref={this.component}>
+                <label tabIndex={1}
+                       className={`select ${cls} ${className} ${focus ? 'focused':''} + ${multiple ? 'multiple':''} ${fieldState === 'error' ? 'invalid' : fieldState === 'success' ? 'success' : ''}`}
+                       ref={this.component}>
 
                     <span className={'dropdown-toggle ' + (` ${clsDropdownToggle} `) + (open ? 'active-toggle':'')} onClick={this.selectClick}/>
 

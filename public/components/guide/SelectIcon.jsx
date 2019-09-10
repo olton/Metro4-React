@@ -25,14 +25,17 @@ export default class GuideSelectIcon extends React.Component {
                 <h3>Introduction</h3>
                 <Example>
                     <Row>
-                        <Cell cls="cell-sm-5">
+                        <Cell cls="cell-sm-3">
                             <SelectIcon source="/data/metro.svg"/>
                         </Cell>
-                        <Cell cls="cell-sm-5">
+                        <Cell cls="cell-sm-3">
                             <SelectIcon source="/data/fa.svg" viewBoxWidth={512} viewBoxHeight={448}/>
                         </Cell>
-                        <Cell cls="cell-sm-2">
-                            <SelectIcon source="/data/fa-brands.svg" viewBoxWidth={512} viewBoxHeight={448} nameInCaption={false} nameInItem={false}/>
+                        <Cell cls="cell-sm-3">
+                            <SelectIcon source="/data/icofont.svg" viewBoxWidth={1000} viewBoxHeight={850}/>
+                        </Cell>
+                        <Cell cls="cell-sm-3">
+                            <SelectIcon source="/data/fa.svg" viewBoxWidth={512} viewBoxHeight={448} nameInCaption={false} nameInItem={false}/>
                         </Cell>
                     </Row>
                 </Example>

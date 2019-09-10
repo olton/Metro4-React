@@ -164,7 +164,7 @@ export default class Demo extends React.Component {
                         </Cell>
                         <Cell cls="cell-sm-2">
                             <h5>No titles</h5>
-                            <SelectIcon source="/data/fa-brands.svg" viewBoxWidth={512} viewBoxHeight={448} nameInCaption={false} nameInItem={false}/>
+                            <SelectIcon source="/data/fa.svg" viewBoxWidth={512} viewBoxHeight={448} nameInCaption={false} nameInItem={false}/>
                         </Cell>
                     </Row>
 
