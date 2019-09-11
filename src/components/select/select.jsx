@@ -299,7 +299,7 @@ export default class Select extends React.Component {
                             <span className={'caption ' + clsTag} dangerouslySetInnerHTML={{__html: onDrawCaption(options[value])}}/>
                         )}
 
-                        {(!value || value === "" || value.length === 0) && (
+                        {(!value && !options[value] || value === undefined) && (
                             <span className={`placeholder ${clsPlaceholder}`}>{placeholder}</span>
                         )}
                     </div>
