@@ -5,6 +5,9 @@ import {FetchStatus} from "../../defines";
 
 export default class SelectIcon extends React.Component {
     static defaultProps = {
+        placeholder: "Select icon...",
+        placeholderLoading: "Loading...",
+        placeholderError: "",
         source: null,
         nameInCaption: true,
         nameInItem: true,
@@ -96,17 +99,12 @@ export default class SelectIcon extends React.Component {
     };
 
     render(){
-        const {source, viewBoxWidth, viewBoxHeight, nameInCaption, nameInItem, valueAsPath, cls, className, ...rest} = this.props;
+        const {placeholder, placeholderLoading, placeholderError, source, viewBoxWidth, viewBoxHeight, nameInCaption, nameInItem, valueAsPath, cls, className, ...rest} = this.props;
         const {loaded, message} = this.state;
-        let placeholder;
-
-        if (loaded === FetchStatus.init) placeholder = "Icons loading...";
-        else if (loaded === FetchStatus.ok) placeholder = "Select your icon";
-        else if (loaded === FetchStatus.error) placeholder = message;
-        else placeholder = "Icons not loaded";
+        const _placeholder = loaded === FetchStatus.ok ? placeholder : loaded === FetchStatus.error ? placeholderError : placeholderLoading;
 
         return(
-            <Select className={`select-icon ${cls} ${className}`} useHTML={true} onDrawItem={this.drawItem} onDrawCaption={this.drawCaption} source={valueAsPath ? this.source : this.items} {...rest} placeholder={placeholder}/>
+            <Select className={`select-icon ${cls} ${className}`} useHTML={true} onDrawItem={this.drawItem} onDrawCaption={this.drawCaption} source={valueAsPath ? this.source : this.items} {...rest} placeholder={_placeholder}/>
         )
     }
 }

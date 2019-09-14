@@ -4,9 +4,9 @@ import "./pagination.less";
 class PaginationItem extends React.Component {
     static defaultProps = {
         cls: "",
+        className: "",
         title: "",
-        data: null,
-        onClick: () => {}
+        data: null
     };
 
     constructor(props){
@@ -14,11 +14,11 @@ class PaginationItem extends React.Component {
     }
 
     render(){
-        const {cls, title, data, onClick, index} = this.props;
+        const {cls, className, title, data, index} = this.props;
 
         return (
-            <li key={index} className={'page-item ' + cls} onClick={ () => onClick(data) } data-ndex={index}>
-                <a className={'page-link'}>{title}</a>
+            <li key={index} className={`page-item ${cls} ${className}`} data-index={index}>
+                <a className={'page-link'} data-value={data}>{title}</a>
             </li>
         )
     }
@@ -40,58 +40,63 @@ export default class Pagination extends React.Component {
 
     constructor(props){
         super(props);
-        this.itemClick = this.itemClick.bind(this);
     }
 
-    itemClick(val){
-        this.props.onClick(val)
-    }
+    clickHandler = e => {
+        const val = e.target.getAttribute("data-value");
+        if (val) this.props.onClick(val)
+    };
+
+    addItem = (title, data, className = '') => {
+        return (
+            <PaginationItem title={title} className={className} data={data} />
+        )
+    };
 
     render() {
         const {cls, className, total, itemsPerPage, current, distance, prevTitle, nextTitle, moreTitle, onClick, ...props} = this.props;
         const pagesCount = parseInt(itemsPerPage) === -1 ? 1 : Math.ceil(total / itemsPerPage);
         const items = [];
 
-        items.push(<PaginationItem title={prevTitle} cls={'service prev-page ' + (current === 1 ? ' disabled ' : '')} data={'prev'} />);
-
-        items.push(<PaginationItem title={1} cls={current === 1 ? 'active' : ''} data={1} />);
+        items.push(this.addItem(prevTitle, 'prev', `service prev-page ${current === 1 ? 'disabled' : ''}`));
+        items.push(this.addItem(1, 1, current === 1 ? 'active' : ''));
 
         if (distance === 0 || pagesCount <=7) {
             for(let i = 2; i < pagesCount; i++) {
-                items.push(<PaginationItem title={i} cls={i === current ? 'active' : ''} data={i}/>);
+                items.push(this.addItem(i, i, i === current ? 'active' : ''));
             }
         } else {
             if (current < distance) {
                 for(let i = 2; i <= distance; i++) {
-                    items.push(<PaginationItem title={i} cls={i === current ? 'active' : ''} data={i}/>);
+                    items.push(this.addItem(i, i, i === current ? 'active' : ''));
                 }
                 if (pagesCount >  distance) {
-                    items.push(<PaginationItem title={moreTitle} cls={'no-link'}/>);
+                    items.push(this.addItem(moreTitle, null, 'no-link'));
                 }
             } else if (current <= pagesCount && current > pagesCount - distance + 1) {
                 if (pagesCount > distance) {
-                    items.push(<PaginationItem title={moreTitle} cls={'no-link'}/>);
+                    items.push(this.addItem(moreTitle, null, 'no-link'));
                 }
                 for(let i = pagesCount - distance + 1; i < pagesCount; i++) {
-                    items.push(<PaginationItem title={i} cls={i === current ? 'active' : ''} data={i}/>);
+                    items.push(this.addItem(i, i, i === current ? 'active' : ''));
                 }
             } else {
-                items.push(<PaginationItem title={moreTitle} cls={'no-link'}/>);
-                items.push(<PaginationItem title={current - 1} data={current - 1}/>);
-                items.push(<PaginationItem title={current} cls={'active'} data={current}/>);
-                items.push(<PaginationItem title={current + 1} data={current + 1}/>);
-                items.push(<PaginationItem title={moreTitle} cls={'no-link'}/>);
+                items.push(this.addItem(moreTitle, null, 'no-link'));
+                items.push(this.addItem(current - 1, current - 1));
+                items.push(this.addItem(current, current, 'active'));
+                items.push(this.addItem(current + 1, current + 1));
+                items.push(this.addItem(moreTitle, null, 'no-link'));
             }
         }
 
         if (pagesCount > 1 || current < pagesCount) {
-            items.push(<PaginationItem title={pagesCount} cls={current === pagesCount ? 'active' : ''} data={pagesCount}/>);
+            items.push(this.addItem(pagesCount, pagesCount, current === pagesCount ? 'active' : ''));
         }
 
-        items.push(<PaginationItem title={nextTitle} cls={'service next-page ' + (current === pagesCount ? ' disabled ' : '')} data={'next'} />);
+        items.push(this.addItem(nextTitle, 'next', `service next-page ${current === pagesCount ? 'disabled' : ''}`));
 
         return (
-            <ul className={`pagination ${cls} ${className} ${total === 0 ? 'disabled' : ''}`} {...props}>
+            <ul className={`pagination ${cls} ${className} ${total === 0 ? 'disabled' : ''}`} {...props} onClick={this.clickHandler}>
                 {items.map( (el, index) => {
                     return React.cloneElement(el, {
                         key: index,
