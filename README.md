@@ -14,6 +14,7 @@
 </p>
 
 <p align="center">
+    <h2>v0.1.2</h2>
     <hr>
 </p>
 
