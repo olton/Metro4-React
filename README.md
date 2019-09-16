@@ -31,4 +31,4 @@
 ![GitHub release](https://img.shields.io/github/v/release/olton/Metro4-React?include_prereleases&label=pre-release)
 
 ### Donation
-[![Donations on Patreon](https://img.shields.io/badge/Patreon-$0-red.svg)](https://www.patreon.com/metro4_react)
+[![Donations on Patreon](https://img.shields.io/badge/Patreon-$10-red.svg)](https://www.patreon.com/metro4_react)
