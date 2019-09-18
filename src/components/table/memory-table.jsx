@@ -228,7 +228,6 @@ export default class MemoryTable extends React.Component {
         this.searchThresholdTimer = false;
 
         if (!this.searchThresholdTimer) this.searchThresholdTimer = setTimeout( ()=> {
-            console.log("threshold");
             this.setState({
                 searchFilter: val,
                 page: 1

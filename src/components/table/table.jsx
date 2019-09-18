@@ -4,6 +4,7 @@ import {MD5} from "../../routines";
 
 export default class Table extends React.Component {
     static defaultProps = {
+        emptyTitle: "Nothing to show",
         mode: "normal",
         head: null,
         body: null,
@@ -13,6 +14,7 @@ export default class Table extends React.Component {
         clsHeadCell: "",
         clsBodyRow: "",
         clsBodyCell: "",
+        clsEmptyTitle: "",
         onHeadClick: () => {},
         onCellClick: () => {},
         onDrawCell: val => val,
@@ -58,11 +60,18 @@ export default class Table extends React.Component {
     };
 
     drawBody = () => {
-        const {clsBodyRow, clsBodyCell, cellWrap, onDrawCell} = this.props;
+        const {emptyTitle, head, clsBodyRow, clsBodyCell, clsEmptyTitle, onDrawCell} = this.props;
         const {body} = this.state;
         const tableBody = [];
+        const colSpan = head ? head.length : 1;
 
-        if (Array.isArray(body) && body.length > 0) {
+        if (!Array.isArray(body) || body.length === 0) {
+            tableBody.push(
+                <tr className={clsBodyRow} key={0}>
+                    <td colSpan={colSpan} className={clsEmptyTitle}>{emptyTitle}</td>
+                </tr>
+            )
+        } else {
             body.forEach( (el, index) => {
                 tableBody.push(
                     <tr key={index} className={clsBodyRow}>
@@ -90,6 +99,7 @@ export default class Table extends React.Component {
                 );
             })
         }
+
         return tableBody;
     };
 
@@ -103,7 +113,7 @@ export default class Table extends React.Component {
 
     render(){
         const {
-            cellWrap, body: initBody, head, cls, className, mode, clsHeadRow, clsHeadCell, clsBodyRow, clsBodyCell, children,
+            emptyTitle, clsEmptyTitle, body: initBody, head, cls, className, mode, clsHeadRow, clsHeadCell, clsBodyRow, clsBodyCell, children,
             onHeadClick, onCellClick, onDrawCell,
             ...rest} = this.props;
         const {body} = this.state;

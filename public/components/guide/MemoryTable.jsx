@@ -25,7 +25,9 @@ export default class GuideMemoryTable extends React.Component {
                 onDrawCell={ 
                     (val, props, index) => index === 0 ? "<code>"+val+"</code>" : val 
                 } 
-                clsPagination='no-gap'/>`;
+                clsPagination='no-gap'
+                clsEmptyTitle='text-center'
+                />`;
 
         const tablePropsData = [
             ["scrollable", "false", "Enable horizontal scroll for wide table"],
@@ -76,7 +78,9 @@ export default class GuideMemoryTable extends React.Component {
                         clsInfoBlock='row'
                         clsInfo='cell-md-6 order-2 text-center'
                         clsPaginationBlock='cell-md-6'
-                        clsPagination='no-gap'/>
+                        clsPagination='no-gap'
+                        clsEmptyTitle='text-center'
+                    />
                 </Example>
 
                 <br/>
