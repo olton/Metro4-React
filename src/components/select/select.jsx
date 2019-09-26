@@ -195,7 +195,7 @@ export default class Select extends React.Component {
 
         const val = node.getAttribute("data-value");
 
-        if (!val) return;
+        if (val === undefined) return;
 
         const {multiple} = this.props;
         const {value} = this.state;
