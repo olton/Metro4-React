@@ -32,11 +32,11 @@ export default class SelectColor extends React.Component {
         `;
     };
 
-    drawCaption = caption => {
-        return !this.source ? caption : `
+    drawCaption = item => {
+        return !this.source ? item : `
             <div class='select-color-item'>
-                <span class='box' style='background: ${this.source[caption]}'></span>
-                <span class='caption ${this.props.nameInCaption ? '' : 'd-none'}'>${caption}</span>
+                <span class='box' style='background: ${this.source[item]}'></span>
+                <span class='caption ${this.props.nameInCaption ? '' : 'd-none'}'>${item}</span>
             </div>
         `;
     };
