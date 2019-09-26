@@ -2,11 +2,19 @@ import React from "react";
 import Select from "../select/select";
 import "./select-color.less";
 
+const SelectColorItem = (props) => {
+    return (
+        <div className='select-color-item'>
+            <span className='box' style={{background: props.color}}/>
+            <span className='caption' hidden={props.hidden}>{props.caption}</span>
+        </div>
+    )
+};
+
 export default class SelectColor extends React.Component {
     static defaultProps = {
         source: null,
-        nameInCaption: true,
-        nameInItem: true,
+        showColorName: true,
         cls: "",
         className: ""
     };
@@ -24,28 +32,14 @@ export default class SelectColor extends React.Component {
     }
 
     drawItem = item => {
-        return !this.source ? item : `
-            <div class='select-color-item'>
-                <span class='box' style='background: ${this.source[item]}'></span>
-                <span class='caption ${this.props.nameInItem ? '' : 'd-none'}'>${item}</span>
-            </div>
-        `;
-    };
-
-    drawCaption = item => {
-        return !this.source ? item : `
-            <div class='select-color-item'>
-                <span class='box' style='background: ${this.source[item]}'></span>
-                <span class='caption ${this.props.nameInCaption ? '' : 'd-none'}'>${item}</span>
-            </div>
-        `;
+        return !this.source ? item : <SelectColorItem color={this.source[item]} hidden={!this.props.showColorName} caption={item}/>
     };
 
     render(){
         const {colorNameInCaption, colorNameInItem, children, cls, className, ...rest} = this.props;
 
         return (
-            <Select className={`select-color ${cls} ${className}`} onDrawItem={this.drawItem} onDrawCaption={this.drawCaption} useHTML={true} {...rest}>
+            <Select className={`select-color ${cls} ${className}`} onDrawItem={this.drawItem} onDrawCaption={this.drawItem} {...rest}>
                 {children}
             </Select>
         )

@@ -26,7 +26,6 @@ export default class Select extends React.Component {
         clsPrepend: "",
         clsAppend: "",
         clsDropdownToggle: "",
-        useHTML: false,
         onChange: () => {},
         onFocus: () => {},
         onBlur: () => {},
@@ -228,13 +227,7 @@ export default class Select extends React.Component {
                 className={ !multiple && value === val ? 'active' : '' }
                 data-value={val}
             >
-                {useHTML && (
-                    <a dangerouslySetInnerHTML={{__html: onDrawItem(cap)}}/>
-                )}
-
-                {!useHTML && (
-                    <a>{onDrawItem(cap)}</a>
-                )}
+                <a>{onDrawItem(cap)}</a>
             </li>
         );
     };
@@ -307,7 +300,7 @@ export default class Select extends React.Component {
                         })}
 
                         {!multiple && value !== undefined && !!options[value] && (
-                            <span className={'caption ' + clsTag} dangerouslySetInnerHTML={{__html: onDrawCaption(options[value])}}/>
+                            <span className={'caption ' + clsTag}>{onDrawCaption(options[value])}</span>
                         )}
 
                         {(!value && !options[value] || value === undefined || (multiple && value.length === 0)) && (
