@@ -3,14 +3,14 @@ import {Adsense, MemoryTable} from "../../../src";
 import PrismCode from "../PrismCode";
 import Example from "../Example";
 import Table from "../../../src/components/table/table";
-import Defs, {tablePropsHeader} from "../Defs";
+import {tablePropsHeader} from "../Defs";
 import Article from "../Article";
 import GuideLogo from "../GuideLogo";
 
 export default class GuideMemoryTable extends React.Component {
     drawCell = (val, props) => {
         if (props.name === 'name') {
-            return `<a href="#">${val}</a>`
+            return <a href="#">{val}</a>
         }
         return val;
     };

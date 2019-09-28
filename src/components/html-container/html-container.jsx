@@ -1,5 +1,6 @@
 import React from "react";
 import "regenerator-runtime/runtime";
+import CustomElement from "../custom-element/custom-element";
 
 export default class HtmlContainer extends React.Component {
     static defaultProps = {
@@ -67,7 +68,7 @@ export default class HtmlContainer extends React.Component {
                     <Element>{content}</Element>
                 )}
                 {fetched && insertAs === 'html' && (
-                    <Element dangerouslySetInnerHTML={{__html: content}}/>
+                    <CustomElement>{content}</CustomElement>
                 )}
             </React.Fragment>
         )

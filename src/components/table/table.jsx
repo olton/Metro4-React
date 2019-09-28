@@ -1,6 +1,7 @@
 import React from "react";
 import "./table.less";
 import {MD5} from "../../routines";
+import CustomElement from "../custom-element/custom-element";
 
 export default class Table extends React.Component {
     static defaultProps = {
@@ -78,7 +79,8 @@ export default class Table extends React.Component {
                         {el.map((val, key)=>{
                             const colProps = this.props.head ? this.props.head[key] : null;
                             const cellClass = `${clsBodyCell} ${colProps && colProps["clsColumn"] ? colProps["clsColumn"] : ''}`;
-                            let cellVal = colProps && colProps["template"] ?  colProps["template"].replace("%VAL%", val) : val;
+                            const hasTemplate = colProps && colProps["template"];
+                            let cellVal = hasTemplate ? colProps["template"].replace("%VAL%", val) : val;
                             const style = {};
 
                             if (colProps && colProps["size"]) {
@@ -87,13 +89,9 @@ export default class Table extends React.Component {
 
                             cellVal = onDrawCell(cellVal, colProps, key);
 
-                            return (
-                                <td key={key}
-                                    className={cellClass}
-                                    dangerouslySetInnerHTML={{__html: cellVal}} onClick={this.cellClick}
-                                    style={style}
-                                />
-                            )
+                            return hasTemplate ?
+                                <CustomElement as="td" key={key} className={cellClass} onClick={this.cellClick} style={style} dangerouslySetInnerHTML={{__html: cellVal}}/> :
+                                <CustomElement as="td" key={key} className={cellClass} onClick={this.cellClick} style={style}>{cellVal}</CustomElement>
                         })}
                     </tr>
                 );

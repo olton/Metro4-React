@@ -2,6 +2,7 @@ import React from "react";
 import "./input-file.less";
 import Button from "../button/button";
 import {Icon} from "../../index";
+import CustomElement from "../custom-element/custom-element";
 
 export default class InputFile extends React.Component {
     static defaultProps = {
@@ -133,7 +134,7 @@ export default class InputFile extends React.Component {
                 <input {...props} type={'file'} onChange={this.onChange} ref={ref => this.input = ref} />
 
                 {mode === 'input' && prepend !== "" && (
-                    <span className={'prepend ' + clsPrepend}>{prepend}</span>
+                    <CustomElement className={'prepend ' + clsPrepend}>{prepend}</CustomElement>
                 )}
 
                 {mode === 'input' && (
@@ -154,7 +155,7 @@ export default class InputFile extends React.Component {
                                 )}
 
                                 {buttonTitle !== "" && (
-                                    <span dangerouslySetInnerHTML={{__html: buttonTitle}}/>
+                                    <CustomElement>{buttonTitle}</CustomElement>
                                 )}
                             </Button>
                         )}
@@ -169,7 +170,7 @@ export default class InputFile extends React.Component {
                 )}
 
                 {mode === 'input' && append !== "" && (
-                    <span className={'append ' + clsAppend}>{append}</span>
+                    <CustomElement className={'append ' + clsAppend}>{append}</CustomElement>
                 )}
 
                 {mode !== 'input' && dropIcon !== "" && (
@@ -178,7 +179,7 @@ export default class InputFile extends React.Component {
 
                 {mode !== 'input' && (
                     <React.Fragment>
-                        <span className={'caption ' + clsCaption} dangerouslySetInnerHTML={{__html: dropTitle}}/>
+                        <CustomElement className={'caption ' + clsCaption}>{dropTitle}</CustomElement>
                         <span className={'files ' + clsCaption}>{value.length + ' ' + dropTitleSecondary}</span>
                     </React.Fragment>
                 )}
