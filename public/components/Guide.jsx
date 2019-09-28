@@ -29,6 +29,7 @@ import GuideInput from "./guide/Input";
 import GuideInputFile from "./guide/InputFile";
 import GuideSelectColor from "./guide/SelectColor";
 import GuideSelectIcon from "./guide/SelectIcon";
+import GuideSelect from "./guide/Select";
 
 export default class Guide extends React.Component {
     constructor(props){
@@ -97,6 +98,7 @@ export default class Guide extends React.Component {
 
                                 <Route path='/guide/input' component={GuideInput}/>
                                 <Route path='/guide/input-file' component={GuideInputFile}/>
+                                <Route path='/guide/select' component={GuideSelect}/>
                                 <Route path='/guide/select-color' component={GuideSelectColor}/>
                                 <Route path='/guide/select-icon' component={GuideSelectIcon}/>
 

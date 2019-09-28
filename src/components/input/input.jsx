@@ -1,6 +1,7 @@
 import React from "react";
 import "./input.less";
 import Button from "../button/button.jsx";
+import CustomElement from "../custom-element/custom-element";
 
 export default class Input extends React.Component {
     static defaultProps = {
@@ -213,10 +214,6 @@ export default class Input extends React.Component {
             <React.Fragment>
                 <div className={'input ' + (focus ? 'focused' : '') + (fieldState === 'error' ? ' invalid ' : fieldState === 'success' ? ' success ' : '') + ' ' + cls}>
 
-                    {prepend !== "" && (
-                        <span className={'prepend ' + clsPrepend}>{prepend}</span>
-                    )}
-
                     <input className={className} {...props} type={inputType} value={value} onChange={this.onChange} ref={ref => this.input = ref} onKeyUp={this.onKeyUp}/>
 
                     {buttons && (
@@ -246,8 +243,12 @@ export default class Input extends React.Component {
                         </div>
                     )}
 
-                    {append !== "" && (
-                        <span className={'append ' + clsAppend}>{append}</span>
+                    {prepend && (
+                        <CustomElement className={'prepend ' + clsPrepend}>{prepend}</CustomElement>
+                    )}
+
+                    {append && (
+                        <CustomElement className={'append ' + clsAppend}>{append}</CustomElement>
                     )}
 
                     {autocomplete.length > 0 && (

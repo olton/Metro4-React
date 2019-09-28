@@ -4,6 +4,7 @@ import "../d-menu/d-menu.less";
 import Collapse from "../collapse/collapse.jsx";
 import Input from "../input/input.jsx";
 import Tag from "../tag/tag.jsx"
+import CustomElement from "../custom-element/custom-element";
 
 export default class Select extends React.Component {
     static defaultProps = {
@@ -185,7 +186,6 @@ export default class Select extends React.Component {
     };
 
     handleListClick = e => {
-
         let node = e.target;
 
         while (node.tagName !== 'LI') {
@@ -316,10 +316,11 @@ export default class Select extends React.Component {
                     </Collapse>
 
                     {prepend && (
-                        <span className={'prepend ' + clsPrepend} dangerouslySetInnerHTML={{__html: prepend}}/>
+                        <CustomElement className={'prepend ' + clsPrepend}>{prepend}</CustomElement>
                     )}
+
                     {append && (
-                        <span className={'append ' + clsAppend} dangerouslySetInnerHTML={{__html: append}}/>
+                        <CustomElement className={'append ' + clsAppend}>{append}</CustomElement>
                     )}
                 </label>
                 {fieldState === 'error' && errorMessage !== "" && (
