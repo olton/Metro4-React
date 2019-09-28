@@ -52,7 +52,14 @@ export default class Table extends React.Component {
                         const sortClass = mode !== "static" ? `${sortable ? 'sortable-column' : ''} ${sortDir ? 'sort-'+sortDir : ''}` : '';
                         const headClass = cls ? cls : '';
                         return (
-                            <th index={index} className={`${sortClass} ${clsHeadCell} ${headClass}`} key={index} dangerouslySetInnerHTML={{__html: title ? title : name}} onClick={this.headClick}/>
+                            <CustomElement
+                                as="th"
+                                index={index}
+                                key={index}
+                                className={`${sortClass} ${clsHeadCell} ${headClass}`}
+                                onClick={this.headClick}>
+                                { title ? title : name }
+                            </CustomElement>
                         )
                     } )}
                 </tr>
