@@ -3,6 +3,12 @@ import "./input.less";
 import Button from "../button/button.jsx";
 import CustomElement from "../custom-element/custom-element";
 
+const AutocompleteListItem = ({start, coincidence, end}) => {
+    return (
+        <span>{start}<strong>{coincidence}</strong>{end}</span>
+    )
+};
+
 export default class Input extends React.Component {
     static defaultProps = {
         fieldState: "normal",
@@ -256,15 +262,18 @@ export default class Input extends React.Component {
                             {
                                 this.autocomplete.map(function(item, index) {
                                     const searchIndex = item.toLowerCase().indexOf(value.toLowerCase());
-                                    const itemValue = `${item.substr(0, searchIndex)}<strong>${item.substr(searchIndex, value.length)}</strong>${item.substr(searchIndex + value.length)}`;
 
                                     return (
                                         <div data-item={item}
                                              className={'item ' + clsAutocompleteItem}
                                              key={index}
                                              hidden={item === value || value === '' || searchIndex === -1}
-                                             dangerouslySetInnerHTML={{__html: itemValue}}
-                                             onClick={autocompleteItemClick}/>
+                                             onClick={autocompleteItemClick}>
+                                            <AutocompleteListItem
+                                                start={item.substr(0, searchIndex)}
+                                                coincidence={item.substr(searchIndex, value.length)}
+                                                end={item.substr(searchIndex + value.length)}/>
+                                        </div>
                                     )
                                 })
                             }
