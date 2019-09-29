@@ -1,7 +1,6 @@
 import React from "react";
 import "./table.less";
 import {MD5} from "../../routines";
-import CustomElement from "../custom-element/custom-element";
 
 export default class Table extends React.Component {
     static defaultProps = {
@@ -52,14 +51,13 @@ export default class Table extends React.Component {
                         const sortClass = mode !== "static" ? `${sortable ? 'sortable-column' : ''} ${sortDir ? 'sort-'+sortDir : ''}` : '';
                         const headClass = cls ? cls : '';
                         return (
-                            <CustomElement
-                                as="th"
+                            <th
                                 index={index}
                                 key={index}
                                 className={`${sortClass} ${clsHeadCell} ${headClass}`}
                                 onClick={this.headClick}>
                                 { title ? title : name }
-                            </CustomElement>
+                            </th>
                         )
                     } )}
                 </tr>
@@ -97,8 +95,8 @@ export default class Table extends React.Component {
                             cellVal = onDrawCell(cellVal, colProps, key);
 
                             return hasTemplate ?
-                                <CustomElement as="td" key={key} className={cellClass} onClick={this.cellClick} style={style} dangerouslySetInnerHTML={{__html: cellVal}}/> :
-                                <CustomElement as="td" key={key} className={cellClass} onClick={this.cellClick} style={style}>{cellVal}</CustomElement>
+                                <td key={key} className={cellClass} onClick={this.cellClick} style={style} dangerouslySetInnerHTML={{__html: cellVal}}/> :
+                                <td key={key} className={cellClass} onClick={this.cellClick} style={style}>{cellVal}</td>
                         })}
                     </tr>
                 );

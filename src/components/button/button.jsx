@@ -2,7 +2,6 @@ import React from "react";
 import Icon from "../icon/icon.jsx";
 import "./button.less";
 import Badge from "../badge/badge";
-import CustomElement from "../custom-element/custom-element";
 
 export default class Button extends React.Component{
     static defaultProps = {
@@ -50,7 +49,7 @@ export default class Button extends React.Component{
                 )}
 
                 {title && (
-                    <CustomElement className={'caption ' + clsTitle}>{title}</CustomElement>
+                    <span className={'caption ' + clsTitle}>{title}</span>
                 )}
 
                 {badge && (

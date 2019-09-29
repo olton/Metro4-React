@@ -4,7 +4,6 @@ import "../d-menu/d-menu.less";
 import Collapse from "../collapse/collapse.jsx";
 import Input from "../input/input.jsx";
 import Tag from "../tag/tag.jsx"
-import CustomElement from "../custom-element/custom-element";
 
 export default class Select extends React.Component {
     static defaultProps = {
@@ -316,11 +315,11 @@ export default class Select extends React.Component {
                     </Collapse>
 
                     {prepend && (
-                        <CustomElement className={'prepend ' + clsPrepend}>{prepend}</CustomElement>
+                        <span className={'prepend ' + clsPrepend}>{prepend}</span>
                     )}
 
                     {append && (
-                        <CustomElement className={'append ' + clsAppend}>{append}</CustomElement>
+                        <span className={'append ' + clsAppend}>{append}</span>
                     )}
                 </label>
                 {fieldState === 'error' && errorMessage !== "" && (

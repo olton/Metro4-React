@@ -2,7 +2,6 @@ import React from "react";
 import "./input-file.less";
 import Button from "../button/button";
 import {Icon} from "../../index";
-import CustomElement from "../custom-element/custom-element";
 
 export default class InputFile extends React.Component {
     static defaultProps = {
@@ -16,7 +15,7 @@ export default class InputFile extends React.Component {
         dropIcon: "",
         dropIconPrefix: "mif-",
         dropIconSize: "1x",
-        dropTitle: "<strong>Choose a file(s)</strong> or drop it here",
+        dropTitle: <span><strong>Choose a file(s)</strong> or drop it here</span>,
         dropTitleSecondary: "file(s) selected",
 
         append: "",
@@ -134,7 +133,7 @@ export default class InputFile extends React.Component {
                 <input {...props} type={'file'} onChange={this.onChange} ref={ref => this.input = ref} />
 
                 {mode === 'input' && prepend !== "" && (
-                    <CustomElement className={'prepend ' + clsPrepend}>{prepend}</CustomElement>
+                    <span className={'prepend ' + clsPrepend}>{prepend}</span>
                 )}
 
                 {mode === 'input' && (
@@ -155,7 +154,7 @@ export default class InputFile extends React.Component {
                                 )}
 
                                 {buttonTitle !== "" && (
-                                    <CustomElement>{buttonTitle}</CustomElement>
+                                    <span>{buttonTitle}</span>
                                 )}
                             </Button>
                         )}
@@ -170,7 +169,7 @@ export default class InputFile extends React.Component {
                 )}
 
                 {mode === 'input' && append !== "" && (
-                    <CustomElement className={'append ' + clsAppend}>{append}</CustomElement>
+                    <span className={'append ' + clsAppend}>{append}</span>
                 )}
 
                 {mode !== 'input' && dropIcon !== "" && (
@@ -179,7 +178,7 @@ export default class InputFile extends React.Component {
 
                 {mode !== 'input' && (
                     <React.Fragment>
-                        <CustomElement className={'caption ' + clsCaption}>{dropTitle}</CustomElement>
+                        <span className={'caption ' + clsCaption}>{dropTitle}</span>
                         <span className={'files ' + clsCaption}>{value.length + ' ' + dropTitleSecondary}</span>
                     </React.Fragment>
                 )}

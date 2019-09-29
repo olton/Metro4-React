@@ -1,7 +1,6 @@
 import React from "react";
 import "./input.less";
 import Button from "../button/button.jsx";
-import CustomElement from "../custom-element/custom-element";
 
 const AutocompleteListItem = ({start, coincidence, end}) => {
     return (
@@ -250,11 +249,11 @@ export default class Input extends React.Component {
                     )}
 
                     {prepend && (
-                        <CustomElement className={'prepend ' + clsPrepend}>{prepend}</CustomElement>
+                        <span className={'prepend ' + clsPrepend}>{prepend}</span>
                     )}
 
                     {append && (
-                        <CustomElement className={'append ' + clsAppend}>{append}</CustomElement>
+                        <span className={'append ' + clsAppend}>{append}</span>
                     )}
 
                     {autocomplete.length > 0 && (
