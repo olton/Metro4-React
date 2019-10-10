@@ -1,5 +1,7 @@
 ### 0.1.2
 + [x] Table: add props `emptyTitle`, `clsEmptyTitle`
++ [x] Button: add `overflow`
++ [x] Docs: fix for `IE11`
 
 ### 0.1.1
 + [x] Container: minor updates for using additional props

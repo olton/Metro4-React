@@ -26,6 +26,9 @@
     "css",
     "less"
   ],
+  "browserslist": [
+    "last 3 version"
+  ],
   "devDependencies": {
     "@babel/core": "^7.5.4",
     "@babel/plugin-proposal-class-properties": "^7.5.0",
@@ -57,10 +60,13 @@
     "webpack-dev-server": "^3.7.2"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.6.0",
+    "core-js": "^3.2.1",
     "prismjs": "^1.17.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-router-dom": "^5.0.1"
+    "react-router-dom": "^5.0.1",
+    "whatwg-fetch": "^3.0.0"
   }
 }

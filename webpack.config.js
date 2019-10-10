@@ -81,7 +81,7 @@ const webpackConfig = {
                         options: {
                             plugins: [
                                 autoprefixer({
-                                    overrideBrowserslist :['IE 10', 'IE 11', 'last 2 version']
+                                    overrideBrowserslist :['IE 10', 'IE 11', 'last 3 version']
                                 })
                             ],
                             sourceMap: true
