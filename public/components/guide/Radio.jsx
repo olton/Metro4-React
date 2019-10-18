@@ -1,25 +1,24 @@
 import React from "react";
-import {Adsense, Switch, Table, Row, Cell, Checkbox} from "../../../src";
+import {Adsense, Radio, Table, Row, Cell} from "../../../src";
 import PrismCode from "../PrismCode";
 import Example from "../Example";
 import {tablePropsHeader} from "../Defs";
 import Article from "../Article";
 import GuideLogo from "../GuideLogo";
 
-export default class GuideCheckbox extends React.Component {
+export default class GuideRadio extends React.Component {
     render(){
-        const codeImport = `import {Checkbox} from "metro4-react";`;
+        const codeImport = `import {Radio} from "metro4-react";`;
         const codeUsing = `
-            <Checkbox/>
-            <Checkbox checked/>
-            <Checkbox caption='Checkbox'/>
-            
-            <Checkbox variant={2}/>
-            <Checkbox checked variant={2}/>
-            <Checkbox caption='Checkbox' variant={2}/>
+            <Radio name="r11" caption="Radio" checked/>
+            <Radio name="r11" caption="Radio" />
+            <Radio name="r12" caption="Radio" disabled/>
+            <Radio name="r12" caption="Radio" checked disabled/>
 
-            <Checkbox caption='Checkbox' disabled/>
-            <Checkbox caption='Checkbox' readOnly={true}/>
+            <Radio name="r21" caption="Radio" checked variant={2}/>
+            <Radio name="r21" caption="Radio" variant={2} />
+            <Radio name="r22" caption="Radio" disabled variant={2}/>
+            <Radio name="r22" caption="Radio" checked disabled variant={2}/>
         `;
 
         const tablePropsBody = [
@@ -38,10 +37,10 @@ export default class GuideCheckbox extends React.Component {
         return(
             <Article>
                 <GuideLogo/>
-                <h1>Checkbox</h1>
+                <h1>Radio</h1>
 
                 <p className={'text-leader2'}>
-                    Create a styled checkbox with support for highly used options.
+                    Create a styled radio buttons with support for highly used options.
                 </p>
 
                 <br/>
@@ -52,30 +51,16 @@ export default class GuideCheckbox extends React.Component {
                 <Example>
                     <Row>
                         <Cell cls='cell-md-6'>
-                            <h4>Variant 1</h4>
-                            <div>
-                                <Checkbox/>
-                                <Checkbox checked/>
-                                <Checkbox caption='Checkbox'/>
-                                <div>
-                                    <Checkbox disabled/>
-                                    <Checkbox checked disabled/>
-                                    <Checkbox caption='Checkbox' disabled/>
-                                </div>
-                            </div>
+                            <Radio name="r11" caption="Radio" checked={true}/>
+                            <Radio name="r11" caption="Radio"/>
+                            <Radio name="r12" caption="Radio" disabled/>
+                            <Radio name="r12" caption="Radio" checked disabled/>
                         </Cell>
                         <Cell cls='cell-md-6'>
-                            <h4>Variant 2</h4>
-                            <div>
-                                <Checkbox variant={2}/>
-                                <Checkbox checked variant={2}/>
-                                <Checkbox caption='Checkbox' variant={2}/>
-                                <div>
-                                    <Checkbox disabled variant={2}/>
-                                    <Checkbox checked disabled variant={2}/>
-                                    <Checkbox caption='Checkbox' disabled variant={2}/>
-                                </div>
-                            </div>
+                            <Radio name="r21" caption="Radio" checked variant={2}/>
+                            <Radio name="r21" caption="Radio" variant={2} />
+                            <Radio name="r22" caption="Radio" disabled variant={2}/>
+                            <Radio name="r22" caption="Radio" checked disabled variant={2}/>
                         </Cell>
                     </Row>
                 </Example>

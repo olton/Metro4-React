@@ -32,6 +32,7 @@ import GuideSelectIcon from "./guide/SelectIcon";
 import GuideSelect from "./guide/Select";
 import GuideSwitch from "./guide/Switch";
 import GuideCheckbox from "./guide/Checkbox";
+import GuideRadio from "./guide/Radio";
 
 export default class Guide extends React.Component {
     constructor(props){
@@ -102,6 +103,7 @@ export default class Guide extends React.Component {
                                 <Route path='/guide/input-file' component={GuideInputFile}/>
                                 <Route path='/guide/checkbox' component={GuideCheckbox}/>
                                 <Route path='/guide/switch' component={GuideSwitch}/>
+                                <Route path='/guide/radio' component={GuideRadio}/>
                                 <Route path='/guide/select' component={GuideSelect}/>
                                 <Route path='/guide/select-color' component={GuideSelectColor}/>
                                 <Route path='/guide/select-icon' component={GuideSelectIcon}/>

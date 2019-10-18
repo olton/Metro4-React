@@ -13,10 +13,9 @@ import Button from "./components/button/button";
 import CommandButton from "./components/command-button/command-button";
 import ImageButton from "./components/image-button/image-button";
 import Shortcut from "./components/shortcut/shortcut";
-import Checkbox from "./components/checkbox/checkbox";
+import {Checkbox, Switch} from "./components/checkbox/checkbox";
 import {Grid, Row, Cell} from "./components/grid/grid";
 import Radio from "./components/radio/radio";
-import Switch from "./components/switch/switch";
 import Breadcrumbs, {BreadcrumbsItem} from "./components/breadcrumbs/breadcrumbs";
 import InfoButton from "./components/info-button/info-button";
 import Select from "./components/select/select";
@@ -70,12 +69,11 @@ export {
     CommandButton,
     ImageButton,
     Shortcut,
-    Checkbox,
+    Checkbox, Switch,
     Grid,
     Row,
     Cell,
     Radio,
-    Switch,
     Breadcrumbs, BreadcrumbsItem,
     InfoButton,
     Select,
