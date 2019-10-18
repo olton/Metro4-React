@@ -3,12 +3,10 @@ import "./checkbox.less";
 
 export default class Checkbox extends React.Component {
     static defaultProps = {
-        name: "",
+        checked: false,
+
         caption: "",
         variant: 1,
-        checked: false,
-        disabled: false,
-        value: "",
 
         clsCheckbox: "",
         clsCheck: "",
@@ -50,28 +48,18 @@ export default class Checkbox extends React.Component {
 
     render(){
         const {
-            name,
-            value,
+            checked,
             caption,
             variant,
-            disabled,
             clsCaption,
             clsCheckbox,
-            clsCheck
+            clsCheck,
+            ...input
         } = this.props;
-
-        const inputProps = {
-            name,
-            value,
-            disabled,
-            readOnly: false,
-            checked: this.state.checked,
-            onChange: this.onChangeHandler
-        };
 
         return (
             <label className={'checkbox' + clsCheckbox + ' ' + (variant === 2 ? 'style2' : '') + ' transition-on'}>
-                <input type="checkbox" { ...inputProps } />
+                <input type="checkbox" { ...input } checked={this.state.checked} onChange={this.onChangeHandler}/>
                 <span className={ 'check ' + clsCheck } />
                 <span className={ 'caption ' + clsCaption }>{caption}</span>
             </label>

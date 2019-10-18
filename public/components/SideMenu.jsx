@@ -33,6 +33,7 @@ const menuItems = {
     "Form elements": [
         {to: "/guide/input", caption: "Input"},
         {to: "/guide/input-file", caption: "File"},
+        {to: "/guide/checkbox", caption: "Checkbox"},
         {to: "/guide/switch", caption: "Switch"},
         {to: "/guide/radio", caption: "Radio"},
         {to: "/guide/select", caption: "Select"},

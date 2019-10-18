@@ -52,7 +52,7 @@
         border-radius: 50%;
     }
 
-    input[type="checkbox"]:checked ~ .check {
+    input:checked ~ .check {
         background: @dark;
         border-color: @dark;
         &::after {
@@ -64,13 +64,17 @@
         }
     }
 
-    input[type="checkbox"]:disabled ~ .check {
+    input:disabled ~ .check {
         background-color: @disabledBackground;
         border-color: @disabledBackground;
         &::after {
             background-color: darken(@disabledBackground, 10%);
             border-color: darken(@disabledBackground, 10%);
         }
+    }
+
+    input:disabled ~ .caption {
+        color: #D5D5D5;
     }
 
     .check {order: 1;}
@@ -134,6 +138,11 @@
         overflow: visible;
         position: relative;
         margin: 0 4px;
+        top: -2px;
+    }
+
+    .caption {
+        margin-top: -4px;
     }
 
     .check {
@@ -169,6 +178,10 @@
             .translateX(22px);
             //.transition(all, .2s, linear);
         }
+    }
+
+    input:disabled ~ .caption {
+        color: #D5D5D5;
     }
 
     input:disabled ~ .check {

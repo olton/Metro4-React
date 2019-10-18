@@ -3,12 +3,10 @@ import "./switch.less";
 
 export default class Switch extends React.Component {
     static defaultProps = {
-        name: "",
+        checked: false,
+
         caption: "",
         variant: 1,
-        checked: false,
-        disabled: false,
-        value: "",
 
         cls: "",
         className: "",
@@ -52,29 +50,22 @@ export default class Switch extends React.Component {
 
     render(){
         const {
-            name,
-            value,
+            checked,
             caption,
             variant,
-            disabled,
             cls, className,
             clsCheckbox,
             clsCaption,
-            clsCheck
+            clsCheck,
+            onCheck,
+            onUnCheck,
+            onChange,
+            ...input
         } = this.props;
-
-        const inputProps = {
-            name,
-            value,
-            disabled,
-            readOnly: false,
-            checked: this.state.checked,
-            onChange: this.onChangeHandler
-        };
 
         return (
             <label className={`switch${(variant === 2 ? '-material' : '')} ${clsCheckbox} transition-on ${cls} ${className}`}>
-                <input type="checkbox" {...inputProps}/>
+                <input type="checkbox" {...input} checked={this.state.checked} onChange={this.onChangeHandler}/>
                 <span className={"check " + clsCheck}/>
                 <span className={"caption " + clsCaption}>{caption}</span>
             </label>
