@@ -1,6 +1,6 @@
 {
   "name": "metro4-react",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Metro 4 for React",
   "main": "index.js",
   "repository": {
@@ -25,6 +25,9 @@
     "js",
     "css",
     "less"
+  ],
+  "browserslist": [
+    "last 3 version"
   ],
   "devDependencies": {
     "@babel/core": "^7.5.4",
@@ -54,13 +57,16 @@
     "url-loader": "^2.0.1",
     "webpack": "^4.35.3",
     "webpack-cli": "^3.3.5",
-    "webpack-dev-server": "^3.7.2"
+    "webpack-dev-server": "^3.7.2",
+    "@babel/polyfill": "^7.6.0",
+    "core-js": "^3.2.1",
+    "prismjs": "^1.17.1",
+    "whatwg-fetch": "^3.0.0"
   },
   "dependencies": {
-    "prismjs": "^1.17.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-router-dom": "^5.0.1"
+    "react-router-dom": "^5.0.1",
   }
 }

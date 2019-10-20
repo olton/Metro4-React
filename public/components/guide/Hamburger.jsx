@@ -1,5 +1,5 @@
 import React from "react";
-import {Adsense, AppBar, AppBarItem, AppBarMenu, Button, Row, Cell, Dropdown, Hamburger, Table} from "../../../src";
+import {Adsense, AppBar, AppBarItem, AppBarMenu, Button, Row, Cell, Dropdown, Hamburger, Table} from "../../../index";
 import PrismCode from "../PrismCode";
 import Example from "../Example";
 import {tablePropsHeader} from "../Defs";

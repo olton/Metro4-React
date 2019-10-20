@@ -1,5 +1,5 @@
 import React from "react";
-import {Adsense, Table, Cell, Row, SelectColor, Color} from "../../../src";
+import {Adsense, Table, Cell, Row, SelectColor, Color, Icon} from "../../../index";
 import PrismCode from "../PrismCode";
 import Example from "../Example";
 import {tablePropsHeader} from "../Defs";
@@ -39,7 +39,7 @@ export default class GuideSelectColor extends React.Component {
                             <SelectColor source={Color.colorListStandard} append="your color"/>
                         </Cell>
                         <Cell cls="cell-sm-2">
-                            <SelectColor filter={false} value="#008000" nameInCaption={false} nameInItem={false}>
+                            <SelectColor filter={false} value="#008000" showColorName={false} prepend={<Icon name="palette"/>} >
                                 <option value="#ff0000">red</option>
                                 <option value="#008000">green</option>
                                 <option value="#0000ff">blue</option>

@@ -1,6 +1,6 @@
 import "@fortawesome/fontawesome-free/css/all.css";
 import React from "react";
-import {Adsense, Table, Button, Cell} from "../../../src";
+import {Adsense, Table, Button, Cell, Icon} from "../../../index";
 import PrismCode from "../PrismCode";
 import Defs, {tablePropsHeader} from "../Defs";
 import Article from "../Article";
@@ -59,6 +59,7 @@ export default class GuideButton extends React.Component {
                     &nbsp;<Button as="span" cls="primary" title="Span as Button"/>
                     &nbsp;<Button title="Flat Button" cls={'flat-button'}/>
                     &nbsp;<Button icon="envelop" badge={10} clsBadge={'alert'}/>
+                    &nbsp;<Button title={<Icon name="rocket"/>} badge={10} clsBadge={'alert'}/>
                 </div>
 
                 <br/>

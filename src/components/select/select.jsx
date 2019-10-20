@@ -26,7 +26,6 @@ export default class Select extends React.Component {
         clsPrepend: "",
         clsAppend: "",
         clsDropdownToggle: "",
-        useHTML: false,
         onChange: () => {},
         onFocus: () => {},
         onBlur: () => {},
@@ -186,7 +185,6 @@ export default class Select extends React.Component {
     };
 
     handleListClick = e => {
-
         let node = e.target;
 
         while (node.tagName !== 'LI') {
@@ -195,7 +193,7 @@ export default class Select extends React.Component {
 
         const val = node.getAttribute("data-value");
 
-        if (!val) return;
+        if (val === undefined) return;
 
         const {multiple} = this.props;
         const {value} = this.state;
@@ -228,13 +226,7 @@ export default class Select extends React.Component {
                 className={ !multiple && value === val ? 'active' : '' }
                 data-value={val}
             >
-                {useHTML && (
-                    <a dangerouslySetInnerHTML={{__html: onDrawItem(cap)}}/>
-                )}
-
-                {!useHTML && (
-                    <a>{onDrawItem(cap)}</a>
-                )}
+                <a>{onDrawItem(cap)}</a>
             </li>
         );
     };
@@ -307,7 +299,7 @@ export default class Select extends React.Component {
                         })}
 
                         {!multiple && value !== undefined && !!options[value] && (
-                            <span className={'caption ' + clsTag} dangerouslySetInnerHTML={{__html: onDrawCaption(options[value])}}/>
+                            <span className={'caption ' + clsTag}>{onDrawCaption(options[value])}</span>
                         )}
 
                         {(!value && !options[value] || value === undefined || (multiple && value.length === 0)) && (
@@ -323,10 +315,11 @@ export default class Select extends React.Component {
                     </Collapse>
 
                     {prepend && (
-                        <span className={'prepend ' + clsPrepend} dangerouslySetInnerHTML={{__html: prepend}}/>
+                        <span className={'prepend ' + clsPrepend}>{prepend}</span>
                     )}
+
                     {append && (
-                        <span className={'append ' + clsAppend} dangerouslySetInnerHTML={{__html: append}}/>
+                        <span className={'append ' + clsAppend}>{append}</span>
                     )}
                 </label>
                 {fieldState === 'error' && errorMessage !== "" && (

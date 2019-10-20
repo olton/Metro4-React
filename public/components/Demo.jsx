@@ -30,7 +30,7 @@ import {
     Dropdown, Modal, AppBar, AppBarMenu, AppBarItem, Collapse, ButtonGroup,
     Tabs, Tab, SplitButton, Progress, Panel,
     Rating, HtmlContainer, SelectColor, SelectIcon
-} from "../../src/index";
+} from "../../index";
 
 import MainMenu from "./MainMenu";
 import "../css/demo.less";

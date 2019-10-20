@@ -1,5 +1,5 @@
 import React from "react";
-import {Adsense, Cell, CommandButton, Table} from "../../../src";
+import {Adsense, Cell, CommandButton, Table} from "../../../index";
 import PrismCode from "../PrismCode";
 import Defs, {tablePropsHeader} from "../Defs";
 import Article from "../Article";

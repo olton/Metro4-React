@@ -4,6 +4,7 @@ import {MD5} from "../../routines";
 
 export default class Table extends React.Component {
     static defaultProps = {
+        emptyTitle: "Nothing to show",
         mode: "normal",
         head: null,
         body: null,
@@ -13,6 +14,7 @@ export default class Table extends React.Component {
         clsHeadCell: "",
         clsBodyRow: "",
         clsBodyCell: "",
+        clsEmptyTitle: "",
         onHeadClick: () => {},
         onCellClick: () => {},
         onDrawCell: val => val,
@@ -49,7 +51,13 @@ export default class Table extends React.Component {
                         const sortClass = mode !== "static" ? `${sortable ? 'sortable-column' : ''} ${sortDir ? 'sort-'+sortDir : ''}` : '';
                         const headClass = cls ? cls : '';
                         return (
-                            <th index={index} className={`${sortClass} ${clsHeadCell} ${headClass}`} key={index} dangerouslySetInnerHTML={{__html: title ? title : name}} onClick={this.headClick}/>
+                            <th
+                                index={index}
+                                key={index}
+                                className={`${sortClass} ${clsHeadCell} ${headClass}`}
+                                onClick={this.headClick}>
+                                { title ? title : name }
+                            </th>
                         )
                     } )}
                 </tr>
@@ -58,18 +66,26 @@ export default class Table extends React.Component {
     };
 
     drawBody = () => {
-        const {clsBodyRow, clsBodyCell, cellWrap, onDrawCell} = this.props;
+        const {emptyTitle, head, clsBodyRow, clsBodyCell, clsEmptyTitle, onDrawCell} = this.props;
         const {body} = this.state;
         const tableBody = [];
+        const colSpan = head ? head.length : 1;
 
-        if (Array.isArray(body) && body.length > 0) {
+        if (!Array.isArray(body) || body.length === 0) {
+            tableBody.push(
+                <tr className={clsBodyRow} key={0}>
+                    <td colSpan={colSpan} className={clsEmptyTitle}>{emptyTitle}</td>
+                </tr>
+            )
+        } else {
             body.forEach( (el, index) => {
                 tableBody.push(
                     <tr key={index} className={clsBodyRow}>
                         {el.map((val, key)=>{
                             const colProps = this.props.head ? this.props.head[key] : null;
                             const cellClass = `${clsBodyCell} ${colProps && colProps["clsColumn"] ? colProps["clsColumn"] : ''}`;
-                            let cellVal = colProps && colProps["template"] ?  colProps["template"].replace("%VAL%", val) : val;
+                            const hasTemplate = colProps && colProps["template"];
+                            let cellVal = hasTemplate ? colProps["template"].replace("%VAL%", val) : val;
                             const style = {};
 
                             if (colProps && colProps["size"]) {
@@ -78,18 +94,15 @@ export default class Table extends React.Component {
 
                             cellVal = onDrawCell(cellVal, colProps, key);
 
-                            return (
-                                <td key={key}
-                                    className={cellClass}
-                                    dangerouslySetInnerHTML={{__html: cellVal}} onClick={this.cellClick}
-                                    style={style}
-                                />
-                            )
+                            return hasTemplate ?
+                                <td key={key} className={cellClass} onClick={this.cellClick} style={style} dangerouslySetInnerHTML={{__html: cellVal}}/> :
+                                <td key={key} className={cellClass} onClick={this.cellClick} style={style}>{cellVal}</td>
                         })}
                     </tr>
                 );
             })
         }
+
         return tableBody;
     };
 
@@ -103,7 +116,7 @@ export default class Table extends React.Component {
 
     render(){
         const {
-            cellWrap, body: initBody, head, cls, className, mode, clsHeadRow, clsHeadCell, clsBodyRow, clsBodyCell, children,
+            emptyTitle, clsEmptyTitle, body: initBody, head, cls, className, mode, clsHeadRow, clsHeadCell, clsBodyRow, clsBodyCell, children,
             onHeadClick, onCellClick, onDrawCell,
             ...rest} = this.props;
         const {body} = this.state;

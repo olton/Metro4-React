@@ -1,16 +1,16 @@
 import React from "react";
-import {Adsense, MemoryTable} from "../../../src";
+import {Adsense, MemoryTable} from "../../../index";
 import PrismCode from "../PrismCode";
 import Example from "../Example";
 import Table from "../../../src/components/table/table";
-import Defs, {tablePropsHeader} from "../Defs";
+import {tablePropsHeader} from "../Defs";
 import Article from "../Article";
 import GuideLogo from "../GuideLogo";
 
 export default class GuideMemoryTable extends React.Component {
     drawCell = (val, props) => {
         if (props.name === 'name') {
-            return `<a href="#">${val}</a>`
+            return <a href="#">{val}</a>
         }
         return val;
     };
@@ -25,7 +25,9 @@ export default class GuideMemoryTable extends React.Component {
                 onDrawCell={ 
                     (val, props, index) => index === 0 ? "<code>"+val+"</code>" : val 
                 } 
-                clsPagination='no-gap'/>`;
+                clsPagination='no-gap'
+                clsEmptyTitle='text-center'
+                />`;
 
         const tablePropsData = [
             ["scrollable", "false", "Enable horizontal scroll for wide table"],
@@ -76,7 +78,9 @@ export default class GuideMemoryTable extends React.Component {
                         clsInfoBlock='row'
                         clsInfo='cell-md-6 order-2 text-center'
                         clsPaginationBlock='cell-md-6'
-                        clsPagination='no-gap'/>
+                        clsPagination='no-gap'
+                        clsEmptyTitle='text-center'
+                    />
                 </Example>
 
                 <br/>

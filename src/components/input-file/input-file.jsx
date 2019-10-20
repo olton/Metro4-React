@@ -1,7 +1,7 @@
 import React from "react";
 import "./input-file.less";
 import Button from "../button/button";
-import {Icon} from "../../index";
+import {Icon} from "../../../index";
 
 export default class InputFile extends React.Component {
     static defaultProps = {
@@ -15,7 +15,7 @@ export default class InputFile extends React.Component {
         dropIcon: "",
         dropIconPrefix: "mif-",
         dropIconSize: "1x",
-        dropTitle: "<strong>Choose a file(s)</strong> or drop it here",
+        dropTitle: <span><strong>Choose a file(s)</strong> or drop it here</span>,
         dropTitleSecondary: "file(s) selected",
 
         append: "",
@@ -154,7 +154,7 @@ export default class InputFile extends React.Component {
                                 )}
 
                                 {buttonTitle !== "" && (
-                                    <span dangerouslySetInnerHTML={{__html: buttonTitle}}/>
+                                    <span>{buttonTitle}</span>
                                 )}
                             </Button>
                         )}
@@ -178,7 +178,7 @@ export default class InputFile extends React.Component {
 
                 {mode !== 'input' && (
                     <React.Fragment>
-                        <span className={'caption ' + clsCaption} dangerouslySetInnerHTML={{__html: dropTitle}}/>
+                        <span className={'caption ' + clsCaption}>{dropTitle}</span>
                         <span className={'files ' + clsCaption}>{value.length + ' ' + dropTitleSecondary}</span>
                     </React.Fragment>
                 )}

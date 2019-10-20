@@ -1,5 +1,5 @@
 import React from "react";
-import {Adsense, Button, ButtonGroup, Row, Cell, Table} from "../../../src";
+import {Adsense, Button, ButtonGroup, Row, Cell, Table} from "../../../index";
 import PrismCode from "../PrismCode";
 import Example from "../Example";
 import {tablePropsHeader} from "../Defs";

@@ -1,5 +1,5 @@
 import React from "react";
-import {Adsense, Breadcrumbs, BreadcrumbsItem, Cell, Table} from "../../../src";
+import {Adsense, Breadcrumbs, BreadcrumbsItem, Cell, Table} from "../../../index";
 import PrismCode from "../PrismCode";
 import Example from "../Example";
 import {tablePropsHeader} from "../Defs";

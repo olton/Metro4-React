@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import "./dialog.less";
-import {Button} from "../../index";
+import {Button} from "../../../index";
 import Body from "../body/body";
 
 export default class Dialog extends Component {

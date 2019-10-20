@@ -49,7 +49,7 @@ export default class Button extends React.Component{
                 )}
 
                 {title && (
-                    <span className={'caption ' + clsTitle} dangerouslySetInnerHTML={{__html: title}}/>
+                    <span className={'caption ' + clsTitle}>{title}</span>
                 )}
 
                 {badge && (

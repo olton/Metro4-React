@@ -1,3 +1,12 @@
+### 0.1.2
++ [x] Table: add props `emptyTitle`, `clsEmptyTitle`
++ [x] Button: add `overflow`
++ [x] Docs: fix for `IE11`
++ [x] Checkbox: optimize source
++ [x] Switch: optimize source
++ [x] Index: move from src to root dir
++ [x] Html: add `min-height: 100vh` to `body`
+
 ### 0.1.1
 + [x] Container: minor updates for using additional props
 + [x] Breadcrumbs: updates for using props, add docs

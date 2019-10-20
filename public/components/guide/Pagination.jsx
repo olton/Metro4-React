@@ -1,5 +1,5 @@
 import React from "react";
-import {Adsense, Cell, Pagination} from "../../../src";
+import {Adsense, Cell, Pagination} from "../../../index";
 import PrismCode from "../PrismCode";
 import Example from "../Example";
 import Table from "../../../src/components/table/table";

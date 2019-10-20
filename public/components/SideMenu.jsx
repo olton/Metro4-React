@@ -3,7 +3,7 @@ import {Router, NavLink, Link} from "react-router-dom";
 import SearchForm from "./SearchForm";
 import Collapse from "../../src/components/collapse/collapse";
 import "../css/side-bar.less";
-import {Button} from "../../src";
+import {Button} from "../../index";
 
 const menuItems = {
     "General": [
@@ -33,6 +33,7 @@ const menuItems = {
     "Form elements": [
         {to: "/guide/input", caption: "Input"},
         {to: "/guide/input-file", caption: "File"},
+        {to: "/guide/checkbox", caption: "Checkbox"},
         {to: "/guide/switch", caption: "Switch"},
         {to: "/guide/radio", caption: "Radio"},
         {to: "/guide/select", caption: "Select"},

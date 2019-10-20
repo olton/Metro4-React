@@ -3,15 +3,28 @@ import "./select-icon.less";
 import Select from "../select/select";
 import {FetchStatus} from "../../defines";
 
+const SelectIconItem = (props) => {
+    return (
+        <div className='select-icon-item'>
+            <div className='icon'>
+                <svg width="24" height="24" viewBox={`0 0 ${props.viewWidth} ${props.viewHeight}`}>
+                    <path d={props.path} stroke={props.color}/>
+                </svg>
+            </div>
+            <span className='caption' hidden={props.hidden}>{props.caption}</span>
+        </div>
+    )
+};
+
 export default class SelectIcon extends React.Component {
     static defaultProps = {
         placeholder: "Select icon...",
         placeholderLoading: "Loading...",
         placeholderError: "",
         source: null,
-        nameInCaption: true,
-        nameInItem: true,
         valueAsPath: false,
+        iconColor: "#000",
+        showIconName: true,
         cls: "",
         className: ""
     };
@@ -71,31 +84,9 @@ export default class SelectIcon extends React.Component {
     }
 
     drawItem = item => {
-        const {nameInItem} = this.props;
+        const {showIconName, iconColor} = this.props;
         const {viewWidth, viewHeight} = this.state;
-        return !this.source ? item : `
-            <div class='icon'>
-                <svg width="24" height="24" viewBox="0 0 ${viewWidth} ${viewHeight}">
-                    <path d="${this.source[item]}" stroke="black"/>
-                </svg>
-            </div>
-            <span class='caption ${nameInItem ? '' : 'd-none'}'>${item}</span>
-        `;
-    };
-
-    drawCaption = item => {
-        const {nameInCaption} = this.props;
-        const {viewWidth, viewHeight} = this.state;
-        return !this.source ? item : `
-            <div class='select-icon-item'>
-                <div class='icon'>
-                    <svg width="24" height="24" viewBox="0 0 ${viewWidth} ${viewHeight}">
-                        <path d="${this.source[item]}" stroke="black"/>
-                    </svg>
-                </div>
-                <span class='caption ${nameInCaption ? '' : 'd-none'}'>${item}</span>
-            </div>
-        `;
+        return !this.source ? item : <SelectIconItem viewWidth={viewWidth} viewHeight={viewHeight} path={this.source[item]} color={iconColor} hidden={!showIconName} caption={item}/>
     };
 
     render(){
@@ -104,7 +95,7 @@ export default class SelectIcon extends React.Component {
         const _placeholder = loaded === FetchStatus.ok ? placeholder : loaded === FetchStatus.error ? placeholderError : placeholderLoading;
 
         return(
-            <Select className={`select-icon ${cls} ${className}`} useHTML={true} onDrawItem={this.drawItem} onDrawCaption={this.drawCaption} source={valueAsPath ? this.source : this.items} {...rest} placeholder={_placeholder}/>
+            <Select className={`select-icon ${cls} ${className}`} onDrawItem={this.drawItem} onDrawCaption={this.drawItem} source={valueAsPath ? this.source : this.items} {...rest} placeholder={_placeholder}/>
         )
     }
 }
