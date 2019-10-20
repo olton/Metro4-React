@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {Container, AppBar, AppBarItem, AppBarMenu, Icon} from "../../src/index";
+import {Container, AppBar, AppBarItem, AppBarMenu, Icon} from "../../index";
 
 const MainMenu = ({fullSize = false}) => {
     return (

@@ -1,5 +1,5 @@
 import React from "react";
-import {Adsense, Color, Table} from "../../../src";
+import {Adsense, Color, Table} from "../../../index";
 import PrismCode from "../PrismCode";
 import "../../../src/extensions";
 import Article from "../Article";

@@ -3,15 +3,17 @@
     <img src="https://metroui.org.ua/images/logo-react.png" alt="">
   </a>
   <h3 align="center">Metro 4 Components Library for React</h3>
-  <p align="center">
-      Sleek, intuitive, and powerful front-end framework for faster and easier web development. Build responsive, mobile-first projects on the web with the first front-end component library in Metro Style. 
-  </p>
-  <p align="center">
-      <a href="https://www.patreon.com/metro4_react">
-        <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
-      </a>
-  </p>  
 </p>
+
+<p align="center">
+  Sleek, intuitive, and powerful front-end framework for faster and easier web development. Build responsive, mobile-first projects on the web with the first front-end component library in Metro Style. 
+</p>
+
+<p align="center">
+  <a href="https://www.patreon.com/metro4_react">
+    <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
+  </a>
+</p>  
 
 <h2 align="center">v0.1.2</h2>
 
@@ -29,4 +31,9 @@
 ![GitHub release](https://img.shields.io/github/v/release/olton/Metro4-React?include_prereleases&label=pre-release)
 
 ### Donation
-[![Donations on Patreon](https://img.shields.io/badge/Patreon-$0-red.svg)](https://www.patreon.com/metro4_react)
+[![Donations on Patreon](https://img.shields.io/badge/Patreon-$10-red.svg)](https://www.patreon.com/metro4_react)
+
+<hr>
+
+You can use boilerplate <a href="https://github.com/olton/Metro4-React-App">template</a> for React project with Metro 4.
+ 

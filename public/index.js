@@ -5,7 +5,7 @@ import React from "react";
 import {render} from "react-dom";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import {Common, Colors, Icons} from "../src"
+import {Common, Colors, Icons} from "../index"
 import {Utils} from "../src/routines";
 
 import NotFound from "./components/NotFound";

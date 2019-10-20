@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route } from 'react-router-dom';
 import {
     Container, Row, Cell, MediaPoints,
-} from "../../src";
+} from "../../index";
 import MainMenu from "./MainMenu";
 import SideMenu from "./SideMenu";
 import "../css/guide.less";

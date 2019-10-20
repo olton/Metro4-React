@@ -1,5 +1,5 @@
 import React from "react";
-import {Adsense, MemoryTable} from "../../../src";
+import {Adsense, MemoryTable} from "../../../index";
 import PrismCode from "../PrismCode";
 import Example from "../Example";
 import Table from "../../../src/components/table/table";

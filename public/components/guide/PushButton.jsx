@@ -1,6 +1,6 @@
 import "@fortawesome/fontawesome-free/css/all.css";
 import React from "react";
-import {Adsense, Table, Button, Cell, Icon} from "../../../src";
+import {Adsense, Table, Button, Cell, Icon} from "../../../index";
 import PrismCode from "../PrismCode";
 import Defs, {tablePropsHeader} from "../Defs";
 import Article from "../Article";

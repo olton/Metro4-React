@@ -3,7 +3,7 @@ import {Router, NavLink, Link} from "react-router-dom";
 import SearchForm from "./SearchForm";
 import Collapse from "../../src/components/collapse/collapse";
 import "../css/side-bar.less";
-import {Button} from "../../src";
+import {Button} from "../../index";
 
 const menuItems = {
     "General": [

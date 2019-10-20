@@ -1,5 +1,5 @@
 import React from "react";
-import {Adsense, Table} from "../../../src";
+import {Adsense, Table} from "../../../index";
 import PrismCode from "../PrismCode";
 import Defs, {tablePropsHeader} from "../Defs";
 import table from "../../../src/components/table/table";

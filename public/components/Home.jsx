@@ -7,7 +7,7 @@ import {
     Row,
     Cell,
     Icon, Button,
-} from "../../src/index";
+} from "../../index";
 
 import "../css/home.less";
 import LogoSocial from "../images/logo-social.png";

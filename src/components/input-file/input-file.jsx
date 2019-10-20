@@ -1,7 +1,7 @@
 import React from "react";
 import "./input-file.less";
 import Button from "../button/button";
-import {Icon} from "../../index";
+import {Icon} from "../../../index";
 
 export default class InputFile extends React.Component {
     static defaultProps = {

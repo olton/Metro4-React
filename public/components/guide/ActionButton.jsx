@@ -1,5 +1,5 @@
 import React from "react";
-import {ActionButton, Adsense, Row, Cell, MultiAction, MultiActionItem, Table} from "../../../src";
+import {ActionButton, Adsense, Row, Cell, MultiAction, MultiActionItem, Table} from "../../../index";
 import PrismCode from "../PrismCode";
 import Example from "../Example";
 import Defs, {tablePropsHeader} from "../Defs";

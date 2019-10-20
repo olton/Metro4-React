@@ -1,6 +1,6 @@
 import React from "react";
 import PrismCode from "../PrismCode";
-import {Adsense} from "../../../src";
+import {Adsense} from "../../../index";
 import Article from "../Article";
 import GuideLogo from "../GuideLogo";
 

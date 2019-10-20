@@ -4,6 +4,8 @@
 + [x] Docs: fix for `IE11`
 + [x] Checkbox: optimize source
 + [x] Switch: optimize source
++ [x] Index: move from src to root dir
++ [x] Html: add `min-height: 100vh` to `body`
 
 ### 0.1.1
 + [x] Container: minor updates for using additional props
