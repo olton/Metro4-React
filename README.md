@@ -15,7 +15,7 @@
   </a>
 </p>  
 
-<h2 align="center">v0.1.2</h2>
+<h2 align="center">v0.1.3</h2>
 
 ### Status
 ![Dependencies](https://img.shields.io/david/olton/Metro4-React)
