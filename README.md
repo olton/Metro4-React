@@ -35,13 +35,12 @@
 ### Donation
 [![Donations on Patreon](https://img.shields.io/badge/Patreon-$10-red.svg)](https://www.patreon.com/metro4_react)
 
-<<<<<<< HEAD
+<hr>
+
 #### Awesome project backers
 
 + [x] [Tobias Ehrig](https://github.com/liKe2k1)
-=======
+
 <hr>
 
 You can use boilerplate <a href="https://github.com/olton/Metro4-React-App">template</a> for React project with Metro 4.
- 
->>>>>>> 0.1.2
