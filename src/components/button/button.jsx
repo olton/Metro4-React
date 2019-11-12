@@ -52,7 +52,7 @@ export default class Button extends React.Component{
                     <span className={'caption ' + clsTitle}>{title}</span>
                 )}
 
-                {badge && (
+                {badge !== null && (
                     <Badge value={badge} cls={clsBadge}/>
                 )}
 
