@@ -29,7 +29,8 @@ import {
     Dialog, Pagination, Textarea, InputFile,
     Dropdown, Modal, AppBar, AppBarMenu, AppBarItem, Collapse, ButtonGroup,
     Tabs, Tab, SplitButton, Progress, Panel,
-    Rating, HtmlContainer, SelectColor, SelectIcon
+    Rating, HtmlContainer, SelectColor, SelectIcon,
+    TagInput
 } from "../../index";
 
 import MainMenu from "./MainMenu";
@@ -152,6 +153,12 @@ export default class Demo extends React.Component {
                 <br/>
 
                 <Grid>
+                    <h2 className="text-light">&lt;TagInput/&gt;</h2>
+                    <div>
+                        <TagInput tags={["css", "javascript", "html"]}/>
+                    </div>
+
+
                     <h2 className="text-light">&lt;SelectIcon/&gt;</h2>
                     <Row>
                         <Cell cls="cell-sm-5">

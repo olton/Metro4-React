@@ -5,18 +5,13 @@ export default class Tag extends React.Component {
     static defaultProps = {
         cls: "",
         clsTitle: "",
-        clsRemover: ""
+        clsRemover: "",
+        onClick: () => {}
     };
 
-    constructor(props){
-        super(props);
-        this.onClick = this.onClick.bind(this);
-    }
-
-    onClick(e){
+    onClick = e => {
         this.props.onClick(e);
-        e.preventDefault();
-    }
+    };
 
     render() {
         const {cls, clsTitle, clsRemover, ...addProps} = this.props;

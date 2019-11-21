@@ -74,6 +74,10 @@ export default class Select extends React.Component {
     }
 
     tagClick(e){
+        if (!e.target.classList.contains("remover")) {
+            return false;
+        }
+
         const key = e.target.parentNode.getAttribute('data-value');
         const {value} = this.state;
         const index = value.indexOf(key);
@@ -85,6 +89,8 @@ export default class Select extends React.Component {
         this.setState({
             value: value
         });
+
+        e.preventDefault();
         e.stopPropagation();
     }
 
