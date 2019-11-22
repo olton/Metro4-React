@@ -20,28 +20,18 @@ export default class Radio extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            initChecked: props.checked,
             checked: props.checked
         }
     }
 
     static getDerivedStateFromProps(props, state){
-        if (props.checked !== state.initChecked) {
+        if (props.checked !== state.checked) {
             return {
-                checked: props.checked,
-                initChecked: props.checked
+                checked: props.checked
             }
         }
         return null;
     }
-
-    onClick = e => {
-        if (this.state.checked) return;
-        this.setState({
-            checked: !this.state.checked
-        });
-        e.preventDefault();
-    };
 
     onChangeHandler = (e) => {
         const state = e.target.checked;
@@ -66,7 +56,7 @@ export default class Radio extends React.Component {
 
         return (
             <label className={'radio' + clsCheckbox + ' ' + (variant === 2 ? 'style2' : '') + ' transition-on'} onClick={this.onClick}>
-                <input type="radio" {...input} checked={checked} onChange={this.onChangeHandler}/>
+                <input type="radio" {...input} defaultChecked={checked} onChange={this.onChangeHandler}/>
                 <span className={"check " + clsCheck}/>
                 <span className={"caption " + clsCaption}>{caption}</span>
             </label>

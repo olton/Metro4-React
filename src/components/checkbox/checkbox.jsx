@@ -24,27 +24,18 @@ export default class Checkbox extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            initChecked: props.checked,
             checked: props.checked
         }
     }
 
     static getDerivedStateFromProps(props, state){
-        if (props.checked !== state.initChecked) {
+        if (props.checked !== state.checked) {
             return {
-                checked: props.checked,
-                initChecked: props.checked
+                checked: props.checked
             }
         }
         return null;
     }
-
-    onClick = e => {
-        this.setState({
-            checked: !this.state.checked
-        });
-        e.preventDefault();
-    };
 
     onChangeHandler = (e) => {
         const state = e.target.checked;
@@ -72,8 +63,8 @@ export default class Checkbox extends React.Component {
         const checkboxMode = mode === "switch" ? `switch${(variant === 2 ? '-material' : '')}` : `checkbox ${(variant === 2 ? 'style2' : '')}`;
 
         return (
-            <label className={`${checkboxMode} ${transition ? "transition-on" : ""} ${cls} ${className}`} onClick={this.onClick}>
-                <input type="checkbox" { ...input } checked={checked} onChange={this.onChangeHandler}/>
+            <label className={`${checkboxMode} ${transition ? "transition-on" : ""} ${cls} ${className}`}>
+                <input type="checkbox" { ...input } defaultChecked={checked} onChange={this.onChangeHandler}/>
                 <span className={ 'check ' + clsCheck } />
                 <span className={ 'caption ' + clsCaption }>{caption}</span>
             </label>
