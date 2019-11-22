@@ -6,7 +6,6 @@ export default class TagInput extends React.Component {
     static defaultProps = {
         tags: [],
         maxTags: 0,
-        tagSeparator: ",",
         tagTrigger: [13, 188],
         clsTag: "",
         clsTagTitle: "",
@@ -24,6 +23,7 @@ export default class TagInput extends React.Component {
         };
         this.component = React.createRef();
         this.input = React.createRef();
+        this.tagClickHandler = this.tagClickHandler.bind(this);
     }
 
     onChange = tags => {
@@ -78,25 +78,23 @@ export default class TagInput extends React.Component {
         this.input.current.focus();
     };
 
-    tagClick = e => {
+    tagClickHandler(index) {
+        return e => {
 
-        if (!e.target.classList.contains("remover")) {
-            return false;
-        }
+            if (!e.target.classList.contains("remover")) {
+                return false;
+            }
+            const { tags } = this.state;
+            tags.splice(index, 1);
 
-        const index = e.target.parentNode.getAttribute('data-tag-index');
-        const {tags} = this.state;
-        const newValue = tags.splice(index, 1);
+            this.setState({tags});
 
-        this.setState({
-            tags: newValue
-        });
+            this.onChange(tags);
 
-        this.onChange(newValue);
-
-        e.preventDefault();
-        e.stopPropagation();
-    };
+            e.preventDefault();
+            e.stopPropagation();
+        };
+    }
 
     componentDidMount(){
         const input = this.input.current;
@@ -130,14 +128,22 @@ export default class TagInput extends React.Component {
     }
 
     render(){
-        const {tags: propsTags, maxTags, tagSeparator, tagTrigger, clsTag, clsTagTitle, clsTagRemover, ...inputProps} = this.props;
+        const {tags: propsTags, maxTags, tagTrigger, clsTag, clsTagTitle, clsTagRemover, ...inputProps} = this.props;
         const {tags, focus} = this.state;
 
         return (
             <div className={`tag-input ${focus ? 'focused' : ''}`} ref={this.component}>
                 {tags.map( (tag, index) => {
                     return (
-                        <Tag data-tag-index={index} cls={clsTag} clsTitle={clsTagTitle} clsRemover={clsTagRemover} key={index} onClick={this.tagClick}>{tag}</Tag>
+                        <Tag
+                            cls={clsTag}
+                            clsTitle={clsTagTitle}
+                            clsRemover={clsTagRemover}
+                            key={index}
+                            onClick={this.tagClickHandler(index)}
+                        >
+                            {tag}
+                        </Tag>
                     )
                 })}
                 <input type="text" className={`input-wrapper`} ref={this.input} size={1}/>
