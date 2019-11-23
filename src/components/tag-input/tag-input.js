@@ -2,6 +2,8 @@ import React from "react";
 import Tag from "../tag/tag";
 import "./tag-input.less";
 
+const inputChangeEvents = "change input propertychange cut paste copy drop".split(" ");
+
 export default class TagInput extends React.Component {
     static defaultProps = {
         tags: [],
@@ -55,7 +57,7 @@ export default class TagInput extends React.Component {
         this.onChange(tags);
     };
 
-    inputChange = e => {
+    inputChange = () => {
         const input = this.input.current;
         input.setAttribute("size", Math.ceil(input.value.length / 2) + 2);
     };
@@ -101,10 +103,14 @@ export default class TagInput extends React.Component {
         const component = this.component.current;
 
         component.addEventListener("click", this.onClick);
-        input.addEventListener("inputchange", this.inputChange);
+
         input.addEventListener("keyup", this.inputKeyUp);
         input.addEventListener("focus", this.onFocus);
         input.addEventListener("blur", this.onBlur);
+
+        inputChangeEvents.forEach( ev => {
+            input.addEventListener(ev, this.inputChange);
+        });
     }
 
     componentWillUnmount() {
@@ -112,10 +118,14 @@ export default class TagInput extends React.Component {
         const component = this.component.current;
 
         component.removeEventListener("click", this.onClick);
-        input.removeEventListener("inputchange", this.inputChange);
+
         input.removeEventListener("keyup", this.inputKeyUp);
         input.removeEventListener("focus", this.onFocus);
         input.removeEventListener("blur", this.onBlur);
+
+        inputChangeEvents.forEach( ev => {
+            input.removeEventListener(ev, this.inputChange);
+        });
     }
 
     static getDerivedStateFromProps(props, state){
