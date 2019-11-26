@@ -24,21 +24,27 @@ export default class Checkbox extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            checked: props.checked
-        }
+            checked: props.checked,
+            initState: props.checked
+        };
+        this.onChangeHandler = this.onChangeHandler.bind(this);
     }
 
     static getDerivedStateFromProps(props, state){
-        if (props.checked !== state.checked) {
+        if (props.checked !== state.initState) {
             return {
-                checked: props.checked
+                checked: props.checked,
+                initState: props.checked
             }
         }
         return null;
     }
 
-    onChangeHandler = (e) => {
+    onChangeHandler (e) {
         const state = e.target.checked;
+        this.setState({
+            checked: state
+        });
         this.props.onChange(e);
         this.props[state ? 'onCheck' : 'onUnCheck'](e);
     };
