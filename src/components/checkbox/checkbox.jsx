@@ -64,7 +64,7 @@ export default class Checkbox extends React.Component {
 
         return (
             <label className={`${checkboxMode} ${transition ? "transition-on" : ""} ${cls} ${className}`}>
-                <input type="checkbox" { ...input } defaultChecked={checked} onChange={this.onChangeHandler}/>
+                <input type="checkbox" { ...input } checked={checked} onChange={this.onChangeHandler}/>
                 <span className={ 'check ' + clsCheck } />
                 <span className={ 'caption ' + clsCaption }>{caption}</span>
             </label>
