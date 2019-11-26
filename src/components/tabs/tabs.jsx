@@ -52,6 +52,7 @@ export default class Tabs extends Component {
             tab: tab
         });
         this.props.onTabClick(e);
+        e.preventDefault();
     }
 
     render(){
