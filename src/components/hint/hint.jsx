@@ -27,10 +27,9 @@ export default class Hint extends React.Component {
 
         if (this.props.destroyType === 'mouseleave')
             el.addEventListener("mouseleave", this.mouseLeave);
-    }
 
-    componentDidUpdate(){
-
+        window.addEventListener("scroll", this.setPosition);
+        window.addEventListener("resize", this.setPosition);
     }
 
     componentWillUnmount(){
@@ -39,21 +38,61 @@ export default class Hint extends React.Component {
 
         if (this.props.destroyType === 'mouseleave')
             el.removeEventListener("mouseleave", this.mouseLeave);
+
+        window.removeEventListener("scroll", this.setPosition);
+        window.removeEventListener("resize", this.setPosition);
     }
 
-    mouseEnter = e => {
-        this.createHint(e.target);
+    mouseEnter = () => {
+        this.createHint();
     };
 
-    mouseLeave = e => {
+    mouseLeave = () => {
         this.destroyHint();
     };
 
-    createHint = target => {
-        const {text, position, distance, destroyType, timeout} = this.props;
-        const rect = target.getBoundingClientRect();
-        const hint = document.createElement("div");
+    setPosition = () => {
+
+        if (!this.hint) {
+            return ;
+        }
+
+        const target = ReactDOM.findDOMNode(this.ref.current);
+        const hint = this.hint;
+        const {position, distance} = this.props;
+        const targetRect = target.getBoundingClientRect();
+        const hintRect = hint.getBoundingClientRect();
         let top, left;
+
+        switch (position) {
+            case "bottom": {
+                top = (targetRect.top + targetRect.height + distance) + 'px';
+                left = (targetRect.left - (hintRect.width - targetRect.width) / 2) + 'px';
+                break;
+            }
+            case "left": {
+                top = (targetRect.top + targetRect.height / 2 - hintRect.height / 2) + 'px';
+                left = (targetRect.left - hintRect.width - distance) + 'px';
+                break;
+            }
+            case "right": {
+                top = (targetRect.top + targetRect.height / 2 - hintRect.height / 2) + 'px';
+                left = (targetRect.left + targetRect.width + distance) + 'px';
+                break;
+            }
+            default: {
+                top = (targetRect.top - hintRect.height - distance) + 'px';
+                left = (targetRect.left - (hintRect.width - targetRect.width) / 2) + 'px';
+            }
+        }
+
+        hint.style.top = top;
+        hint.style.left = left;
+    };
+
+    createHint = () => {
+        const {text, destroyType, timeout} = this.props;
+        const hint = document.createElement("div");
 
         document.body.appendChild(hint);
 
@@ -61,36 +100,11 @@ export default class Hint extends React.Component {
         hint.className = 'hint';
         hint.innerText = text;
 
-        const hintRect = hint.getBoundingClientRect();
-
-        switch (position) {
-            case "bottom": {
-                top = (rect.top + rect.height + distance) + 'px';
-                left = (rect.left - (hintRect.width - rect.width) / 2) + 'px';
-                break;
-            }
-            case "left": {
-                top = (rect.top + rect.height / 2 - hintRect.height / 2) + 'px';
-                left = (rect.left - hintRect.width - distance) + 'px';
-                break;
-            }
-            case "right": {
-                top = (rect.top + rect.height / 2 - hintRect.height / 2) + 'px';
-                left = (rect.left + rect.width + distance) + 'px';
-                break;
-            }
-            default: {
-                top = (rect.top - hintRect.height - distance) + 'px';
-                left = (rect.left - (hintRect.width - rect.width) / 2) + 'px';
-            }
-        }
-
-        hint.style.top = top;
-        hint.style.left = left;
-
         hint.style.visibility = 'visible';
 
         this.hint = hint;
+
+        this.setPosition();
 
         if (destroyType === 'timeout') {
             setTimeout( () => {
@@ -100,6 +114,9 @@ export default class Hint extends React.Component {
     };
 
     destroyHint() {
+        if (!this.hint) {
+            return ;
+        }
         document.body.removeChild(this.hint);
         this.hint = null;
     };
