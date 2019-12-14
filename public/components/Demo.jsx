@@ -155,15 +155,38 @@ export default class Demo extends React.Component {
                 <Grid>
                     <h2 className="text-light">&lt;Hint/&gt;</h2>
                     <div>
-                        Pumpkin seeds combines greatly with crusted <Hint text='This is a hint for inline text'>blueberries</Hint>.
+                        Pumpkin seeds combines greatly with crusted <Hint text='This is a hint for inline text' markText={true}>blueberries</Hint>.
 
                         <br/>
                         <br/>
 
-                        <Hint text="This is a button">
+                        <Hint text="This is a button" destroyType='mouseleave'>
                             <Button>Button</Button>
                         </Hint>
                     </div>
+                    <h4>Hint position</h4>
+                    <Row>
+                        <Cell cls='cell-md-3'>
+                            <Hint text="This is a button" destroyType='mouseleave' position='right'>
+                                <Button>Hint right</Button>
+                            </Hint>
+                        </Cell>
+                        <Cell cls='cell-md-3 text-center'>
+                            <Hint text="This is a button" destroyType='mouseleave' position='top'>
+                                <Button>Hit top</Button>
+                            </Hint>
+                        </Cell>
+                        <Cell cls='cell-md-3 text-center'>
+                            <Hint text="This is a button" destroyType='mouseleave' position='bottom'>
+                                <Button>Hit bottom</Button>
+                            </Hint>
+                        </Cell>
+                        <Cell cls='cell-md-3 text-right'>
+                            <Hint text="This is a button" destroyType='mouseleave' position='left'>
+                                <Button>Hit left</Button>
+                            </Hint>
+                        </Cell>
+                    </Row>
 
 
                     <h2 className="text-light">&lt;TagInput/&gt;</h2>
