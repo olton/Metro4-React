@@ -51,6 +51,7 @@ import MemoryTable from "./src/components/table/memory-table";
 import SelectColor from "./src/components/select-color/select-color";
 import SelectIcon from "./src/components/select-icon/select-icon";
 import TagInput from "./src/components/tag-input/tag-input";
+import Hint from "./src/components/hint/hint";
 
 import {Utils, Color, MD5, MediaPoints} from "./src/routines"
 import {FetchStatus} from "./src/defines"
@@ -104,5 +105,6 @@ export {
     Rating, HtmlContainer,
     Table, MemoryTable,
     SelectColor, SelectIcon,
-    TagInput
+    TagInput,
+    Hint
 };

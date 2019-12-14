@@ -30,7 +30,7 @@ import {
     Dropdown, Modal, AppBar, AppBarMenu, AppBarItem, Collapse, ButtonGroup,
     Tabs, Tab, SplitButton, Progress, Panel,
     Rating, HtmlContainer, SelectColor, SelectIcon,
-    TagInput
+    TagInput, Hint
 } from "../../index";
 
 import MainMenu from "./MainMenu";
@@ -153,6 +153,19 @@ export default class Demo extends React.Component {
                 <br/>
 
                 <Grid>
+                    <h2 className="text-light">&lt;Hint/&gt;</h2>
+                    <div>
+                        Pumpkin seeds combines greatly with crusted <Hint text='This is a hint for inline text'>blueberries</Hint>.
+
+                        <br/>
+                        <br/>
+
+                        <Hint text="This is a button">
+                            <Button>Button</Button>
+                        </Hint>
+                    </div>
+
+
                     <h2 className="text-light">&lt;TagInput/&gt;</h2>
                     <div>
                         <TagInput tags={["css", "javascript", "html"]}/>
