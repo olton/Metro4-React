@@ -9,7 +9,7 @@ export default class Hint extends React.Component {
         distance: 4,
         markText: false,
         destroyType: 'timeout',
-        timeout: 3000
+        timeout: 10000
     };
 
     constructor(props) {
