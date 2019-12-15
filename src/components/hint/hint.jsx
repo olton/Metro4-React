@@ -5,10 +5,10 @@ import "./hint.less";
 export default class Hint extends React.Component {
     static defaultProps = {
         text: "",
-        position: 'top',
+        position: 'top', //top, left, right, bottom
         distance: 4,
         markText: false,
-        destroyType: 'timeout',
+        destroyType: 'timeout', // timeout, mouseleave
         timeout: 10000
     };
 
