@@ -8,7 +8,7 @@ export default class Hint extends React.Component {
         position: 'top', //top, left, right, bottom
         distance: 4,
         markText: false,
-        destroyType: 'timeout', // timeout, mouseleave
+        width: "default",
         timeout: 10000
     };
 
@@ -24,10 +24,7 @@ export default class Hint extends React.Component {
     componentDidMount(){
         const el = ReactDOM.findDOMNode(this.ref.current);
         el.addEventListener("mouseenter", this.mouseEnter);
-
-        if (this.props.destroyType === 'mouseleave')
-            el.addEventListener("mouseleave", this.mouseLeave);
-
+        el.addEventListener("mouseleave", this.mouseLeave);
         window.addEventListener("scroll", this.setPosition);
         window.addEventListener("resize", this.setPosition);
     }
@@ -35,10 +32,7 @@ export default class Hint extends React.Component {
     componentWillUnmount(){
         const el = ReactDOM.findDOMNode(this.ref.current);
         el.removeEventListener("mouseenter", this.mouseEnter);
-
-        if (this.props.destroyType === 'mouseleave')
-            el.removeEventListener("mouseleave", this.mouseLeave);
-
+        el.removeEventListener("mouseleave", this.mouseLeave);
         window.removeEventListener("scroll", this.setPosition);
         window.removeEventListener("resize", this.setPosition);
     }
@@ -91,7 +85,7 @@ export default class Hint extends React.Component {
     };
 
     createHint = () => {
-        const {text, destroyType, timeout} = this.props;
+        const {text, width, timeout} = this.props;
         const hint = document.createElement("div");
 
         document.body.appendChild(hint);
@@ -100,17 +94,19 @@ export default class Hint extends React.Component {
         hint.className = 'hint';
         hint.innerText = text;
 
+        if (width !== "default") {
+            hint.style.width = isNaN(width) ? width : width + 'px';
+        }
+
         hint.style.visibility = 'visible';
 
         this.hint = hint;
 
         this.setPosition();
 
-        if (destroyType === 'timeout') {
-            setTimeout( () => {
-                this.destroyHint();
-            }, timeout);
-        }
+        setTimeout( () => {
+            this.destroyHint();
+        }, timeout);
     };
 
     destroyHint() {
