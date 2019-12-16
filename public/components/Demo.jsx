@@ -167,22 +167,22 @@ export default class Demo extends React.Component {
                     <h4>Hint position</h4>
                     <Row>
                         <Cell cls='cell-md-3'>
-                            <Hint text="This is a button" destroyType='mouseleave' position='right'>
+                            <Hint text="This is a button" position='right'>
                                 <Button>Hint right</Button>
                             </Hint>
                         </Cell>
                         <Cell cls='cell-md-3 text-center'>
-                            <Hint text="This is a button" destroyType='mouseleave' position='top'>
+                            <Hint text="This is a button" position='top'>
                                 <Button>Hit top</Button>
                             </Hint>
                         </Cell>
                         <Cell cls='cell-md-3 text-center'>
-                            <Hint text="This is a button" destroyType='mouseleave' position='bottom'>
+                            <Hint text="This is a button" position='bottom'>
                                 <Button>Hit bottom</Button>
                             </Hint>
                         </Cell>
                         <Cell cls='cell-md-3 text-right'>
-                            <Hint text="This is a button" destroyType='mouseleave' position='left'>
+                            <Hint text="This is a button" position='left'>
                                 <Button>Hit left</Button>
                             </Hint>
                         </Cell>
