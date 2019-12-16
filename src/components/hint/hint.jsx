@@ -7,14 +7,14 @@ export default class Hint extends React.Component {
         text: "",
         position: 'top', //top, left, right, bottom
         distance: 4,
-        markText: false,
+        markText: true,
         width: "default",
         timeout: 10000
     };
 
     constructor(props) {
         super(props);
-        this.children = typeof props.children === 'object' ? props.children : React.createElement('span', {className: props.markText ? 'hinted-text' : ''}, props.children);
+        this.children = typeof props.children === 'object' ? React.Children.toArray(props.children)[0] : React.createElement('span', {className: props.markText ? 'hinted-text' : ''}, props.children);
         this.ref = React.createRef();
         this.hint = null;
 

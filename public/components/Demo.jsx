@@ -155,7 +155,7 @@ export default class Demo extends React.Component {
                 <Grid>
                     <h2 className="text-light">&lt;Hint/&gt;</h2>
                     <div>
-                        Pumpkin seeds combines greatly with crusted <Hint text='This is a hint for inline text' markText={true}>blueberries</Hint>.
+                        Pumpkin seeds combines greatly with crusted <Hint text='This is a hint for inline text'>blueberries</Hint>.
 
                         <br/>
                         <br/>
