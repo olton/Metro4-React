@@ -160,7 +160,7 @@ export default class Demo extends React.Component {
                         <br/>
                         <br/>
 
-                        <Hint text="This is a button" destroyType='mouseleave'>
+                        <Hint text="This is a button">
                             <Button>Button</Button>
                         </Hint>
                     </div>
