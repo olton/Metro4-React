@@ -26,6 +26,7 @@ export default class Select extends React.Component {
         clsPrepend: "",
         clsAppend: "",
         clsDropdownToggle: "",
+        onFilter: (filter, cap) => (~(""+cap).toLowerCase().indexOf(filter.toLowerCase())),
         onChange: () => {},
         onFocus: () => {},
         onBlur: () => {},
@@ -222,10 +223,10 @@ export default class Select extends React.Component {
 
     createListItem = (val, cap) => {
         let hidden;
-        const {multiple, onDrawItem, useHTML} = this.props;
+        const {multiple, onDrawItem, useHTML, onFilter} = this.props;
         const {filter, value} = this.state;
 
-        hidden = multiple ? value.indexOf(val) !== -1 : filter !== "" && (""+cap).toLowerCase().indexOf(filter.toLowerCase()) === -1;
+        hidden = multiple ? value.indexOf(val) !== -1 : filter !== "" && !onFilter(filter, cap);
 
         return (
             <li hidden={hidden}
