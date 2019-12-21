@@ -191,7 +191,11 @@ export default class Demo extends React.Component {
 
                     <h2 className="text-light">&lt;TagInput/&gt;</h2>
                     <div>
+                        <h5>Default editable</h5>
                         <TagInput tags={["css", "javascript", "html"]}/>
+
+                        <h5>Static mode</h5>
+                        <TagInput tags={["css", "javascript", "html"]} staticMode={true}/>
                     </div>
 
 

@@ -6,6 +6,7 @@ const inputChangeEvents = "change input propertychange cut paste copy drop".spli
 
 export default class TagInput extends React.Component {
     static defaultProps = {
+        staticMode: false,
         tags: [],
         maxTags: 0,
         tagTrigger: [13, 188],
@@ -21,11 +22,22 @@ export default class TagInput extends React.Component {
         super(props);
         this.state = {
             tags: props.tags,
-            initValue: props.tags.join(",")
+            initValue: props.tags.join(","),
+            staticMode: props.staticMode
         };
         this.component = React.createRef();
         this.input = React.createRef();
         this.tagClickHandler = this.tagClickHandler.bind(this);
+    }
+
+    static getDerivedStateFromProps(props, state){
+        if (props.tags.join(",") !== state.initValue || props.staticMode !== state.staticMode) {
+            return {
+                tags: props.tags,
+                staticMode: props.staticMode
+            }
+        }
+        return null;
     }
 
     onChange = tags => {
@@ -128,21 +140,12 @@ export default class TagInput extends React.Component {
         });
     }
 
-    static getDerivedStateFromProps(props, state){
-        if (props.tags.join(",") !== state.initValue) {
-            return {
-                tags: props.tags
-            }
-        }
-        return null;
-    }
-
     render(){
-        const {tags: propsTags, maxTags, tagTrigger, clsTag, clsTagTitle, clsTagRemover, ...inputProps} = this.props;
-        const {tags, focus} = this.state;
+        const {staticMode: initialStatic, tags: propsTags, maxTags, tagTrigger, clsTag, clsTagTitle, clsTagRemover, ...inputProps} = this.props;
+        const {staticMode, tags, focus} = this.state;
 
         return (
-            <div className={`tag-input ${focus ? 'focused' : ''}`} ref={this.component}>
+            <div className={`tag-input ${focus ? 'focused' : ''} ${staticMode ? 'static-mode' : ''}`} ref={this.component}>
                 {tags.map( (tag, index) => {
                     return (
                         <Tag

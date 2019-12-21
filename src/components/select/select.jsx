@@ -223,7 +223,7 @@ export default class Select extends React.Component {
 
     createListItem = (val, cap) => {
         let hidden;
-        const {multiple, onDrawItem, useHTML, onFilter} = this.props;
+        const {multiple, onDrawItem, onFilter} = this.props;
         const {filter, value} = this.state;
 
         hidden = multiple ? value.indexOf(val) !== -1 : filter !== "" && !onFilter(filter, cap);
