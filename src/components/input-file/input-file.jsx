@@ -4,40 +4,6 @@ import Button from "../button/button";
 import {Icon} from "../../../index";
 
 export default class InputFile extends React.Component {
-    static defaultProps = {
-        mode: "input",
-
-        buttonIcon: "",
-        buttonIconPrefix: "mif-",
-        buttonIconSize: "1x",
-        buttonTitle: "Choose file(s)",
-
-        dropIcon: "",
-        dropIconPrefix: "mif-",
-        dropIconSize: "1x",
-        dropTitle: <span><strong>Choose a file(s)</strong> or drop it here</span>,
-        dropTitleSecondary: "file(s) selected",
-
-        append: "",
-        prepend: "",
-        clear: true,
-        select: true,
-        customButtons: [],
-        cls: "",
-        className: "",
-        clsCaption: "",
-        clsAppend: "",
-        clsPrepend: "",
-        clsButtonGroup: "",
-        clsCustomButton: "",
-        clsClearButton: "",
-        clsSelectButton: "",
-        onClear: () => {},
-        onChange: () => {},
-        onBlur: () => {},
-        onFocus: () => {}
-    };
-
     constructor(props){
         super(props);
 
@@ -187,3 +153,37 @@ export default class InputFile extends React.Component {
         )
     }
 }
+
+InputFile.defaultProps = {
+    mode: "input",
+
+    buttonIcon: "",
+    buttonIconPrefix: "mif-",
+    buttonIconSize: "1x",
+    buttonTitle: "Choose file(s)",
+
+    dropIcon: "",
+    dropIconPrefix: "mif-",
+    dropIconSize: "1x",
+    dropTitle: <span><strong>Choose a file(s)</strong> or drop it here</span>,
+    dropTitleSecondary: "file(s) selected",
+
+    append: "",
+    prepend: "",
+    clear: true,
+    select: true,
+    customButtons: [],
+    cls: "",
+    className: "",
+    clsCaption: "",
+    clsAppend: "",
+    clsPrepend: "",
+    clsButtonGroup: "",
+    clsCustomButton: "",
+    clsClearButton: "",
+    clsSelectButton: "",
+    onClear: () => {},
+    onChange: () => {},
+    onBlur: () => {},
+    onFocus: () => {}
+};

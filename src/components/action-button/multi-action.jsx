@@ -4,15 +4,6 @@ import Icon from "../icon/icon.jsx";
 import "./action-button.less";
 
 export class MultiActionItem extends React.Component {
-    static defaultProps = {
-        icon: null,
-        iconPrefix: "mif-",
-        image: null,
-        cls: "",
-        className: "",
-        onClick: () => {}
-    };
-
     onClick = (e) => {
         this.props.onClick(e);
     };
@@ -29,13 +20,16 @@ export class MultiActionItem extends React.Component {
     }
 }
 
-export default class MultiAction extends React.Component {
-    static defaultProps = {
-        drop: "up",
-        itemClickClose: true,
-        onClick: () => {}
-    };
+MultiActionItem.defaultProps = {
+    icon: null,
+    iconPrefix: "mif-",
+    image: null,
+    cls: "",
+    className: "",
+    onClick: () => {}
+};
 
+export default class MultiAction extends React.Component {
     constructor(props){
         super(props);
 
@@ -78,3 +72,9 @@ export default class MultiAction extends React.Component {
         )
     }
 }
+
+MultiAction.defaultProps = {
+    drop: "up",
+    itemClickClose: true,
+    onClick: () => {}
+};

@@ -2,13 +2,6 @@ import React from "react";
 import "./breadcrumbs.less";
 
 export class BreadcrumbsItem extends React.Component {
-    static defaultProps = {
-        cls: "",
-        className: "",
-        clsItem: "",
-        clsLink: ""
-    };
-
     render() {
         const {
             clsItem, clsLink, cls, className, ...rest
@@ -27,14 +20,14 @@ export class BreadcrumbsItem extends React.Component {
     }
 }
 
-export default class Breadcrumbs extends React.Component {
-    static defaultProps = {
-        cls: "",
-        className: "",
-        clsItem: "",
-        clsLink: ""
-    };
+BreadcrumbsItem.defaultProps = {
+    cls: "",
+    className: "",
+    clsItem: "",
+    clsLink: ""
+};
 
+export default class Breadcrumbs extends React.Component {
     render() {
         const {
             cls, className, clsItem, clsLink
@@ -65,3 +58,10 @@ export default class Breadcrumbs extends React.Component {
         )
     }
 }
+
+Breadcrumbs.defaultProps = {
+    cls: "",
+    className: "",
+    clsItem: "",
+    clsLink: ""
+};

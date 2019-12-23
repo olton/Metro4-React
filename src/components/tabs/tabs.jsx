@@ -2,11 +2,6 @@ import React, {Children, Component} from "react";
 import "./tabs.less";
 
 export class Tab extends Component {
-    static defaultProps = {
-        cls: "",
-        target: "",
-        onClick: ()=>{}
-    };
     render(){
         const {cls, target, children, ...rest} = this.props;
 
@@ -16,17 +11,13 @@ export class Tab extends Component {
     }
 }
 
-export default class Tabs extends Component {
-    static defaultProps = {
-        active: 0,
-        position: "top", // top, bottom, right, left
-        variant: "default",
-        cls: "",
-        clsTabsList: "",
-        clsTab: "",
-        onTabClick: ()=>{}
-    };
+Tab.defaultProps = {
+    cls: "",
+    target: "",
+    onClick: ()=>{}
+};
 
+export default class Tabs extends Component {
     constructor(props){
         super(props);
 
@@ -79,3 +70,13 @@ export default class Tabs extends Component {
         )
     }
 }
+
+Tabs.defaultProps = {
+    active: 0,
+    position: "top", // top, bottom, right, left
+    variant: "default",
+    cls: "",
+    clsTabsList: "",
+    clsTab: "",
+    onTabClick: ()=>{}
+};

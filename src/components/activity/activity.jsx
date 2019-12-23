@@ -8,15 +8,6 @@ import Simple from "./simple.jsx";
 import "./activity.less";
 
 export default class Activity extends React.Component {
-
-    static defaultProps = {
-        type: 'ring',
-        variant: 'light',
-        size: 64,
-        radius: 20,
-        cls: ""
-    };
-
     render() {
         let activityType;
         let activityClassName;
@@ -40,3 +31,11 @@ export default class Activity extends React.Component {
         )
     }
 }
+
+Activity.defaultProps = {
+    type: 'ring',
+    variant: 'light',
+    size: 64,
+    radius: 20,
+    cls: ""
+};

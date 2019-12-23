@@ -7,18 +7,17 @@ const EXPANDING = "expanding";
 const EXPANDED = "expanded";
 
 export default class Collapse extends React.Component {
-    static defaultProps = {
-        className: "collapse-css-transition",
-        style: {}
-    };
-    state = {
-        collapseState: this.props.isOpen ? EXPANDED : COLLAPSED,
-        collapseStyle: {
-            height: this.props.isOpen ? null : getCollapseHeight(this.props),
-            visibility: this.props.isOpen ? null : getCollapseVisibility(this.props)
-        },
-        hasReversed: false
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            collapseState: this.props.isOpen ? EXPANDED : COLLAPSED,
+            collapseStyle: {
+                height: this.props.isOpen ? null : getCollapseHeight(this.props),
+                visibility: this.props.isOpen ? null : getCollapseVisibility(this.props)
+            },
+            hasReversed: false
+        }
+    }
 
     render() {
         const {
@@ -216,6 +215,12 @@ export default class Collapse extends React.Component {
         );
     };
 }
+
+Collapse.defaultProps = {
+    className: "collapse-css-transition",
+    style: {},
+    onInit: ()=>{}
+};
 
 function nextFrame(callback) {
     // Ensure it is always visible on collapsing, afterFrame didn't work

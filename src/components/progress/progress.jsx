@@ -2,19 +2,6 @@ import React, {Fragment} from "react";
 import "./progress.less";
 
 export default class Progress extends React.Component {
-    static defaultProps = {
-        variant: "default", //line, load
-        showValue: false,
-        value: 0,
-        buffer: 0,
-        cls: "",
-        clsBack: "",
-        clsBar: "",
-        clsBuffer: "",
-        clsLoad: "",
-        clsValue: "",
-    };
-
     static getDerivedStateFromProps(props, state){
         if (props.value !== state.initValue || props.buffer !== state.initBuffer) {
             return {
@@ -62,3 +49,16 @@ export default class Progress extends React.Component {
         )
     }
 }
+
+Progress.defaultProps = {
+    variant: "default", //line, load
+    showValue: false,
+    value: 0,
+    buffer: 0,
+    cls: "",
+    clsBack: "",
+    clsBar: "",
+    clsBuffer: "",
+    clsLoad: "",
+    clsValue: "",
+};

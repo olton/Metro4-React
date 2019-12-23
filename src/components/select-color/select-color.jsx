@@ -12,13 +12,6 @@ const SelectColorItem = (props) => {
 };
 
 export default class SelectColor extends React.Component {
-    static defaultProps = {
-        source: null,
-        showColorName: true,
-        cls: "",
-        className: ""
-    };
-
     constructor(props){
         super(props);
         let source = {};
@@ -45,3 +38,10 @@ export default class SelectColor extends React.Component {
         )
     }
 }
+
+SelectColor.defaultProps = {
+    source: null,
+    showColorName: true,
+    cls: "",
+    className: ""
+};

@@ -1,14 +1,6 @@
 import React from "react";
 
 export default class AppBarItem extends React.Component {
-    static defaultProps = {
-        name: "",
-        isBrand: false,
-        as: "span",
-        cls: "",
-        className: ""
-    };
-
     render(){
         const {as: Element, cls, className, isBrand, name, children, ...rest} = this.props;
 
@@ -19,3 +11,11 @@ export default class AppBarItem extends React.Component {
         )
     }
 }
+
+AppBarItem.defaultProps = {
+    name: "",
+    isBrand: false,
+    as: "span",
+    cls: "",
+    className: ""
+};

@@ -2,13 +2,6 @@ import React from "react";
 import "./container.less";
 
 export default class Container extends React.Component {
-    static defaultProps = {
-        as: "div",
-        fluid: false,
-        cls: "",
-        className: ""
-    };
-
     render(){
         const {as: Element, fluid, cls, className, ...rest} = this.props;
 
@@ -19,3 +12,10 @@ export default class Container extends React.Component {
         )
     }
 }
+
+Container.defaultProps = {
+    as: "div",
+    fluid: false,
+    cls: "",
+    className: ""
+};

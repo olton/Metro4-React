@@ -7,31 +7,6 @@ import Select from "../select/select";
 import Utils from "../../routines/utils";
 
 export default class MemoryTable extends React.Component {
-    static defaultProps = {
-        scrollable: false,
-        source: null,
-        pagination: true,
-        search: true,
-        info: true,
-        infoTemplate: "Showing $1 to $2 of $3 entries",
-        rowsSteps: [-1, 10, 20, 100],
-        rows: 10,
-        rowsTitle: null,
-        searchPlaceholder: "Search...",
-        searchFilter: "",
-        searchFilterLength: 1,
-        searchFilterThreshold: 500,
-        clsSearchBlock: "",
-        clsSearch: "",
-        clsRows: "",
-        clsInfoBlock: "",
-        clsPagination: "",
-        clsPaginationBlock: "",
-        clsInfo: "",
-        onHeadClick: () => {},
-        onCellClick: () => {},
-    };
-
     constructor(props){
         super(props);
 
@@ -299,3 +274,28 @@ export default class MemoryTable extends React.Component {
         )
     }
 }
+
+MemoryTable.defaultProps = {
+    scrollable: false,
+    source: null,
+    pagination: true,
+    search: true,
+    info: true,
+    infoTemplate: "Showing $1 to $2 of $3 entries",
+    rowsSteps: [-1, 10, 20, 100],
+    rows: 10,
+    rowsTitle: null,
+    searchPlaceholder: "Search...",
+    searchFilter: "",
+    searchFilterLength: 1,
+    searchFilterThreshold: 500,
+    clsSearchBlock: "",
+    clsSearch: "",
+    clsRows: "",
+    clsInfoBlock: "",
+    clsPagination: "",
+    clsPaginationBlock: "",
+    clsInfo: "",
+    onHeadClick: () => {},
+    onCellClick: () => {},
+};

@@ -4,15 +4,6 @@ import "./modal.less";
 import Color from "../../routines/color";
 
 export default class Modal extends React.Component {
-    static defaultProps = {
-        open: false,
-        mount: document.body,
-        cls: "",
-        overlayColor: "#fff",
-        overlayAlpha: 1,
-        onClick: () => {}
-    };
-
     render(){
         const {cls, onClick, mount, open, overlayColor, overlayAlpha} = this.props;
         const modalBackground = Color.toRgbaString( Color.toRGBA(overlayColor, overlayAlpha));
@@ -28,3 +19,12 @@ export default class Modal extends React.Component {
         )
     }
 }
+
+Modal.defaultProps = {
+    open: false,
+    mount: document.body,
+    cls: "",
+    overlayColor: "#fff",
+    overlayAlpha: 1,
+    onClick: () => {}
+};

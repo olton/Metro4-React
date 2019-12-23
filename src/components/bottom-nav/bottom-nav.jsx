@@ -3,16 +3,6 @@ import "../button/button.less";
 import "./bottom-nav.less";
 
 export class BottomNavItem extends React.Component {
-    static defaultProps = {
-        as: "button",
-        label: "",
-        icon: false,
-        image: false,
-        clsButton: "",
-        clsButtonIcon: "",
-        clsButtonLabel: ""
-    };
-
     render(){
         const {
             label,
@@ -44,16 +34,27 @@ export class BottomNavItem extends React.Component {
     }
 }
 
-export default class BottomNav extends React.Component {
-    static defaultProps = {
-        cls: ""
-    };
+BottomNavItem.defaultProps = {
+    as: "button",
+    label: "",
+    icon: false,
+    image: false,
+    clsButton: "",
+    clsButtonIcon: "",
+    clsButtonLabel: ""
+};
 
+export default class BottomNav extends React.Component {
     render() {
         return (
-            <div className={"bottom-nav " + this.props.cls}>
+            <div className={`bottom-nav ${this.props.cls} ${this.props.className} `}>
                 {this.props.children}
             </div>
         )
     }
 }
+
+BottomNav.defaultProps = {
+    cls: "",
+    className: ""
+};

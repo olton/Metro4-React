@@ -4,24 +4,6 @@ import Collapse from "../collapse/collapse";
 import Icon from "../icon/icon";
 
 export default class Panel extends React.Component {
-    static defaultProps = {
-        caption: "",
-        icon: "",
-        iconPrefix: "mif-",
-        image: "",
-        collapsible: true,
-        speed: 100,
-        open: true,
-        customButtons: {},
-        cls: "",
-        clsTitle: "",
-        clsCaption: "",
-        clsIcon: "",
-        clsContent: "",
-        clsCustomButton: "",
-        clsDropdownToggle: ""
-    };
-
     constructor(props){
         super(props);
         this.state = {
@@ -80,3 +62,21 @@ export default class Panel extends React.Component {
         )
     }
 }
+
+Panel.defaultProps = {
+    caption: "",
+    icon: "",
+    iconPrefix: "mif-",
+    image: "",
+    collapsible: true,
+    speed: 100,
+    open: true,
+    customButtons: {},
+    cls: "",
+    clsTitle: "",
+    clsCaption: "",
+    clsIcon: "",
+    clsContent: "",
+    clsCustomButton: "",
+    clsDropdownToggle: ""
+};

@@ -3,16 +3,6 @@ import Collapse from "../collapse/collapse.jsx";
 import "./accordion.less";
 
 export class AccordionFrame extends React.Component {
-    static defaultProps = {
-        frame: null,
-        open: false,
-        speed: 300,
-        title: "",
-        clsFrame: "",
-        clsFrameHeading: "",
-        clsFrameContent: ""
-    };
-
     constructor(props){
         super(props);
         this.onHeadingClick = this.onHeadingClick.bind(this);
@@ -40,25 +30,17 @@ export class AccordionFrame extends React.Component {
     }
 }
 
+AccordionFrame.defaultProps = {
+    frame: null,
+    open: false,
+    speed: 300,
+    title: "",
+    clsFrame: "",
+    clsFrameHeading: "",
+    clsFrameContent: ""
+};
+
 export default class Accordion extends React.Component{
-    static defaultProps = {
-        marker: true,
-        variant: 1,
-        oneFrame: true,
-        oneFrameOpen: true,
-        animationDuration: 300,
-
-        clsAccordion: "",
-        clsFrame: "",
-        clsFrameHeading: "",
-        clsFrameContent: "",
-
-        onFrameOpen: () => {},
-        onFrameBeforeOpen: () => true,
-        onFrameClose: () => {},
-        onFrameBeforeClose: () => true
-    };
-
     constructor(props){
         super(props);
 
@@ -140,3 +122,21 @@ export default class Accordion extends React.Component{
         )
     }
 }
+
+Accordion.defaultProps = {
+    marker: true,
+    variant: 1,
+    oneFrame: true,
+    oneFrameOpen: true,
+    animationDuration: 300,
+
+    clsAccordion: "",
+    clsFrame: "",
+    clsFrameHeading: "",
+    clsFrameContent: "",
+
+    onFrameOpen: () => {},
+    onFrameBeforeOpen: () => true,
+    onFrameClose: () => {},
+    onFrameBeforeClose: () => true
+};

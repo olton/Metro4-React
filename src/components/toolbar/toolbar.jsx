@@ -2,12 +2,6 @@ import React, {Component, Children} from "react";
 import "./toolbar.less";
 
 export class ToolButton extends Component {
-    static defaultProps = {
-        as: "span",
-        cls: "",
-        className: ""
-    };
-
     render() {
         const {as: Element, cls, className, ...rest} = this.props;
         return (
@@ -18,13 +12,13 @@ export class ToolButton extends Component {
     }
 }
 
-export default class ToolBar extends Component {
-    static defaultProps = {
-        vertical: false,
-        cls: "",
-        className: ""
-    };
+ToolButton.defaultProps = {
+    as: "span",
+    cls: "",
+    className: ""
+};
 
+export default class ToolBar extends Component {
     render() {
         const {vertical, cls, className} = this.props;
 
@@ -41,3 +35,9 @@ export default class ToolBar extends Component {
         )
     }
 }
+
+ToolBar.defaultProps = {
+    vertical: false,
+    cls: "",
+    className: ""
+};

@@ -2,15 +2,6 @@ import React from "react";
 import "./hamburger.less";
 
 export default class Hamburger extends React.Component {
-    static defaultProps = {
-        cls: "",
-        className: "",
-        variant: 'menu-down',
-        active: false,
-        theme: "light",
-        onClick: () => {}
-    };
-
     constructor(props){
         super(props);
         this.onClick = this.onClick.bind(this);
@@ -32,3 +23,12 @@ export default class Hamburger extends React.Component {
         )
     }
 }
+
+Hamburger.defaultProps = {
+    cls: "",
+    className: "",
+    variant: 'menu-down',
+    active: false,
+    theme: "light",
+    onClick: () => {}
+};

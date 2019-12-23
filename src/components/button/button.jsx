@@ -4,20 +4,6 @@ import "./button.less";
 import Badge from "../badge/badge";
 
 export default class Button extends React.Component{
-    static defaultProps = {
-        as: "button",
-        title: "",
-        badge: null,
-        icon: null,
-        iconPrefix: "mif-",
-        image: null,
-        cls: "",
-        className: "",
-        clsTitle: "",
-        clsIcon: "",
-        clsBadge: ""
-    };
-
     constructor(props){
         super(props);
         this.button = React.createRef();
@@ -61,3 +47,17 @@ export default class Button extends React.Component{
         )
     }
 }
+
+Button.defaultProps = {
+    as: "button",
+    title: "",
+    badge: null,
+    icon: null,
+    iconPrefix: "mif-",
+    image: null,
+    cls: "",
+    className: "",
+    clsTitle: "",
+    clsIcon: "",
+    clsBadge: ""
+};

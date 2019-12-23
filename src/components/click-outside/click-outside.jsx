@@ -2,10 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 
 export default class ClickOutside extends React.Component {
-    static propTypes = {
-        onClickOutside: PropTypes.func.isRequired
-    };
-
     constructor(props) {
         super(props);
         this.getContainer = this.getContainer.bind(this);
@@ -40,3 +36,11 @@ export default class ClickOutside extends React.Component {
         if (el && !el.contains(e.target)) onClickOutside(e);
     }
 }
+
+ClickOutside.defaultProps = {
+    onClickOutside: e => {}
+};
+
+ClickOutside.propTypes = {
+    onClickOutside: PropTypes.func.isRequired
+};

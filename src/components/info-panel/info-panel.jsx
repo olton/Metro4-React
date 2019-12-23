@@ -2,10 +2,6 @@ import React from "react";
 import "./info-panel.less";
 
 export class InfoPanelTitle extends React.Component {
-    static defaultProps = {
-        cls: "",
-    };
-
     render(){
         return (
             <div className={'info-panel-header ' + this.props.cls}>{this.props.children}</div>
@@ -13,11 +9,11 @@ export class InfoPanelTitle extends React.Component {
     }
 }
 
-export class InfoPanelContent extends React.Component {
-    static defaultProps = {
-        cls: "",
-    };
+InfoPanelTitle.defaultProps = {
+    cls: "",
+};
 
+export class InfoPanelContent extends React.Component {
     render(){
         return (
             <div className={'info-panel-content ' + this.props.cls}>{this.props.children}</div>
@@ -25,11 +21,11 @@ export class InfoPanelContent extends React.Component {
     }
 }
 
-export class InfoPanelFooter extends React.Component {
-    static defaultProps = {
-        cls: "",
-    };
+InfoPanelContent.defaultProps = {
+    cls: "",
+};
 
+export class InfoPanelFooter extends React.Component {
     render(){
         return (
             <div className={'info-panel-footer ' + this.props.cls}>{this.props.children}</div>
@@ -37,10 +33,11 @@ export class InfoPanelFooter extends React.Component {
     }
 }
 
-export default class infoPanel extends React.Component {
-    static defaultProps = {
-        cls: ""
-    };
+InfoPanelFooter.defaultProps = {
+    cls: "",
+};
+
+export default class InfoPanel extends React.Component {
     render(){
         const {cls} = this.props;
 
@@ -51,3 +48,7 @@ export default class infoPanel extends React.Component {
         )
     }
 }
+
+InfoPanel.defaultProps = {
+    cls: ""
+};

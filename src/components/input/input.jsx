@@ -9,43 +9,6 @@ const AutocompleteListItem = ({start, coincidence, end}) => {
 };
 
 export default class Input extends React.Component {
-    static defaultProps = {
-        fieldState: "normal",
-        errorMessage: "",
-        value: "",
-        type: 'text',
-        append: "",
-        prepend: "",
-        clear: true,
-        reveal: true,
-        search: false,
-        searchType: 'custom',
-        history: false,
-        preventSubmit: true,
-        autocomplete: [],
-        autocompleteHeight: 200,
-        customButtons: [],
-        cls: "",
-        className: "",
-        clsAppend: "",
-        clsPrepend: "",
-        clsButtonGroup: "",
-        clsCustomButton: "",
-        clsClearButton: "",
-        clsSearchButton: "",
-        clsRevealButton: "",
-        clsAutocomplete: "",
-        clsAutocompleteItem: "",
-        clsErrorMessage: "",
-        onSearch: () => {},
-        onClear: () => {},
-        onReveal: () => {},
-        onChange: () => {},
-        onKeyUp: () => {},
-        onBlur: () => {},
-        onFocus: () => {}
-    };
-
     constructor(props){
         super(props);
 
@@ -286,3 +249,40 @@ export default class Input extends React.Component {
         )
     }
 }
+
+Input.defaultProps = {
+    fieldState: "normal",
+    errorMessage: "",
+    value: "",
+    type: 'text',
+    append: "",
+    prepend: "",
+    clear: true,
+    reveal: true,
+    search: false,
+    searchType: 'custom',
+    history: false,
+    preventSubmit: true,
+    autocomplete: [],
+    autocompleteHeight: 200,
+    customButtons: [],
+    cls: "",
+    className: "",
+    clsAppend: "",
+    clsPrepend: "",
+    clsButtonGroup: "",
+    clsCustomButton: "",
+    clsClearButton: "",
+    clsSearchButton: "",
+    clsRevealButton: "",
+    clsAutocomplete: "",
+    clsAutocompleteItem: "",
+    clsErrorMessage: "",
+    onSearch: () => {},
+    onClear: () => {},
+    onReveal: () => {},
+    onChange: () => {},
+    onKeyUp: () => {},
+    onBlur: () => {},
+    onFocus: () => {}
+};

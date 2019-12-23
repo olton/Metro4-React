@@ -3,24 +3,6 @@ import "./checkbox.less";
 import "./switch.less";
 
 export default class Checkbox extends React.Component {
-    static defaultProps = {
-        checked: false,
-        mode: "checkbox",
-
-        caption: "",
-        variant: 1,
-        transition: true,
-
-        cls: "",
-        className: "",
-        clsCheck: "",
-        clsCaption: "",
-
-        onChange: ()=>{},
-        onCheck: ()=>{},
-        onUnCheck: ()=>{}
-    };
-
     constructor(props){
         super(props);
         this.state = {
@@ -77,6 +59,24 @@ export default class Checkbox extends React.Component {
         )
     }
 }
+
+Checkbox.defaultProps = {
+    checked: false,
+    mode: "checkbox",
+
+    caption: "",
+    variant: 1,
+    transition: true,
+
+    cls: "",
+    className: "",
+    clsCheck: "",
+    clsCaption: "",
+
+    onChange: ()=>{},
+    onCheck: ()=>{},
+    onUnCheck: ()=>{}
+};
 
 const Switch = ({mode = "switch", ...rest}) => {
     return (

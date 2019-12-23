@@ -3,17 +3,6 @@ import Icon from "../icon/icon.jsx";
 import "./action-button.less";
 
 export default class ActionButton extends React.Component {
-    static defaultProps = {
-        as: "button",
-        variant: "default",
-        icon: null,
-        iconPrefix: 'mif-',
-        image: null,
-        cls: '',
-        className: "",
-        clsIcon: "",
-    };
-
     render() {
         const {as: Element, variant, icon, iconPrefix, image, cls, className, clsIcon, ...rest} = this.props;
 
@@ -29,3 +18,14 @@ export default class ActionButton extends React.Component {
         )
     }
 }
+
+ActionButton.defaultProps = {
+    as: "button",
+    variant: "default",
+    icon: null,
+    iconPrefix: 'mif-',
+    image: null,
+    cls: '',
+    className: "",
+    clsIcon: "",
+};

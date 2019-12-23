@@ -5,19 +5,6 @@ import "./tag-input.less";
 const inputChangeEvents = "change input propertychange cut paste copy drop".split(" ");
 
 export default class TagInput extends React.Component {
-    static defaultProps = {
-        staticMode: false,
-        tags: [],
-        maxTags: 0,
-        tagTrigger: [13, 188],
-        clsTag: "",
-        clsTagTitle: "",
-        clsTagRemover: "",
-        onChange: () => {},
-        onBlur: () => {},
-        onFocus: () => {},
-    };
-
     constructor(props){
         super(props);
         this.state = {
@@ -164,3 +151,16 @@ export default class TagInput extends React.Component {
         )
     }
 }
+
+TagInput.defaultProps = {
+    staticMode: false,
+    tags: [],
+    maxTags: 0,
+    tagTrigger: [13, 188],
+    clsTag: "",
+    clsTagTitle: "",
+    clsTagRemover: "",
+    onChange: () => {},
+    onBlur: () => {},
+    onFocus: () => {},
+};

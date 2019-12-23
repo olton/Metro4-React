@@ -2,13 +2,6 @@ import React from "react";
 import "./tag.less";
 
 export default class Tag extends React.Component {
-    static defaultProps = {
-        cls: "",
-        clsTitle: "",
-        clsRemover: "",
-        onClick: () => {}
-    };
-
     onClick = e => {
         this.props.onClick(e);
     };
@@ -23,3 +16,10 @@ export default class Tag extends React.Component {
         )
     }
 }
+
+Tag.defaultProps = {
+    cls: "",
+    clsTitle: "",
+    clsRemover: "",
+    onClick: () => {}
+};

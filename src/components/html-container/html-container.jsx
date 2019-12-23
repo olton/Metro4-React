@@ -2,12 +2,6 @@ import React from "react";
 import "regenerator-runtime/runtime";
 
 export default class HtmlContainer extends React.Component {
-    static defaultProps = {
-        as: "div",
-        source: null,
-        insertAs: 'text'
-    };
-
     constructor(props){
         super(props);
         this.element = React.createRef();
@@ -73,3 +67,9 @@ export default class HtmlContainer extends React.Component {
         )
     }
 }
+
+HtmlContainer.defaultProps = {
+    as: "div",
+    source: null,
+    insertAs: 'text'
+};

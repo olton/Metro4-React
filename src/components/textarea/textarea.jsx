@@ -5,19 +5,6 @@ import Button from "../button/button";
 const changeEvents = ["keyup", "keydown", "change", "cut", "paste", "drop", "propertychange", "input"];
 
 export default class Textarea extends React.Component {
-    static defaultProps = {
-        autosize: true,
-        value: "",
-        append: "",
-        prepend: "",
-        clear: true,
-        clsClearButton: "",
-        onClear: () => {},
-        onChange: () => {},
-        onBlur: () => {},
-        onFocus: () => {}
-    };
-
     constructor(props){
         super(props);
         this.state = {
@@ -148,3 +135,16 @@ export default class Textarea extends React.Component {
         )
     }
 }
+
+Textarea.defaultProps = {
+    autosize: true,
+    value: "",
+    append: "",
+    prepend: "",
+    clear: true,
+    clsClearButton: "",
+    onClear: () => {},
+    onChange: () => {},
+    onBlur: () => {},
+    onFocus: () => {}
+};

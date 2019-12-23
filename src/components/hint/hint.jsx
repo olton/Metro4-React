@@ -3,15 +3,6 @@ import ReactDOM from "react-dom";
 import "./hint.less";
 
 export default class Hint extends React.Component {
-    static defaultProps = {
-        text: "",
-        position: 'top', //top, left, right, bottom
-        distance: 4,
-        markText: true,
-        width: "default",
-        timeout: 10000
-    };
-
     constructor(props) {
         super(props);
         this.children = typeof props.children === 'object' ? React.Children.toArray(props.children)[0] : React.createElement('span', {className: props.markText ? 'hinted-text' : ''}, props.children);
@@ -85,13 +76,13 @@ export default class Hint extends React.Component {
     };
 
     createHint = () => {
-        const {text, width, timeout} = this.props;
+        const {text, width, timeout, cls, className} = this.props;
         const hint = document.createElement("div");
 
         document.body.appendChild(hint);
 
         hint.style.visibility = 'hidden';
-        hint.className = 'hint';
+        hint.className = `hint ${cls} ${className}`;
         hint.innerText = text;
 
         if (width !== "default") {
@@ -125,3 +116,14 @@ export default class Hint extends React.Component {
         )
     }
 }
+
+Hint.defaultProps = {
+    text: "",
+    position: 'top', //top, left, right, bottom
+    distance: 4,
+    markText: true,
+    width: "default",
+    timeout: 10000,
+    cls: "",
+    className: ""
+};

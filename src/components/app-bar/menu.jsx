@@ -2,12 +2,6 @@ import React from "react";
 import Collapse from "../collapse/collapse";
 
 export default class AppBarMenu extends React.Component {
-    static defaultProps = {
-        cls: "",
-        collapsed: false,
-        speed: 300
-    };
-
     static getDerivedStateFromProps(props, state){
         if (props.collapsed !== state.collapsed) {
             return {
@@ -36,3 +30,9 @@ export default class AppBarMenu extends React.Component {
         )
     }
 }
+
+AppBarMenu.defaultProps = {
+    cls: "",
+    collapsed: false,
+    speed: 300
+};

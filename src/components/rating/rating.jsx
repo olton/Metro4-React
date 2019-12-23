@@ -4,22 +4,6 @@ import Utils from "../../routines/utils";
 
 export default class Rating extends React.Component {
     static defaultProps = {
-        value: 0,
-        values: [],
-        round: "round", // round, ceil, floor
-        stars: 5,
-        isStatic: false,
-        half: true,
-        caption: "",
-        starColor: null,
-        staredColor: null,
-        cls: "",
-        clsStars: "",
-        clsStar: "",
-        clsStarOn: "",
-        clsCaption: "",
-        onChange: () => {},
-        onClick: () => {}
     };
 
     constructor(props){
@@ -104,3 +88,22 @@ export default class Rating extends React.Component {
     }
 
 }
+
+Rating.defaultProps = {
+    value: 0,
+    values: [],
+    round: "round", // round, ceil, floor
+    stars: 5,
+    isStatic: false,
+    half: true,
+    caption: "",
+    starColor: null,
+    staredColor: null,
+    cls: "",
+    clsStars: "",
+    clsStar: "",
+    clsStarOn: "",
+    clsCaption: "",
+    onChange: () => {},
+    onClick: () => {}
+};

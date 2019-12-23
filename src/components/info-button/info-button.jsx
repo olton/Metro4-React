@@ -3,24 +3,6 @@ import Icon from "../icon/icon.jsx";
 import "./info-button.less";
 
 export default class InfoButton extends React.Component {
-    static defaultProps = {
-        as: "span",
-        title: "",
-        subtitle: "",
-        href: "",
-        hrefTitle: "",
-        hrefSubtitle: "",
-        icon: null,
-        iconPrefix: "mif-",
-        image: null,
-        cls: "",
-        className: "",
-        clsTitle: "",
-        clsSubtitle: "",
-        clsIcon: "",
-        onClick: () => {}
-    };
-
     constructor(props){
         super(props);
         this.button = React.createRef();
@@ -66,3 +48,21 @@ export default class InfoButton extends React.Component {
         )
     }
 }
+
+InfoButton.defaultProps = {
+    as: "span",
+    title: "",
+    subtitle: "",
+    href: "",
+    hrefTitle: "",
+    hrefSubtitle: "",
+    icon: null,
+    iconPrefix: "mif-",
+    image: null,
+    cls: "",
+    className: "",
+    clsTitle: "",
+    clsSubtitle: "",
+    clsIcon: "",
+    onClick: () => {}
+};

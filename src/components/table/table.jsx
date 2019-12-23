@@ -3,23 +3,6 @@ import "./table.less";
 import {MD5} from "../../routines";
 
 export default class Table extends React.Component {
-    static defaultProps = {
-        emptyTitle: "Nothing to show",
-        mode: "normal",
-        head: null,
-        body: null,
-        cls: "",
-        className: "",
-        clsHeadRow: "",
-        clsHeadCell: "",
-        clsBodyRow: "",
-        clsBodyCell: "",
-        clsEmptyTitle: "",
-        onHeadClick: () => {},
-        onCellClick: () => {},
-        onDrawCell: val => val,
-    };
-
     constructor(props){
         super(props);
         this.state = {
@@ -136,3 +119,20 @@ export default class Table extends React.Component {
         )
     }
 }
+
+Table.defaultProps = {
+    emptyTitle: "Nothing to show",
+    mode: "normal",
+    head: null,
+    body: null,
+    cls: "",
+    className: "",
+    clsHeadRow: "",
+    clsHeadCell: "",
+    clsBodyRow: "",
+    clsBodyCell: "",
+    clsEmptyTitle: "",
+    onHeadClick: () => {},
+    onCellClick: () => {},
+    onDrawCell: val => val,
+};

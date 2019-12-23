@@ -3,18 +3,6 @@ import "./image-button.less";
 import Icon from "../icon/icon";
 
 export default class ImageButton extends React.Component{
-    static defaultProps = {
-        as: "button",
-        title: "",
-        icon: null,
-        iconPrefix: "mif-",
-        image: null,
-        cls: "",
-        className: "",
-        clsIcon: "",
-        clsTitle: ""
-    };
-
     constructor(props){
         super(props);
         this.button = React.createRef();
@@ -52,3 +40,15 @@ export default class ImageButton extends React.Component{
         )
     }
 }
+
+ImageButton.defaultProps = {
+    as: "button",
+    title: "",
+    icon: null,
+    iconPrefix: "mif-",
+    image: null,
+    cls: "",
+    className: "",
+    clsIcon: "",
+    clsTitle: ""
+};

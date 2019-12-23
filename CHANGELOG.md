@@ -1,6 +1,7 @@
 ### 0.1.3
 + [x] Select: add event `onFilter`
 + [x] Tag input: add prop `staticMode`
++ [x] Components: redefine defaultProps, issue #20
 
 ### 0.1.2
 + [x] Table: add props `emptyTitle`, `clsEmptyTitle`

@@ -17,18 +17,6 @@ const SelectIconItem = (props) => {
 };
 
 export default class SelectIcon extends React.Component {
-    static defaultProps = {
-        placeholder: "Select icon...",
-        placeholderLoading: "Loading...",
-        placeholderError: "",
-        source: null,
-        valueAsPath: false,
-        iconColor: "#000",
-        showIconName: true,
-        cls: "",
-        className: ""
-    };
-
     constructor(props){
         super(props);
         this.source = {};
@@ -99,3 +87,15 @@ export default class SelectIcon extends React.Component {
         )
     }
 }
+
+SelectIcon.defaultProps = {
+    placeholder: "Select icon...",
+    placeholderLoading: "Loading...",
+    placeholderError: "",
+    source: null,
+    valueAsPath: false,
+    iconColor: "#000",
+    showIconName: true,
+    cls: "",
+    className: ""
+};

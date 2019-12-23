@@ -2,25 +2,6 @@ import React from "react";
 import PropTypes from 'prop-types';
 
 export default class Adsense extends React.Component {
-    static propsTypes = {
-        client: PropTypes.string.isRequired,
-        slot: PropTypes.string.isRequired,
-        style: PropTypes.object
-    };
-
-    static defaultProps = {
-        as: "ins",
-        style: {display: 'block'},
-        cls: "",
-        client: "",
-        slot: "",
-        layout: "",
-        layoutKey: "",
-        format: "auto",
-        responsive: true,
-        test: 'off'
-    };
-
     componentDidMount(){
         if (window) (window.adsbygoogle = window.adsbygoogle || []).push({});
     }
@@ -41,3 +22,22 @@ export default class Adsense extends React.Component {
         )
     }
 }
+
+Adsense.defaultProps = {
+    as: "ins",
+    style: {display: 'block'},
+    cls: "",
+    client: "",
+    slot: "",
+    layout: "",
+    layoutKey: "",
+    format: "auto",
+    responsive: true,
+    test: 'off'
+};
+
+Adsense.propsTypes = {
+    client: PropTypes.string.isRequired,
+    slot: PropTypes.string.isRequired,
+    style: PropTypes.object
+};

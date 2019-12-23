@@ -3,11 +3,6 @@ import "./split-button.less";
 import Dropdown from "../dropdown/dropdown";
 
 export default class SplitButton extends React.Component {
-    static defaultProps = {
-        cls: "",
-        className: ""
-    };
-
     constructor(props){
         super(props);
 
@@ -47,3 +42,8 @@ export default class SplitButton extends React.Component {
         )
     }
 }
+
+SplitButton.defaultProps = {
+    cls: "",
+    className: ""
+};

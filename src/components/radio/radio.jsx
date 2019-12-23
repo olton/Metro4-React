@@ -2,22 +2,6 @@ import React from "react";
 import "./radio.less";
 
 export default class Radio extends React.Component {
-    static defaultProps = {
-        transition: true,
-        checked: false,
-
-        caption: "",
-        variant: 1,
-
-        clsRadio: "",
-        clsCheck: "",
-        clsCaption: "",
-
-        onChange: ()=>{},
-        onCheck: ()=>{},
-        onUnCheck: ()=>{}
-    };
-
     constructor(props){
         super(props);
         this.state = {
@@ -71,3 +55,19 @@ export default class Radio extends React.Component {
         )
     }
 }
+
+Radio.defaultProps = {
+    transition: true,
+    checked: false,
+
+    caption: "",
+    variant: 1,
+
+    clsRadio: "",
+    clsCheck: "",
+    clsCaption: "",
+
+    onChange: ()=>{},
+    onCheck: ()=>{},
+    onUnCheck: ()=>{}
+};

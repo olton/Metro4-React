@@ -2,13 +2,6 @@ import React from "react";
 import "./pagination.less";
 
 class PaginationItem extends React.Component {
-    static defaultProps = {
-        cls: "",
-        className: "",
-        title: "",
-        data: null
-    };
-
     constructor(props){
         super(props);
     }
@@ -24,20 +17,14 @@ class PaginationItem extends React.Component {
     }
 }
 
-export default class Pagination extends React.Component {
-    static defaultProps = {
-        total: 0,
-        itemsPerPage: 0,
-        current: 0,
-        distance: 5,
-        cls: "",
-        className: "",
-        prevTitle: "Prev",
-        nextTitle: "Next",
-        moreTitle: "...",
-        onClick: () => {}
-    };
+PaginationItem.defaultProps = {
+    cls: "",
+    className: "",
+    title: "",
+    data: null
+};
 
+export default class Pagination extends React.Component {
     constructor(props){
         super(props);
     }
@@ -107,3 +94,16 @@ export default class Pagination extends React.Component {
         )
     }
 }
+
+Pagination.defaultProps = {
+    total: 0,
+    itemsPerPage: 0,
+    current: 0,
+    distance: 5,
+    cls: "",
+    className: "",
+    prevTitle: "Prev",
+    nextTitle: "Next",
+    moreTitle: "...",
+    onClick: () => {}
+};

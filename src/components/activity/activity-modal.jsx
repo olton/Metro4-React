@@ -4,13 +4,6 @@ import Body from "../body/body";
 import Activity from "./activity";
 
 export default class ActivityModal extends React.Component {
-    static defaultProps = {
-        open: false,
-        overlayColor: "#ffffff",
-        overlayAlpha: 1,
-        onClose: () => {}
-    };
-
     constructor(props){
         super(props);
         this.overlayClick = this.overlayClick.bind(this);
@@ -34,3 +27,10 @@ export default class ActivityModal extends React.Component {
         )
     }
 }
+
+ActivityModal.defaultProps = {
+    open: false,
+    overlayColor: "#ffffff",
+    overlayAlpha: 1,
+    onClose: () => {}
+};

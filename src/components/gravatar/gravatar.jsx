@@ -3,22 +3,23 @@ import PropTypes from 'prop-types';
 import {MD5} from "../../routines";
 
 export default class Gravatar extends React.Component {
-    static propsTypes = {
-        email: PropTypes.string.isRequired
-    };
-
-    static defaultProps = {
-        size: 80,
-        defaultImage: "mp",
-        cls: ""
-    };
-
     render(){
-        const {size, defaultImage, email, cls, ...props} = this.props;
+        const {size, defaultImage, email, cls, className, ...props} = this.props;
         const src = `//www.gravatar.com/avatar/${MD5((email.toLowerCase()).trim())}?size=${size}&d=${defaultImage}`;
 
         return (
-            <img src={src} className={'gravatar ' + cls} {...props}/>
+            <img src={src} className={`gravatar ${cls} ${className}`} {...props}/>
         )
     }
 }
+
+Gravatar.defaultProps = {
+    size: 80,
+    defaultImage: "mp",
+    cls: "",
+    className: ""
+};
+
+Gravatar.propsTypes = {
+    email: PropTypes.string.isRequired
+};

@@ -6,14 +6,6 @@ import "./app-bar.less";
 import {MediaPoints} from "../../routines";
 
 export default class AppBar extends Component {
-    static defaultProps = {
-        as: "header",
-        cls: "",
-        expand: false,
-        expandPoint: 'md',
-        hamburgerTheme: "dark"
-    };
-
     constructor(props){
         super(props);
 
@@ -88,5 +80,13 @@ export default class AppBar extends Component {
         )
     }
 }
+
+AppBar.defaultProps = {
+    as: "header",
+    cls: "",
+    expand: false,
+    expandPoint: 'md',
+    hamburgerTheme: "dark"
+};
 
 export {AppBarMenu, AppBarItem};

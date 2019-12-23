@@ -4,25 +4,6 @@ import {Button} from "../../../index";
 import Body from "../body/body";
 
 export default class Dialog extends Component {
-    static defaultProps = {
-        closeButton: true,
-        open: false,
-        title: "",
-        actions: [],
-        actionClickClose: true,
-        modal: true,
-        overlayColor: "#ffffff",
-        overlayAlpha: 1,
-        speed: .4,
-        width: "auto",
-        height: "auto",
-        contentHeight: "auto",
-        cls: "",
-        clsTitle: "",
-        clsContent: "",
-        clsActions: ""
-    };
-
     constructor(props){
         super(props);
 
@@ -84,3 +65,22 @@ export default class Dialog extends Component {
         )
     }
 }
+
+Dialog.defaultProps = {
+    closeButton: true,
+    open: false,
+    title: "",
+    actions: [],
+    actionClickClose: true,
+    modal: true,
+    overlayColor: "#ffffff",
+    overlayAlpha: 1,
+    speed: .4,
+    width: "auto",
+    height: "auto",
+    contentHeight: "auto",
+    cls: "",
+    clsTitle: "",
+    clsContent: "",
+    clsActions: ""
+};

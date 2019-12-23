@@ -3,14 +3,6 @@ import Collapse from "../collapse/collapse";
 import "./dropdown.less";
 
 export default class Dropdown extends React.Component {
-    static defaultProps = {
-        as: "div",
-        speed: 100,
-        position: "absolute",
-        cls: "",
-        clsDropdown: ""
-    };
-
     constructor(props){
         super(props);
 
@@ -66,3 +58,11 @@ export default class Dropdown extends React.Component {
         )
     }
 }
+
+Dropdown.defaultProps = {
+    as: "div",
+    speed: 100,
+    position: "absolute",
+    cls: "",
+    clsDropdown: ""
+};

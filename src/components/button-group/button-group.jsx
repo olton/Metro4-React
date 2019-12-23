@@ -4,16 +4,6 @@ import "./buttonh-group.less";
 // TODO Remove active prop from Button
 
 export default class ButtonGroup extends React.Component {
-    static defaultProps = {
-        active: 1,
-        radio: false,
-        cls: "",
-        className: "",
-        clsActive: "active",
-        clsButton: "",
-        onButtonClick: ()=>{}
-    };
-
     constructor(props){
         super(props);
 
@@ -81,3 +71,13 @@ export default class ButtonGroup extends React.Component {
         )
     }
 }
+
+ButtonGroup.defaultProps = {
+    active: 1,
+    radio: false,
+    cls: "",
+    className: "",
+    clsActive: "active",
+    clsButton: "",
+    onButtonClick: ()=>{}
+};

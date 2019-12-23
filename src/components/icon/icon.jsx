@@ -1,14 +1,6 @@
 import React from "react";
 
 export default class Icon extends React.Component {
-    static defaultProps = {
-        prefix: "mif-",
-        name: "",
-        size: false,
-        cls: "",
-        className: ""
-    };
-
     render(){
         const {
             prefix,
@@ -23,3 +15,11 @@ export default class Icon extends React.Component {
         )
     }
 }
+
+Icon.defaultProps = {
+    prefix: "mif-",
+    name: "",
+    size: false,
+    cls: "",
+    className: ""
+};

@@ -6,34 +6,6 @@ import Input from "../input/input.jsx";
 import Tag from "../tag/tag.jsx"
 
 export default class Select extends React.Component {
-    static defaultProps = {
-        source: null,
-        placeholder: "Select a value...",
-        searchPlaceholder: "Search...",
-        fieldState: "normal",
-        filter: true,
-        errorMessage: "",
-        cls: "",
-        className: "",
-        clsSelected: "",
-        clsTag: "",
-        clsPlaceholder: "",
-        clsErrorMessage: "",
-        speed: 100,
-        dropHeight: 200,
-        prepend: null,
-        append: null,
-        clsPrepend: "",
-        clsAppend: "",
-        clsDropdownToggle: "",
-        onFilter: (filter, cap) => (~(""+cap).toLowerCase().indexOf(filter.toLowerCase())),
-        onChange: () => {},
-        onFocus: () => {},
-        onBlur: () => {},
-        onDrawItem: (item) => item,
-        onDrawCaption: ( caption ) => caption
-    };
-
     static getDerivedStateFromProps(props, state){
         if (props.value !== state.initValue || props.fieldState !== state.fieldState) {
             return {
@@ -336,3 +308,31 @@ export default class Select extends React.Component {
         )
     }
 }
+
+Select.defaultProps = {
+    source: null,
+    placeholder: "Select a value...",
+    searchPlaceholder: "Search...",
+    fieldState: "normal",
+    filter: true,
+    errorMessage: "",
+    cls: "",
+    className: "",
+    clsSelected: "",
+    clsTag: "",
+    clsPlaceholder: "",
+    clsErrorMessage: "",
+    speed: 100,
+    dropHeight: 200,
+    prepend: null,
+    append: null,
+    clsPrepend: "",
+    clsAppend: "",
+    clsDropdownToggle: "",
+    onFilter: (filter, cap) => (~(""+cap).toLowerCase().indexOf(filter.toLowerCase())),
+    onChange: () => {},
+    onFocus: () => {},
+    onBlur: () => {},
+    onDrawItem: (item) => item,
+    onDrawCaption: ( caption ) => caption
+};

@@ -3,20 +3,6 @@ import "./command-button.less";
 import Icon from "../icon/icon";
 
 export default class CommandButton extends React.Component{
-    static defaultProps = {
-        as: "button",
-        title: "",
-        subtitle: "",
-        icon: null,
-        iconPrefix: "mif-",
-        image: null,
-        cls: "",
-        className: "",
-        clsTitle: "",
-        clsSubtitle: "",
-        clsIcon: ""
-    };
-
     constructor(props){
         super(props);
         this.button = React.createRef();
@@ -55,3 +41,17 @@ export default class CommandButton extends React.Component{
         )
     }
 }
+
+CommandButton.defaultProps = {
+    as: "button",
+    title: "",
+    subtitle: "",
+    icon: null,
+    iconPrefix: "mif-",
+    image: null,
+    cls: "",
+    className: "",
+    clsTitle: "",
+    clsSubtitle: "",
+    clsIcon: ""
+};
