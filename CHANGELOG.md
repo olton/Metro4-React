@@ -1,3 +1,5 @@
+### 0.1.4
+
 ### 0.1.3
 + [x] Select: add event `onFilter`
 + [x] Tag input: add prop `staticMode`
