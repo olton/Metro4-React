@@ -8,7 +8,7 @@ export default class TagInput extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            tags: props.tags,
+            tags: [].concat(props.tags),
             initValue: props.tags.join(","),
             staticMode: props.staticMode
         };
@@ -20,7 +20,8 @@ export default class TagInput extends React.Component {
     static getDerivedStateFromProps(props, state){
         if (props.tags.join(",") !== state.initValue || props.staticMode !== state.staticMode) {
             return {
-                tags: props.tags,
+                tags: [].concat(props.tags),
+                initValue: props.tags.join(","),
                 staticMode: props.staticMode
             }
         }
