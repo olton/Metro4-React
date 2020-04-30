@@ -1,5 +1,5 @@
 import React from "react";
-import "./breadcrumbs.less";
+import "./breadcrumbs.css";
 
 export class BreadcrumbsItem extends React.Component {
     render() {

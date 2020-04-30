@@ -1,10 +1,16 @@
 import React from "react";
 import ActionButton from "./action-button.jsx";
 import Icon from "../icon/icon.jsx";
-import "./action-button.less";
+import "./action-button.css";
 
 export class MultiActionItem extends React.Component {
-    onClick = (e) => {
+
+    constructor(props) {
+        super(props);
+        this.onClick = this.onClick.bind(this);
+    }
+
+    onClick(e){
         this.props.onClick(e);
     };
 
@@ -36,9 +42,12 @@ export default class MultiAction extends React.Component {
         this.state = {
             active: false
         };
+
+        this.toggleState = this.toggleState.bind(this);
+        this.itemClick = this.itemClick.bind(this);
     }
 
-    toggleState = (e) => {
+    toggleState(e) {
         const active = !!this.state.active;
 
         this.setState( {
@@ -48,7 +57,7 @@ export default class MultiAction extends React.Component {
         this.props.onClick(e);
     };
 
-    itemClick = (e, click) => {
+    itemClick(e, click) {
         if (this.props.itemClickClose) this.toggleState();
         click();
     };

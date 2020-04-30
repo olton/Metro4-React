@@ -1,0 +1,100 @@
+.tag-input {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding: 0 2px;
+  cursor: text;
+  position: relative;
+  height: auto;
+  min-height: 36px;
+}
+.tag-input .original-input {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+.tag-input .input-wrapper {
+  width: auto;
+  border: none!important;
+  height: 26px;
+  line-height: 26px;
+  font-size: 14px;
+  padding: 0 4px;
+}
+.tag-input .input-wrapper:focus {
+  box-shadow: none!important;
+}
+.tag-input .tag {
+  margin: 0.25em;
+}
+.tag-input.input-large {
+  min-height: 50px;
+}
+.tag-input.input-large .tag {
+  margin: 2px 2px;
+  height: 36px;
+  line-height: 36px;
+}
+.tag-input.input-large .tag .title {
+  font-size: 1.3rem;
+  line-height: 36px;
+}
+.tag-input.input-large .tag .remover {
+  width: 35px;
+  height: 35px;
+  line-height: 30px;
+  font-size: 1.6rem;
+}
+.tag-input.input-large input {
+  height: 48px;
+  font-size: 1.3rem;
+  padding: 0 10px;
+  line-height: 48px;
+  min-width: 5em;
+}
+.tag-input.input-small {
+  min-height: 28px;
+}
+.tag-input.input-small .tag {
+  margin: 2px 2px;
+  height: 18px;
+  line-height: 18px;
+}
+.tag-input.input-small .tag .title {
+  font-size: 0.7rem;
+  line-height: 18px;
+}
+.tag-input.input-small .tag .remover {
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  font-size: 0.8rem;
+}
+.tag-input.input-small input {
+  height: 26px;
+  font-size: 0.9rem;
+  padding: 0 4px;
+  line-height: 26px;
+  min-width: 5em;
+}
+.tag-input.static-mode {
+  border: none!important;
+  cursor: default;
+}
+.tag-input.static-mode .tag {
+  border-radius: 10px;
+  background: #d4f0ff;
+  color: #1d1d1d;
+}
+.tag-input.static-mode .tag .remover {
+  display: none!important;
+}
+.tag-input.static-mode .button,
+.tag-input.static-mode input {
+  display: none!important;
+}

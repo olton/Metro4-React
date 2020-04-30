@@ -5,7 +5,7 @@ import Square from "./square.jsx";
 import Cycle from "./cycle.jsx";
 import Simple from "./simple.jsx";
 
-import "./activity.less";
+import "./activity.css";
 
 export default class Activity extends React.Component {
     render() {

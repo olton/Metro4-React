@@ -1,5 +1,5 @@
 import React, {Component, Children} from "react";
-import "./toolbar.less";
+import "./toolbar.css";
 
 export class ToolButton extends Component {
     render() {

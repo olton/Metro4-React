@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./hint.less";
+import "./hint.css";
 
 export default class Hint extends React.Component {
     constructor(props) {
@@ -10,6 +10,10 @@ export default class Hint extends React.Component {
         this.hint = null;
 
         this.destroyHint = this.destroyHint.bind(this);
+        this.mouseEnter = this.mouseEnter.bind(this);
+        this.mouseLeave = this.mouseLeave.bind(this);
+        this.setPosition = this.setPosition.bind(this);
+        this.createHint = this.createHint.bind(this);
     }
 
     componentDidMount(){
@@ -28,15 +32,15 @@ export default class Hint extends React.Component {
         window.removeEventListener("resize", this.setPosition);
     }
 
-    mouseEnter = () => {
+    mouseEnter () {
         this.createHint();
     };
 
-    mouseLeave = () => {
+    mouseLeave () {
         this.destroyHint();
     };
 
-    setPosition = () => {
+    setPosition () {
 
         if (!this.hint) {
             return ;
@@ -75,7 +79,7 @@ export default class Hint extends React.Component {
         hint.style.left = left;
     };
 
-    createHint = () => {
+    createHint () {
         const {text, width, timeout, cls, className} = this.props;
         const hint = document.createElement("div");
 

@@ -1,5 +1,5 @@
 import React from "react";
-import "./split-button.less";
+import "./split-button.css";
 import Dropdown from "../dropdown/dropdown";
 
 export default class SplitButton extends React.Component {

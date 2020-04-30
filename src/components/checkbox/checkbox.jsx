@@ -1,6 +1,6 @@
 import React from "react";
-import "./checkbox.less";
-import "./switch.less";
+import "./checkbox.css";
+import "./switch.css";
 
 export default class Checkbox extends React.Component {
     constructor(props){

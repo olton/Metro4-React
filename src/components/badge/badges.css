@@ -1,0 +1,37 @@
+.badge {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #f8f8f8;
+  color: #1d1d1d;
+  border-radius: 0.25rem;
+  display: inline-block;
+  padding: 0.25em 0.4em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  transform: translateY(-50%) translateX(50%);
+}
+.brand .badge,
+.app-bar-item .badge,
+.app-bar-menu > li > a .badge,
+.h-menu > li > a .badge,
+.d-menu > li > a .badge,
+.v-menu > li > a .badge,
+.t-menu > li > a .badge {
+  transform: translateY(0) translateX(0);
+}
+.badge.inline {
+  position: relative;
+  display: inline-block;
+  right: auto;
+  top: -1px;
+  transform: translateY(0) translateX(0);
+}
+.badge.inside {
+  transform: translateY(0) translateX(0);
+}

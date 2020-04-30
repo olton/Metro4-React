@@ -1,5 +1,5 @@
 import React from "react";
-import "./select-icon.less";
+import "./select-icon.css";
 import Select from "../select/select";
 import {FetchStatus} from "../../defines";
 
@@ -27,6 +27,7 @@ export default class SelectIcon extends React.Component {
             loaded: FetchStatus.init,
             message: ""
         };
+        this.drawItem = this.drawItem.bind(this);
     }
 
     componentDidMount(){
@@ -71,7 +72,7 @@ export default class SelectIcon extends React.Component {
         }
     }
 
-    drawItem = item => {
+    drawItem (item) {
         const {showIconName, iconColor} = this.props;
         const {viewWidth, viewHeight} = this.state;
         return !this.source ? item : <SelectIconItem viewWidth={viewWidth} viewHeight={viewHeight} path={this.source[item]} color={iconColor} hidden={!showIconName} caption={item}/>

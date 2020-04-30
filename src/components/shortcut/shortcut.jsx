@@ -1,5 +1,5 @@
 import React from "react";
-import "./shortcut.less";
+import "./shortcut.css";
 import Icon from "../icon/icon";
 import Badge from "../badge/badge";
 

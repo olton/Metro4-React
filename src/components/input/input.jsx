@@ -1,5 +1,5 @@
 import React from "react";
-import "./input.less";
+import "./input.css";
 import Button from "../button/button.jsx";
 
 const AutocompleteListItem = ({start, coincidence, end}) => {

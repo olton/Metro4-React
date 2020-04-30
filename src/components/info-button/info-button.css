@@ -1,0 +1,71 @@
+.info-button {
+  border: 1px solid #dfdfdf;
+  background-color: #ebebeb;
+  overflow: hidden;
+  position: relative;
+  align-items: center;
+  display: inline-flex;
+  width: auto;
+  height: 36px;
+  line-height: 1;
+}
+.info-button .button {
+  display: block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0 0.75rem;
+  font-size: 0.875rem;
+  line-height: 34px;
+  height: 36px;
+  transition: all 0.15s ease-in-out;
+  background-color: #ebebeb;
+  color: #1d1d1d;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+}
+.info-button .button,
+.info-button .info {
+  border-right: none;
+  height: 100%;
+  line-height: 32px;
+  position: relative;
+}
+.info-button .button:active,
+.info-button .info:active,
+.info-button .button:focus,
+.info-button .info:focus {
+  box-shadow: none!important;
+}
+.info-button .button {
+  background-color: inherit;
+  color: inherit;
+}
+.info-button .button:hover {
+  background-color: rgba(29, 29, 29, 0.15);
+}
+.info-button .info {
+  font-size: 12px;
+  background-color: #FEFEFE;
+  color: #1d1d1d;
+  padding: 0 0.625rem;
+  text-decoration: none;
+  font-weight: 600;
+  line-height: 34px;
+}
+.info-button .info:hover {
+  color: #0056b3;
+}
+.info-button a.info:hover {
+  color: #1d1d1d;
+}
+.info-button .button .icon {
+  margin-right: 4px;
+}
+a.info-button {
+  text-decoration: none;
+}

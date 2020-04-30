@@ -1,6 +1,6 @@
 import React, {Children} from "react";
-import "./select.less";
-import "../d-menu/d-menu.less";
+import "./select.css";
+import "../d-menu/d-menu.css";
 import Collapse from "../collapse/collapse.jsx";
 import Input from "../input/input.jsx";
 import Tag from "../tag/tag.jsx"
@@ -39,6 +39,12 @@ export default class Select extends React.Component {
         this.inputChange = this.inputChange.bind(this);
         this.selectChange = this.selectChange.bind(this);
         this.close = this.close.bind(this);
+        this.handleComponentKeydown = this.handleComponentKeydown.bind(this);
+        this.handleSelectFocusing = this.handleSelectFocusing.bind(this);
+        this.handleClickOutside = this.handleClickOutside.bind(this);
+        this.createListItemGroupTitle = this.createListItemGroupTitle.bind(this);
+        this.handleListClick = this.handleListClick.bind(this);
+        this.createListItem = this.createListItem.bind(this);
     }
 
     selectChange(){
@@ -121,7 +127,7 @@ export default class Select extends React.Component {
         }
     }
 
-    handleComponentKeydown = e => {
+    handleComponentKeydown (e) {
         // for correct keyboard behavior for search input
         if ((e.target.tagName || '').toLowerCase() === 'input') {
             return true;
@@ -144,26 +150,26 @@ export default class Select extends React.Component {
         e.preventDefault();
     };
 
-    handleSelectFocusing = (e) => {
+    handleSelectFocusing (e) {
         this.setState({
             focus: e.type === 'focus'
         });
         this.props[ e.type === 'focus' ? 'onFocus' : 'onBlur' ](e);
     };
 
-    handleClickOutside = event => {
-        if (this.component.current && !this.component.current.contains(event.target)) {
+    handleClickOutside (e) {
+        if (this.component.current && !this.component.current.contains(e.target)) {
             this.setState({
                 open: false,
             });
         }
     };
 
-    createListItemGroupTitle = (cap) => {
+    createListItemGroupTitle (cap) {
         return <li className={'group-title'}>{cap}</li>;
     };
 
-    handleListClick = e => {
+    handleListClick (e) {
         let node = e.target;
 
         while (node.tagName !== 'LI') {
@@ -193,7 +199,7 @@ export default class Select extends React.Component {
 
     };
 
-    createListItem = (val, cap) => {
+    createListItem (val, cap) {
         let hidden;
         const {multiple, onDrawItem, onFilter} = this.props;
         const {filter, value} = this.state;

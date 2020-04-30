@@ -1,5 +1,5 @@
 import React from "react";
-import "./command-button.less";
+import "./command-button.css";
 import Icon from "../icon/icon";
 
 export default class CommandButton extends React.Component{

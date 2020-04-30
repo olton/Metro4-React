@@ -1,0 +1,22 @@
+.select-color-item {
+  display: block;
+}
+.select-color-item .box {
+  display: block;
+  position: absolute;
+  left: -20px;
+  top: 9px;
+  width: 32px;
+  height: 16px;
+  border: 1px #ffffff solid;
+}
+.select-color-item .caption {
+  margin-left: 20px;
+}
+.select-input .select-color-item {
+  padding-left: 20px;
+  height: 34px;
+}
+.select-input .select-color-item .box {
+  left: 0;
+}

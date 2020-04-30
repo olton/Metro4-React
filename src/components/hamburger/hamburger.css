@@ -1,0 +1,110 @@
+.hamburger {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0;
+  font-size: 14px;
+  line-height: 36px;
+  transition: all 0.15s ease-in-out;
+  background-color: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  outline: none;
+  width: 36px;
+  height: 36px;
+}
+.hamburger .line {
+  width: 30px;
+  background-color: #ffffff;
+  display: block;
+  transition: all 0.3s ease-in-out;
+  height: 3px;
+  margin: 4px auto;
+}
+.hamburger.dark .line {
+  background-color: #1d1d1d;
+}
+.hamburger.menu-down .line:nth-child(2),
+.hamburger.chevron-down .line:nth-child(2) {
+  transition-delay: 0.3s;
+}
+.hamburger.menu-down.active,
+.hamburger.chevron-down.active {
+  transform: rotate(90deg);
+}
+.hamburger.menu-down.active .line:nth-child(2),
+.hamburger.chevron-down.active .line:nth-child(2) {
+  opacity: 0;
+  transition: none;
+}
+.hamburger.menu-down.active .line:nth-child(1),
+.hamburger.chevron-down.active .line:nth-child(1),
+.hamburger.menu-down.active .line:nth-child(3),
+.hamburger.chevron-down.active .line:nth-child(3) {
+  width: 20px;
+  transform-origin: right;
+  margin: -4px 8px;
+}
+.hamburger.menu-down.active .line:nth-child(1),
+.hamburger.chevron-down.active .line:nth-child(1) {
+  transform: rotate(45deg) translateY(6px);
+}
+.hamburger.menu-down.active .line:nth-child(3),
+.hamburger.chevron-down.active .line:nth-child(3) {
+  transform: rotate(-45deg) translateY(-6px);
+}
+.hamburger.menu-up .line:nth-child(2),
+.hamburger.chevron-up .line:nth-child(2) {
+  transition-delay: 0.3s;
+}
+.hamburger.menu-up.active,
+.hamburger.chevron-up.active {
+  transform: rotate(-90deg);
+}
+.hamburger.menu-up.active .line:nth-child(2),
+.hamburger.chevron-up.active .line:nth-child(2) {
+  opacity: 0;
+  transition: none;
+}
+.hamburger.menu-up.active .line:nth-child(1),
+.hamburger.chevron-up.active .line:nth-child(1),
+.hamburger.menu-up.active .line:nth-child(3),
+.hamburger.chevron-up.active .line:nth-child(3) {
+  width: 20px;
+  transform-origin: right;
+  margin: -4px 8px;
+}
+.hamburger.menu-up.active .line:nth-child(1),
+.hamburger.chevron-up.active .line:nth-child(1) {
+  transform: rotate(45deg) translateY(6px);
+}
+.hamburger.menu-up.active .line:nth-child(3),
+.hamburger.chevron-up.active .line:nth-child(3) {
+  transform: rotate(-45deg) translateY(-6px);
+}
+.hamburger.arrow-left.active .line:nth-child(1),
+.hamburger.arrow-left.active .line:nth-child(3) {
+  width: 20px;
+  margin-left: 0;
+}
+.hamburger.arrow-left.active .line:nth-child(1) {
+  transform: rotate(-45deg);
+}
+.hamburger.arrow-left.active .line:nth-child(3) {
+  transform: rotate(45deg);
+}
+.hamburger.arrow-right.active .line:nth-child(1),
+.hamburger.arrow-right.active .line:nth-child(3) {
+  width: 20px;
+  margin-right: 0;
+}
+.hamburger.arrow-right.active .line:nth-child(1) {
+  transform: rotate(45deg);
+}
+.hamburger.arrow-right.active .line:nth-child(3) {
+  transform: rotate(-45deg);
+}

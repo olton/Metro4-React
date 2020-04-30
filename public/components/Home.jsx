@@ -9,7 +9,7 @@ import {
     Icon, Button,
 } from "../../index";
 
-import "../css/home.less";
+import "../css/home.css";
 import LogoSocial from "../images/logo-social.png";
 
 export default class Home extends React.Component {

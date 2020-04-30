@@ -1,4 +1,5 @@
 ### 0.1.4
++ [x] CRA: remove incompatibility for experimental syntax 'classProperties', issue #23
 
 ### 0.1.3
 + [x] Select: add event `onFilter`

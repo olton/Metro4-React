@@ -13,9 +13,10 @@ export default class GuideHamburger extends React.Component {
         this.state = {
             hamburgerState: false
         }
+        this.toggleHamburger = this.toggleHamburger.bind(this);
     }
 
-    toggleHamburger = () => {
+    toggleHamburger() {
         this.setState({
             hamburgerState: !this.state.hamburgerState
         })

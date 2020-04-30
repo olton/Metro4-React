@@ -1,5 +1,5 @@
 import React from "react";
-import "./grid.less";
+import "./grid.css";
 
 const Grid = ({as: Element = "div", cls = "", className = "", ...rest}) => {
     return (

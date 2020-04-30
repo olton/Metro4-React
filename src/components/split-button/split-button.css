@@ -1,0 +1,66 @@
+.split-button {
+  display: inline-flex;
+  flex-flow: row nowrap;
+  position: relative;
+  width: auto;
+  height: 36px;
+  line-height: 1;
+}
+.split-button > *:nth-child(1) {
+  order: 1;
+}
+.split-button > *:nth-child(2) {
+  order: 2;
+  margin-left: 4px;
+}
+.split-button .dropdown {
+  position: static;
+}
+.split-button .drop-object {
+  left: 0;
+}
+.split-button > .split-button {
+  margin-left: 4px;
+  order: 2;
+}
+.split-button .split {
+  padding: 0 0.75rem;
+  text-align: center;
+  vertical-align: middle ;
+  background-color: #e4e4e4;
+  border: 1px transparent solid;
+  color: #1d1d1d;
+  cursor: pointer;
+  outline: none;
+  font-size: 0.875rem;
+  position: relative;
+  line-height: 36px;
+  height: 36px;
+  min-width: 36px;
+}
+.split-button .split.dropdown-toggle::before {
+  margin-left: -1.25rem;
+}
+.split-button .split:hover {
+  background-color: #cbcbcb;
+}
+.split-button .split:focus,
+.split-button .split:hover {
+  text-decoration: none;
+}
+.split-button .split:active {
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(190, 190, 190, 0.45);
+}
+.split-button .split.disabled,
+.split-button .split:disabled {
+  opacity: 0.65;
+}
+.split-button .split.outline {
+  background: transparent none;
+  border-width: 1px;
+  border-color: #dfdfdf;
+}
+.split-button .split:active {
+  box-shadow: none;
+}

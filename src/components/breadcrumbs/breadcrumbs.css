@@ -1,0 +1,69 @@
+.breadcrumbs {
+  margin-bottom: 1rem;
+  margin-left: 0;
+  padding: 0;
+  list-style: none inside;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  background-color: #ffffff;
+  color: #6a6a6a;
+}
+.breadcrumbs .page-item,
+.breadcrumbs .breadcrumb-item {
+  position: relative;
+  cursor: pointer;
+  display: list-item;
+  background-color: inherit;
+  color: inherit;
+  transition: all 0.15s ease-in-out;
+  margin: 4px;
+}
+.breadcrumbs .page-item + .page-item::before,
+.breadcrumbs .breadcrumb-item + .breadcrumb-item::before,
+.breadcrumbs .page-item + .page-item::after,
+.breadcrumbs .breadcrumb-item + .breadcrumb-item::after {
+  display: block;
+  position: absolute;
+  vertical-align: middle;
+  color: transparent;
+  font-size: 0;
+  content: "";
+  height: 1px;
+  width: 0.375rem;
+  background-color: #1d1d1d;
+  top: 50%;
+  left: 0;
+  margin-left: -0.5rem;
+}
+.breadcrumbs .page-item + .page-item::before,
+.breadcrumbs .breadcrumb-item + .breadcrumb-item::before {
+  transform: rotate(45deg);
+  margin-top: -0.125rem;
+}
+.breadcrumbs .page-item + .page-item::after,
+.breadcrumbs .breadcrumb-item + .breadcrumb-item::after {
+  transform: rotate(-45deg);
+  margin-top: 0.125rem;
+}
+.breadcrumbs .page-link,
+.breadcrumbs .page-item a,
+.breadcrumbs .breadcrumb-item a {
+  display: block;
+  position: relative;
+  padding: 0.5rem 0.75rem;
+  line-height: 1;
+  font-size: 1rem;
+  text-decoration: none;
+  color: inherit;
+  background-color: transparent;
+}
+.breadcrumbs .page-link:hover,
+.breadcrumbs .page-item a:hover,
+.breadcrumbs .breadcrumb-item a:hover {
+  color: #1d1d1d;
+}
+.breadcrumbs .page-item:last-child,
+.breadcrumbs .breadcrumb-item:last-child {
+  font-weight: bold;
+}

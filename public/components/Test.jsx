@@ -40,9 +40,11 @@ export default class Test extends React.Component {
 
         this.state = {
         };
+
+        this.onDrawItem = this.onDrawItem.bind(this);
     }
 
-    onDrawItem = item => {
+    onDrawItem(item) {
         return "H-"+item;
     };
 

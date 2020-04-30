@@ -1,5 +1,5 @@
 import React from "react";
-import "./table.less";
+import "./table.css";
 import {MD5} from "../../routines";
 
 export default class Table extends React.Component {
@@ -11,6 +11,10 @@ export default class Table extends React.Component {
         };
         this.header = null;
         this.table = null;
+        this.drawHeader = this.drawHeader.bind(this);
+        this.drawBody = this.drawBody.bind(this);
+        this.headClick = this.headClick.bind(this);
+        this.cellClick = this.cellClick.bind(this);
     }
 
     static getDerivedStateFromProps(props, state){
@@ -23,7 +27,7 @@ export default class Table extends React.Component {
         return null;
     }
 
-    drawHeader = () => {
+    drawHeader () {
         const {head, mode, clsHeadRow, clsHeadCell} = this.props;
 
         if (Array.isArray(head) && head.length > 0) {
@@ -48,7 +52,7 @@ export default class Table extends React.Component {
         }
     };
 
-    drawBody = () => {
+    drawBody() {
         const {emptyTitle, head, clsBodyRow, clsBodyCell, clsEmptyTitle, onDrawCell} = this.props;
         const {body} = this.state;
         const tableBody = [];
@@ -89,11 +93,11 @@ export default class Table extends React.Component {
         return tableBody;
     };
 
-    headClick = e => {
+    headClick (e) {
         this.props.onHeadClick(e);
     };
 
-    cellClick = e => {
+    cellClick (e) {
         this.props.onCellClick(e);
     };
 

@@ -1,0 +1,97 @@
+.dropdown {
+  display: block;
+  float: left;
+  width: auto;
+  background: inherit;
+  position: relative;
+}
+.dropdown .drop-object {
+  position: absolute;
+  z-index: 1000;
+}
+.dropdown .drop-object.place-right {
+  left: auto;
+  right: 0;
+}
+.dropdown .dropdown {
+  width: 100%;
+}
+.dropdown .dropdown .drop-object {
+  top: -4px;
+  left: 100%;
+}
+.dropdown .dropdown .dropdown-toggle {
+  padding-right: 2rem;
+}
+.dropdown.dropped > .dropdown-toggle::before {
+  transform: rotate(135deg);
+  transition: all 0.15s ease-in-out;
+}
+.dropdown.dropped .dropdown.dropped > .dropdown-toggle::before {
+  transform: rotate(45deg);
+  transition: all 0.15s ease-in-out;
+}
+.dropdown-toggle {
+  position: relative;
+  cursor: pointer;
+  padding-right: 1.5rem;
+  user-select: none;
+}
+.dropdown-toggle::before {
+  display: block;
+  position: absolute;
+  vertical-align: middle;
+  color: transparent;
+  font-size: 0;
+  content: "";
+  height: 0.3125rem;
+  width: 0.3125rem;
+  background-color: transparent;
+  border-left: 1px solid;
+  border-bottom: 1px solid;
+  border-color: #1d1d1d;
+  top: 50%;
+  left: 100%;
+  margin-left: -1rem;
+  margin-top: -0.1625rem;
+  z-index: 2;
+  transform: rotate(-45deg);
+  transition: all 0.15s ease-in-out;
+  transform-origin: center center 1px;
+}
+.dropdown-toggle.drop-marker-light::before,
+.dropdown-toggle.marker-light::before {
+  border-color: #ffffff;
+}
+.dropdown-toggle.no-marker::before {
+  display: none;
+}
+.dropdown-toggle.active-toggle::before,
+.dropdown-toggle.active-container::before {
+  transform: rotate(135deg);
+  transition: all 0.15s ease-in-out;
+}
+.dropdown-toggle.marker-center::before {
+  left: 50%;
+  top: 50%;
+  margin-left: 0;
+  margin-top: 0;
+  transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+}
+.dropdown-toggle.marker-center.active-toggle::before,
+.dropdown-toggle.marker-center.active-container::before {
+  transform: translateX(-50%) translateY(-50%) rotate(135deg);
+  transition: all 0.15s ease-in-out;
+}
+.drop-left {
+  right: 100%;
+  top: 0;
+}
+.drop-right {
+  left: 100%;
+  top: 0;
+}
+.drop-up {
+  top: auto;
+  bottom: 100%;
+}

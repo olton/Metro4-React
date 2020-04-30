@@ -1,0 +1,12 @@
+.hero {
+  padding: 40px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+@media all and (min-width: 768px) {
+  .hero {
+    padding: 160px 80px;
+  }
+}

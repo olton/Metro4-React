@@ -1,0 +1,596 @@
+.table-container {
+  display: block;
+  position: relative;
+}
+.table-container.horizontal-scroll {
+  overflow: hidden;
+  overflow-x: auto;
+}
+.table-container.horizontal-scroll .table {
+  width: auto;
+  min-width: 100%;
+}
+.table {
+  display: table;
+}
+.thead {
+  display: table-header-group;
+}
+.tfoot {
+  display: table-footer-group;
+}
+.tbody {
+  display: table-row-group;
+}
+.tr {
+  display: table-row;
+}
+.th,
+.td {
+  display: table-cell;
+}
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+.table th,
+.table .th,
+.table td,
+.table .td {
+  padding: 0.625rem;
+  font-size: 14px;
+}
+.table.fixed-layout {
+  table-layout: fixed;
+}
+.table.fixed-layout th,
+.table.fixed-layout .th,
+.table.fixed-layout td,
+.table.fixed-layout .td {
+  white-space: nowrap;
+  overflow: hidden;
+}
+.table thead,
+.table tfoot,
+.table .thead,
+.table .tfoot {
+  border-bottom: 4px solid #e4e4e4;
+}
+.table thead th,
+.table tfoot th,
+.table .thead th,
+.table .tfoot th,
+.table thead td,
+.table tfoot td,
+.table .thead td,
+.table .tfoot td,
+.table thead .th,
+.table tfoot .th,
+.table .thead .th,
+.table .tfoot .th,
+.table thead .td,
+.table tfoot .td,
+.table .thead .td,
+.table .tfoot .td {
+  cursor: default;
+  color: #1d1d1d;
+  border-color: transparent;
+  text-align: left;
+  font-weight: bold;
+  line-height: 1.2;
+}
+.table tfoot,
+.table .tfoot {
+  border-top: 4px solid #e4e4e4;
+}
+.table tbody td,
+.table .tbody td,
+.table tbody .td,
+.table .tbody .td {
+  padding: 0.625rem;
+  vertical-align: middle;
+}
+.table .sortable-column,
+.table .sorting {
+  position: relative;
+  cursor: pointer;
+  padding-right: 30px;
+}
+.table .sortable-column:after,
+.table .sorting:after {
+  position: absolute;
+  content: "\21C5";
+  width: 1rem;
+  height: 1rem;
+  left: 100%;
+  margin-left: -1.25rem;
+  top: 50%;
+  margin-top: -0.3rem;
+  color: inherit;
+  font-size: 0.8em;
+  font-weight: 100;
+  line-height: 1;
+  opacity: 0.7;
+}
+.table .sortable-column.sort-asc,
+.table .sorting.sort-asc,
+.table .sortable-column.sort-desc,
+.table .sorting.sort-desc,
+.table .sortable-column.sorting_asc,
+.table .sorting.sorting_asc,
+.table .sortable-column.sorting_desc,
+.table .sorting.sorting_desc {
+  background-color: #ebebeb;
+}
+.table .sortable-column.sort-asc:after,
+.table .sorting.sort-asc:after,
+.table .sortable-column.sort-desc:after,
+.table .sorting.sort-desc:after,
+.table .sortable-column.sorting_asc:after,
+.table .sorting.sorting_asc:after,
+.table .sortable-column.sorting_desc:after,
+.table .sorting.sorting_desc:after {
+  color: #1d1d1d;
+  opacity: 1;
+  font-weight: 700;
+  font-size: 1em;
+  margin-top: -0.5rem;
+}
+.table .sortable-column.sort-asc:after,
+.table .sorting.sort-asc:after,
+.table .sortable-column.sorting_asc:after,
+.table .sorting.sorting_asc:after {
+  content: "\2191";
+}
+.table .sortable-column.sort-desc:after,
+.table .sorting.sort-desc:after,
+.table .sortable-column.sorting_desc:after,
+.table .sorting.sorting_desc:after {
+  content: "\2193";
+}
+.table.sortable-markers-on-left .sortable-column,
+.table.sortable-markers-on-left .sorting {
+  padding-left: 30px;
+  padding-right: 10px;
+}
+.table.sortable-markers-on-left .sortable-column:before,
+.table.sortable-markers-on-left .sorting:before,
+.table.sortable-markers-on-left .sortable-column:after,
+.table.sortable-markers-on-left .sorting:after {
+  left: 0;
+  margin-left: 0.625rem;
+}
+.table tr.selected td,
+.table .tr.selected td,
+.table tr.selected .td,
+.table .tr.selected .td {
+  background-color: rgba(28, 183, 236, 0.1);
+}
+.table td.selected,
+.table .td.selected {
+  background-color: rgba(28, 183, 236, 0.3);
+}
+.table.striped tbody tr:nth-child(odd),
+.table.striped .tbody .tr:nth-child(odd) {
+  background: #f8f8f8;
+}
+.table.row-hover tbody tr:hover,
+.table.row-hover .tbody tr:hover,
+.table.row-hover tbody .tr:hover,
+.table.row-hover .tbody .tr:hover {
+  background-color: rgba(28, 183, 236, 0.1);
+}
+.table.cell-hover tbody td:hover,
+.table.cell-hover .tbody td:hover,
+.table.cell-hover tbody .td:hover,
+.table.cell-hover .tbody .td:hover {
+  background-color: rgba(28, 183, 236, 0.3);
+}
+.table.table-border {
+  border: 1px #dfdfdf solid;
+}
+.table.cell-border th,
+.table.cell-border td,
+.table.cell-border .th,
+.table.cell-border .td {
+  border: 1px #dfdfdf solid;
+}
+.table.cell-border thead tr:first-child th,
+.table.cell-border .thead tr:first-child th,
+.table.cell-border thead .tr:first-child th,
+.table.cell-border .thead .tr:first-child th,
+.table.cell-border thead tr:first-child td,
+.table.cell-border .thead tr:first-child td,
+.table.cell-border thead .tr:first-child td,
+.table.cell-border .thead .tr:first-child td,
+.table.cell-border thead tr:first-child .th,
+.table.cell-border .thead tr:first-child .th,
+.table.cell-border thead .tr:first-child .th,
+.table.cell-border .thead .tr:first-child .th,
+.table.cell-border thead tr:first-child .td,
+.table.cell-border .thead tr:first-child .td,
+.table.cell-border thead .tr:first-child .td,
+.table.cell-border .thead .tr:first-child .td {
+  border-top: none;
+}
+.table.cell-border thead tr:first-child th:first-child,
+.table.cell-border .thead tr:first-child th:first-child,
+.table.cell-border thead .tr:first-child th:first-child,
+.table.cell-border .thead .tr:first-child th:first-child,
+.table.cell-border thead tr:first-child td:first-child,
+.table.cell-border .thead tr:first-child td:first-child,
+.table.cell-border thead .tr:first-child td:first-child,
+.table.cell-border .thead .tr:first-child td:first-child,
+.table.cell-border thead tr:first-child .th:first-child,
+.table.cell-border .thead tr:first-child .th:first-child,
+.table.cell-border thead .tr:first-child .th:first-child,
+.table.cell-border .thead .tr:first-child .th:first-child,
+.table.cell-border thead tr:first-child .td:first-child,
+.table.cell-border .thead tr:first-child .td:first-child,
+.table.cell-border thead .tr:first-child .td:first-child,
+.table.cell-border .thead .tr:first-child .td:first-child {
+  border-left: none;
+}
+.table.cell-border thead tr:first-child th:last-child,
+.table.cell-border .thead tr:first-child th:last-child,
+.table.cell-border thead .tr:first-child th:last-child,
+.table.cell-border .thead .tr:first-child th:last-child,
+.table.cell-border thead tr:first-child td:last-child,
+.table.cell-border .thead tr:first-child td:last-child,
+.table.cell-border thead .tr:first-child td:last-child,
+.table.cell-border .thead .tr:first-child td:last-child,
+.table.cell-border thead tr:first-child .th:last-child,
+.table.cell-border .thead tr:first-child .th:last-child,
+.table.cell-border thead .tr:first-child .th:last-child,
+.table.cell-border .thead .tr:first-child .th:last-child,
+.table.cell-border thead tr:first-child .td:last-child,
+.table.cell-border .thead tr:first-child .td:last-child,
+.table.cell-border thead .tr:first-child .td:last-child,
+.table.cell-border .thead .tr:first-child .td:last-child {
+  border-right: none;
+}
+.table.cell-border tbody tr:first-child td,
+.table.cell-border .tbody tr:first-child td,
+.table.cell-border tbody .tr:first-child td,
+.table.cell-border .tbody .tr:first-child td,
+.table.cell-border tbody tr:first-child .td,
+.table.cell-border .tbody tr:first-child .td,
+.table.cell-border tbody .tr:first-child .td,
+.table.cell-border .tbody .tr:first-child .td {
+  border-top: none;
+}
+.table.cell-border tbody tr td:first-child,
+.table.cell-border .tbody tr td:first-child,
+.table.cell-border tbody .tr td:first-child,
+.table.cell-border .tbody .tr td:first-child,
+.table.cell-border tbody tr .td:first-child,
+.table.cell-border .tbody tr .td:first-child,
+.table.cell-border tbody .tr .td:first-child,
+.table.cell-border .tbody .tr .td:first-child {
+  border-left: none;
+}
+.table.cell-border tbody tr td:last-child,
+.table.cell-border .tbody tr td:last-child,
+.table.cell-border tbody .tr td:last-child,
+.table.cell-border .tbody .tr td:last-child,
+.table.cell-border tbody tr .td:last-child,
+.table.cell-border .tbody tr .td:last-child,
+.table.cell-border tbody .tr .td:last-child,
+.table.cell-border .tbody .tr .td:last-child {
+  border-right: none;
+}
+.table.cell-border tbody tr:last-child td,
+.table.cell-border .tbody tr:last-child td,
+.table.cell-border tbody .tr:last-child td,
+.table.cell-border .tbody .tr:last-child td,
+.table.cell-border tbody tr:last-child .td,
+.table.cell-border .tbody tr:last-child .td,
+.table.cell-border tbody .tr:last-child .td,
+.table.cell-border .tbody .tr:last-child .td {
+  border-bottom: none;
+}
+.table.row-border tr + tr,
+.table.row-border .tr + .tr {
+  border-top: 1px #dfdfdf solid;
+}
+.table.subcompact th,
+.table.subcompact td,
+.table.subcompact .th,
+.table.subcompact .td {
+  padding: 3px 8px;
+  font-size: 80%;
+}
+.table.compact th,
+.table.compact td,
+.table.compact .th,
+.table.compact .td {
+  padding: 7px 8px;
+  font-size: 80%;
+}
+.table .check-cell,
+.table .rownum-cell {
+  width: 36px;
+  text-align: center;
+}
+.table thead td.hidden,
+.table tbody td.hidden,
+.table .thead td.hidden,
+.table .tbody td.hidden,
+.table thead th.hidden,
+.table tbody th.hidden,
+.table .thead th.hidden,
+.table .tbody th.hidden,
+.table thead .th.hidden,
+.table tbody .th.hidden,
+.table .thead .th.hidden,
+.table .tbody .th.hidden,
+.table thead .td.hidden,
+.table tbody .td.hidden,
+.table .thead .td.hidden,
+.table .tbody .td.hidden {
+  display: none!important;
+}
+.table .data-wrapper {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.table .checkbox,
+.table .radio,
+.table .switch {
+  height: initial;
+}
+.table-component {
+  display: block;
+  position: relative;
+}
+.table-bottom {
+  margin-left: 0;
+  margin-right: 0;
+}
+.table-info,
+.table-pagination {
+  flex-basis: auto;
+}
+.table-progress {
+  width: 64px;
+  height: 64px;
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  z-index: 2;
+}
+.table-progress [class*=activity-] {
+  margin: 0 auto;
+}
+.table-inspector {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  color: #1d1d1d;
+  z-index: 500;
+  border: 1px double #dfdfdf;
+  width: auto;
+  padding: 10px;
+  max-height: calc(100vh - 40px);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+}
+.table-inspector .table-inspector-header {
+  display: block;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 0.5rem 0.5rem;
+  border-bottom: 1px solid #dfdfdf;
+  font-size: 24px;
+  font-weight: 100;
+  margin-bottom: 0.5rem;
+}
+.table-inspector .table-wrap {
+  display: block;
+  height: calc(100% - 110px);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.table-inspector .table-inspector-actions {
+  display: block;
+  position: relative;
+  border-top: 1px solid #dfdfdf;
+  padding: 0.5rem 0.5rem 0;
+  margin-top: 0.5rem;
+}
+.table-inspector table,
+.table-inspector .table {
+  margin-bottom: 0;
+}
+.table-inspector table td,
+.table-inspector .table td,
+.table-inspector table .td,
+.table-inspector .table .td {
+  vertical-align: middle;
+}
+.table-inspector table tr.flash,
+.table-inspector .table tr.flash,
+.table-inspector table .tr.flash,
+.table-inspector .table .tr.flash {
+  animation: flash-bg 1s ease-out;
+  animation-iteration-count: 1;
+}
+.table-inspector .spinner {
+  width: 120px;
+}
+.table-inspector .spinner input {
+  font-size: 14px;
+}
+.table-inspector.open {
+  display: block;
+}
+.table-form {
+  display: block;
+  position: absolute;
+  z-index: 500;
+  height: auto;
+  max-height: calc(100vh - 40px);
+  width: auto;
+  max-width: calc(100vw - 40px);
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  border: 1px solid #dfdfdf;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+}
+@keyframes flash-bg {
+  0% {
+    background-color: #ffffff;
+  }
+  30% {
+    background-color: #bebebe;
+  }
+  100% {
+    background-color: #ffffff;
+  }
+}
+@media screen and (min-width: 0) {
+  .table.normal-fs th,
+  .table.normal-fs td,
+  .table.normal-fs .th,
+  .table.normal-fs .td {
+    padding: 0.625rem;
+    font-size: 1em;
+  }
+  .table.compact-fs th,
+  .table.compact-fs td,
+  .table.compact-fs .th,
+  .table.compact-fs .td {
+    padding: 7px 8px;
+    font-size: 80%;
+  }
+  .table.subcompact-fs th,
+  .table.subcompact-fs td,
+  .table.subcompact-fs .th,
+  .table.subcompact-fs .td {
+    padding: 3px 8px;
+    font-size: 80%;
+  }
+}
+@media screen and (min-width: 576px) {
+  .table.normal-sm th,
+  .table.normal-sm td,
+  .table.normal-sm .th,
+  .table.normal-sm .td {
+    padding: 0.625rem;
+    font-size: 1em;
+  }
+  .table.compact-sm th,
+  .table.compact-sm td,
+  .table.compact-sm .th,
+  .table.compact-sm .td {
+    padding: 7px 8px;
+    font-size: 80%;
+  }
+  .table.subcompact-sm th,
+  .table.subcompact-sm td,
+  .table.subcompact-sm .th,
+  .table.subcompact-sm .td {
+    padding: 3px 8px;
+    font-size: 80%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .table.normal-md th,
+  .table.normal-md td,
+  .table.normal-md .th,
+  .table.normal-md .td {
+    padding: 0.625rem;
+    font-size: 1em;
+  }
+  .table.compact-md th,
+  .table.compact-md td,
+  .table.compact-md .th,
+  .table.compact-md .td {
+    padding: 7px 8px;
+    font-size: 80%;
+  }
+  .table.subcompact-md th,
+  .table.subcompact-md td,
+  .table.subcompact-md .th,
+  .table.subcompact-md .td {
+    padding: 3px 8px;
+    font-size: 80%;
+  }
+}
+@media screen and (min-width: 992px) {
+  .table.normal-lg th,
+  .table.normal-lg td,
+  .table.normal-lg .th,
+  .table.normal-lg .td {
+    padding: 0.625rem;
+    font-size: 1em;
+  }
+  .table.compact-lg th,
+  .table.compact-lg td,
+  .table.compact-lg .th,
+  .table.compact-lg .td {
+    padding: 7px 8px;
+    font-size: 80%;
+  }
+  .table.subcompact-lg th,
+  .table.subcompact-lg td,
+  .table.subcompact-lg .th,
+  .table.subcompact-lg .td {
+    padding: 3px 8px;
+    font-size: 80%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .table.normal-xl th,
+  .table.normal-xl td,
+  .table.normal-xl .th,
+  .table.normal-xl .td {
+    padding: 0.625rem;
+    font-size: 1em;
+  }
+  .table.compact-xl th,
+  .table.compact-xl td,
+  .table.compact-xl .th,
+  .table.compact-xl .td {
+    padding: 7px 8px;
+    font-size: 80%;
+  }
+  .table.subcompact-xl th,
+  .table.subcompact-xl td,
+  .table.subcompact-xl .th,
+  .table.subcompact-xl .td {
+    padding: 3px 8px;
+    font-size: 80%;
+  }
+}
+@media screen and (min-width: 1452px) {
+  .table.normal-xxl th,
+  .table.normal-xxl td,
+  .table.normal-xxl .th,
+  .table.normal-xxl .td {
+    padding: 0.625rem;
+    font-size: 1em;
+  }
+  .table.compact-xxl th,
+  .table.compact-xxl td,
+  .table.compact-xxl .th,
+  .table.compact-xxl .td {
+    padding: 7px 8px;
+    font-size: 80%;
+  }
+  .table.subcompact-xxl th,
+  .table.subcompact-xxl td,
+  .table.subcompact-xxl .th,
+  .table.subcompact-xxl .td {
+    padding: 3px 8px;
+    font-size: 80%;
+  }
+}

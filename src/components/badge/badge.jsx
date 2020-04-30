@@ -1,5 +1,5 @@
 import React from "react";
-import "./badges.less";
+import "./badges.css";
 
 export default class Badge extends React.Component {
     render(){

@@ -1,5 +1,5 @@
 import React, {Children, Component} from "react";
-import "./tabs.less";
+import "./tabs.css";
 
 export class Tab extends Component {
     render(){

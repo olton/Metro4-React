@@ -1,0 +1,34 @@
+.bg-react {
+  background-color: #20232a !important;
+}
+.bg-react-secondary {
+  background-color: #393d46 !important;
+}
+.bg-react-text {
+  background-color: #61dafb !important;
+}
+.bg-react-text-darken {
+  background-color: #327d94 !important;
+}
+.fg-react {
+  color: #61dafb !important;
+}
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+}
+body {
+  padding-top: 50px;
+}
+#root {
+  height: 100%;
+  min-height: 100%;
+}
+.app-bar-react-colors {
+  background-color: #20232a;
+  color: #ffffff;
+}
+.adsbygoogle {
+  border: 1px dotted #61dafb !important;
+}

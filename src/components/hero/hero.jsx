@@ -1,5 +1,5 @@
 import React from "react";
-import "./hero.less";
+import "./hero.css";
 
 const Hero = ({as: Element = "div", cls = "", className = "", children}) => {
     return (

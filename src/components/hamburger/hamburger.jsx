@@ -1,5 +1,5 @@
 import React from "react";
-import "./hamburger.less";
+import "./hamburger.css";
 
 export default class Hamburger extends React.Component {
     constructor(props){

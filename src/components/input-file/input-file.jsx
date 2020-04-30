@@ -1,5 +1,5 @@
 import React from "react";
-import "./input-file.less";
+import "./input-file.css";
 import Button from "../button/button";
 import {Icon} from "../../../index";
 

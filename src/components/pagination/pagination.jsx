@@ -1,5 +1,5 @@
 import React from "react";
-import "./pagination.less";
+import "./pagination.css";
 
 class PaginationItem extends React.Component {
     constructor(props){
@@ -27,14 +27,16 @@ PaginationItem.defaultProps = {
 export default class Pagination extends React.Component {
     constructor(props){
         super(props);
+        this.clickHandler = this.clickHandler.bind(this);
+        this.addItem = this.addItem.bind(this);
     }
 
-    clickHandler = e => {
+    clickHandler (e) {
         const val = e.target.getAttribute("data-value");
-        if (val) this.props.onClick(val)
+        if (val) this.props.onClick(val);
     };
 
-    addItem = (title, data, className = '') => {
+    addItem (title, data, className = '') {
         return (
             <PaginationItem title={title} className={className} data={data} />
         )

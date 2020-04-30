@@ -1,0 +1,366 @@
+.button,
+.flat-button {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0 0.75rem;
+  font-size: 0.875rem;
+  line-height: 34px;
+  height: 36px;
+  transition: all 0.15s ease-in-out;
+  background-color: #ebebeb;
+  color: #1d1d1d;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  overflow: visible;
+}
+.button .icon + .caption,
+.flat-button .icon + .caption {
+  margin-left: 8px;
+}
+.button .caption + .icon,
+.flat-button .caption + .icon {
+  margin-left: 8px;
+}
+.flat-button {
+  min-width: 64px;
+  background-color: transparent;
+}
+.button:active,
+.button.focus,
+.button:focus {
+  box-shadow: 0 0 0 3px rgba(228, 228, 228, 0.45);
+}
+.button:hover {
+  background-color: rgba(29, 29, 29, 0.15);
+}
+.button.link {
+  background-color: transparent;
+  color: #0366d6;
+}
+.button.link:hover {
+  background-color: transparent;
+  color: #0056b3;
+  text-decoration: underline;
+}
+.button.link.focus,
+.button.link:focus {
+  box-shadow: none;
+}
+.button.hovered:hover {
+  background-color: rgba(29, 29, 29, 0.2);
+}
+.button img {
+  height: 1rem;
+}
+.button.mini {
+  font-size: 0.625rem;
+  padding: 0 0.5rem;
+  height: 20px;
+  line-height: 20px;
+}
+.button.mini img {
+  height: 0.625rem;
+}
+.button.small {
+  font-size: 0.75rem;
+  padding: 0 0.6rem;
+  height: 26px;
+  line-height: 26px;
+}
+.button.small img {
+  height: 0.75rem;
+}
+.button.large {
+  font-size: 1.375rem;
+  padding: 0 1rem;
+  height: 53px;
+  line-height: 53px;
+}
+.button.large img {
+  height: 1.375rem;
+}
+.button.square,
+.button.cycle {
+  width: 2.25rem;
+  height: 2.25rem;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.button.square.mini,
+.button.cycle.mini {
+  width: 1.39875rem;
+  height: 1.39875rem;
+}
+.button.square.small,
+.button.cycle.small {
+  width: 1.724375rem;
+  height: 1.724375rem;
+}
+.button.square.large,
+.button.cycle.large {
+  width: 3.3125rem;
+  height: 3.3125rem;
+}
+.button.cycle {
+  border-radius: 50%;
+}
+.button.square.dropdown-toggle::before,
+.button.cycle.dropdown-toggle::before {
+  display: none;
+}
+.button.dropdown-toggle.no-marker {
+  padding-right: 0.75rem !important;
+}
+.button:focus,
+.button:hover {
+  text-decoration: none;
+}
+.button:active {
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(190, 190, 190, 0.45);
+}
+.button.disabled,
+.button:disabled {
+  opacity: 0.65;
+}
+.button.outline {
+  background: transparent none;
+  border-width: 1px;
+  border-color: #dfdfdf;
+}
+.button:active {
+  box-shadow: none;
+}
+a.button,
+a.flat-button {
+  appearance: none;
+  color: #1d1d1d;
+  box-shadow: none;
+  text-decoration: none;
+}
+a.button:hover,
+a.flat-button:hover {
+  box-shadow: none;
+}
+a.button:active,
+a.flat-button:active,
+a.button.focus,
+a.flat-button.focus,
+a.button:focus,
+a.flat-button:focus {
+  box-shadow: 0 0 0 3px rgba(228, 228, 228, 0.45);
+}
+input[type=button],
+input[type=submit],
+input[type=reset] {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0 0.75rem;
+  font-size: 0.875rem;
+  line-height: 34px;
+  height: 36px;
+  transition: all 0.15s ease-in-out;
+  background-color: #ebebeb;
+  color: #1d1d1d;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  overflow: visible;
+}
+input[type=button] .icon + .caption,
+input[type=submit] .icon + .caption,
+input[type=reset] .icon + .caption {
+  margin-left: 8px;
+}
+input[type=button] .caption + .icon,
+input[type=submit] .caption + .icon,
+input[type=reset] .caption + .icon {
+  margin-left: 8px;
+}
+input[type=button]:active,
+input[type=submit]:active,
+input[type=reset]:active,
+input[type=button].focus,
+input[type=submit].focus,
+input[type=reset].focus,
+input[type=button]:focus,
+input[type=submit]:focus,
+input[type=reset]:focus {
+  box-shadow: 0 0 0 3px rgba(228, 228, 228, 0.45);
+}
+input[type=button]:hover,
+input[type=submit]:hover,
+input[type=reset]:hover {
+  background-color: rgba(29, 29, 29, 0.15);
+}
+input[type=button].link,
+input[type=submit].link,
+input[type=reset].link {
+  background-color: transparent;
+  color: #0366d6;
+}
+input[type=button].link:hover,
+input[type=submit].link:hover,
+input[type=reset].link:hover {
+  background-color: transparent;
+  color: #0056b3;
+  text-decoration: underline;
+}
+input[type=button].link.focus,
+input[type=submit].link.focus,
+input[type=reset].link.focus,
+input[type=button].link:focus,
+input[type=submit].link:focus,
+input[type=reset].link:focus {
+  box-shadow: none;
+}
+input[type=button].hovered:hover,
+input[type=submit].hovered:hover,
+input[type=reset].hovered:hover {
+  background-color: rgba(29, 29, 29, 0.2);
+}
+input[type=button] img,
+input[type=submit] img,
+input[type=reset] img {
+  height: 1rem;
+}
+input[type=button].mini,
+input[type=submit].mini,
+input[type=reset].mini {
+  font-size: 0.625rem;
+  padding: 0 0.5rem;
+  height: 20px;
+  line-height: 20px;
+}
+input[type=button].mini img,
+input[type=submit].mini img,
+input[type=reset].mini img {
+  height: 0.625rem;
+}
+input[type=button].small,
+input[type=submit].small,
+input[type=reset].small {
+  font-size: 0.75rem;
+  padding: 0 0.6rem;
+  height: 26px;
+  line-height: 26px;
+}
+input[type=button].small img,
+input[type=submit].small img,
+input[type=reset].small img {
+  height: 0.75rem;
+}
+input[type=button].large,
+input[type=submit].large,
+input[type=reset].large {
+  font-size: 1.375rem;
+  padding: 0 1rem;
+  height: 53px;
+  line-height: 53px;
+}
+input[type=button].large img,
+input[type=submit].large img,
+input[type=reset].large img {
+  height: 1.375rem;
+}
+input[type=button].square,
+input[type=submit].square,
+input[type=reset].square,
+input[type=button].cycle,
+input[type=submit].cycle,
+input[type=reset].cycle {
+  width: 2.25rem;
+  height: 2.25rem;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+input[type=button].square.mini,
+input[type=submit].square.mini,
+input[type=reset].square.mini,
+input[type=button].cycle.mini,
+input[type=submit].cycle.mini,
+input[type=reset].cycle.mini {
+  width: 1.39875rem;
+  height: 1.39875rem;
+}
+input[type=button].square.small,
+input[type=submit].square.small,
+input[type=reset].square.small,
+input[type=button].cycle.small,
+input[type=submit].cycle.small,
+input[type=reset].cycle.small {
+  width: 1.724375rem;
+  height: 1.724375rem;
+}
+input[type=button].square.large,
+input[type=submit].square.large,
+input[type=reset].square.large,
+input[type=button].cycle.large,
+input[type=submit].cycle.large,
+input[type=reset].cycle.large {
+  width: 3.3125rem;
+  height: 3.3125rem;
+}
+input[type=button].cycle,
+input[type=submit].cycle,
+input[type=reset].cycle {
+  border-radius: 50%;
+}
+input[type=button].square.dropdown-toggle::before,
+input[type=submit].square.dropdown-toggle::before,
+input[type=reset].square.dropdown-toggle::before,
+input[type=button].cycle.dropdown-toggle::before,
+input[type=submit].cycle.dropdown-toggle::before,
+input[type=reset].cycle.dropdown-toggle::before {
+  display: none;
+}
+input[type=button].dropdown-toggle.no-marker,
+input[type=submit].dropdown-toggle.no-marker,
+input[type=reset].dropdown-toggle.no-marker {
+  padding-right: 0.75rem !important;
+}
+input[type=button]:focus,
+input[type=submit]:focus,
+input[type=reset]:focus,
+input[type=button]:hover,
+input[type=submit]:hover,
+input[type=reset]:hover {
+  text-decoration: none;
+}
+input[type=button]:active,
+input[type=submit]:active,
+input[type=reset]:active {
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(190, 190, 190, 0.45);
+}
+input[type=button].disabled,
+input[type=submit].disabled,
+input[type=reset].disabled,
+input[type=button]:disabled,
+input[type=submit]:disabled,
+input[type=reset]:disabled {
+  opacity: 0.65;
+}
+input[type=button].outline,
+input[type=submit].outline,
+input[type=reset].outline {
+  background: transparent none;
+  border-width: 1px;
+  border-color: #dfdfdf;
+}
+input[type=button]:active,
+input[type=submit]:active,
+input[type=reset]:active {
+  box-shadow: none;
+}

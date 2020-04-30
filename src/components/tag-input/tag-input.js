@@ -1,6 +1,6 @@
 import React from "react";
 import Tag from "../tag/tag";
-import "./tag-input.less";
+import "./tag-input.css";
 
 const inputChangeEvents = "change input propertychange cut paste copy drop".split(" ");
 
@@ -15,6 +15,12 @@ export default class TagInput extends React.Component {
         this.component = React.createRef();
         this.input = React.createRef();
         this.tagClickHandler = this.tagClickHandler.bind(this);
+        this.onChange = this.onChange.bind(this);
+        this.inputKeyUp = this.inputKeyUp.bind(this);
+        this.inputChange = this.inputChange.bind(this);
+        this.onFocus = this.onFocus.bind(this);
+        this.onBlur = this.onBlur.bind(this);
+        this.onClick = this.onClick.bind(this);
     }
 
     static getDerivedStateFromProps(props, state){
@@ -27,11 +33,11 @@ export default class TagInput extends React.Component {
         return null;
     }
 
-    onChange = tags => {
+    onChange (tags) {
         this.props.onChange(tags);
     };
 
-    inputKeyUp = e => {
+    inputKeyUp (e) {
         const input = e.target;
         const {tagTrigger} = this.props;
         let val = input.value.trim();
@@ -56,26 +62,26 @@ export default class TagInput extends React.Component {
         this.onChange(tags);
     };
 
-    inputChange = () => {
+    inputChange () {
         const input = this.input.current;
         input.setAttribute("size", Math.ceil(input.value.length / 2) + 2);
     };
 
-    onFocus = e => {
+    onFocus (e) {
         this.setState({
             focus: true
         });
         this.props.onFocus(e);
     };
 
-    onBlur = e => {
+    onBlur (e) {
         this.setState({
             focus: false
         });
         this.props.onBlur(e);
     };
 
-    onClick = () => {
+    onClick () {
         this.input.current.focus();
     };
 

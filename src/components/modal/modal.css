@@ -1,0 +1,15 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ffffff;
+  color: #1d1d1d;
+  z-index: 1050;
+}
+.modal.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

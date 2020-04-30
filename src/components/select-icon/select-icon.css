@@ -1,0 +1,25 @@
+.select-icon .select-icon-item {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  height: 34px;
+  width: 100%;
+}
+.select-icon .select-icon-item .caption {
+  margin-left: 10px;
+}
+.select-icon .select-icon-item .icon {
+  left: -24px !important;
+  width: 24px;
+  height: 24px;
+  transform: rotate(180deg) scaleX(-1);
+}
+.select-icon .d-menu .icon {
+  transform: rotate(180deg) scaleX(-1);
+  width: 24px;
+  height: 24px;
+  margin-top: -2px !important;
+}
+.select-icon .select-input .select-icon-item .icon {
+  left: 0!important;
+}

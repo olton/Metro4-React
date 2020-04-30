@@ -1,1 +1,1 @@
-import "./mif.less";
+import "./mif.css";

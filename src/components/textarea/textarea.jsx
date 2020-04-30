@@ -1,5 +1,5 @@
 import React from "react";
-import "./textarea.less";
+import "./textarea.css";
 import Button from "../button/button";
 
 const changeEvents = ["keyup", "keydown", "change", "cut", "paste", "drop", "propertychange", "input"];

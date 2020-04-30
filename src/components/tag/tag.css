@@ -1,0 +1,38 @@
+.tag {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  margin: 0 0.5em 0.5em 0;
+  padding: 0;
+  height: 24px;
+  line-height: 24px;
+  background-color: #f8f8f8;
+  cursor: default;
+}
+.tag .title {
+  display: block;
+  position: relative;
+  max-width: 120px;
+  font-size: 14px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin: 0;
+  padding: 0 8px;
+  height: 100%;
+}
+.tag .remover {
+  display: block;
+  position: relative;
+  width: 24px;
+  height: 100%;
+  line-height: 24px;
+  text-align: center;
+  cursor: pointer;
+  background-color: #e4e4e4;
+  padding: 0;
+}
+.tag .remover:hover {
+  background-color: rgba(29, 29, 29, 0.15);
+}

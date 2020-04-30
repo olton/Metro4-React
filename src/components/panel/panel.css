@@ -1,0 +1,80 @@
+.panel {
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid #dfdfdf;
+}
+.panel .panel-title,
+.panel .panel-content {
+  position: relative;
+}
+.panel .panel-title {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  order: 1;
+  height: 2.625rem;
+  border-bottom: 1px solid #dfdfdf;
+  line-height: 2.625rem;
+  cursor: default;
+  flex-shrink: 0;
+}
+.panel .panel-title .icon {
+  order: 1;
+  height: 2.625rem;
+  line-height: 2.625rem;
+  width: 2.625rem;
+  border-right: 1px solid #dfdfdf;
+  flex-shrink: 0;
+  color: inherit;
+  text-align: center;
+}
+.panel .panel-title img.icon {
+  padding: 4px;
+}
+.panel .panel-title .caption {
+  order: 2;
+  width: 100%;
+  padding: 0 0.8125rem;
+  color: inherit;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.panel .panel-title .dropdown-toggle {
+  order: 4;
+  height: 100%;
+  width: 2.625rem;
+  border-left: 1px solid #dfdfdf;
+  flex-shrink: 0;
+}
+.panel .panel-title .custom-buttons {
+  order: 3;
+  display: flex;
+  flex-flow: row nowrap;
+}
+.panel .panel-title .btn-custom {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+.panel .panel-title .btn-custom > * {
+  line-height: 1;
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+}
+.panel .panel-content {
+  display: block;
+  order: 2;
+  height: auto;
+  padding: 0;
+}
+.panel .panel-content-inner {
+  display: block;
+  position: relative;
+}

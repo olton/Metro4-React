@@ -1,8 +1,13 @@
 import React from "react";
-import "./tag.less";
+import "./tag.css";
 
 export default class Tag extends React.Component {
-    onClick = e => {
+    constructor(props) {
+        super(props);
+        this.onClick = this.onClick.bind(this);
+    }
+
+    onClick (e) {
         this.props.onClick(e);
     };
 

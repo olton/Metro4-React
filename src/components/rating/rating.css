@@ -1,0 +1,120 @@
+.rating {
+  display: inline-flex;
+  flex-flow: row;
+  align-items: center;
+  position: relative;
+  background-color: transparent;
+  cursor: default;
+  font-size: 16px;
+}
+.rating input {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+.rating .stars,
+.rating .result,
+.rating .title {
+  display: block;
+  position: relative;
+}
+.rating .stars {
+  margin: 0;
+  padding: 0;
+  list-style: none inside;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+.rating .stars li {
+  display: block;
+  position: relative;
+  color: #bebebe;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  font-size: 24px;
+  transition: color 0.3s linear;
+}
+.rating .stars li::before {
+  position: absolute;
+  content: '\2605';
+  display: block;
+  z-index: 1;
+  left: 0;
+}
+.rating .stars li.half::after {
+  left: 0;
+  display: block;
+  position: absolute;
+  content: '\2605';
+  width: 0.42em;
+  z-index: 2;
+  overflow: hidden;
+}
+.rating .stars li.half.half-10::after {
+  width: 0.1em;
+}
+.rating .stars li.half.half-20::after {
+  width: 0.2em;
+}
+.rating .stars li.half.half-30::after {
+  width: 0.3em;
+}
+.rating .stars li.half.half-40::after {
+  width: 0.4em;
+}
+.rating .stars li.half.half-50::after {
+  width: 0.42em;
+}
+.rating .stars li.half.half-60::after {
+  width: 0.49em;
+}
+.rating .stars li.half.half-70::after {
+  width: 0.6em;
+}
+.rating .stars li.half.half-80::after {
+  width: 0.7em;
+}
+.rating .stars li.half.half-90::after {
+  width: 0.8em;
+}
+.rating .result {
+  font-size: 0.8em;
+  margin-left: 10px;
+}
+.rating .title {
+  margin-right: 10px;
+}
+.rating .stars {
+  cursor: default;
+}
+.rating .stars li.on,
+.rating .stars li.half::after {
+  color: #1d1d1d;
+}
+.rating:not(.static) .stars {
+  cursor: pointer;
+}
+.rating:not(.static) .stars:hover li {
+  color: #1d1d1d;
+}
+.rating:not(.static) .stars li:hover ~ li {
+  color: #bebebe !important;
+}
+.rating:not(.static) .stars li.scale {
+  animation: star-scale 0.3s ease-in-out;
+}
+@keyframes star-scale {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+}

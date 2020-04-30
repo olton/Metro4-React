@@ -1,5 +1,5 @@
 import React from "react";
-import "./info-panel.less";
+import "./info-panel.css";
 
 export class InfoPanelTitle extends React.Component {
     render(){

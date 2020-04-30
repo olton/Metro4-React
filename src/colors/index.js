@@ -1,1 +1,1 @@
-import "./colors.less";
+import "./colors.css";

@@ -1,5 +1,5 @@
 import React from "react";
-import "./collapse.less";
+import "./collapse.css";
 
 const COLLAPSED = "collapsed";
 const COLLAPSING = "collapsing";
@@ -17,6 +17,13 @@ export default class Collapse extends React.Component {
             },
             hasReversed: false
         }
+        this.onTransitionEnd = this.onTransitionEnd.bind(this);
+        this.getHeight = this.getHeight.bind(this);
+        this.onCallback = this.onCallback.bind(this);
+        this.setCollapsed = this.setCollapsed.bind(this);
+        this.setCollapsing = this.setCollapsing.bind(this);
+        this.setExpanded = this.setExpanded.bind(this);
+        this.setExpanding = this.setExpanding.bind(this);
     }
 
     render() {
@@ -115,7 +122,7 @@ export default class Collapse extends React.Component {
         }
     }
 
-    onTransitionEnd = ({ target, propertyName }) => {
+    onTransitionEnd({ target, propertyName }) {
         if (target === this.content && propertyName === "height") {
             switch (this.state.collapseState) {
                 case EXPANDING:
@@ -131,9 +138,11 @@ export default class Collapse extends React.Component {
         }
     };
 
-    getHeight = () => `${this.content.scrollHeight}px`;
+    getHeight () {
+        return `${this.content.scrollHeight}px`;
+    }
 
-    onCallback = callback => {
+    onCallback (callback) {
         callback &&
         callback({
             ...this.state,
@@ -141,7 +150,7 @@ export default class Collapse extends React.Component {
         });
     };
 
-    setCollapsed = () => {
+    setCollapsed() {
         if (!this.content) return;
 
         this.setState(
@@ -155,7 +164,7 @@ export default class Collapse extends React.Component {
         );
     };
 
-    setCollapsing = () => {
+    setCollapsing() {
         if (!this.content) return;
 
         const height = this.getHeight();
@@ -181,7 +190,7 @@ export default class Collapse extends React.Component {
         });
     };
 
-    setExpanding = () => {
+    setExpanding () {
         nextFrame(() => {
             if (this.content) {
                 const height = this.getHeight();
@@ -200,7 +209,7 @@ export default class Collapse extends React.Component {
         });
     };
 
-    setExpanded = () => {
+    setExpanded () {
         if (!this.content) return;
 
         this.setState(

@@ -8,7 +8,13 @@ import Article from "../Article";
 import GuideLogo from "../GuideLogo";
 
 export default class GuideMemoryTable extends React.Component {
-    drawCell = (val, props) => {
+
+    constructor(props) {
+        super(props);
+        this.drawCell = this.drawCell.bind(this);
+    }
+
+    drawCell(val, props) {
         if (props.name === 'name') {
             return <a href="#">{val}</a>
         }

@@ -1,6 +1,6 @@
 import React from "react";
 import Icon from "../icon/icon.jsx";
-import "./action-button.less";
+import "./action-button.css";
 
 export default class ActionButton extends React.Component {
     render() {

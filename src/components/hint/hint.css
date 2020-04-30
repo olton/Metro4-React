@@ -1,0 +1,16 @@
+.hint {
+  display: block;
+  position: fixed;
+  z-index: 1070;
+  background-color: #fffcc0;
+  color: #1d1d1d;
+  font-size: 12px;
+  max-width: 220px;
+  padding: 10px;
+}
+.hinted-text {
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: #1ba1e2;
+  text-underline-position: under;
+}

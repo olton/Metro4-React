@@ -34,7 +34,7 @@ import {
 } from "../../index";
 
 import MainMenu from "./MainMenu";
-import "../css/demo.less";
+import "../css/demo.css";
 import Example from "./Example";
 
 const autocompleteList = ["Ukraine", "USA", "Canada", "Marokko", "Singapur"];

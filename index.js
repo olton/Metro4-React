@@ -1,4 +1,4 @@
-import * as Common from "./src/common";
+import * as Common from "./src/common-css";
 import * as Colors from "./src/colors";
 import * as Icons from "./src/icons";
 import * as Routines from "./src/routines";

@@ -1,0 +1,107 @@
+.file input,
+.drop-zone input {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+.file {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0;
+  padding: 0;
+}
+.file.focused {
+  box-shadow: 0 0 0 3px rgba(228, 228, 228, 0.45);
+}
+.file .button-group {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-left: auto;
+  height: 34px;
+}
+.file .button {
+  background-color: transparent;
+  color: #1d1d1d;
+  height: 34px;
+  min-width: 34px;
+}
+.file .button:focus {
+  box-shadow: none;
+}
+.file .button:hover {
+  background-color: #f8f8f8;
+  text-shadow: rgba(0, 0, 0, 0.25) 0.1em 0.1em 0.2em;
+}
+.file:hover .input-select-button {
+  text-shadow: rgba(0, 0, 0, 0.25) 0.1em 0.1em 0.2em;
+}
+.file .input-clear-button,
+.file .input-select-button {
+  background-color: transparent;
+}
+.file .input-clear-button:hover,
+.file .input-select-button:hover {
+  background-color: transparent;
+}
+.file.disabled .button-group button {
+  background-color: #f8f8f8;
+  color: #dfdfdf;
+}
+.file .caption {
+  line-height: 35px;
+  display: block;
+  padding: 0 0.5rem;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.file.disabled button {
+  background-color: #f8f8f8;
+  color: #dfdfdf;
+}
+.file .prepend {
+  order: 1;
+}
+.file .append {
+  order: 4;
+}
+.file .caption {
+  order: 2;
+}
+.file .button-group {
+  order: 3;
+}
+.drop-zone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  width: 100%;
+  height: auto;
+  padding: 40px 0;
+  outline: 4px dashed #989898;
+  outline-offset: -12px;
+  background-color: #f8f8f8;
+}
+.drop-zone .icon {
+  display: block;
+  width: 64px;
+  height: 64px;
+}
+.drop-zone .caption {
+  margin-top: 10px;
+  font-size: 14px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.drop-zone.focused {
+  outline-color: #1ba1e2;
+}
+.drop-zone.drop-on {
+  outline-color: #60a917;
+}

@@ -1,0 +1,88 @@
+.command-button,
+.image-button {
+  padding: 0.5rem;
+  display: inline-flex;
+  font-size: 1.5rem;
+  transition: all 0.15s ease-in-out;
+  background-color: #ebebeb;
+  color: #1d1d1d;
+  cursor: pointer;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  outline: none;
+  position: relative;
+  font-weight: 500;
+}
+.command-button .icon,
+.image-button .icon {
+  width: 2.6875rem;
+  height: 2.6875rem;
+  line-height: 2.6875rem;
+  font-size: 2rem;
+  color: inherit;
+  order: 1;
+}
+.command-button .caption,
+.image-button .caption {
+  margin-left: 0.5rem;
+  text-align: left;
+  color: inherit;
+  order: 2;
+  font-weight: 400;
+  line-height: 1.2;
+}
+.command-button .caption small,
+.image-button .caption small {
+  display: block;
+  font-size: 0.8rem;
+}
+.command-button.icon-right .icon,
+.image-button.icon-right .icon {
+  order: 2;
+}
+.command-button.icon-right .caption,
+.image-button.icon-right .caption {
+  order: 1;
+  margin-left: 0;
+  margin-right: 0.5rem;
+}
+.command-button.outline,
+.image-button.outline {
+  background: transparent none;
+  border-width: 1px;
+  border-color: #dfdfdf;
+}
+.command-button:hover,
+.image-button:hover {
+  background-color: rgba(29, 29, 29, 0.15);
+}
+.command-button:active,
+.image-button:active,
+.command-button.focus,
+.image-button.focus,
+.command-button:focus,
+.image-button:focus {
+  box-shadow: 0 0 0 3px rgba(228, 228, 228, 0.45);
+}
+.command-button:focus,
+.image-button:focus,
+.command-button:hover,
+.image-button:hover,
+.command-button.focus,
+.image-button.focus {
+  text-decoration: none;
+}
+.command-button:active,
+.image-button:active {
+  box-shadow: none;
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(190, 190, 190, 0.45);
+}
+.command-button.disabled,
+.image-button.disabled,
+.command-button:disabled,
+.image-button:disabled {
+  opacity: 0.65;
+}

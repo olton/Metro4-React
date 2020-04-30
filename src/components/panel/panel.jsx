@@ -1,5 +1,5 @@
 import React from "react";
-import "./panel.less";
+import "./panel.css";
 import Collapse from "../collapse/collapse";
 import Icon from "../icon/icon";
 
@@ -10,6 +10,7 @@ export default class Panel extends React.Component {
             open: props.open,
             initState: props.open
         };
+        this.togglePanelState = this.togglePanelState.bind(this);
     }
 
     static getDerivedStateFromProps(props, state){
@@ -22,7 +23,7 @@ export default class Panel extends React.Component {
         return null;
     }
 
-    togglePanelState = () => {
+    togglePanelState () {
         this.setState({
             open: !this.state.open
         })

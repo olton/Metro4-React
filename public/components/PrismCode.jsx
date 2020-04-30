@@ -4,7 +4,9 @@ import Prism from "prismjs"
 export default class PrismCode extends React.Component {
     constructor(props) {
         super(props);
-        this.ref = React.createRef()
+        this.ref = React.createRef();
+        this.highlight = this.highlight.bind(this);
+        this.cleanCode = this.cleanCode.bind(this);
     }
 
     componentDidMount() {
@@ -15,13 +17,13 @@ export default class PrismCode extends React.Component {
         this.highlight()
     }
 
-    highlight = () => {
+    highlight(){
         if (this.ref && this.ref.current) {
             Prism.highlightElement(this.ref.current)
         }
     };
 
-    cleanCode = (code) => {
+    cleanCode(code){
         const txt = code
             .replace(/^[\r\n]+/, "")	// strip leading newline
             .replace(/\s+$/g, "");

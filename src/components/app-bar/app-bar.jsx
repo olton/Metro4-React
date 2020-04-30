@@ -2,7 +2,7 @@ import React, {Component, Children} from "react";
 import Hamburger from "../hamburger/hamburger";
 import AppBarItem from "./item"
 import AppBarMenu from "./menu"
-import "./app-bar.less";
+import "./app-bar.css";
 import {MediaPoints} from "../../routines";
 
 export default class AppBar extends Component {

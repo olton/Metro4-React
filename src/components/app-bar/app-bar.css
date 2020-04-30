@@ -1,0 +1,196 @@
+.p-ab {
+  padding-top: 52px!important;
+}
+.m-ab {
+  margin-top: 52px!important;
+}
+.h-ab {
+  height: calc(100% - 52px);
+}
+.app-bar {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  min-height: 52px;
+  z-index: 1030;
+  background-color: #f8f8f8;
+  flex-flow: row wrap;
+  align-items: center;
+}
+.app-bar .app-bar-container {
+  background-color: inherit;
+  color: inherit;
+}
+.app-bar .brand,
+.app-bar .app-bar-item,
+.app-bar .app-bar-container,
+.app-bar .app-bar-button {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 52px;
+  line-height: 52px;
+  padding: 0 16px;
+  background-color: inherit;
+  color: inherit;
+  text-decoration: none;
+  font-size: 14px;
+  flex-shrink: 0;
+  border: none;
+  justify-content: center;
+}
+.app-bar .brand:focus,
+.app-bar .app-bar-item:focus,
+.app-bar .app-bar-container:focus,
+.app-bar .app-bar-button:focus {
+  outline: none;
+}
+.app-bar .brand,
+.app-bar .app-bar-item,
+.app-bar .app-bar-button {
+  cursor: pointer;
+}
+.app-bar .app-bar-container {
+  padding: 0;
+}
+.app-bar .app-bar-item {
+  white-space: nowrap;
+}
+.app-bar .app-bar-button {
+  width: 52px;
+  padding: 0;
+}
+.app-bar .app-bar-menu {
+  flex-shrink: 0;
+  list-style: none inside;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  background-color: inherit;
+  color: inherit;
+}
+.app-bar .app-bar-menu > li,
+.app-bar .app-bar-menu > li > a {
+  display: block;
+  line-height: 52px;
+  background-color: inherit;
+  color: inherit;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+.app-bar .app-bar-menu > li > a,
+.app-bar .app-bar-menu > .dropdown > a {
+  padding: 0 16px;
+  text-decoration: none;
+  font-size: 14px;
+  position: relative;
+}
+.app-bar .app-bar-menu a {
+  color: inherit;
+  text-decoration: none;
+}
+.app-bar .app-bar-menu a:hover {
+  color: inherit;
+}
+.app-bar .app-bar-menu > li {
+  position: relative;
+}
+.app-bar .brand:not(.no-hover):hover,
+.app-bar .app-bar-menu li:not(.no-hover):hover,
+.app-bar .hamburger:not(.no-hover):hover,
+.app-bar .app-bar-item:not(.no-hover):hover,
+.app-bar .brand:not(.no-hover):active,
+.app-bar .app-bar-menu li:not(.no-hover):active,
+.app-bar .hamburger:not(.no-hover):active,
+.app-bar .app-bar-item:not(.no-hover):active,
+.app-bar .brand:not(.no-hover) .active,
+.app-bar .app-bar-menu li:not(.no-hover) .active,
+.app-bar .hamburger:not(.no-hover) .active,
+.app-bar .app-bar-item:not(.no-hover) .active {
+  background: rgba(29, 29, 29, 0.15);
+}
+.app-bar .hamburger {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: block;
+  height: 52px;
+  width: 52px;
+}
+.app-bar .hamburger.menu-down.active .line:nth-child(1),
+.app-bar .hamburger.menu-down.active .line:nth-child(3) {
+  margin: -4px 16px;
+}
+.app-bar .app-bar-menu .divider,
+.app-bar .app-bar-container .divider {
+  height: 1px!important;
+  line-height: 1px!important;
+  background-color: #e4e4e4;
+}
+.app-bar a {
+  outline: none!important;
+}
+.app-bar .app-bar-input {
+  width: 100px;
+  height: 30px;
+  font-size: 0.875rem;
+  border: none!important;
+  border-radius: 4px;
+}
+.app-bar .hamburger:not(.hidden) ~ .ml-auto {
+  margin-right: 48px;
+}
+.app-bar-expand {
+  flex-wrap: nowrap;
+  flex-flow: row;
+}
+.app-bar-expand .brand,
+.app-bar-expand .app-bar-item,
+.app-bar-expand .app-bar-container {
+  width: auto;
+  flex-shrink: 1;
+}
+.app-bar-expand .app-bar-menu {
+  width: auto;
+  flex-direction: row;
+}
+.app-bar-expand .hamburger {
+  display: none;
+}
+.app-bar .dropdown-toggle::before {
+  margin-left: -10px;
+}
+.app-bar-menu .dropdown .drop-object {
+  position: relative;
+}
+.app-bar-menu .dropdown .drop-object .d-menu,
+.app-bar-menu .dropdown .drop-object .v-menu {
+  border: none;
+}
+.app-bar-menu .dropdown-toggle::before {
+  margin-left: -16px;
+}
+.app-bar-menu .dropdown .d-menu {
+  width: 100%;
+}
+.app-bar-menu .dropdown .dropdown .drop-object {
+  top: 0;
+  left: 0;
+  position: relative;
+}
+.app-bar-expand .app-bar-menu > .dropdown .drop-object {
+  position: absolute;
+}
+.app-bar-expand .app-bar-menu > .dropdown .dropdown-toggle::before {
+  margin-left: -10px;
+}
+.app-bar-expand .app-bar-menu > .dropdown .dropdown .drop-object {
+  position: relative;
+}

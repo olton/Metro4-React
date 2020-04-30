@@ -1,6 +1,6 @@
 import React from "react";
 import Select from "../select/select";
-import "./select-color.less";
+import "./select-color.css";
 
 const SelectColorItem = (props) => {
     return (
@@ -22,9 +22,10 @@ export default class SelectColor extends React.Component {
             } )
         }
         this.source = props.source ? props.source : source;
+        this.drawItem = this.drawItem.bind(this);
     }
 
-    drawItem = item => {
+    drawItem (item) {
         return !this.source ? item : <SelectColorItem color={this.source[item]} hidden={!this.props.showColorName} caption={item}/>
     };
 

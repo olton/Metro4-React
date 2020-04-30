@@ -1,0 +1,159 @@
+.input {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0;
+}
+.input:hover input {
+  border-color: transparent;
+}
+.input.focused {
+  box-shadow: 0 0 0 3px rgba(228, 228, 228, 0.45);
+}
+.input input {
+  border: none!important;
+  order: 1;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 0;
+  height: 34px;
+}
+.input input:focus {
+  box-shadow: none;
+}
+.input .button-group {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-shrink: 1;
+}
+.input .button {
+  color: #1d1d1d;
+  height: 34px;
+  min-width: 34px;
+}
+.input .button:focus,
+.input .button:active {
+  box-shadow: none!important;
+}
+.input .button:hover {
+  background-color: #f8f8f8;
+  text-shadow: rgba(0, 0, 0, 0.25) 0.1em 0.1em 0.2em;
+}
+.input .input-clear-button,
+.input .input-reveal-button,
+.input .input-search-button {
+  background-color: transparent;
+}
+.input .input-clear-button:hover,
+.input .input-reveal-button:hover,
+.input .input-search-button:hover {
+  background-color: transparent;
+}
+.input.disabled .button-group button {
+  background-color: #f8f8f8;
+  color: #dfdfdf;
+}
+.input .prepend {
+  order: 1;
+}
+.input .append {
+  order: 4;
+}
+.input input {
+  order: 2;
+}
+.input .button-group {
+  order: 3;
+}
+.input .autocomplete-list {
+  margin: 0;
+  padding: 0;
+  list-style: none inside;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+  background-color: #ffffff;
+  height: auto;
+  border: 1px solid #dfdfdf;
+  z-index: 3;
+}
+.input .autocomplete-list .item {
+  display: block;
+  position: relative;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+.input .autocomplete-list .item:hover {
+  background-color: rgba(29, 29, 29, 0.15);
+}
+.input .autocomplete-list .item + .item {
+  border-top: 1px solid #dfdfdf;
+}
+.input.input-large {
+  height: 50px;
+}
+.input.input-large input {
+  height: 48px;
+  font-size: 1.3rem;
+  padding: 0 10px;
+  line-height: 48px;
+}
+.input.input-large .button {
+  height: 48px;
+  min-width: 48px;
+  font-size: 1.3rem;
+}
+.input.input-large .button [class*=mif-] {
+  font-size: 1.3rem;
+}
+.input.input-large .button .default-icon-cross,
+.input.input-large .button .default-icon-eye {
+  width: 21px;
+  height: 21px;
+}
+.input.input-large .button .input-clear-button,
+.input.input-large .button .input-reveal-button {
+  width: 48px;
+  padding: 0;
+}
+input.input-large {
+  height: 48px;
+  font-size: 1.3rem;
+  padding: 0 10px;
+}
+.input.input-small {
+  height: 28px;
+}
+.input.input-small input {
+  height: 26px;
+  font-size: 0.9rem;
+  padding: 0 4px;
+  line-height: 26px;
+}
+.input.input-small .button {
+  height: 26px;
+  min-width: 26px;
+  font-size: 0.9rem;
+}
+.input.input-small .button [class*=mif-] {
+  font-size: 0.9rem;
+}
+.input.input-small .button .default-icon-cross,
+.input.input-small .button .default-icon-eye {
+  width: 14px;
+  height: 14px;
+}
+.input.input-small .input-clear-button,
+.input.input-small .input-reveal-button {
+  width: 26px;
+  padding: 0;
+}
+input.input-small {
+  height: 26px;
+  font-size: 0.9rem;
+  padding: 0 4px;
+}

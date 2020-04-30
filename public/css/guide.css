@@ -1,0 +1,36 @@
+.guide-main-container {
+  min-height: 100%;
+  padding: 0;
+  display: flex;
+  flex-flow: column;
+}
+.guide-main-container > .row {
+  flex: 1;
+}
+article {
+  padding: 10px 20px;
+}
+.demo-inline-box {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+}
+.example {
+  margin: 20px 0;
+}
+.guide-logo-wrapper {
+  float: none;
+  text-align: center;
+}
+.guide-logo {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .guide-logo-wrapper {
+    float: right;
+    text-align: right;
+  }
+  .guide-logo {
+    width: 200px;
+  }
+}

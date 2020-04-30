@@ -3,7 +3,6 @@
         "@babel/preset-env", "@babel/preset-react"
     ],
     "plugins": [
-        "@babel/plugin-proposal-class-properties",
         ["@babel/plugin-syntax-export-default-from"],
         ["prismjs", {
             "languages": ["javascript", "css", "html"],

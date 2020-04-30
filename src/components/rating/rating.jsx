@@ -1,11 +1,8 @@
 import React from "react";
-import "./rating.less";
+import "./rating.css";
 import Utils from "../../routines/utils";
 
 export default class Rating extends React.Component {
-    static defaultProps = {
-    };
-
     constructor(props){
         super(props);
 
@@ -29,6 +26,9 @@ export default class Rating extends React.Component {
                 Utils.addCssRule(sheet, "#"+this.id+" .stars li.half::after", "color: "+props.staredColor+";");
             }
         }
+
+        this.onChange = this.onChange.bind(this);
+        this.onClick = this.onClick.bind(this);
     }
 
     static getDerivedStateFromProps(props, state){
@@ -41,12 +41,12 @@ export default class Rating extends React.Component {
         return null;
     }
 
-    onChange = e => {
+    onChange (e) {
         this.props.onChange(e);
         console.log(e);
     };
 
-    onClick = val => {
+    onClick (val) {
         this.setState({
             value: this.values.indexOf(val) + 1
         });

@@ -5,7 +5,6 @@ import {
 } from "../../index";
 import MainMenu from "./MainMenu";
 import SideMenu from "./SideMenu";
-import "../css/guide.less";
 import NotFound from "./NotFound";
 import GuideIntro from "./guide/Intro";
 import GuideCommon from "./guide/Common";
@@ -34,6 +33,8 @@ import GuideSwitch from "./guide/Switch";
 import GuideCheckbox from "./guide/Checkbox";
 import GuideRadio from "./guide/Radio";
 
+import "../css/guide.css";
+
 export default class Guide extends React.Component {
     constructor(props){
         super(props);
@@ -43,6 +44,7 @@ export default class Guide extends React.Component {
             sideMenuOpen: !isMobile,
             isMobile: isMobile
         };
+        this.handleWindowResize = this.handleWindowResize.bind(this);
     }
 
     collectMedias(){
@@ -54,7 +56,7 @@ export default class Guide extends React.Component {
         }
     }
 
-    handleWindowResize = e => {
+    handleWindowResize() {
         this.collectMedias();
         this.setState({
             isMobile: !this.medias.includes("md")

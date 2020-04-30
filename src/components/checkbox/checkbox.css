@@ -1,0 +1,153 @@
+.checkbox {
+  display: inline-flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  margin: 0;
+  user-select: none;
+  cursor: pointer;
+  height: 36px;
+}
+.checkbox input {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+.checkbox .check,
+.checkbox .caption {
+  display: block;
+  line-height: 1;
+  font-size: 14px;
+  margin: 0 4px;
+  position: relative;
+}
+.checkbox .check {
+  border: 2px #d9d9d9 solid;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  line-height: 36px;
+}
+.checkbox .check::before {
+  position: absolute;
+  vertical-align: middle;
+  font-size: 0;
+  content: "";
+  height: 5px;
+  width: 10px;
+  background-color: transparent;
+  color: transparent;
+  border-left: 2px solid;
+  border-bottom: 2px solid;
+  border-color: #ffffff;
+  left: 50%;
+  top: 50%;
+  margin-left: -5px;
+  margin-top: -4px;
+  display: none;
+  transform: rotate(-45deg);
+}
+.checkbox input[type=checkbox]:checked ~ .check {
+  border-color: #1d1d1d;
+  background-color: #1d1d1d;
+}
+.checkbox input[type=checkbox]:checked ~ .check::before {
+  display: block;
+}
+.checkbox input[type=checkbox]:disabled ~ .check {
+  border-color: #e9e9e9;
+  background-color: #e9e9e9;
+}
+.checkbox input[data-indeterminate=true] ~ .check {
+  border-color: #1d1d1d;
+  background-color: #1d1d1d;
+}
+.checkbox input[data-indeterminate=true] ~ .check::before {
+  display: block!important;
+  width: 6px;
+  height: 6px;
+  background-color: #ffffff;
+  border: 2px solid #ffffff;
+  left: 50%;
+  top: 50%;
+  margin-left: -3px;
+  margin-top: -3px;
+  transform: rotate(0);
+}
+.checkbox .check {
+  order: 1;
+}
+.checkbox .caption {
+  order: 2;
+}
+.checkbox.caption-left {
+  flex-flow: row-reverse nowrap;
+}
+.checkbox.required,
+.checkbox.invalid,
+.checkbox.valid {
+  border: none!important;
+}
+.checkbox.invalid::after {
+  display: none;
+}
+.checkbox:focus input[type=checkbox]:not(:disabled) ~ .check::after,
+.checkbox:active input[type=checkbox]:not(:disabled) ~ .check::after {
+  display: block;
+  content: "";
+  position: absolute;
+  width: 3.125rem;
+  height: 3.125rem;
+  border-radius: 50%;
+  background-color: rgba(187, 187, 187, 0.5);
+  opacity: 0.3;
+  top: 50%;
+  left: 50%;
+  margin-top: -1.5625rem;
+  margin-left: -1.5625rem;
+}
+.checkbox.style2 input[type=checkbox]:checked ~ .check {
+  border-color: #1d1d1d;
+  background-color: #ffffff;
+}
+.checkbox.style2 .check {
+  border-color: #989898;
+}
+.checkbox.style2 .check::before {
+  border-color: #1d1d1d;
+}
+.checkbox.style2 input[type=checkbox]:disabled ~ .check {
+  border-color: #e9e9e9;
+  background-color: #ffffff;
+}
+.checkbox.style2 input[type=checkbox]:disabled ~ .check::before {
+  border-color: #e9e9e9;
+}
+.checkbox.style2 input[data-indeterminate=true] ~ .check {
+  border-color: #1d1d1d;
+  background-color: #ffffff;
+}
+.checkbox.style2 input[data-indeterminate=true] ~ .check::before {
+  background-color: #1d1d1d;
+  border: 2px solid #1d1d1d;
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  margin-top: -4px;
+}
+.checkbox.transition-on .check {
+  transition: all 0.3s ease-in-out;
+}
+.checkbox.transition-on input[type=checkbox]:checked ~ .check {
+  transition: all 0.3s ease-in-out;
+}
+.checkbox.transition-on input[data-indeterminate=true] ~ .check {
+  transition: all 0.3s ease-in-out;
+}
+.checkbox input:disabled ~ .caption {
+  color: #D5D5D5;
+}

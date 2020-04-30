@@ -1,5 +1,5 @@
 import React from "react";
-import "./image-button.less";
+import "./image-button.css";
 import Icon from "../icon/icon";
 
 export default class ImageButton extends React.Component{

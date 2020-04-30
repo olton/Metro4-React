@@ -1,6 +1,6 @@
 import React from "react";
 import "../button/button.less";
-import "./bottom-nav.less";
+import "./bottom-nav.css";
 
 export class BottomNavItem extends React.Component {
     render(){

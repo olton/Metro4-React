@@ -1,5 +1,5 @@
 import React from "react";
-import "./activity.less";
+import "./activity.css";
 import Body from "../body/body";
 import Activity from "./activity";
 

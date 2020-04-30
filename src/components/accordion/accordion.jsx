@@ -1,6 +1,6 @@
 import React from "react";
 import Collapse from "../collapse/collapse.jsx";
-import "./accordion.less";
+import "./accordion.css";
 
 export class AccordionFrame extends React.Component {
     constructor(props){

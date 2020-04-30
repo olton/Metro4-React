@@ -1,0 +1,77 @@
+#side-nav {
+  display: block;
+  position: relative;
+  overflow-y: hidden;
+  background-color: #f7f7f7;
+  height: 100%;
+}
+.side-bar {
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+.side-bar-menu {
+  padding: 0 0 10px 0;
+  margin: 0;
+  list-style: none inside;
+  position: relative;
+  display: block;
+  overflow-y: auto;
+  width: calc(100% + 20px);
+}
+.side-bar-menu .group-title {
+  display: block;
+  position: relative;
+  font-size: 14px;
+  font-weight: bolder;
+  color: #6d6d6d;
+  margin-top: 20px;
+  text-transform: uppercase;
+}
+.side-bar-menu li {
+  padding-left: 20px;
+}
+.side-bar-menu li,
+.side-bar-menu a {
+  display: block;
+  position: relative;
+  margin-top: 5px;
+}
+.side-bar-menu a {
+  font-size: 14px;
+  color: #1a1a1a;
+  text-decoration: none;
+}
+.side-bar-menu a:hover {
+  color: #6d6d6d;
+}
+.side-bar-menu a.active {
+  font-weight: bold;
+}
+.side-bar-menu a.active::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: -20px;
+  height: 100%;
+  background-color: #00AFF0;
+  width: 4px;
+}
+@media (min-width: 768px) {
+  #side-nav {
+    position: sticky;
+    top: 52px;
+  }
+  .side-bar-menu {
+    max-height: calc(100vh - 120px);
+  }
+}
+@media screen and (min-width: 768px) and (-ms-high-contrast: none) {
+  #side-nav {
+    min-height: 100vh;
+    top: 0;
+    overflow-y: visible;
+    position: relative;
+  }
+}

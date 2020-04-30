@@ -1,6 +1,6 @@
 import React from "react";
 import Collapse from "../collapse/collapse";
-import "./dropdown.less";
+import "./dropdown.css";
 
 export default class Dropdown extends React.Component {
     constructor(props){
@@ -13,6 +13,7 @@ export default class Dropdown extends React.Component {
         this.dropdown = React.createRef();
 
         this.toggleState = this.toggleState.bind(this);
+        this.handleClickOutside = this.handleClickOutside.bind(this);
     }
 
     componentDidMount(){
@@ -23,7 +24,7 @@ export default class Dropdown extends React.Component {
         document.removeEventListener("mousedown", this.handleClickOutside);
     }
 
-    handleClickOutside = event => {
+    handleClickOutside (event) {
         if (this.dropdown.current && !this.dropdown.current.contains(event.target)) {
             this.setState({
                 open: false,

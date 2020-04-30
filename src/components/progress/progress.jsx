@@ -1,5 +1,5 @@
 import React, {Fragment} from "react";
-import "./progress.less";
+import "./progress.css";
 
 export default class Progress extends React.Component {
     static getDerivedStateFromProps(props, state){

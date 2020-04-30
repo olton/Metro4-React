@@ -1,5 +1,5 @@
 import React from "react";
-import "./buttonh-group.less";
+import "./buttonh-group.css";
 
 // TODO Remove active prop from Button
 

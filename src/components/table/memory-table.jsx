@@ -24,6 +24,17 @@ export default class MemoryTable extends React.Component {
             sortDir: "asc",
             searchFilter: props.searchFilter
         };
+        this.load = this.load.bind(this);
+        this.sliceData = this.sliceData.bind(this);
+        this.createView = this.createView.bind(this);
+        this.getItemContent = this.getItemContent.bind(this);
+        this.sortTable = this.sortTable.bind(this);
+        this.searchTable = this.searchTable.bind(this);
+        this.paginationClick = this.paginationClick.bind(this);
+        this.rowsChange = this.rowsChange.bind(this);
+        this.onHeadClick = this.onHeadClick.bind(this);
+        this.onCellClick = this.onCellClick.bind(this);
+        this.searchFilterChange = this.searchFilterChange.bind(this);
     }
 
     componentDidMount(){
@@ -34,7 +45,7 @@ export default class MemoryTable extends React.Component {
     componentWillUnmount(){
     }
 
-    load = (source) => {
+    load (source) {
         if (source && typeof source === 'string') {
             fetch(source).then(
                 (response) => response.json()
@@ -59,7 +70,7 @@ export default class MemoryTable extends React.Component {
         }
     };
 
-    sliceData = () => {
+    sliceData() {
         const {searchFilterLength} = this.props;
         const {page, rows, total, searchFilter} = this.state;
         let data = [], workData;
@@ -89,7 +100,7 @@ export default class MemoryTable extends React.Component {
         return data;
     };
 
-    createView = () => {
+    createView () {
         const {sortColumn, sortDir} = this.state;
         const view = this.head;
         if (view) view.forEach( (el, index) => {
@@ -102,7 +113,7 @@ export default class MemoryTable extends React.Component {
         return view;
     };
 
-    getItemContent = (data) => {
+    getItemContent (data) {
         const {sortColumn} = this.state;
         const format = this.head ? this.head[sortColumn]["format"] : undefined;
         const formatMask = this.head ? this.head[sortColumn]["formatMask"] : undefined;
@@ -130,7 +141,7 @@ export default class MemoryTable extends React.Component {
         return result;
     };
 
-    sortTable = (data) => {
+    sortTable (data) {
         const {sortColumn, sortDir} = this.state;
         return !data ? data : data.sort((a, b)=>{
             const item1 = this.getItemContent(a[sortColumn]),
@@ -146,7 +157,7 @@ export default class MemoryTable extends React.Component {
         });
     };
 
-    searchTable = (data) => {
+    searchTable (data) {
         const {searchFilter} = this.state;
         return data.filter((el)=>{
             let textContent = "";
@@ -157,15 +168,16 @@ export default class MemoryTable extends React.Component {
         })
     };
 
-    paginationClick = (page) => {
+    paginationClick (page) {
         let nextPage;
+        const {page: currentPage} = this.state
 
         if (page === 'next') {
-            nextPage = this.state.page + 1;
+            nextPage = +currentPage + 1;
         } else if (page === 'prev') {
-            nextPage = this.state.page - 1;
+            nextPage = +currentPage - 1;
         } else {
-            nextPage = page;
+            nextPage = +page;
         }
 
         this.setState({
@@ -173,14 +185,14 @@ export default class MemoryTable extends React.Component {
         })
     };
 
-    rowsChange = (e) => {
+    rowsChange (e) {
         const rows = parseInt(e.target.value);
         this.setState({
             rows: rows === -1 ? this.data.length : rows
         });
     };
 
-    onHeadClick = e => {
+    onHeadClick (e) {
         const columnIndex = parseInt(e.target.getAttribute("index"));
         const {sortColumn, sortDir} = this.state;
         if (e.target.className.contains("sortable-column")) {
@@ -192,11 +204,11 @@ export default class MemoryTable extends React.Component {
         this.props.onHeadClick(e);
     };
 
-    onCellClick = e => {
+    onCellClick (e) {
         this.props.onCellClick(e)
     };
 
-    searchFilterChange = e => {
+    searchFilterChange (e) {
         const val = e.target.value ? e.target.value.trim() : "";
 
         clearTimeout(this.searchThresholdTimer);

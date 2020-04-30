@@ -1,5 +1,5 @@
 import React from "react";
-import "./radio.less";
+import "./radio.css";
 
 export default class Radio extends React.Component {
     constructor(props){

@@ -1,6 +1,6 @@
 import React from "react";
 import Icon from "../icon/icon.jsx";
-import "./button.less";
+import "./button.css";
 import Badge from "../badge/badge";
 
 export default class Button extends React.Component{

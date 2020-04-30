@@ -2,7 +2,7 @@ import React from "react";
 import {Router, NavLink, Link} from "react-router-dom";
 import SearchForm from "./SearchForm";
 import Collapse from "../../src/components/collapse/collapse";
-import "../css/side-bar.less";
+import "../css/side-bar.css";
 import {Button} from "../../index";
 
 const menuItems = {
@@ -81,6 +81,7 @@ export default class SideMenu extends React.Component {
             open: !props.isMobile,
             isMobile: props.isMobile
         }
+        this.toggleMenu = this.toggleMenu.bind(this);
     }
 
     static getDerivedStateFromProps(props, state){
@@ -93,7 +94,7 @@ export default class SideMenu extends React.Component {
         return null;
     }
 
-    toggleMenu = e => {
+    toggleMenu(e) {
         this.setState({
             open: !this.state.open
         })

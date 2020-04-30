@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import "./dialog.less";
+import "./dialog.css";
 import {Button} from "../../../index";
 import Body from "../body/body";
 

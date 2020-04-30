@@ -1,0 +1,128 @@
+.radio {
+  display: inline-flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  margin: 0;
+  user-select: none;
+  cursor: pointer;
+  height: 36px;
+}
+.radio input {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+.radio .check,
+.radio .caption {
+  display: block;
+  line-height: 1;
+  font-size: 14px;
+  margin: 0 4px;
+  position: relative;
+}
+.radio .check {
+  border: 2px #d9d9d9 solid;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  line-height: 36px;
+}
+.radio .check::before {
+  position: absolute;
+  vertical-align: middle;
+  font-size: 0;
+  content: "";
+  width: 6px;
+  height: 6px;
+  color: transparent;
+  background-color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  margin-left: -3px;
+  margin-top: -3px;
+  display: none;
+  transform: rotate(-45deg);
+}
+.radio input[type=radio]:checked ~ .check {
+  border-color: #1d1d1d;
+  background-color: #1d1d1d;
+}
+.radio input[type=radio]:checked ~ .check::before {
+  display: block;
+}
+.radio input[type=radio]:disabled ~ .check {
+  border-color: #e9e9e9;
+  background-color: #e9e9e9;
+}
+.radio .check {
+  order: 1;
+}
+.radio .caption {
+  order: 2;
+}
+.radio.caption-left {
+  flex-flow: row-reverse nowrap;
+}
+.radio.required,
+.radio.invalid,
+.radio.valid {
+  border: none!important;
+}
+.radio.invalid::after {
+  display: none;
+}
+.radio:focus input[type=radio]:not(:disabled) ~ .check::after,
+.radio:active input[type=radio]:not(:disabled) ~ .check::after {
+  display: block;
+  content: "";
+  position: absolute;
+  width: 3.125rem;
+  height: 3.125rem;
+  border-radius: 50%;
+  background-color: rgba(187, 187, 187, 0.5);
+  opacity: 0.3;
+  top: 50%;
+  left: 50%;
+  margin-top: -1.5625rem;
+  margin-left: -1.5625rem;
+}
+.radio.style2 input[type=radio]:checked ~ .check {
+  border-color: #1d1d1d;
+  background-color: #ffffff;
+}
+.radio.style2 .check {
+  border-color: #989898;
+}
+.radio.style2 .check::before {
+  background-color: #1d1d1d;
+  border: 2px solid #1d1d1d;
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  margin-top: -4px;
+}
+.radio.style2 input[type=radio]:disabled ~ .check {
+  border-color: #e9e9e9;
+  background-color: #ffffff;
+}
+.radio.style2 input[type=radio]:disabled ~ .check::before {
+  background-color: #e9e9e9;
+  border-color: #e9e9e9;
+}
+.radio.transition-on .check {
+  transition: all 0.3s ease-in-out;
+}
+.radio.transition-on input[type=radio]:checked ~ .check {
+  transition: all 0.3s ease-in-out;
+}
+.radio input:disabled ~ .caption {
+  color: #D5D5D5;
+}
