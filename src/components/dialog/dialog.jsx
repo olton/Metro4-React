@@ -30,7 +30,15 @@ export default class Dialog extends Component {
     }
 
     render(){
-        const {open, title, closeButton, modal, overlayColor, overlayAlpha, speed, cls, clsTitle, clsContent, clsActions, height, width, contentHeight} = this.props;
+        const {animation, open, title, closeButton, modal, overlayColor, overlayAlpha, speed, cls, clsTitle, clsContent, clsActions, height, width, contentHeight} = this.props;
+        let dialogStyle = animation ? {
+            transition: `transform ${speed}s, opacity ${speed}s`,
+            transform: open ? 'translateY(0vh)' : 'translateY(-100vh)',
+            opacity: open ? 1 : 0,
+        } : {
+            transform: open ? 'translateY(0vh)' : 'translateY(-100vh)',
+            opacity: open ? 1 : 0,
+        };
 
         return (
             <Body>
@@ -38,11 +46,7 @@ export default class Dialog extends Component {
                     <div className={'overlay'} style={{backgroundColor: overlayColor, opacity: overlayAlpha}}>{''}</div>
                 )}
 
-                <div className={'dialog-wrapper'} style={{
-                    transition: `transform ${speed}s, opacity ${speed}s`,
-                    transform: open ? 'translateY(0vh)' : 'translateY(-100vh)',
-                    opacity: open ? 1 : 0,
-                }}>
+                <div className={'dialog-wrapper'} style={dialogStyle}>
                     <div className={'dialog ' + cls} ref={this.dialog} style={{
                         height: height,
                         width: width,
@@ -82,5 +86,6 @@ Dialog.defaultProps = {
     cls: "",
     clsTitle: "",
     clsContent: "",
-    clsActions: ""
+    clsActions: "",
+    animation: false
 };

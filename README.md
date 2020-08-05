@@ -16,7 +16,7 @@
   </a>
 </p>  
 
-<h2 align="center">v0.1.4</h2>
+<h2 align="center">v0.1.5</h2>
 
 ### Status
 ![Dependencies](https://img.shields.io/david/olton/Metro4-React)
@@ -34,13 +34,12 @@
 <hr>
 
 ### Donation
-[![Donations on Patreon](https://img.shields.io/badge/Patreon-$10-red.svg)](https://www.patreon.com/metro4_react)
+[![Donations on Patreon](https://img.shields.io/badge/Patreon-$0-red.svg)](https://www.patreon.com/metro4_react)
 
 <hr>
 
 #### Awesome project backers
 
-+ [x] [Tobias Ehrig](https://github.com/liKe2k1)
 
 <hr>
 

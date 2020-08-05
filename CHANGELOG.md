@@ -1,3 +1,6 @@
+### 0.1.5
++ [x] Dialog: add prop `animation`. Value must be `true` or `false`.
+
 ### 0.1.4
 + [x] CRA: remove incompatibility for experimental syntax 'classProperties', issue #23
 

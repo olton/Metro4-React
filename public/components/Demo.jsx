@@ -82,14 +82,17 @@ export default class Demo extends React.Component {
 
         this.state = {
             dialogOpen: false,
+            dialogOpen2: false,
             activityOpen: false,
             modalOpen: false,
             collapsibleOpen: false,
         };
 
         this.toggleDialog = this.toggleDialog.bind(this);
+        this.toggleDialog2 = this.toggleDialog2.bind(this);
         this.toggleActivity = this.toggleActivity.bind(this);
         this.closeDialog = this.closeDialog.bind(this);
+        this.closeDialog2 = this.closeDialog2.bind(this);
         this.closeActivity = this.closeActivity.bind(this);
         this.paginationClick = this.paginationClick.bind(this);
         this.openModal = this.openModal.bind(this);
@@ -107,6 +110,12 @@ export default class Demo extends React.Component {
         })
     }
 
+    toggleDialog2(){
+        this.setState({
+            dialogOpen2: !this.state.dialogOpen
+        })
+    }
+
     toggleActivity(){
         this.setState({
             activityOpen: !this.state.activityOpen
@@ -116,6 +125,12 @@ export default class Demo extends React.Component {
     closeDialog(){
         this.setState({
             dialogOpen: false
+        })
+    }
+
+    closeDialog2(){
+        this.setState({
+            dialogOpen2: false
         })
     }
 
@@ -871,6 +886,8 @@ export default class Demo extends React.Component {
                         <Cell>
                             <div>
                                 <Button onClick={this.toggleDialog}>Open dialog</Button>
+                                &nbsp;
+                                <Button onClick={this.toggleDialog2}>Open dialog</Button>
                             </div>
                             <Dialog open={this.state.dialogOpen}
                                     title={'This is a Metro 4 for React Dialog'}
@@ -880,6 +897,21 @@ export default class Demo extends React.Component {
                                     overlayColor={'#000'}
                                     overlayAlpha={.5}
                                     cls={"shadow-1"}
+                                    animation={false}
+                            >
+                                <div>
+                                    Bassus abactors ducunt ad triticum. A fraternal form of manifestation is the bliss.
+                                </div>
+                            </Dialog>
+                            <Dialog open={this.state.dialogOpen2}
+                                    title={'This is a Metro 4 for React Dialog'}
+                                    actions={dialogButtons}
+                                    onClose={this.closeDialog2}
+                                    modal={true}
+                                    overlayColor={'#000'}
+                                    overlayAlpha={.5}
+                                    cls={"shadow-1"}
+                                    animation={true}
                             >
                                 <div>
                                     Bassus abactors ducunt ad triticum. A fraternal form of manifestation is the bliss.
